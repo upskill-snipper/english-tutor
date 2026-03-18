@@ -2,14 +2,31 @@ import { useState } from 'react';
 import { Library, Search, ChevronDown, ChevronUp, BookOpen, Feather, FileText, CheckCircle, XCircle, HelpCircle } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import ANTHOLOGY_TEXTS from '../data/edexcel/texts';
+import OCR_ANTHOLOGY_TEXTS from '../data/ocr/texts';
+import WJEC_ANTHOLOGY_TEXTS from '../data/wjec/texts';
 
 // Derive the anthology part label for each text
 function getPartLabel(text) {
   if (text.anthologyPart === 1) return 'Part 1: Non-Fiction';
   if (text.textCategory === 'poetry') return 'Part 2: Poetry';
   if (text.textCategory === 'prose') return 'Part 2: Prose';
+  // For OCR / WJEC texts that only have textType
+  if (text.textType === 'Poetry') return 'Part 2: Poetry';
   return 'Other';
 }
+
+const BOARD_FILTERS = [
+  { id: 'all', label: 'All Boards' },
+  { id: 'Edexcel', label: 'Edexcel IGCSE', color: '#dc2626' },
+  { id: 'OCR', label: 'OCR', color: '#7c3aed' },
+  { id: 'WJEC', label: 'WJEC', color: '#ea580c' },
+];
+
+const BOARD_COLORS = {
+  'Edexcel': '#dc2626',
+  'OCR': '#7c3aed',
+  'WJEC': '#ea580c',
+};
 
 const PART_FILTERS = [
   { id: 'all', label: 'All Texts' },
@@ -30,7 +47,11 @@ const PART_COLORS = {
   'Part 2: Prose': '#f59e0b',
 };
 
+// Combine all anthology texts
+const ALL_TEXTS = [...ANTHOLOGY_TEXTS, ...OCR_ANTHOLOGY_TEXTS, ...WJEC_ANTHOLOGY_TEXTS];
+
 export default function TextLibrary() {
+  const [boardFilter, setBoardFilter] = useState('all');
   const [partFilter, setPartFilter] = useState('all');
   const [search, setSearch] = useState('');
   const [expandedId, setExpandedId] = useState(null);
@@ -38,13 +59,14 @@ export default function TextLibrary() {
   const [quizAnswers, setQuizAnswers] = useState({});
 
   // Tag texts with their part label
-  const textsWithParts = ANTHOLOGY_TEXTS.map(t => ({
+  const textsWithParts = ALL_TEXTS.map(t => ({
     ...t,
     partLabel: getPartLabel(t),
   }));
 
   // Filter
   const filtered = textsWithParts.filter(t => {
+    if (boardFilter !== 'all' && t.board !== boardFilter) return false;
     if (partFilter !== 'all' && t.partLabel !== partFilter) return false;
     if (search) {
       const q = search.toLowerCase();
@@ -96,7 +118,7 @@ export default function TextLibrary() {
     setQuizAnswers(prev => ({ ...prev, [quizId]: answerIdx }));
   }
 
-  const expandedText = expandedId ? ANTHOLOGY_TEXTS.find(t => t.id === expandedId) : null;
+  const expandedText = expandedId ? ALL_TEXTS.find(t => t.id === expandedId) : null;
 
   return (
     <div style={{ background: '#0a0e1a', minHeight: '100vh', color: '#f1f5f9' }}>
@@ -106,11 +128,35 @@ export default function TextLibrary() {
         {/* Header */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
           <Library size={24} color="#10b981" />
-          <h1 style={{ fontSize: '1.75rem', fontWeight: 900 }}>IGCSE Anthology Texts</h1>
+          <h1 style={{ fontSize: '1.75rem', fontWeight: 900 }}>GCSE Anthology Texts</h1>
         </div>
         <p style={{ color: '#94a3b8', marginBottom: '2rem' }}>
-          All 20 Edexcel IGCSE English anthology texts with annotations, exam questions, and quizzes.
+          {ALL_TEXTS.length} anthology texts across Edexcel IGCSE, OCR, and WJEC boards — with annotations, exam questions, and quizzes.
         </p>
+
+        {/* Board filters */}
+        <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
+          {BOARD_FILTERS.map(bf => (
+            <button
+              key={bf.id}
+              onClick={() => setBoardFilter(bf.id)}
+              style={pillStyle(boardFilter === bf.id, bf.color)}
+            >
+              {bf.id !== 'all' && (
+                <span style={{
+                  display: 'inline-block',
+                  width: '8px',
+                  height: '8px',
+                  borderRadius: '50%',
+                  background: bf.color,
+                  marginRight: '0.4rem',
+                  verticalAlign: 'middle',
+                }} />
+              )}
+              {bf.label}
+            </button>
+          ))}
+        </div>
 
         {/* Search */}
         <div style={{ position: 'relative', marginBottom: '1.25rem' }}>
@@ -148,7 +194,7 @@ export default function TextLibrary() {
 
         {/* Results count */}
         <p style={{ color: '#64748b', fontSize: '0.85rem', marginBottom: '1.5rem' }}>
-          Showing {filtered.length} of {ANTHOLOGY_TEXTS.length} texts
+          Showing {filtered.length} of {ALL_TEXTS.length} texts
         </p>
 
         {/* No results */}
@@ -218,10 +264,28 @@ export default function TextLibrary() {
                         }}>
                           {text.title}
                         </div>
-                        <div style={{ fontSize: '0.8rem', color: '#94a3b8', marginBottom: '0.5rem' }}>
-                          {text.author}
-                          {text.textType && (
-                            <span style={{ color: '#64748b' }}> — {text.textType}</span>
+                        <div style={{ fontSize: '0.8rem', color: '#94a3b8', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
+                          <span>
+                            {text.author}
+                            {text.textType && (
+                              <span style={{ color: '#64748b' }}> — {text.textType}</span>
+                            )}
+                          </span>
+                          {text.board && (
+                            <span style={{
+                              fontSize: '0.6rem',
+                              fontWeight: 700,
+                              color: BOARD_COLORS[text.board] || '#94a3b8',
+                              background: `${BOARD_COLORS[text.board] || '#94a3b8'}15`,
+                              border: `1px solid ${BOARD_COLORS[text.board] || '#94a3b8'}30`,
+                              padding: '0.1rem 0.45rem',
+                              borderRadius: '4px',
+                              textTransform: 'uppercase',
+                              letterSpacing: '0.04em',
+                              whiteSpace: 'nowrap',
+                            }}>
+                              {text.board}
+                            </span>
                           )}
                         </div>
                         {/* Theme tags */}

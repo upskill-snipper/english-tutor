@@ -1,22 +1,24 @@
 import { BrowserRouter, Routes, Route, Navigate, Link } from 'react-router-dom';
-import { useEffect, Component } from 'react';
+import { useEffect, Component, lazy, Suspense } from 'react';
 import { seedDemoData, getCurrentUser } from './utils/auth';
 
-import Landing from './pages/Landing';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import Dashboard from './pages/Dashboard';
-import CourseCatalogue from './pages/CourseCatalogue';
-import CourseDetail from './pages/CourseDetail';
-import CoursePlayer from './pages/CoursePlayer';
-import Assessment from './pages/Assessment';
-import Certificate from './pages/Certificate';
-import Practice from './pages/Practice';
-import Revision from './pages/Revision';
-import AdminPanel from './pages/AdminPanel';
-import NotFound from './pages/NotFound';
-import TextLibrary from './pages/TextLibrary';
-import PredictedGrades from './pages/PredictedGrades';
+const Landing = lazy(() => import('./pages/Landing'));
+const Login = lazy(() => import('./pages/Login'));
+const Register = lazy(() => import('./pages/Register'));
+const Dashboard = lazy(() => import('./pages/Dashboard'));
+const CourseCatalogue = lazy(() => import('./pages/CourseCatalogue'));
+const CourseDetail = lazy(() => import('./pages/CourseDetail'));
+const CoursePlayer = lazy(() => import('./pages/CoursePlayer'));
+const Assessment = lazy(() => import('./pages/Assessment'));
+const Certificate = lazy(() => import('./pages/Certificate'));
+const Practice = lazy(() => import('./pages/Practice'));
+const Revision = lazy(() => import('./pages/Revision'));
+const AdminPanel = lazy(() => import('./pages/AdminPanel'));
+const NotFound = lazy(() => import('./pages/NotFound'));
+const TextLibrary = lazy(() => import('./pages/TextLibrary'));
+const PredictedGrades = lazy(() => import('./pages/PredictedGrades'));
+const StudyPlanner = lazy(() => import('./pages/StudyPlanner'));
+const Glossary = lazy(() => import('./pages/Glossary'));
 
 class ErrorBoundary extends Component {
   constructor(props) {
@@ -68,6 +70,7 @@ export default function App() {
   return (
     <ErrorBoundary>
     <BrowserRouter basename="/english-tutor">
+      <Suspense fallback={<div className="flex items-center justify-center min-h-screen"><div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div></div>}>
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
@@ -81,11 +84,14 @@ export default function App() {
         <Route path="/practice" element={<Practice />} />
         <Route path="/revision" element={<Revision />} />
         <Route path="/texts" element={<TextLibrary />} />
+        <Route path="/glossary" element={<Glossary />} />
         <Route path="/grades" element={<ProtectedRoute><PredictedGrades /></ProtectedRoute>} />
         <Route path="/predicted-grades" element={<ProtectedRoute><PredictedGrades /></ProtectedRoute>} />
+        <Route path="/planner" element={<ProtectedRoute><StudyPlanner /></ProtectedRoute>} />
         <Route path="/admin" element={<ProtectedRoute adminOnly><AdminPanel /></ProtectedRoute>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      </Suspense>
     </BrowserRouter>
     </ErrorBoundary>
   );

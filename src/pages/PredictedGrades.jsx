@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import {
   TrendingUp, TrendingDown, Minus, Target, ArrowRight, Zap,
-  BookOpen, Award, Lock, Star, ArrowUpRight,
+  BookOpen, Award, Lock, Star, ArrowUpRight, Flame, BarChart3,
+  Lightbulb, ChevronRight,
 } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import ProgressRing from '../components/ProgressRing';
@@ -11,6 +12,9 @@ import {
   calculatePredictedGrade,
 } from '../utils/auth';
 
+const STORAGE_PREFIX = 'learnright_';
+const STREAK_KEY = STORAGE_PREFIX + 'login_dates';
+
 function gradeColor(grade) {
   const g = String(grade);
   if (g === '9' || g === '7-8') return '#10b981';
@@ -19,9 +23,130 @@ function gradeColor(grade) {
   return '#ef4444';
 }
 
+function barColor(score) {
+  if (score >= 80) return '#10b981';
+  if (score >= 60) return '#f59e0b';
+  if (score >= 40) return '#f97316';
+  return '#ef4444';
+}
+
+// ─── Study Streak Helpers ──────────────────────────────────────
+function recordLoginDate() {
+  const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
+  const raw = localStorage.getItem(STREAK_KEY);
+  const dates = raw ? JSON.parse(raw) : [];
+  if (!dates.includes(today)) {
+    dates.push(today);
+    // Keep only last 365 days
+    if (dates.length > 365) dates.splice(0, dates.length - 365);
+    localStorage.setItem(STREAK_KEY, JSON.stringify(dates));
+  }
+  return dates;
+}
+
+function calculateStreak(dates) {
+  if (!dates || dates.length === 0) return 0;
+  const sorted = [...dates].sort().reverse(); // newest first
+  const today = new Date().toISOString().slice(0, 10);
+  const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+
+  // Streak must include today or yesterday
+  if (sorted[0] !== today && sorted[0] !== yesterday) return 0;
+
+  let streak = 1;
+  for (let i = 0; i < sorted.length - 1; i++) {
+    const current = new Date(sorted[i]);
+    const prev = new Date(sorted[i + 1]);
+    const diffDays = Math.round((current - prev) / 86400000);
+    if (diffDays === 1) {
+      streak++;
+    } else {
+      break;
+    }
+  }
+  return streak;
+}
+
+// ─── Next Steps Generator ──────────────────────────────────────
+function generateNextSteps(prediction, weakest, notStartedCourses, scores) {
+  const steps = [];
+  const avg = prediction.predictedAvg;
+
+  // Based on predicted grade level
+  if (avg < 50) {
+    steps.push({
+      priority: 'high',
+      text: 'Focus on foundational skills -- aim to bring your average above 50% by revisiting your weakest topics.',
+      color: '#ef4444',
+    });
+  } else if (avg < 70) {
+    steps.push({
+      priority: 'medium',
+      text: 'You are on track for a solid pass. Target your weakest areas to push into the higher grades.',
+      color: '#f59e0b',
+    });
+  } else {
+    steps.push({
+      priority: 'low',
+      text: 'Strong performance! Maintain your momentum and aim for perfection in your weaker topics.',
+      color: '#10b981',
+    });
+  }
+
+  // Based on weakest areas
+  if (weakest.length > 0) {
+    const weakNames = weakest.slice(0, 2).map(w => w.title).join(' and ');
+    steps.push({
+      priority: 'high',
+      text: `Prioritise revising ${weakNames} -- these are currently pulling your average down.`,
+      color: '#f59e0b',
+    });
+  }
+
+  // Based on courses not yet started
+  if (notStartedCourses.length > 0) {
+    const courseName = notStartedCourses[0].title;
+    steps.push({
+      priority: 'medium',
+      text: `Start "${courseName}" to broaden your skill set and fill gaps in your knowledge.`,
+      color: '#6366f1',
+    });
+  }
+
+  // Based on trend
+  if (prediction.trend === 'declining') {
+    steps.push({
+      priority: 'high',
+      text: 'Your recent scores show a downward trend. Consider revisiting earlier material before moving on.',
+      color: '#ef4444',
+    });
+  } else if (prediction.trend === 'improving') {
+    steps.push({
+      priority: 'low',
+      text: 'Great progress! Your scores are trending upward. Keep the same study habits going.',
+      color: '#10b981',
+    });
+  }
+
+  // Based on assessment count
+  if (scores.length < 8) {
+    steps.push({
+      priority: 'medium',
+      text: `Complete ${8 - scores.length} more assessment${8 - scores.length !== 1 ? 's' : ''} to get a more accurate predicted grade.`,
+      color: '#94a3b8',
+    });
+  }
+
+  return steps.slice(0, 4);
+}
+
 export default function PredictedGrades() {
   const user = getCurrentUser();
   if (!user) return null;
+
+  // Record today's login for streak tracking
+  const loginDates = recordLoginDate();
+  const streak = calculateStreak(loginDates);
 
   const assessmentCount = getCompletedAssessmentCount(user.id);
   const UNLOCK_THRESHOLD = 5;
@@ -53,6 +178,18 @@ export default function PredictedGrades() {
             </div>
             <p style={{ color: '#64748b', fontSize: '0.8rem' }}>{assessmentCount} / {UNLOCK_THRESHOLD} assessments completed</p>
           </div>
+
+          {/* Study Streak (shown even in locked state) */}
+          {streak > 0 && (
+            <div style={{
+              display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
+              background: 'rgba(245,158,11,0.1)', border: '1px solid rgba(245,158,11,0.2)',
+              borderRadius: '9999px', padding: '0.5rem 1.25rem', marginBottom: '2rem',
+            }}>
+              <Flame size={18} color="#f59e0b" />
+              <span style={{ fontSize: '0.9rem', fontWeight: 700, color: '#f59e0b' }}>{streak} day streak</span>
+            </div>
+          )}
 
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link to="/courses" className="btn-primary" style={{ textDecoration: 'none' }}>
@@ -90,10 +227,8 @@ export default function PredictedGrades() {
   const strongest = [...courseScores].sort((a, b) => b.score - a.score).slice(0, 3);
 
   // ─── Course Recommendations ─────────────────────────────────
-  // Based on weakest scores, suggest courses the student hasn't completed yet
   const completedCourseIds = new Set(scores.map(s => s.courseId));
   const enrolledIds = new Set(user.enrolledCourses || []);
-  const weakCourseIds = weakest.map(w => w.courseId);
 
   // Find related courses that haven't been completed
   const recommendations = COURSES
@@ -109,6 +244,36 @@ export default function PredictedGrades() {
     }
   }
 
+  // ─── Courses not started (for Next Steps) ─────────────────────
+  const notStartedCourses = COURSES.filter(
+    c => !completedCourseIds.has(c.id) && !enrolledIds.has(c.id)
+  ).slice(0, 5);
+
+  // ─── Specific recommendations for weak areas ──────────────────
+  const weakRecommendations = weakest.map(w => {
+    const course = COURSES.find(c => c.id === w.courseId);
+    const relatedCourses = COURSES.filter(c =>
+      c.id !== w.courseId &&
+      !completedCourseIds.has(c.id) &&
+      course && (
+        (c.tier && course.tier && c.tier === course.tier) ||
+        (c.title && course.title && c.title.toLowerCase().includes(course.title.split(' ')[0].toLowerCase()))
+      )
+    ).slice(0, 1);
+    return {
+      ...w,
+      suggestion: relatedCourses.length > 0
+        ? `Try "${relatedCourses[0].title}" to strengthen this area`
+        : `Revisit ${w.title} and focus on the topics you found hardest`,
+    };
+  });
+
+  // ─── Next Steps ─────────────────────────────────────────────
+  const nextSteps = generateNextSteps(prediction, weakest, notStartedCourses, scores);
+
+  // ─── Progress chart data (scores sorted by date) ──────────────
+  const maxScore = Math.max(...scores.map(s => s.score), 100);
+
   const cardStyle = {
     background: '#111827', border: '1px solid rgba(255,255,255,0.06)',
     borderRadius: '12px', padding: '1.5rem',
@@ -119,9 +284,27 @@ export default function PredictedGrades() {
       <Navbar />
 
       <div style={{ maxWidth: '960px', margin: '0 auto', padding: '2rem 1.5rem 4rem' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
-          <TrendingUp size={24} color="#10b981" />
-          <h1 style={{ fontSize: '1.75rem', fontWeight: 900 }}>Predicted Grades</h1>
+        {/* ─── Header with Streak ─────────────────────────── */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem', marginBottom: '0.5rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+            <TrendingUp size={24} color="#10b981" />
+            <h1 style={{ fontSize: '1.75rem', fontWeight: 900 }}>Predicted Grades</h1>
+          </div>
+          {/* Study Streak Badge */}
+          <div style={{
+            display: 'flex', alignItems: 'center', gap: '0.5rem',
+            background: streak >= 7 ? 'rgba(245,158,11,0.15)' : streak >= 3 ? 'rgba(245,158,11,0.1)' : 'rgba(148,163,184,0.1)',
+            border: `1px solid ${streak >= 7 ? 'rgba(245,158,11,0.3)' : streak >= 3 ? 'rgba(245,158,11,0.2)' : 'rgba(148,163,184,0.2)'}`,
+            borderRadius: '9999px', padding: '0.4rem 1rem',
+          }}>
+            <Flame size={16} color={streak >= 3 ? '#f59e0b' : '#94a3b8'} />
+            <span style={{
+              fontSize: '0.85rem', fontWeight: 700,
+              color: streak >= 3 ? '#f59e0b' : '#94a3b8',
+            }}>
+              {streak > 0 ? `${streak} day${streak !== 1 ? 's' : ''} streak` : 'Start your streak!'}
+            </span>
+          </div>
         </div>
         <p style={{ color: '#94a3b8', marginBottom: '2.5rem' }}>
           Based on your {scores.length} completed assessment{scores.length !== 1 ? 's' : ''}. Keep going to refine your prediction.
@@ -188,7 +371,68 @@ export default function PredictedGrades() {
           </div>
         </div>
 
-        {/* ─── F) Strengths & Weaknesses ─────────────── */}
+        {/* ─── Progress Over Time ──────────────────────── */}
+        <div style={{ ...cardStyle, marginBottom: '2.5rem' }}>
+          <h2 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '1.25rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <BarChart3 size={18} color="#6366f1" /> Progress Over Time
+          </h2>
+          <div style={{ display: 'flex', alignItems: 'flex-end', gap: '6px', height: '160px', padding: '0 0.25rem' }}>
+            {scores.map((s, i) => {
+              const course = COURSES.find(c => c.id === s.courseId);
+              const label = course ? course.title : s.courseId;
+              const heightPct = Math.max(8, (s.score / 100) * 100);
+              const date = new Date(s.date);
+              const dateStr = `${date.getDate()}/${date.getMonth() + 1}`;
+              return (
+                <div key={i} style={{
+                  flex: 1, maxWidth: '80px', display: 'flex', flexDirection: 'column',
+                  alignItems: 'center', height: '100%', justifyContent: 'flex-end',
+                }}>
+                  {/* Score label */}
+                  <span style={{
+                    fontSize: '0.65rem', fontWeight: 700, color: '#e2e8f0',
+                    marginBottom: '4px',
+                  }}>
+                    {s.score}%
+                  </span>
+                  {/* Bar */}
+                  <div
+                    style={{
+                      width: '100%', minWidth: '20px',
+                      height: `${heightPct}%`,
+                      background: `linear-gradient(to top, ${barColor(s.score)}cc, ${barColor(s.score)}40)`,
+                      borderRadius: '4px 4px 0 0',
+                      transition: 'height 0.3s ease',
+                      position: 'relative',
+                    }}
+                    title={`${label}: ${s.score}% (${dateStr})`}
+                  />
+                  {/* Date label */}
+                  <span style={{
+                    fontSize: '0.6rem', color: '#64748b', marginTop: '6px',
+                    whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis',
+                    maxWidth: '100%', textAlign: 'center',
+                  }}>
+                    {dateStr}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+          {/* Average line indicator */}
+          <div style={{
+            display: 'flex', alignItems: 'center', gap: '0.5rem',
+            marginTop: '1rem', paddingTop: '0.75rem',
+            borderTop: '1px solid rgba(255,255,255,0.06)',
+          }}>
+            <div style={{ width: '24px', height: '2px', background: '#6366f1' }} />
+            <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>
+              Average: {prediction.currentAvg}% across {scores.length} assessment{scores.length !== 1 ? 's' : ''}
+            </span>
+          </div>
+        </div>
+
+        {/* ─── Strengths & Weaknesses ─────────────── */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem', marginBottom: '2.5rem' }}>
           {/* Strengths */}
           <div style={cardStyle}>
@@ -196,28 +440,67 @@ export default function PredictedGrades() {
               <Star size={18} color="#10b981" /> Top Strengths
             </h2>
             {strongest.map((s, i) => (
-              <div key={i} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0.6rem 0', borderBottom: i < strongest.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none' }}>
-                <span style={{ fontSize: '0.85rem', color: '#e2e8f0' }}>{s.title}</span>
-                <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#10b981' }}>{s.score}%</span>
+              <div key={i} style={{ padding: '0.6rem 0', borderBottom: i < strongest.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.35rem' }}>
+                  <span style={{ fontSize: '0.85rem', color: '#e2e8f0' }}>{s.title}</span>
+                  <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#10b981' }}>{s.score}%</span>
+                </div>
+                {/* Mini progress bar */}
+                <div style={{ height: '4px', borderRadius: '2px', background: 'rgba(255,255,255,0.06)' }}>
+                  <div style={{ height: '100%', width: `${s.score}%`, borderRadius: '2px', background: '#10b981', transition: 'width 0.3s ease' }} />
+                </div>
               </div>
             ))}
           </div>
 
-          {/* Weaknesses */}
+          {/* Weaknesses with recommendations */}
           <div style={cardStyle}>
             <h2 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               <Target size={18} color="#f59e0b" /> Areas to Improve
             </h2>
-            {weakest.map((s, i) => (
-              <div key={i} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0.6rem 0', borderBottom: i < weakest.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none' }}>
-                <span style={{ fontSize: '0.85rem', color: '#e2e8f0' }}>{s.title}</span>
-                <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#f59e0b' }}>{s.score}%</span>
+            {weakRecommendations.map((s, i) => (
+              <div key={i} style={{ padding: '0.6rem 0', borderBottom: i < weakRecommendations.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.35rem' }}>
+                  <span style={{ fontSize: '0.85rem', color: '#e2e8f0' }}>{s.title}</span>
+                  <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#f59e0b' }}>{s.score}%</span>
+                </div>
+                {/* Mini progress bar */}
+                <div style={{ height: '4px', borderRadius: '2px', background: 'rgba(255,255,255,0.06)', marginBottom: '0.35rem' }}>
+                  <div style={{ height: '100%', width: `${s.score}%`, borderRadius: '2px', background: '#f59e0b', transition: 'width 0.3s ease' }} />
+                </div>
+                {/* Specific recommendation */}
+                <p style={{ fontSize: '0.7rem', color: '#94a3b8', fontStyle: 'italic', margin: 0 }}>
+                  {s.suggestion}
+                </p>
               </div>
             ))}
           </div>
         </div>
 
-        {/* ─── E) Course Recommendations ─────────────── */}
+        {/* ─── Next Steps ──────────────────────────────── */}
+        <div style={{ ...cardStyle, marginBottom: '2.5rem' }}>
+          <h2 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '1.25rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <Lightbulb size={18} color="#6366f1" /> Next Steps
+          </h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+            {nextSteps.map((step, i) => (
+              <div key={i} style={{
+                display: 'flex', alignItems: 'flex-start', gap: '0.75rem',
+                padding: '0.75rem 1rem',
+                background: `${step.color}08`,
+                border: `1px solid ${step.color}20`,
+                borderRadius: '8px',
+              }}>
+                <ChevronRight size={16} color={step.color} style={{ marginTop: '2px', flexShrink: 0 }} />
+                <p style={{ fontSize: '0.85rem', color: '#e2e8f0', lineHeight: 1.6, margin: 0 }}>
+                  {step.text}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* ─── Course Recommendations ─────────────── */}
         {recommendations.length > 0 && (
           <>
             <h2 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '1.25rem' }}>Recommended Courses</h2>

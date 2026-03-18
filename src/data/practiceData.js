@@ -549,6 +549,698 @@ const practiceQuestions = [
       'The strongest writing has a distinctive voice — let your personality come through while maintaining appropriate register.',
     ],
   },
+  // ========================================
+  // ADDITIONAL AQA QUESTIONS
+  // ========================================
+
+  // AQA Paper 1 Q5 - Creative Writing (Narrative)
+  {
+    id: 'aqa-7',
+    board: 'AQA',
+    type: 'Creative Writing',
+    tier: 'GCSE',
+    title: 'Paper 1 Q5 Creative Writing (Narrative)',
+    extract: '',
+    question: 'Write a story about a character who discovers something unexpected in a place they thought they knew well. (40 marks: 24 for content and organisation, 16 for technical accuracy)',
+    marks: 40,
+    timing: '45 minutes',
+    markScheme: [
+      'Creates a compelling narrative with a clear arc (setup, discovery, consequence)',
+      'Develops character through action, thought, and reaction',
+      'Uses varied and ambitious vocabulary for deliberate effect',
+      'Demonstrates structural control: pacing, tension, climax',
+      'Employs a range of sentence forms for effect',
+      'Maintains technical accuracy throughout with ambitious punctuation',
+    ],
+    examinerTips: [
+      'Plan your story before writing. Know your ending before you start.',
+      'The "discovery" does not have to be dramatic — subtlety is more impressive than melodrama.',
+      'Show character through what they notice and how they react, not by telling the reader who they are.',
+      'Vary your paragraph lengths. A one-sentence paragraph after a long one creates powerful emphasis.',
+    ],
+    modelAnswers: {
+      'Grade 4-5': `Every Tuesday for three years, Martin walked his dog through the cemetery at the end of Ashfield Road. He knew every path, every bench, every stone angel with its mossy wings and blank, patient face. He knew which graves had fresh flowers and which had been forgotten. He liked the quiet. The dead, he had often thought, were better company than the living.
+
+It was a cold morning in November when he noticed the door. It was set into the back wall of the old chapel, half hidden by ivy. He had walked past this wall hundreds of times and never seen it. The door was small — too small for an adult to walk through without stooping — and it was painted the same grey as the stone, which is why, he supposed, it had been invisible for so long.
+
+He tried the handle. It opened.
+
+Inside was a narrow staircase leading down. The air smelled of damp earth and something else, something sweet and old, like the pages of a book left in a drawer for decades. His dog whined and would not follow him.
+
+At the bottom of the stairs was a room. It was small, no bigger than a garden shed, and lined from floor to ceiling with shelves. On the shelves were jars — hundreds of them, glass jars with handwritten labels, each one containing what looked like dried flowers and folded pieces of paper. Martin picked one up and read the label. It said a name he recognised: Eleanor Parsons, 1843–1901. She was buried in the third row, near the yew tree.
+
+He opened the jar carefully. Inside, wrapped around a sprig of dried lavender, was a letter. It began: "My dearest Eleanor, I write this knowing you will never read it, but the writing is the thing."
+
+Martin sat down on the cold floor and read every word.`,
+      'Grade 6-7': `The allotment had been his father's and his grandfather's before that, and David had taken it over the way you inherit a face — without choosing it, without questioning it, simply by being next in line. He came every Saturday, turned the soil, talked to the runner beans, and avoided thinking about anything that mattered. The allotment was good for that. It asked nothing of you except presence.
+
+He was digging a new trench for potatoes when the spade struck metal. Not a stone — the sound was wrong, hollow and resonant, like tapping a bell. He scraped the earth away with his hands and found a biscuit tin, rusted at the edges but intact. The lid resisted, then gave with a sound like a small sigh.
+
+Inside, wrapped in oilcloth that had kept the damp out for what turned out to be forty-seven years, was a notebook. His grandfather's handwriting — he recognised the slanted capitals, the way the letter g always dropped below the line like a fishhook. But the content was not what he expected. Not planting schedules. Not seed orders.
+
+Poems. Page after page of them. Sonnets, mostly, though David was no expert. They were about a woman called Eira, a name David had never heard his grandfather speak. They were tender and precise and occasionally funny, and they described a love affair that had apparently lasted thirty years alongside a marriage David's grandmother had always described as contented.
+
+David sat on the upturned bucket he used as a chair and read them with the strange, vertiginous sensation of discovering that the ground you stand on has a basement. His grandfather — the man who communicated exclusively in weather observations and unsolicited advice about compost — had contained this. Had written these words, in this handwriting, and buried them in a biscuit tin three feet beneath a potato trench, where they waited in the dark with the patience of something that knows it will eventually be found.
+
+He put the notebook in his coat pocket. He did not tell anyone. Some discoveries are not secrets exactly, but they are private — they belong to the earth that held them and the person who was meant, eventually, to dig.`,
+      'Grade 8-9': `The house had been hers for nine months, which is to say it had been hers for long enough to stop noticing it. She knew its sounds — the boiler's arthritic cough at six each morning, the way the third stair protested underfoot like a cat whose tail you have stepped on — and she knew its silences, which were more various than she had expected. The silence of a Tuesday afternoon was not the silence of a Sunday evening. The house, she had come to understand, was a building that remembered being full of people and had not yet adjusted to containing only one.
+
+It was the wallpaper that started it. She was stripping the back bedroom — a floral pattern of such aggressive cheerfulness that it could only have been chosen in the 1970s by someone who believed optimism could be applied with paste — when the paper came away and beneath it was another layer. And beneath that, another. She kept peeling, carefully now, the way you turn the pages of something fragile, and each layer was a decade: roses over stripes over a pale geometric print that she could date, by its colours, to the late 1940s.
+
+Behind the last layer, the plaster was bare. Almost bare. Someone had written on it in pencil, in small, careful letters that had survived beneath their papery archaeology for what she calculated was at least seventy-five years.
+
+It said: "Renovated this room myself, August 1948. Took three weekends. Margaret says the colour is wrong but Margaret is wrong about most things and I love her for it. If you are reading this you have stripped the wallpaper, which means Margaret's taste has finally been overruled. She will not forgive you. — J. Haldane"
+
+Nadia sat on the bare floorboards and read it again. Then again. She was aware of an emotion she could not immediately name — something adjacent to grief but warmer, like holding a cup that someone else has recently put down. J. Haldane. She said the name aloud and the house absorbed it the way it absorbed everything: patiently, without comment, adding it to the record of sounds it had been keeping since before she was born.
+
+She went downstairs and made tea. She drank it at the kitchen table, thinking about the man who had written on his own wall in the reasonable expectation that his words would be buried for ever, and who had written them anyway, because the impulse to leave a mark is older than the expectation that anyone will find it.
+
+She did not wallpaper the room. She painted around the words, leaving them exposed, a small rectangle of 1948 in a room that was otherwise 2024. Visitors asked about it. She told them it was a feature. She did not tell them that she sometimes stood in the doorway in the evenings and read it again, not because she had forgotten the words but because the act of reading them was a conversation with someone she had never met, conducted across a distance that neither paper nor plaster could entirely close.`,
+    },
+  },
+
+  // AQA Paper 2 Q2 - Summary & Synthesis
+  {
+    id: 'aqa-8',
+    board: 'AQA',
+    type: 'Summary & Synthesis',
+    tier: 'GCSE',
+    title: 'Paper 2 Q2 Summary & Synthesis',
+    extract: `Source A: "Travel in the nineteenth century was an endurance test. A journey from London to Edinburgh by stagecoach took four days in good weather and considerably longer in bad. Passengers were packed together in cramped, unsprung carriages that jolted over rutted roads, arriving bruised, exhausted, and covered in the dust of three counties. Inns along the route were unreliable — the beds often shared with strangers, the food indifferent, the prices exorbitant. To travel was to suffer, and only those with compelling business or exceptional stubbornness undertook long journeys voluntarily."\n— Adapted from a history of British transport, 2018\n\nSource B: "I took the 06:15 from King's Cross and was in Edinburgh by ten. I spent the journey answering emails, drinking a coffee that cost more than my grandfather earned in a day, and watching England turn into Scotland through a window that was, by modern standards, almost clean. The train was warm, fast, and largely empty. I read the paper, slept for forty minutes, and arrived feeling precisely as I had when I left, which is both the miracle and the disappointment of modern travel: it delivers you to your destination without requiring you to experience the journey at all."`,
+    question: 'Use details from both sources. Write a summary of the differences between travelling in the nineteenth century and travelling today. (8 marks)',
+    marks: 8,
+    timing: '10 minutes',
+    markScheme: [
+      'Identifies clear differences between the two experiences of travel',
+      'Synthesises information from both sources (not one then the other)',
+      'Uses quotations or textual references to support each point',
+      'Makes perceptive inferences beyond surface meaning',
+      'Writes clearly and concisely in own words where appropriate',
+    ],
+    examinerTips: [
+      'This is a summary question, not a language analysis question. Focus on what the sources say, not how they say it.',
+      'Aim for 3-4 well-developed comparative points.',
+      'Use connectives that signal comparison: "whereas," "by contrast," "while."',
+      'Keep your answer concise. Eight marks means roughly eight minutes.',
+    ],
+    modelAnswers: {
+      'Grade 4-5': `The two sources show that travel has changed dramatically. In Source A, a journey from London to Edinburgh took "four days" by stagecoach, whereas in Source B the same journey by train takes less than four hours. The physical experience is also very different: nineteenth-century passengers arrived "bruised, exhausted, and covered in dust," while the modern traveller arrives "feeling precisely as I had when I left," suggesting the journey requires no physical effort at all. Accommodation was a problem in Source A, with "unreliable" inns and beds "shared with strangers," but Source B's traveller has everything they need on the train itself — coffee, warmth, and space to sleep. Finally, Source A says only those with "compelling business" would travel voluntarily because it was so unpleasant, while Source B suggests modern travel is so easy that it has lost all sense of adventure or experience.`,
+      'Grade 6-7': `The sources present nineteenth-century travel as an ordeal and modern travel as an absence of experience. The most fundamental difference is temporal: Source A's four-day stagecoach journey has been compressed into Source B's four-hour train ride, a transformation that has removed not only discomfort but also, as Source B's writer notes, the experience of the journey itself. Physically, the contrast is stark — Source A's passengers endure cramped, "unsprung carriages" and arrive damaged, while Source B's narrator travels in warmth and comfort, the greatest inconvenience being an overpriced coffee. The social dimension has also shifted: where Source A's travellers were forced into unwanted intimacy, sharing beds with strangers at roadside inns, Source B's train is "largely empty," and the traveller's interactions are with emails and newspapers rather than people. Perhaps most tellingly, Source A frames travel as something requiring "exceptional stubbornness," while Source B frames it as something requiring so little that the traveller barely registers it — "the miracle and the disappointment" being that modern travel has eliminated suffering at the cost of eliminating significance.`,
+      'Grade 8-9': `The sources trace a paradox: as travel has become physically easier, it has become experientially emptier. Source A's nineteenth-century journey is defined by embodied suffering — passengers are "bruised, exhausted, and covered in dust," their bodies serving as records of the distance traversed. Source B's modern equivalent produces no such record; the traveller arrives unchanged, the journey having been so frictionless as to be almost imperceptible. The infrastructure of travel has been inverted: Source A describes a hostile network of "unreliable" inns and shared beds, where comfort was contingent and uncertain, while Source B's train provides a self-contained environment of warmth and solitude that insulates the traveller from the landscape entirely. The relationship between traveller and journey has also shifted from active endurance to passive consumption — Source A's travellers choose to suffer for "compelling business," exercising agency through stubbornness, while Source B's narrator is transported, spending the journey on activities entirely unrelated to travel itself. Both sources ultimately suggest that the quality of a journey is measured not by comfort but by transformation: Source A's travel changed the traveller physically; Source B's writer suggests that modern travel's failure to change us at all is "both the miracle and the disappointment."`,
+    },
+  },
+
+  // AQA Literature Paper 2 - Poetry Comparison
+  {
+    id: 'aqa-9',
+    board: 'AQA',
+    type: 'Poetry Comparison',
+    tier: 'GCSE',
+    title: 'Literature Paper 2 Poetry Comparison',
+    extract: `Poem A — "Remains" by Simon Armitage (extract):
+"His blood-Loss shadow stays on the street, and out on patrol
+I walk right over it week after week. Then I'm home on leave.
+But I blink and he bursts again through the doors of the bank.
+Sleep, and he's probably armed, and probably dangerous,
+and me and somebody else and somebody else
+are all of the same mind."
+
+Poem B — "War Photographer" by Carol Ann Duffy (extract):
+"In his dark room he is finally alone
+with spools of suffering set out in ordered rows.
+The only light is red and softly glows,
+as though this were a church and he a priest
+preparing to intone a Mass."`,
+    question: 'Compare how the poets present the lasting effects of conflict in "Remains" and "War Photographer." (30 marks)',
+    marks: 30,
+    timing: '45 minutes',
+    markScheme: [
+      'Compares ideas and themes across both poems',
+      'Analyses how language, form, and structure create meaning in both poems',
+      'Uses well-selected quotations from both poems',
+      'Explores the poets\' methods and their effects on the reader',
+      'Considers relevant contextual factors',
+      'Maintains a comparative structure throughout',
+    ],
+    examinerTips: [
+      'Structure by theme or idea, not poem by poem.',
+      'Compare methods, not just content — how do the poets achieve similar or different effects?',
+      'Use the extracts as a starting point but refer to the whole poems.',
+      'Context should illuminate your analysis, not replace it.',
+    ],
+    modelAnswers: {
+      'Grade 4-5': `Both "Remains" by Simon Armitage and "War Photographer" by Carol Ann Duffy present characters haunted by their experiences of conflict, but they do so in different ways.
+
+In "Remains," the soldier cannot escape the memory of killing a looter. The image of the "blood-shadow" that "stays on the street" shows that the violence has left a permanent mark. The verb "stays" suggests the memory will not go away. When the soldier says "I blink and he bursts again through the doors," it shows the memory replays involuntarily, even at home. The repetition of "probably armed, and probably dangerous" reveals his uncertainty about whether the killing was justified.
+
+In "War Photographer," Duffy presents a different kind of haunting. The photographer is "finally alone" in his dark room, which suggests he needs to separate himself from the world to process what he has seen. The metaphor comparing the dark room to a church and the photographer to "a priest preparing to intone a Mass" gives his work a sacred, solemn quality, suggesting the suffering he has witnessed deserves reverence.
+
+Both poems show that conflict follows people home. The soldier in "Remains" is invaded by memories he cannot control, while the photographer in "War Photographer" chooses to revisit the suffering through his work. Both suggest that witnessing violence changes a person permanently.`,
+      'Grade 6-7': `Both poets examine how conflict persists beyond the battlefield, but their speakers occupy fundamentally different positions — one as participant, one as witness — and these positions shape the form and language of each poem.
+
+Armitage's soldier is trapped in repetition. The "blood-shadow" that "stays on the street" functions as a literal and psychological stain, and the present tense "stays" refuses the distance of memory, insisting that the past is ongoing. The enjambment across "on patrol / I walk right over it" forces the reader to experience the unavoidable confrontation that the soldier faces weekly. The shift to "home on leave" offers no escape; the conjunction "But" immediately reinstates the trauma through the hallucinatory image of the looter bursting "again through the doors." The colloquial voice — "me and somebody else and somebody else" — creates an unsettling casualness that reflects how the military normalises violence while the psyche cannot.
+
+Duffy's photographer, by contrast, processes conflict through ritual and craft. The dark room is a controlled space — "ordered rows" of suffering impose structure on chaos — and the simile of "a church" sacralises the act of developing photographs. Where Armitage's soldier is overwhelmed by involuntary memory, Duffy's photographer deliberately returns to images of suffering, making his trauma a vocational choice. The sibilance of "spools of suffering set out" creates a hushed, reverent tone that contrasts sharply with Armitage's staccato, fragmented syntax.
+
+Both poems ultimately suggest that the lasting effect of conflict is a division of self: Armitage's soldier is split between the street and home, waking and sleeping; Duffy's photographer is divided between "Rural England" and the war zones he documents. Neither can fully inhabit one world without being pulled back to the other.`,
+      'Grade 8-9': `Armitage and Duffy approach the aftermath of conflict from opposing vectors — one from inside the experience, one from its periphery — yet both arrive at the same conclusion: that conflict does not end when the shooting stops but takes up permanent residence in the consciousness of those it touches.
+
+Armitage's "Remains" dramatises trauma as a failure of temporal boundaries. The "blood-shadow" that "stays on the street" is an image of extraordinary compression — it is simultaneously a bloodstain, a shadow, and a psychological imprint, the compound noun refusing to separate the physical from the metaphorical. The present tense "stays" is the poem's most important verb: it denies the past its pastness, insisting that for the traumatised mind, the event is perpetually occurring. The structural collapse from external reality ("out on patrol") to internal hallucination ("I blink and he bursts again") enacts the mechanism of PTSD, where sensory triggers dissolve the boundary between then and now. Armitage's use of the colloquial register — "me and somebody else and somebody else" — is a formally radical choice: it mimics the soldier's attempt to depersonalise the killing, but the vague repetition of "somebody else" betrays the anonymity that military culture demands while revealing its psychological cost. The phrase "all of the same mind" carries a bitter irony: the shared decision to shoot creates a shared guilt that is, paradoxically, experienced in isolation.
+
+Duffy's "War Photographer" constructs a fundamentally different relationship between subject and conflict. Where Armitage's soldier is invaded by memory, Duffy's photographer curates it. The "ordered rows" of film spools impose a taxonomy on suffering that the suffering itself resists, and the religious imagery — the dark room as "church," the photographer as "priest" — elevates the act of witnessing to a sacrament. This is not accidental: Duffy is interrogating the ethics of turning pain into art, a question the poem shares with its own medium. The soft, controlled rhyme scheme (alone/rows/glows) and the measured iambic pentameter formally enact the photographer's attempt to contain the uncontainable, creating a surface calm that the content continually threatens to rupture.
+
+The crucial difference is agency. Armitage's soldier has no choice — the memory "bursts" through uninvited, and the poem's lack of regular form mirrors this loss of control. Duffy's photographer chooses to return to the images, yet this apparent agency is itself a form of compulsion: he develops the photographs because he cannot not develop them, the ritual of the dark room being the only structure that makes the chaos legible. Both poems ultimately locate the lasting effect of conflict not in physical injury but in the impossibility of integrating the experience into ordinary life. Armitage's soldier walks over the bloodstain "week after week," unable to avoid it; Duffy's photographer produces images that his audience will glance at "between the bath and pre-lunch beers." In both cases, the real damage is the gap between those who carry the weight of what they have seen and a society that has the luxury of looking away.`,
+    },
+  },
+
+  // ========================================
+  // ADDITIONAL EDEXCEL QUESTIONS
+  // ========================================
+
+  // Edexcel Language Paper 1 Q1 - Information Retrieval
+  {
+    id: 'edexcel-5',
+    board: 'Edexcel',
+    type: 'Information Retrieval',
+    tier: 'GCSE',
+    title: 'Language Paper 1 Q1 Information Retrieval',
+    extract: `The storm arrived without warning on the evening of September 14th. By midnight, winds exceeding ninety miles per hour had torn roofing tiles from houses across the southern counties and brought down power lines in Kent, Sussex, and Hampshire. Emergency services received over twelve thousand calls in the first three hours. Roads were blocked by fallen trees — an estimated fifteen million trees were uprooted across southern England before dawn — and the railway network was suspended entirely south of the Thames.
+
+Mrs Patricia Denton, seventy-three, of Sevenoaks in Kent, described the experience as "the most terrifying night of my life." She had been woken at two o'clock by the sound of her greenhouse disintegrating. "I lay in bed listening to the whole garden being torn apart," she said. "There was nothing I could do except wait for it to stop." Her neighbour, Mr Gerald Howe, lost the oak tree that had stood in his front garden for over a century. It fell across two parked cars and came to rest against the wall of the local primary school.
+
+The economic cost of the storm was later estimated at over one billion pounds. Eighteen people lost their lives. The Met Office was criticised for failing to issue an adequate warning, a controversy that led to a fundamental overhaul of the national weather forecasting system.`,
+    extractSource: 'Adapted from an account of the Great Storm of 1987',
+    question: 'From lines 1-12, identify the information given about the storm and its effects. Give four examples. (4 marks)',
+    marks: 12,
+    timing: '15 minutes',
+    markScheme: [
+      'Identifies four distinct pieces of information from the specified lines',
+      'Each point is clearly supported with textual reference',
+      'Points are genuinely different (not repetitions of the same idea)',
+      'Answers are drawn from the correct line range',
+    ],
+    examinerTips: [
+      'This is a retrieval question — keep answers clear and factual.',
+      'Do not analyse language. Simply find and state information.',
+      'Each point should be a separate fact supported by a short quotation.',
+      'Check you are answering from the correct line range.',
+    ],
+    modelAnswers: {
+      'Grade 4-5': `First, the storm arrived unexpectedly "without warning on the evening of September 14th." Second, the winds were extremely powerful, "exceeding ninety miles per hour," causing damage to houses. Third, emergency services were overwhelmed, receiving "over twelve thousand calls in the first three hours." Fourth, a huge number of trees were destroyed — "an estimated fifteen million trees were uprooted across southern England."`,
+      'Grade 6-7': `The extract reveals that the storm struck suddenly and without adequate forecasting, arriving "without warning." Its physical impact was devastating: winds over ninety miles per hour caused structural damage across "Kent, Sussex, and Hampshire," and approximately "fifteen million trees were uprooted." The scale of the emergency is conveyed by the volume of calls to emergency services — "over twelve thousand" in three hours — while the disruption to infrastructure is shown by the complete suspension of "the railway network" south of the Thames.`,
+      'Grade 8-9': `The storm's onset was sudden and unforecast, arriving "without warning" on September 14th. Its destructive force operated on multiple scales: domestically, winds exceeding ninety miles per hour stripped roofing tiles and brought down power lines across three counties; environmentally, "an estimated fifteen million trees were uprooted" before dawn. The human response was overwhelmed — emergency services fielded "over twelve thousand calls in the first three hours" — and transport infrastructure collapsed entirely, with the railway network "suspended" south of the Thames. The specificity of these details — exact wind speeds, precise call volumes, named counties — constructs a picture of a national emergency unfolding with a speed that outpaced the capacity to respond.`,
+    },
+  },
+
+  // Edexcel Language Paper 2 Q5 - Transactional Writing
+  {
+    id: 'edexcel-6',
+    board: 'Edexcel',
+    type: 'Transactional Writing',
+    tier: 'GCSE',
+    title: 'Language Paper 2 Q5 Transactional Writing',
+    extract: '',
+    question: 'Your school is considering replacing all physical textbooks with tablets and digital resources. Write a speech to be delivered at a school assembly giving your views on this proposal. (40 marks: 24 for content and organisation, 16 for technical accuracy)',
+    marks: 40,
+    timing: '45 minutes',
+    markScheme: [
+      'Matches the conventions of a speech (direct address, rhetorical devices, audience awareness)',
+      'Presents a clear, sustained viewpoint with supporting evidence or examples',
+      'Organises ideas effectively with coherent paragraphing',
+      'Uses varied and ambitious vocabulary appropriate to audience and purpose',
+      'Demonstrates a range of sentence structures for deliberate effect',
+      'Achieves a high standard of technical accuracy',
+    ],
+    examinerTips: [
+      'A speech must sound like a speech. Use direct address, rhetorical questions, and repetition.',
+      'Know your audience: this is a school assembly, so the tone should be confident but accessible.',
+      'Address counter-arguments to demonstrate sophistication.',
+      'End with a memorable closing line that your audience will remember.',
+    ],
+    modelAnswers: {
+      'Grade 4-5': `Good morning, everyone. I want to talk to you today about the proposal to replace our textbooks with tablets.
+
+Now, I know what some of you are thinking: "Great, lighter bags!" And yes, carrying one tablet instead of five heavy textbooks would be a relief for our backs. There are some real advantages to going digital. You can search for information instantly. You can highlight and make notes without ruining a book. And the school would save money in the long run because digital resources can be updated without buying new editions.
+
+However, I think there are serious problems with this idea. First, screens are bad for our eyes. We already spend hours looking at phones and computers at home. Do we really want to add six more hours of screen time during the school day? Second, tablets break. What happens when your tablet crashes the morning of an important lesson? A textbook never runs out of battery.
+
+There is also the issue of distraction. Be honest with yourselves — if you had a tablet in front of you in every lesson, would you always be reading the textbook, or would you sometimes be checking messages, playing games, or watching videos? I think we all know the answer.
+
+My suggestion is a compromise: keep textbooks for core subjects but offer digital resources as an additional option. That way we get the benefits of technology without losing the reliability of books. Thank you.`,
+      'Grade 6-7': `Good morning. I would like you to do something for me. Close your eyes — just for a moment — and think about a book that mattered to you. Not the words in it, but the object itself. The weight of it. The smell of the pages. The corner you folded down because you could not find a bookmark. The coffee stain on page forty-seven that reminds you of the afternoon you read it.
+
+Now open your eyes. The proposal before us would ensure that no student in this school ever has that experience again.
+
+I am not a technophobe. I own a phone, a laptop, and more chargers than I care to admit. I understand that digital resources are searchable, updatable, and lighter than the average Year 11 bag. These are genuine advantages and I do not dismiss them. But I want us to think carefully about what we would lose.
+
+Research from the University of Stavanger has shown that students who read on paper retain more information than those who read on screens. The physical act of turning pages, of feeling your progress through a book, creates what psychologists call "cognitive mapping" — a spatial understanding of where information lives. A textbook has a geography. A tablet has a scroll bar. These are not equivalent.
+
+There is also the question of equity. Not every student has reliable Wi-Fi at home. Not every student can afford to replace a broken screen. A textbook is a robust, democratic technology: it works for everyone, everywhere, without a password or a software update. A tablet is only as reliable as its battery and its broadband connection, and both of these, in this country, are considerably less reliable than we pretend.
+
+Finally — and I say this with affection for every one of you — we cannot be trusted. A tablet in every lesson is a portal to every distraction the internet has ever invented. We are sixteen. Our prefrontal cortices are works in progress. Asking us to have an open browser and a Snapchat account inches from our biology notes and to simply choose wisely is not realistic. It is an experiment, and we are the subjects.
+
+Keep the books. Supplement them with technology by all means. But do not replace the thing that works with the thing that glows. Thank you.`,
+      'Grade 8-9': `I would like to begin with a confession. When I first heard about this proposal, I was in favour of it. Lighter bags, instant access, no more discovering at 8:47am that you have left your English anthology on the kitchen table — what is not to like? Then I thought about it for more than thirty seconds, which is, I suspect, longer than this proposal has been thought about by anyone who will not have to live with its consequences.
+
+Let me be precise about what is being proposed. We are not being offered technology as a supplement. We are being offered technology as a replacement. Every physical textbook — removed. Every page — digitised. Every student — issued a screen and told that this is progress. And perhaps it is. But progress towards what?
+
+The evidence on digital reading is not ambiguous. It is clear. A meta-analysis published in Educational Research Review, covering over 170,000 participants, found that reading comprehension is significantly better on paper than on screen. This is not nostalgia dressed as science. It is science dressed as science. The reasons are neurological: paper provides tactile and spatial cues that support memory encoding. When you read a physical book, your brain maps information to a physical location — top of the left page, near the diagram, three chapters in. A screen offers no such architecture. It offers a uniform, glowing rectangle, and the brain, faced with uniformity, retains less. We know this. The research is not new. The question is whether we care.
+
+I suspect the real motivation for this proposal is financial. Digital licences, over time, cost less than replacing damaged textbooks. This is true. It is also true that the cheapest option and the best option are, in education, almost never the same thing. We could save money by removing the heating. We could save money by increasing class sizes to fifty. We do not do these things because we recognise, correctly, that education is an investment, not a cost centre. Textbooks should be subject to the same logic.
+
+And then there is the question none of us want to ask but all of us know the answer to. If every student in this room has a tablet open in every lesson, will they use it exclusively for learning? I look around this assembly hall and I see three hundred people, every one of whom has, at some point, opened a browser intending to research the Treaty of Versailles and emerged forty-five minutes later having watched a man rank every flavour of crisp. I include myself. I include, with the greatest respect, several members of staff. Distraction is not a failure of willpower. It is a design feature of the technology we are proposing to place at the centre of every lesson.
+
+I am not asking you to reject technology. I am asking you to reject the assumption that newer means better, that screens are inherently superior to pages, and that the correct response to every problem is to add a device. Keep the textbooks. Use technology where it genuinely improves learning. And when someone tells you that the future is digital, remind them that the future is also the generation sitting in this room — and we deserve tools that are chosen because they work, not because they are fashionable.
+
+Thank you.`,
+    },
+  },
+
+  // Edexcel Literature - Poetry Comparison
+  {
+    id: 'edexcel-7',
+    board: 'Edexcel',
+    type: 'Poetry Comparison',
+    tier: 'GCSE',
+    title: 'Literature Poetry Comparison',
+    extract: `Poem A — "Ozymandias" by Percy Bysshe Shelley:
+"I met a traveller from an antique land,
+Who said — 'Two vast and trunkless legs of stone
+Stand in the desert. . . . Near them, on the sand,
+Half sunk a shattered visage lies, whose frown,
+And wrinkled lip, and sneer of cold command,
+Tell that its sculptor well those passions read
+Which yet survive, stamped on these lifeless things,
+The hand that mocked them, and the heart that fed.'"
+
+Poem B — "My Last Duchess" by Robert Browning (extract):
+"That's my last Duchess painted on the wall,
+Looking as if she were alive. I call
+That piece a wonder, now: Fra Pandolf's hands
+Worked busily a day, and there she stands.
+Will't please you sit and look at her?"`,
+    question: 'Compare how the poets explore the theme of power and its limitations in "Ozymandias" and "My Last Duchess." (20 marks)',
+    marks: 20,
+    timing: '35 minutes',
+    markScheme: [
+      'Compares ideas about power across both poems',
+      'Analyses how the poets\' methods convey attitudes to power',
+      'Uses well-selected quotations from both poems',
+      'Explores how form and structure contribute to meaning',
+      'Considers how context informs the treatment of power',
+      'Maintains an integrated comparative approach throughout',
+    ],
+    examinerTips: [
+      'Compare throughout. Do not write about one poem and then the other.',
+      'Consider how each poet uses form and structure, not just language.',
+      'Think about what both poems suggest about the nature of power itself.',
+      'Context should deepen your analysis, not exist as a separate paragraph.',
+    ],
+    modelAnswers: {
+      'Grade 4-5': `Both "Ozymandias" and "My Last Duchess" present powerful men who try to control others, but both poems suggest that power has limits.
+
+In "Ozymandias," the pharaoh is presented as arrogant and commanding. The description of his "frown, and wrinkled lip, and sneer of cold command" shows he was a cruel ruler who wanted to intimidate others. However, his statue is now broken and surrounded by empty desert, which shows that even the most powerful leaders are eventually forgotten. The word "shattered" suggests complete destruction of his power.
+
+In "My Last Duchess," the Duke is also controlling. He speaks about his dead wife as if she were a possession, calling her "my last Duchess" — the possessive pronoun "my" shows ownership. He controls who can look at her painting: "Will't please you sit and look at her?" is a command disguised as a polite question. The Duke's power seems more intact than Ozymandias's, but the fact that he can only control a painting, not a living person, reveals its limitation.
+
+Both poems use art to explore power. Ozymandias's power survives only through the sculptor's skill, while the Duke has replaced his wife with a portrait he can control. Both suggest that powerful men try to preserve their authority through art but ultimately reveal their own weakness.`,
+      'Grade 6-7': `Shelley and Browning both anatomise power through its material remnants — a statue and a painting — and both reveal that the desire to control outlasts the ability to do so.
+
+Shelley constructs Ozymandias's power as already ruined. The sonnet's opening removes the pharaoh from his own story: he does not speak directly but is reported through a chain of narration — traveller to poet to reader — that structurally enacts the erosion of authority. The "shattered visage" retains the "sneer of cold command," but the command is now directed at empty desert. The irony is architectural: the passions "yet survive," but only because the sculptor — the subordinate, the servant — captured them in stone. Power is preserved by the very craft it patronised, and the pharaoh's immortality depends on the artist he almost certainly considered beneath him. The volta comes in the inscription's boast — "Look on my Works, ye Mighty, and despair!" — which the surrounding "lone and level sands" render absurd.
+
+Browning's Duke presents a more insidious form of power: one that is current, active, and performed. The dramatic monologue allows the Duke to speak without interruption, his control of the conversation mirroring his desire to control everything around him. The painting of the Duchess is "a wonder" precisely because it is static — she cannot blush, cannot smile at other men, cannot exhibit the independence that so enraged him. The possessive "my last Duchess" reduces a human being to a catalogued item, and the phrase "last" implies she is one in a sequence, her replacement already being negotiated. Yet Browning's form subtly undermines the Duke's authority: the rhyming couplets are deliberately run-on, their enjambment suggesting a speaker who cannot quite control his own rhetoric, whose composure is a performance that threatens to slip.
+
+Both poems suggest that the truest expression of power is the attempt to outlast death — through statues, through portraits — and both reveal this attempt as ultimately futile. Ozymandias's monument is rubble; the Duke's control extends only to a painting on a wall. Art survives the powerful, but it does not serve them — it exposes them.`,
+      'Grade 8-9': `Both poems stage an encounter with power through its aesthetic afterlife — a broken statue, a commissioned portrait — and both discover that art, which the powerful deploy as an instrument of control, ultimately becomes the instrument of their exposure.
+
+Shelley's sonnet is a masterclass in structural irony. Ozymandias never speaks to us directly; his voice arrives through three mediations — sculptor to traveller to poet — each layer of remove enacting the historical distance that has rendered his authority meaningless. The "two vast and trunkless legs of stone" are a monument to dismemberment: the body of power has been amputated, leaving only the stance of authority without its substance. That the "sneer of cold command" survives while the empire does not is Shelley's central irony — the emotions of tyranny are more durable than its achievements. The sculptor "well those passions read" — and the verb "read" is crucial, positioning the artist as interpreter rather than servant. The hand that "mocked" the passions carries a deliberate ambiguity: it means both "copied" and "ridiculed," so the statue simultaneously memorialises and satirises its subject. Shelley, writing in the aftermath of the Napoleonic Wars, understood that empires generate monuments in direct proportion to their insecurity, and that the desert — patient, indifferent, infinite — is the only honest critic of human ambition.
+
+Browning's Duke operates in a different register of power — intimate, domestic, and therefore more disturbing. Where Ozymandias commanded armies, the Duke commands a conversation, and his dramatic monologue is itself an exercise in control: we hear only his voice, see only through his gaze. The Duchess has been converted from a living woman into "a piece" on a wall — the reduction is linguistic before it is literal. The crucial revelation — that the Duke "gave commands; / Then all smiles stopped together" — is delivered with a syntactic brevity that mirrors the efficiency of the violence it describes. The painting is not a memorial but a correction: it fixes the Duchess in the posture the Duke preferred, her smile now permanently directed by his permission. Yet Browning's form performs the same subversion as Shelley's. The enjambed couplets — technically closed but experientially open — create a tension between the Duke's desire for containment and the poem's refusal to be contained. His rhetoric slips: "I choose / Never to stoop" protests too much, and the final descent to negotiate a dowry exposes the transactional reality beneath the aesthetic surface.
+
+The poems converge on a devastating insight: power that requires a monument is power that suspects its own impermanence. Ozymandias commissions a colossus because empires end; the Duke commissions a portrait because wives die or are killed. Both men attempt to transcend their limitations through art, and both are betrayed by it — Ozymandias by a sculptor who embedded mockery in the stone, the Duke by a monologue that reveals far more than he intends. Shelley and Browning, writing within three decades of each other, both recognised that the Romantic fascination with power was inseparable from the recognition of its futility — and that the poet's task was not to celebrate or condemn the powerful but to let them speak until they condemned themselves.`,
+    },
+  },
+
+  // ========================================
+  // ADDITIONAL OCR QUESTIONS
+  // ========================================
+
+  // OCR Language Paper 1 Q1 - Reading Comprehension
+  {
+    id: 'ocr-5',
+    board: 'OCR',
+    type: 'Reading Comprehension',
+    tier: 'GCSE',
+    title: 'Language Paper 1 Q1 Reading Comprehension',
+    extract: `The first thing you notice about the market in Marrakech is the noise. It hits you like a wall the moment you step through the gate — a roar made up of a thousand smaller sounds, each one fighting to be heard. Traders shout prices across the narrow lanes. Mopeds weave between the crowds, their horns blaring. Somewhere, a radio plays Arabic pop music at a volume that suggests the owner believes the entire souk should share his taste.
+
+The colours come next. Pyramids of spices — saffron yellow, paprika red, turmeric gold — are arranged on low tables with a precision that suggests the trader is an artist as much as a merchant. Leather bags hang from hooks in every shade of brown the animal kingdom can produce. Carpets are stacked in towers that lean against the walls like sleeping giants, their patterns so intricate that you could stare at one for an hour and still find something new.
+
+Then the smells arrive, and they are less romantic. Tanning pits on the eastern side of the medina produce a stench that clings to your clothes and follows you home. Fresh mint, sold in great bunches by boys who cannot be older than eight, provides temporary relief. Bread bakes somewhere out of sight, its warm, yeasty scent threading through the chaos like a rumour of civilisation.
+
+You will get lost. This is not a possibility but a certainty. The lanes twist and double back and arrive at dead ends that were not dead ends yesterday because someone has parked a cart across them. Maps are useless. Ask for directions and you will receive confident, contradictory advice from five different people, all of whom are correct, because in Marrakech there are always at least three ways to get anywhere, and none of them are the one you would choose.`,
+    extractSource: 'Original composition in the style of travel writing',
+    question: 'Read the extract carefully. Based on what you have read, identify and explain five things you learn about the market in Marrakech. Use evidence from the text to support each point. (10 marks)',
+    marks: 10,
+    timing: '15 minutes',
+    markScheme: [
+      'Identifies five distinct pieces of information about the market',
+      'Supports each point with relevant textual evidence',
+      'Shows understanding of implicit as well as explicit information',
+      'Points are clearly expressed and not repetitive',
+      'Demonstrates comprehension of the whole text, not just one section',
+    ],
+    examinerTips: [
+      'This is a comprehension question. You are being tested on understanding, not analysis.',
+      'Five points means roughly two marks each. Support every point with a quotation.',
+      'Look across the whole extract. Do not take all your points from one paragraph.',
+      'Make each point clearly distinct from the others.',
+    ],
+    modelAnswers: {
+      'Grade 4-5': `First, the market is extremely noisy. The writer says it "hits you like a wall" and is made up of "a thousand smaller sounds" including traders shouting and mopeds blaring. Second, the market is very colourful, with spices displayed in "pyramids" of "saffron yellow, paprika red, turmeric gold." Third, the traders take care with how their goods look, arranging spices "with a precision that suggests the trader is an artist." Fourth, the market has unpleasant smells as well as nice ones — the tanning pits produce "a stench that clings to your clothes." Fifth, it is very easy to get lost because "the lanes twist and double back" and maps are described as "useless."`,
+      'Grade 6-7': `The market is characterised first by sensory overload: the noise is so intense it "hits you like a wall," composed of competing sounds from traders, mopeds, and radios. This suggests an environment that overwhelms visitors. Second, the market is visually striking, with goods displayed with artistic care — spice pyramids of "saffron yellow, paprika red, turmeric gold" are arranged with "a precision" that elevates trade into an aesthetic practice. Third, it is a place of stark contrasts: the "stench" of the tanning pits coexists with the "warm, yeasty scent" of baking bread and "fresh mint," suggesting beauty and unpleasantness are inseparable. Fourth, the market employs young children, with mint "sold in great bunches by boys who cannot be older than eight," indicating a different cultural attitude to child labour. Fifth, the market's layout is chaotic and constantly changing — dead ends appear because "someone has parked a cart across them" — creating a space that resists navigation and where even confident directions are "contradictory."`,
+      'Grade 8-9': `The market is presented as an environment that assaults the senses in a specific hierarchy: "the first thing you notice is the noise," then "the colours come next," then "the smells arrive" — suggesting a place so overwhelming that the visitor processes it in stages rather than all at once. Second, it is a space where commerce and artistry merge: the spice trader arranges his goods "with a precision that suggests the trader is an artist as much as a merchant," implying that the market values presentation as a form of craft. Third, the market contains stark material inequalities: boys "who cannot be older than eight" sell mint alongside traders whose carpet collections are described with the language of gallery exhibition, suggesting a hierarchy within the market's apparent chaos. Fourth, the physical environment is both sensory and adversarial — the tanning pits produce a stench that "clings to your clothes and follows you home," using verbs that personify the smell as something that attaches itself to visitors, making the market's presence inescapable even after leaving. Fifth, the market is a space that defeats Western assumptions about navigability: maps are "useless," directions are "confident" but "contradictory," and the lanes themselves change daily, suggesting that the market operates according to a logic that visitors must surrender to rather than impose upon.`,
+    },
+  },
+
+  // OCR Literature Section A - Shakespeare Extract
+  {
+    id: 'ocr-6',
+    board: 'OCR',
+    type: 'Shakespeare Extract',
+    tier: 'GCSE',
+    title: 'Literature Section A Shakespeare Extract',
+    extract: `MACBETH:
+Is this a dagger which I see before me,
+The handle toward my hand? Come, let me clutch thee.
+I have thee not, and yet I see thee still.
+Art thou not, fatal vision, sensible
+To feeling as to sight? Or art thou but
+A dagger of the mind, a false creation,
+Proceeding from the heat-oppressed brain?
+I see thee yet, in form as palpable
+As this which now I draw.
+Thou marshall'st me the way that I was going,
+And such an instrument I was to use.
+Mine eyes are made the fools o' the other senses,
+Or else worth all the rest. I see thee still,
+And on thy blade and dudgeon gouts of blood,
+Which was not so before. There's no such thing.
+It is the bloody business which informs
+Thus to mine eyes.
+
+(Macbeth, Act 2 Scene 1)`,
+    question: 'How does Shakespeare use this extract to present Macbeth\'s state of mind at this point in the play? Explore how the extract contributes to the play as a whole. (24 marks)',
+    marks: 24,
+    timing: '30 minutes',
+    markScheme: [
+      'Analyses how language presents Macbeth\'s psychological state',
+      'Explores the significance of the extract within the wider play',
+      'Uses well-selected quotations analysed in detail',
+      'Considers how dramatic techniques (soliloquy, stage imagery) contribute to meaning',
+      'Shows awareness of relevant context (Jacobean attitudes to conscience, kingship, the supernatural)',
+      'Develops a coherent, sustained argument',
+    ],
+    examinerTips: [
+      'The extract is a starting point, not a boundary. Refer to the rest of the play.',
+      'Consider why Shakespeare uses a soliloquy here — what does it reveal?',
+      'Think about the audience\'s experience. What would a Jacobean audience think?',
+      'Analyse specific words, not just general ideas.',
+    ],
+    modelAnswers: {
+      'Grade 4-5': `In this extract, Shakespeare presents Macbeth as deeply disturbed and unsure of what is real. Macbeth sees a dagger floating in the air but cannot tell whether it is real or imaginary. He asks "Is this a dagger which I see before me?" which shows his confusion. The rhetorical question reveals that he is talking to himself, trying to make sense of what is happening.
+
+Macbeth calls the dagger "a false creation, proceeding from the heat-oppressed brain." The adjective "heat-oppressed" suggests his mind is overheating with guilt and anxiety about the murder he is about to commit. He knows the dagger might not be real, but he still follows it — "Thou marshall'st me the way that I was going" — which suggests he feels he is being led towards the murder by fate or by a force he cannot control.
+
+The appearance of "gouts of blood" on the blade is significant because it foreshadows the bloodshed to come. The word "gouts" means large drops, which makes the image vivid and disturbing. Macbeth then tries to dismiss the vision — "There's no such thing" — but his attempt to regain control is unconvincing because we know he is about to kill Duncan.
+
+Shakespeare uses a soliloquy here to let the audience see inside Macbeth's mind. This is important because in public Macbeth appears confident, but in private he is tormented. This links to the play's wider theme of appearance versus reality.`,
+      'Grade 6-7': `Shakespeare presents Macbeth at the threshold of irreversible action, using the dagger soliloquy to dramatise the final collapse of his resistance. The hallucination functions simultaneously as a psychological symptom and a theatrical device: Macbeth's inability to determine whether the dagger is real — "Art thou not, fatal vision, sensible / To feeling as to sight?" — externalises his internal division between moral revulsion and murderous ambition.
+
+The language of the soliloquy oscillates between rational analysis and compulsive surrender. Macbeth attempts to diagnose his own condition — "a false creation, / Proceeding from the heat-oppressed brain" — using the vocabulary of Elizabethan humoral medicine, which attributed hallucinations to an excess of choler. This clinical self-assessment demonstrates that Macbeth retains the intellectual capacity to recognise his deterioration, which makes his failure to act on that recognition all the more tragic. The "heat-oppressed brain" locates the disturbance in the body rather than the supernatural, yet the preceding scenes — the Witches' prophecies, Lady Macbeth's invocation of "spirits" — ensure that the audience cannot so easily dismiss the metaphysical dimension.
+
+The pivotal moment comes with "Thou marshall'st me the way that I was going." The verb "marshall'st" implies military command, casting Macbeth as a soldier following orders, yet the qualifying clause "the way that I was going" reveals that the dagger leads him only where he has already chosen to go. Shakespeare thus denies Macbeth the comfort of compulsion: the dagger does not create his intention but confirms it. This links to the wider play's exploration of free will — the Witches predict, but Macbeth acts.
+
+The appearance of "gouts of blood" on the blade transforms the hallucination from a symbol of intent to a premonition of consequence. Macbeth's attempt to dismiss it — "There's no such thing" — is undermined by the very need to articulate the denial. Shakespeare places this soliloquy immediately before the murder, creating a dramatic pause in which the audience witnesses the last moments of Macbeth's conscience. After this scene, Macbeth will kill Duncan, and his subsequent soliloquies will be characterised not by hesitation but by deepening despair.`,
+      'Grade 8-9': `The dagger soliloquy is Shakespeare's most sustained dramatic exploration of the mind at the moment of moral crisis, and its power derives from a carefully constructed impossibility: Macbeth knows the dagger is not real, says so explicitly, and follows it anyway. This is not irrationality. It is the dramatisation of a will that has already committed to the act while the conscience performs its final, futile audit.
+
+The soliloquy opens with a question — "Is this a dagger which I see before me?" — that is simultaneously addressed to the hallucination, to Macbeth himself, and to the audience. Shakespeare deploys the second person "thee" to grant the dagger the status of an interlocutor, a rhetorical choice that performs the very confusion between real and unreal that the speech investigates. The imperative "Come, let me clutch thee" is startling in its intimacy: Macbeth does not recoil from the vision but reaches for it, the verb "clutch" encoding both desire and desperation. When the clutch fails — "I have thee not, and yet I see thee still" — the coordinating "and yet" holds the contradiction in suspension, refusing to resolve it.
+
+Macbeth's attempt at rational self-diagnosis — "a false creation, / Proceeding from the heat-oppressed brain" — is a remarkable moment of early modern cognitive science. The phrase "heat-oppressed" draws on humoral theory, locating the hallucination in physiological imbalance rather than demonic intervention. But Shakespeare's audience would have held both explanations simultaneously: in a post-Reformation culture saturated with anxiety about the Devil's capacity to deceive the senses, Macbeth's rationalism is not reassuring but terrifying, because it raises the possibility that the dagger is both a medical symptom and a supernatural sign — that the categories are not mutually exclusive.
+
+The soliloquy's structural turning point is "Thou marshall'st me the way that I was going, / And such an instrument I was to use." The past continuous "was going" and "was to use" are devastating: they reveal that the decision has already been made, that the dagger is not a cause but a confirmation. Shakespeare thus resolves the play's central question about agency — are the Witches responsible, or is Macbeth? — with a both/and rather than an either/or. The dagger leads, but it leads where Macbeth was already headed. Free will and determinism collapse into each other.
+
+The final transformation — "gouts of blood, / Which was not so before" — accelerates the hallucination from invitation to prophecy. The word "gouts," from the French for drops, carries medical connotations of disease, and the blood that appears unprompted on the blade foreshadows not only Duncan's murder but the entire haemorrhagic trajectory of the play: Banquo's ghost, Lady Macbeth's obsessive handwashing, the final "damned spot" that will not come clean. Macbeth's dismissal — "There's no such thing" — is Shakespeare's most devastating use of dramatic irony, because the audience knows that in the world of this play, such things exist: witches prophesy, nature revolts, and the blood of murdered kings will not be washed away. The soliloquy is, in essence, the last moment before Macbeth crosses a threshold that transforms him from a man who contemplates evil into a man who commits it — and Shakespeare ensures we understand that the crossing is entirely voluntary.`,
+    },
+  },
+
+  // OCR Literature - Unseen Poetry
+  {
+    id: 'ocr-7',
+    board: 'OCR',
+    type: 'Unseen Poetry',
+    tier: 'GCSE',
+    title: 'Literature Poetry Unseen',
+    extract: `"The Horses" by Edwin Muir (extract):
+
+Barely a twelvemonth after
+The seven days war that put the world to sleep,
+Late in the evening the strange horses came.
+By then we had made our covenant with silence,
+But in the first few days it was so still
+We listened to our breathing and were afraid.
+On the second day
+The radios failed; we turned the knobs; no answer.
+On the third day a warship passed us, heading north,
+Dead bodies piled on the deck. On the sixth day
+A plane plunged over us into the sea. Thereafter
+Nothing. The radios dumb;
+And still they stand in corners of our kitchens,
+And stand, perhaps, turned on, in a million rooms
+All over the world.`,
+    question: 'In this poem, Muir presents a world recovering from catastrophe. How does the poet use language, form, and structure to convey the experience of the survivors? (24 marks)',
+    marks: 24,
+    timing: '30 minutes',
+    markScheme: [
+      'Analyses how language choices convey the survivors\' experience',
+      'Comments on the effects of structural and formal choices',
+      'Uses well-selected quotations analysed in close detail',
+      'Explores multiple layers of meaning',
+      'Develops a coherent personal response to the poem',
+      'Considers how the poem creates effects on the reader',
+    ],
+    examinerTips: [
+      'This is an unseen poem, so you have no notes to rely on. Read it at least three times.',
+      'Do not try to cover everything. Choose the most interesting features and analyse them in depth.',
+      'Consider what the poem does NOT say as well as what it does.',
+      'Pay attention to form: line breaks, enjambment, rhythm. These are deliberate choices.',
+    ],
+    modelAnswers: {
+      'Grade 4-5': `Muir presents a world that has been destroyed by war, and the survivors are described as living in silence and fear. The opening line, "Barely a twelvemonth after / The seven days war," tells us the war was very short — only seven days — but devastating enough to "put the world to sleep." The metaphor of sleep suggests death or the end of civilisation as we know it.
+
+The survivors have "made our covenant with silence," which means they have accepted that the world has gone quiet. The word "covenant" is a religious word meaning a promise or agreement, which suggests the silence is almost sacred to them. They "listened to our breathing and were afraid," which shows how unnaturally quiet the world has become — normally you would not be able to hear your own breathing.
+
+Muir uses a list structure to describe the days after the war. "On the second day the radios failed," "On the third day a warship passed," "On the sixth day a plane plunged." This counting of days echoes the biblical creation story, but instead of God creating the world, everything is being destroyed. The radios being "dumb" is personification that makes the technology seem dead.
+
+The image of radios that "still they stand in corners of our kitchens" is powerful because it shows that the objects of modern life are still there but useless. The word "still" could mean they are motionless or that they remain — both meanings work. This suggests the survivors are surrounded by reminders of the world they have lost.`,
+      'Grade 6-7': `Muir constructs the post-apocalyptic experience through a rhetoric of subtraction — the poem catalogues what has been lost, and the survivors are defined by their relationship to absence. The opening temporal marker, "Barely a twelvemonth after," establishes a community that measures time from the catastrophe, as religions measure from a founding event. The "seven days war" inverts the Genesis creation narrative: where God created the world in seven days, humanity unmade it in the same span. The euphemistic "put the world to sleep" refuses the vocabulary of violence, the gentleness of "sleep" creating an unsettling dissonance with the reality of mass destruction.
+
+The structural device of numbered days — second, third, sixth — extends the biblical parallel while charting the progressive collapse of civilisation's infrastructure. The radios "failed" on the second day; by the sixth, a plane "plunged over us into the sea." The verb "plunged" implies uncontrolled descent, and the absence of explanation — no cause is given — suggests that understanding has collapsed alongside technology. The single-word sentence "Nothing" after "Thereafter" is the poem's structural nadir, a void in the text that enacts the void in the world.
+
+The most haunting image is of the radios that "still they stand in corners of our kitchens, / And stand, perhaps, turned on, in a million rooms." The repetition of "stand" personifies the radios as silent witnesses, while "perhaps, turned on" is devastating in its uncertainty — it imagines other survivors, elsewhere, who may or may not exist, performing the same futile gesture of turning a knob and receiving "no answer." The domestic setting — "corners of our kitchens" — grounds the apocalypse in the quotidian, and the radios become monuments to a connectivity that has been permanently severed.
+
+The "covenant with silence" is the poem's most significant phrase. A covenant is bilateral, reciprocal — it implies that the survivors have not merely endured silence but agreed to it, accepted it as the new condition of existence. This positions silence not as absence but as a form of speech, the only language adequate to the scale of what has happened.`,
+      'Grade 8-9': `Muir's extract operates at the intersection of elegy and Genesis, constructing the aftermath of catastrophe as an inverted creation myth in which the numbered days mark not the building of a world but its systematic disassembly. The formal structure enacts this: the poem begins with a temporal precision — "Barely a twelvemonth," "the seven days war" — that implies a culture still capable of measurement, but the language progressively loosens its grip on specificity. By the end of the extract, the survivors can only say "perhaps" and "a million rooms," approximations that reveal a community losing its epistemic confidence along with its technology.
+
+The phrase "put the world to sleep" is the extract's most carefully calibrated euphemism. "Sleep" is not death but its rehearsal, and the ambiguity is functional: it allows the possibility that the world might wake, while the weight of the surrounding imagery makes that possibility vanishingly faint. The passive construction — the war "put the world to sleep" — denies agency, as though the catastrophe were a natural process rather than a human choice. This grammatical evasion is itself a symptom of trauma: the survivors cannot or will not name what they have done to themselves.
+
+The numbered days — "On the second day," "On the third day," "On the sixth day" — unmistakably echo Genesis, but the echo is inverted. Where the biblical narrative moves from void to plenitude, Muir's moves from remnant to nothing. The radios fail; the warship carries "dead bodies piled on the deck" (the participle "piled" denying the dead even the dignity of arrangement); the plane "plunges" without explanation. The missing days — the first, the fourth, the fifth — are as significant as the ones named: their absence suggests either that nothing happened on those days or that what happened was too formless to narrate. Either reading reinforces the collapse of coherent experience.
+
+The pivotal word is "Thereafter." It occupies a line break, suspended between the plane's descent and the single-word verdict: "Nothing." This enjambment forces the reader to pause at the edge of the unknown, mimicking the survivors' experience of waiting for a future that may not arrive. "The radios dumb" — the adjective carrying both its modern sense of mute and its older sense of stupid — reduces technology to a pathetic object, and the image of radios standing "in corners of our kitchens" is devastating precisely because of its domesticity. The kitchen is the room of sustenance, of daily routine, and the dead radio in its corner is a monument to the quotidian world that has been lost. The speculative extension — "And stand, perhaps, turned on, in a million rooms / All over the world" — is the extract's most poignant gesture. The word "perhaps" admits the possibility that the survivors are entirely alone, that no one else is listening, that the silence is not a covenant but a fact. Yet the act of imagining other rooms, other radios, other listeners, is itself a refusal of that isolation — an assertion of community that persists even when community cannot be verified.
+
+The "covenant with silence" is theologically loaded. A covenant in the Judeo-Christian tradition is a binding agreement between God and humanity — the rainbow after the Flood, the tablets of the Law. Muir's survivors have made their covenant not with God but with silence, suggesting that in the post-apocalyptic world, absence has replaced the divine as the organising principle of existence. This is not nihilism but a chastened realism: the survivors have learned to inhabit a world stripped of the noise — technological, military, informational — that once passed for meaning, and in doing so, they have discovered a form of attention that the pre-catastrophe world could not accommodate.`,
+    },
+  },
+
+  // ========================================
+  // ADDITIONAL WJEC QUESTIONS
+  // ========================================
+
+  // WJEC Component 1 Section A Q1 - Information Retrieval
+  {
+    id: 'wjec-5',
+    board: 'WJEC',
+    type: 'Information Retrieval',
+    tier: 'GCSE',
+    title: 'Component 1 Section A Q1 Information Retrieval',
+    extract: `The village school had twelve pupils when it closed in 1987. Miss Griffiths, who had taught there for thirty-one years, locked the door for the last time on a Friday afternoon in July and posted the key through the letterbox of the county education office the following Monday. She did not attend the closure meeting. She said afterwards that she saw no point in watching people who had never set foot in a classroom decide the fate of one.
+
+The building stood empty for six years. Rain found its way through the slate roof. Vandals broke three windows and spray-painted something on the back wall that Miss Griffiths, walking past on her way to the post office, described as "illiterate, which rather proves my point." The parish council discussed its future intermittently but could not agree on a use. A developer offered to convert it into holiday apartments. A local farmer wanted to use it for storage. Neither proposal attracted a majority.
+
+In 1993, a woman called Helen Rhys moved to the village from Cardiff and, within six months, had persuaded the council to let her reopen the building as a community centre. She raised fourteen thousand pounds through bake sales, sponsored walks, and what she called "the systematic exploitation of middle-class guilt." The centre opened on September 3rd, 1994. Miss Griffiths cut the ribbon. She was eighty-two years old and used the occasion to deliver a short speech about the importance of education that the local newspaper described as "moving" and the parish councillor seated nearest to her described as "fifteen minutes too long."`,
+    extractSource: 'Original composition in the style of local history writing',
+    question: 'Read lines 1-15 carefully. Choose five statements below which are true. Write the correct letter in each box. (5 marks)\n\n(a) The school had twelve pupils when it closed.\n(b) Miss Griffiths taught at the school for over forty years.\n(c) Miss Griffiths posted the key through the education office letterbox.\n(d) The building was empty for ten years.\n(e) Vandals damaged the building.\n(f) The parish council quickly agreed on a new use.\n(g) Helen Rhys was originally from Cardiff.\n(h) The community centre opened in 1993.\n(i) Miss Griffiths cut the ribbon at the opening.\n(j) The local newspaper called Miss Griffiths\'s speech "fifteen minutes too long."',
+    marks: 10,
+    timing: '10 minutes',
+    markScheme: [
+      'Correctly identifies true statements: (a), (c), (e), (g), (i)',
+      'Award one mark for each correct answer, up to five marks',
+      'No marks deducted for incorrect answers',
+    ],
+    examinerTips: [
+      'Read each statement carefully and check it against the text.',
+      'Watch out for statements that are almost true but change a key detail.',
+      'If unsure, go back to the exact line in the text to verify.',
+      'This question tests close reading, not interpretation.',
+    ],
+    modelAnswers: {
+      'Grade 4-5': `The five true statements are (a), (c), (e), (g), and (i). Statement (a) is true because the text says "the village school had twelve pupils when it closed." Statement (c) is confirmed by "posted the key through the letterbox of the county education office." Statement (e) is true because "vandals broke three windows and spray-painted something on the back wall." Statement (g) is true as the text says Helen Rhys "moved to the village from Cardiff." Statement (i) is correct because "Miss Griffiths cut the ribbon."`,
+      'Grade 6-7': `The correct answers are (a), (c), (e), (g), and (i). The distractors are carefully designed: (b) is false because she taught for thirty-one years, not over forty; (d) is false because the building was empty for six years, not ten; (f) is the opposite of what happened, as the council "could not agree"; (h) is false because the centre opened in 1994, not 1993; and (j) attributes the "fifteen minutes too long" comment to the newspaper, when it was actually said by the parish councillor.`,
+      'Grade 8-9': `The correct answers are (a), (c), (e), (g), and (i). Each false statement contains a specific distortion: (b) inflates thirty-one years to "over forty"; (d) doubles the vacancy period from six to ten years; (f) reverses the council's indecision; (h) confuses Helen Rhys's arrival date (1993) with the centre's opening date (1994); and (j) misattributes a quotation, assigning the councillor's remark to the newspaper. The question tests precision of reading rather than inference.`,
+    },
+  },
+
+  // WJEC Component 2 Section B - Persuasive Writing
+  {
+    id: 'wjec-6',
+    board: 'WJEC',
+    type: 'Persuasive Writing',
+    tier: 'GCSE',
+    title: 'Component 2 Section B Persuasive Writing',
+    extract: '',
+    question: 'Your local park is threatened with being sold for housing development. Write a letter to the local newspaper persuading readers that the park must be saved. (20 marks for communication and organisation, 20 marks for writing accuracy)',
+    marks: 20,
+    timing: '30 minutes',
+    markScheme: [
+      'Matches the conventions of a letter to a newspaper',
+      'Presents a clear, sustained persuasive argument',
+      'Uses a range of rhetorical techniques effectively',
+      'Organises ideas coherently with effective discourse markers',
+      'Demonstrates ambitious vocabulary and varied sentence structures',
+      'Maintains a high standard of technical accuracy',
+    ],
+    examinerTips: [
+      'WJEC gives equal marks for content and accuracy. Proofread carefully.',
+      'A letter to a newspaper is semi-formal: passionate but controlled.',
+      'Use concrete local details to make your argument feel real and specific.',
+      'The best persuasive writing acknowledges the opposing view before dismantling it.',
+    ],
+    modelAnswers: {
+      'Grade 4-5': `Dear Editor,
+
+I am writing to express my concern about the proposal to sell Brynmoor Park for housing development. I believe this would be a terrible loss for our community.
+
+Brynmoor Park has been part of this town for over eighty years. Generations of families have played there, walked their dogs there, and enjoyed the green space. My own children learned to ride their bikes on the path by the duck pond. If we sell this park, where will people go?
+
+The council says we need more housing. I understand this, but building on the park is not the answer. There are brownfield sites on the old industrial estate that could be developed instead. Why destroy something irreplaceable when alternatives exist?
+
+Parks are not luxuries. Research shows that access to green space improves mental and physical health. Our town already has fewer parks per person than the national average. Removing Brynmoor would make this worse. The NHS spends millions treating illnesses that could be prevented by outdoor exercise. Selling the park to save money now will cost us more in the long term.
+
+I urge every reader who values this park to attend the council meeting on March 25th and make their voice heard. Once the park is gone, it is gone forever.
+
+Yours faithfully,
+A Concerned Resident`,
+      'Grade 6-7': `Dear Editor,
+
+I should like to draw your readers' attention to a proposal that has, so far, attracted remarkably little attention for something that would permanently alter the character of our town. The council intends to sell Brynmoor Park — all four acres of it, including the memorial garden, the children's playground, and the avenue of horse chestnuts that has lined the eastern boundary since 1938 — to a property developer.
+
+The financial logic is, I suppose, defensible. Land has value. Housing is needed. A park generates no revenue. But this reasoning treats a community asset as though it were a derelict warehouse, and it reveals a particular kind of poverty — not financial, but imaginative. A council that cannot conceive of value beyond the balance sheet is a council that has forgotten what it exists to protect.
+
+Let me offer some figures that do not appear in the proposal. Brynmoor Park is used by an estimated three thousand residents every week. The Saturday morning parkrun attracts over a hundred runners. The Friends of Brynmoor group — volunteers who maintain the flowerbeds, clear litter, and organise seasonal events — donate approximately two thousand hours of unpaid labour annually. This is not a neglected space waiting to be repurposed. It is a thriving civic resource that the council is proposing to destroy because someone has offered to buy it.
+
+The housing argument is a distraction. There are fourteen acres of brownfield land on the former Trevithick Works site, less than half a mile from the park, that have been earmarked for development for over a decade. The reason they remain undeveloped is not a shortage of land but a shortage of political will. It is cheaper and easier to sell a park than to remediate a contaminated industrial site, and the council has chosen accordingly. This is not a housing policy. It is a path of least resistance.
+
+I ask your readers to consider what kind of town they wish to live in — one that protects its green spaces or one that sells them. The consultation closes on April 12th. I hope we are not too late.
+
+Yours faithfully,
+D. Morgan`,
+      'Grade 8-9': `Dear Editor,
+
+There is a test that every town faces sooner or later, and it is this: when money is short and land is valuable, do you sell the park? The answer reveals everything about a community's understanding of what it is for. Our council has chosen its answer. I am writing to suggest that it is the wrong one.
+
+Brynmoor Park is four acres. In the language of the proposal document, it is "an underperforming asset with significant development potential." In the language of everyone who has ever used it, it is the place where your children take their first unsupervised steps away from you, where the elderly walk circuits that keep them mobile for another year, where the bereaved sit on the bench by the memorial garden because grief needs somewhere to go that is not a living room. These uses do not appear on a spreadsheet. They are, nonetheless, the reason the park exists.
+
+I have read the proposal. I note that it quantifies the revenue from the land sale but does not quantify the cost of losing the park. This is not an oversight. It is a strategy. The benefits of green space — reduced GP visits, improved mental health, lower rates of childhood obesity, stronger social cohesion — are extensively documented but diffuse, accruing across budgets and timescales that exceed the electoral cycle. The revenue from selling the park, by contrast, arrives in a single, legible figure that can be placed in a column marked "income." The council has chosen the legible option, which is understandable. It is also cowardly.
+
+The housing argument deserves engagement, because it is not frivolous. We do need housing. But the implicit claim — that this park is the only available land — is false, and the council knows it is false. The Trevithick Works brownfield site, three hundred metres to the south, has been designated for residential development since 2014. It remains undeveloped because remediation is expensive and complicated, and because a park is easier to sell than a problem is to solve. The choice being presented as necessity is, in reality, a preference — a preference for the simple over the right.
+
+I do not think the councillors who approved this proposal are malicious. I think they are tired, and that tired people reach for the nearest solution rather than the best one. But this is a decision that cannot be undone. Houses, once built, do not revert to grass. The chestnuts, once felled, do not regrow in our lifetimes. Every generation inherits the irreversible decisions of the one before it, and if we permit this sale, our children will inherit a town that chose concrete over canopy, revenue over refuge, and the expedient over the enduring.
+
+The consultation closes on April 12th. I would urge every reader who has ever walked through Brynmoor Park to respond — not because it will definitely make a difference, but because silence, in these matters, is always interpreted as consent.
+
+Yours faithfully,
+D. Morgan`,
+    },
+  },
+
+  // WJEC Literature Component 1 - Shakespeare Analysis
+  {
+    id: 'wjec-7',
+    board: 'WJEC',
+    type: 'Shakespeare Analysis',
+    tier: 'GCSE',
+    title: 'Literature Component 1 Shakespeare',
+    extract: `PROSPERO:
+Our revels now are ended. These our actors,
+As I foretold you, were all spirits and
+Are melted into air, into thin air;
+And, like the baseless fabric of this vision,
+The cloud-capped towers, the gorgeous palaces,
+The solemn temples, the great globe itself,
+Yea, all which it inherit, shall dissolve,
+And, like this insubstantial pageant faded,
+Leave not a rack behind. We are such stuff
+As dreams are made on, and our little life
+Is rounded with a sleep.
+
+(The Tempest, Act 4 Scene 1)`,
+    question: 'How does Shakespeare use this speech to explore ideas about power, illusion, and the nature of life? You should consider the language and imagery used, the significance of the speech in the play as a whole, and relevant context. (20 marks)',
+    marks: 20,
+    timing: '30 minutes',
+    markScheme: [
+      'Analyses how language and imagery convey ideas about power and impermanence',
+      'Explores the significance of the speech within the wider play',
+      'Uses well-selected quotations analysed in close detail',
+      'Considers relevant context (Shakespeare\'s late career, theatre, colonialism)',
+      'Shows understanding of how the speech functions as a dramatic moment',
+      'Develops a coherent and sustained argument',
+    ],
+    examinerTips: [
+      'This speech operates on multiple levels. Consider the character, the play, and the playwright.',
+      'Think about what Prospero is saying about his own magic — and what Shakespeare might be saying about theatre.',
+      'Analyse specific words and images, not just general themes.',
+      'Context should illuminate your interpretation, not be bolted on as a separate paragraph.',
+    ],
+    modelAnswers: {
+      'Grade 4-5': `In this speech, Prospero tells the other characters that the magical show he created is over. He says the actors "were all spirits" that have "melted into air," which shows his power to create and dismiss illusions. This links to the rest of the play where Prospero uses magic to control everyone on the island.
+
+Prospero then says that everything — "the cloud-capped towers, the gorgeous palaces, the solemn temples" — will eventually disappear. The listing of grand buildings creates an image of the most impressive things humans can create, and then Prospero says even these "shall dissolve." This is about the temporary nature of everything, including power itself.
+
+The most famous line is "We are such stuff as dreams are made on." This compares human life to a dream, suggesting that life is fragile and unreal. The word "little" in "our little life" makes human existence seem small and unimportant. The phrase "rounded with a sleep" means life is surrounded by sleep — the sleep before birth and the sleep of death.
+
+This speech is significant because Prospero is Shakespeare's last great character, and many people believe Shakespeare is speaking through him. When Prospero says the show is over, Shakespeare may be saying goodbye to the theatre. The "great globe" could refer to the Globe Theatre as well as the world, which would make this a very personal speech about Shakespeare's own career ending.`,
+      'Grade 6-7': `Prospero's speech marks the moment when Shakespeare's most powerful magician confronts the limits of his own art, and in doing so, articulates a vision of universal impermanence that extends far beyond the immediate dramatic context.
+
+The opening — "Our revels now are ended" — operates on three simultaneous levels: Prospero dismisses the masque he has conjured for Ferdinand and Miranda; Shakespeare signals the approaching end of the play; and the ageing playwright, in what is widely considered his final solo work, contemplates the conclusion of his theatrical career. The word "revels" carries connotations of festivity and indulgence, but its proximity to "ended" immediately introduces the theme of cessation.
+
+The actors who "were all spirits" have "melted into air, into thin air" — the repetition of "air" with the qualifying "thin" enacts the process of dissolution it describes, the phrase becoming lighter and less substantial with each word. This is Prospero describing his magic, but it is also Shakespeare describing theatre: actors who embody characters for two hours and then cease to exist. The "baseless fabric of this vision" uses textile imagery — "fabric" — to suggest both construction and fragility, while "baseless" denies even the illusion of permanence.
+
+The asyndetic listing of "cloud-capped towers," "gorgeous palaces," "solemn temples," "the great globe itself" creates a crescendo of human achievement before the devastating verb "dissolve" reduces it all to nothing. The "great globe" is Shakespeare's most celebrated double meaning: simultaneously the Earth and the Globe Theatre, collapsing the distinction between the world and the stage that The Tempest has been exploring throughout. The adjective "great" is quietly ironic when applied to a wooden playhouse in Southwark, yet the irony cuts both ways — if the globe is a theatre, then the theatre is a globe, and what happens on stage is as real as what happens in the world.
+
+"We are such stuff as dreams are made on" is the speech's philosophical centre. The noun "stuff" — material, substance — is deliberately prosaic, grounding the metaphysical claim in the language of craft. Dreams are "made on," not "made of," a preposition that suggests construction rather than composition, reinforcing the theatrical metaphor. Human life is not merely dreamlike; it is manufactured, performed, and temporary. The final image — "our little life / Is rounded with a sleep" — wraps existence in oblivion, the verb "rounded" suggesting both completeness and enclosure. We emerge from unconsciousness and return to it, and everything between is performance.`,
+      'Grade 8-9': `This speech is Shakespeare's most extraordinary act of dramatic ventriloquism: a character who commands spirits tells us that everything — including the art that commands spirits — is ephemeral. The result is a passage that dismantles its own medium, using the resources of theatrical illusion to argue for the illusoriness of theatre, and by extension, of existence itself.
+
+Prospero begins with closure: "Our revels now are ended." The possessive "our" is inclusive, drawing the audience into complicity with a theatrical event that is about to declare itself unreal. The actors "were all spirits" — the past tense is immediate, performative, the transformation from presence to absence happening in the speaking of it. "Melted into air, into thin air" is Shakespeare's most precisely engineered diminuendo: the repetition strips away substance syllable by syllable, the adjective "thin" further attenuating what "air" has already rendered intangible. The line performs its own argument — by the time we reach the second "air," the spirits have vanished linguistically as well as dramatically.
+
+The subsequent catalogue — "the cloud-capped towers, the gorgeous palaces, / The solemn temples, the great globe itself" — constructs a hierarchy of human civilisation only to subject it to a single verb: "dissolve." The progression from architectural to cosmic is significant. Shakespeare moves from the edifices of secular power ("towers"), through wealth ("gorgeous palaces") and religion ("solemn temples"), to the totality of the physical world ("the great globe"), and annihilates them equally. The "great globe" is, of course, the play's most celebrated pun — simultaneously the planet and the theatre on Bankside where these words were first spoken. This dual reference is not merely clever; it is structurally essential. By identifying the world with the theatre, Shakespeare collapses the ontological distinction between reality and representation. If the Globe is the globe, then the dissolution of one is the dissolution of the other, and the audience watching the play is implicated in the impermanence it describes.
+
+"We are such stuff / As dreams are made on" — the line's fame has perhaps dulled our awareness of its radicalism. The word "stuff" is a textile term: fabric, material for construction. Human beings are not compared to dreams but identified as the raw material from which dreams are manufactured. The preposition "on" (rather than the later emendation "of") preserves the sense of fabrication — dreams are "made on" us as garments are made on a loom. We are simultaneously the dreamer, the dream, and the material of dreaming, a triple identity that Shakespeare leaves deliberately unresolved.
+
+The concluding image — "our little life / Is rounded with a sleep" — is the speech's quietest and most devastating moment. "Little" is devastating after the grandeur of towers and palaces, reducing the individual human span to a diminutive in a sentence about eternity. "Rounded" has been debated for four centuries: does it mean "surrounded," implying that sleep (oblivion, death) encloses life on both sides? Or "completed," implying that sleep gives life its shape, its fullness? Shakespeare, characteristically, means both. Life is bounded by unconsciousness — the sleep before birth, the sleep after death — and it is only within this frame that it achieves whatever form it has. The sleep does not diminish life; it defines it.
+
+Contextually, this speech represents Shakespeare's most direct engagement with his own art's mortality. Writing The Tempest around 1611, near the end of his career, Shakespeare creates a magician who renounces his power — and in doing so, writes the most powerful speech in the canon. The paradox is the point: Prospero's relinquishment of magic is itself the supreme act of magic, just as Shakespeare's farewell to the theatre is his most theatrically accomplished moment. The speech does not mourn impermanence; it transfigures it, making the transience of art not a failure but its defining condition.`,
+    },
+  },
 ];
 
 export default practiceQuestions;

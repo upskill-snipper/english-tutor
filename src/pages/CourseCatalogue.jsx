@@ -68,14 +68,14 @@ export default function CourseCatalogue() {
     <div style={{ background: '#0a0e1a', minHeight: '100vh', color: '#f1f5f9' }}>
       <Navbar />
 
-      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '2rem 1.5rem 4rem' }}>
+      <div id="main-content" role="main" style={{ maxWidth: '1100px', margin: '0 auto', padding: '2rem 1.5rem 4rem' }}>
         <h1 style={{ fontSize: '2rem', fontWeight: 900, marginBottom: '0.5rem' }}>Course Catalogue</h1>
         <p style={{ color: '#94a3b8', marginBottom: '2rem', fontSize: '1rem' }}>
           Choose your level and exam board. Every course is tailored to your specification.
         </p>
 
         {/* Tier filter */}
-        <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
+        <div role="group" aria-label="Filter by level" style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
           {[
             { value: 'all', label: 'All Courses' },
             { value: 'KS3', label: 'KS3 (Years 7-9)' },
@@ -94,7 +94,7 @@ export default function CourseCatalogue() {
 
         {/* Board filter */}
         {showBoardFilter && (
-          <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
+          <div role="group" aria-label="Filter by board" style={{ display: 'flex', gap: '0.5rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
             <button
               onClick={() => setBoardFilter('all')}
               style={pillStyle(boardFilter === 'all')}

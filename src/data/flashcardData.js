@@ -1,9 +1,14 @@
+import aqaSetTextFlashcards from './aqaSetTextFlashcards';
 import edexcelRelationshipsFlashcards from './edexcel/flashcards/edexcelRelationshipsFlashcards';
 import edexcelConflictFlashcards from './edexcel/flashcards/edexcelConflictFlashcards';
 import edexcelTimePlaceFlashcards from './edexcel/flashcards/edexcelTimePlaceFlashcards';
+import edexcelBelongingFlashcards from './edexcel/flashcards/edexcelBelongingFlashcards';
 import edexcelIgcseFlashcards from './edexcel/flashcards/edexcelIgcseFlashcards';
+import edexcelSetTextFlashcards from './edexcel/flashcards/edexcelSetTextFlashcards';
 import ocrPoetryFlashcards from './ocr/ocrPoetryFlashcards';
+import ocrSetTextFlashcards from './ocr/ocrSetTextFlashcards';
 import wjecFlashcards from './wjec/wjecFlashcards';
+import wjecSetTextFlashcards from './wjec/wjecSetTextFlashcards';
 
 const coreDecks = [
   {
@@ -170,12 +175,17 @@ const coreDecks = [
 
 const flashcardDecks = [
   ...coreDecks,
+  ...aqaSetTextFlashcards,
   edexcelRelationshipsFlashcards,
   edexcelConflictFlashcards,
   edexcelTimePlaceFlashcards,
+  edexcelBelongingFlashcards,
   edexcelIgcseFlashcards,
+  ...edexcelSetTextFlashcards,
   ocrPoetryFlashcards,
+  ...ocrSetTextFlashcards,
   ...wjecFlashcards,
+  ...wjecSetTextFlashcards,
 ];
 
 export default flashcardDecks;

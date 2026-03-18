@@ -37,7 +37,7 @@ export default function Revision() {
     return (
       <div style={{ background: '#0a0e1a', minHeight: '100vh', color: '#f1f5f9' }}>
         <Navbar />
-        <div style={{ maxWidth: '600px', margin: '0 auto', padding: '2rem 1.5rem 4rem' }}>
+        <div id="main-content" role="main" style={{ maxWidth: '600px', margin: '0 auto', padding: '2rem 1.5rem 4rem' }}>
           <button onClick={() => { setSelectedDeck(null); setCardIndex(0); setFlipped(false); }} className="btn-ghost" style={{ marginBottom: '1rem' }}>
             <ChevronLeft size={15} /> All Decks
           </button>
@@ -151,7 +151,7 @@ export default function Revision() {
   return (
     <div style={{ background: '#0a0e1a', minHeight: '100vh', color: '#f1f5f9' }}>
       <Navbar />
-      <div style={{ maxWidth: '900px', margin: '0 auto', padding: '2rem 1.5rem 4rem' }}>
+      <div id="main-content" role="main" style={{ maxWidth: '900px', margin: '0 auto', padding: '2rem 1.5rem 4rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
           <BookMarked size={24} color="#10b981" />
           <h1 style={{ fontSize: '1.75rem', fontWeight: 900 }}>Revision Tools</h1>
@@ -159,7 +159,7 @@ export default function Revision() {
         <p style={{ color: '#94a3b8', marginBottom: '2rem' }}>Flashcards and technique reference — everything you need to revise.</p>
 
         {/* Tabs */}
-        <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '2rem' }}>
+        <div role="group" aria-label="Revision tool tabs" style={{ display: 'flex', gap: '0.5rem', marginBottom: '2rem' }}>
           {[
             { id: 'flashcards', label: 'Flashcards' },
             { id: 'techniques', label: 'Techniques Reference' },
@@ -181,7 +181,7 @@ export default function Revision() {
         {tab === 'flashcards' && (
           <>
           {/* Board filter */}
-          <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
+          <div role="group" aria-label="Filter by board" style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
             {['all', 'AQA', 'Edexcel', 'OCR', 'WJEC'].map(b => {
               const active = boardFilter === b;
               const col = b === 'all' ? '#10b981' : BOARD_COLORS[b];
@@ -253,7 +253,7 @@ export default function Revision() {
                   }}
                 />
               </div>
-              <div style={{ display: 'flex', gap: '0.375rem', flexWrap: 'wrap' }}>
+              <div role="group" aria-label="Filter by category" style={{ display: 'flex', gap: '0.375rem', flexWrap: 'wrap' }}>
                 <button onClick={() => setFilterCategory('')}
                   style={{
                     padding: '0.5rem 0.875rem', borderRadius: '6px', fontSize: '0.8rem', fontWeight: 600,

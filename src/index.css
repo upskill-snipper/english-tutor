@@ -22,23 +22,25 @@ html {
 }
 
 body {
-  background: #0a0e1a;
-  color: #f1f5f9;
+  background: var(--bg-primary, #0a0e1a);
+  color: var(--text-primary, #f1f5f9);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   margin: 0;
   padding: 0;
+  transition: background 0.25s ease, color 0.25s ease;
 }
 
 .glass {
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--glass-bg, rgba(255, 255, 255, 0.04));
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.08));
 }
 
 .card {
-  background: #131d35;
-  border: 1px solid #1e2d4a;
+  background: var(--bg-card, #131d35);
+  border: 1px solid var(--border-color, #1e2d4a);
   border-radius: 12px;
+  transition: background 0.25s ease, border-color 0.25s ease;
 }
 
 .btn-primary {
@@ -327,6 +329,39 @@ body {
   }
 }
 
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #10b981;
+  color: white;
+  padding: 8px 16px;
+  z-index: 100;
+  transition: top 0.2s;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Focus visible styles */
+*:focus-visible {
+  outline: 2px solid #10b981;
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -339,5 +374,82 @@ body {
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
+  background: #10b981;
+}
+
+/* ── Light mode overrides ────────────────────────────────────────── */
+.light-mode {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --border-color: #e2e8f0;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --nav-bg: rgba(255, 255, 255, 0.85);
+}
+
+.light-mode .btn-secondary {
+  background: rgba(0, 0, 0, 0.04);
+  color: #0f172a;
+  border-color: #e2e8f0;
+}
+.light-mode .btn-secondary:hover {
+  background: rgba(0, 0, 0, 0.08);
+  border-color: #cbd5e1;
+}
+
+.light-mode .btn-ghost {
+  color: #475569;
+}
+.light-mode .btn-ghost:hover {
+  color: #0f172a;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.light-mode .progress-track {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.light-mode .module-content p,
+.light-mode .module-content li {
+  color: #334155;
+}
+.light-mode .module-content strong {
+  color: #0f172a;
+}
+.light-mode .module-content pre {
+  color: #475569;
+}
+.light-mode .module-content dt {
+  color: #0f172a;
+}
+.light-mode .module-content dd {
+  color: #475569;
+}
+
+.light-mode .module-content .text-extract {
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+  color: #0f172a;
+}
+.light-mode .module-content .text-extract::before {
+  background: #f1f5f9;
+  color: #94a3b8;
+}
+
+.light-mode .module-content .diagram-box {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+.light-mode ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+.light-mode ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+.light-mode ::-webkit-scrollbar-thumb:hover {
   background: #10b981;
 }

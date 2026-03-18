@@ -244,6 +244,43 @@ export function saveFlashcardProgress(deckId, cardId, known) {
   localStorage.setItem(STORAGE_PREFIX + 'flashcards', JSON.stringify(all));
 }
 
+// ─── Certificate Helpers ────────────────────────────────────────
+
+export function getCertificates(userId) {
+  const users = getUsers();
+  const user = users.find(u => u.id === userId);
+  return user?.certificates || [];
+}
+
+export function hasCertificate(userId, courseId) {
+  const certs = getCertificates(userId);
+  return certs.some(c => c.courseId === courseId);
+}
+
+export function awardCertificate(userId, courseId, courseTitle, score, grade) {
+  const users = getUsers();
+  const userIdx = users.findIndex(u => u.id === userId);
+  if (userIdx < 0) return null;
+  if (hasCertificate(userId, courseId)) return getCertificates(userId).find(c => c.courseId === courseId);
+  const certId = generateCertId();
+  const cert = {
+    id: certId,
+    courseId,
+    courseTitle,
+    score,
+    grade,
+    issuedAt: Date.now(),
+  };
+  if (!users[userIdx].certificates) users[userIdx].certificates = [];
+  users[userIdx].certificates.push(cert);
+  if (!users[userIdx].completedCourses) users[userIdx].completedCourses = [];
+  if (!users[userIdx].completedCourses.includes(courseId)) {
+    users[userIdx].completedCourses.push(courseId);
+  }
+  saveUsers(users);
+  return cert;
+}
+
 // ─── Predicted Grades Helpers ───────────────────────────────────
 
 export function getCompletedAssessmentCount(userId) {

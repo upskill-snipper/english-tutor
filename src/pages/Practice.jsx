@@ -73,7 +73,7 @@ export default function Practice() {
     return (
       <div style={{ background: '#0a0e1a', minHeight: '100vh', color: '#f1f5f9' }}>
         <Navbar />
-        <div style={{ maxWidth: '700px', margin: '0 auto', padding: '2rem 1.5rem 4rem' }}>
+        <div id="main-content" role="main" style={{ maxWidth: '700px', margin: '0 auto', padding: '2rem 1.5rem 4rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
             <Dumbbell size={24} color="#10b981" />
             <h1 style={{ fontSize: '1.75rem', fontWeight: 900 }}>Quick Practice</h1>
@@ -104,7 +104,7 @@ export default function Practice() {
 
             <div style={{ marginBottom: '1.25rem' }}>
               <label style={{ fontSize: '0.8rem', fontWeight: 600, color: '#94a3b8', display: 'block', marginBottom: '0.5rem' }}>Exam Board</label>
-              <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+              <div role="group" aria-label="Filter by board" style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
                 {boards.map(b => {
                   const boardColor = BOARDS[b]?.color || '#10b981';
                   const count = practiceQuestions.filter(q => q.board === b).length;
@@ -143,7 +143,7 @@ export default function Practice() {
 
             <div style={{ marginBottom: '1.25rem' }}>
               <label style={{ fontSize: '0.8rem', fontWeight: 600, color: '#94a3b8', display: 'block', marginBottom: '0.5rem' }}>Paper</label>
-              <div style={{ display: 'flex', gap: '0.5rem' }}>
+              <div role="group" aria-label="Filter by paper" style={{ display: 'flex', gap: '0.5rem' }}>
                 {[0, 1, 2].map(p => (
                   <button key={p} onClick={() => setFilters(f => ({ ...f, paper: p }))} style={selectStyle(filters.paper === p)}>
                     {p === 0 ? 'Any' : `Paper ${p}`}
@@ -154,7 +154,7 @@ export default function Practice() {
 
             <div style={{ marginBottom: '1.25rem' }}>
               <label style={{ fontSize: '0.8rem', fontWeight: 600, color: '#94a3b8', display: 'block', marginBottom: '0.5rem' }}>Question Type</label>
-              <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+              <div role="group" aria-label="Filter by question type" style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
                 <button onClick={() => setFilters(f => ({ ...f, type: '' }))} style={selectStyle(!filters.type)}>Any</button>
                 {types.map(t => (
                   <button key={t} onClick={() => setFilters(f => ({ ...f, type: t }))} style={selectStyle(filters.type === t)}>{t}</button>
@@ -164,7 +164,7 @@ export default function Practice() {
 
             <div style={{ marginBottom: '2rem' }}>
               <label style={{ fontSize: '0.8rem', fontWeight: 600, color: '#94a3b8', display: 'block', marginBottom: '0.5rem' }}>Difficulty</label>
-              <div style={{ display: 'flex', gap: '0.5rem' }}>
+              <div role="group" aria-label="Filter by difficulty" style={{ display: 'flex', gap: '0.5rem' }}>
                 <button onClick={() => setFilters(f => ({ ...f, difficulty: '' }))} style={selectStyle(!filters.difficulty)}>Any</button>
                 {difficulties.map(d => (
                   <button key={d} onClick={() => setFilters(f => ({ ...f, difficulty: d }))} style={selectStyle(filters.difficulty === d)}>{d}</button>
@@ -193,7 +193,7 @@ export default function Practice() {
     return (
       <div style={{ background: '#0a0e1a', minHeight: '100vh', color: '#f1f5f9' }}>
         <Navbar />
-        <div style={{ maxWidth: '720px', margin: '0 auto', padding: '2rem 1.5rem 4rem' }}>
+        <div id="main-content" role="main" style={{ maxWidth: '720px', margin: '0 auto', padding: '2rem 1.5rem 4rem' }}>
           <button onClick={() => setStep('setup')} className="btn-ghost" style={{ marginBottom: '1.5rem' }}>
             <ChevronLeft size={15} /> Back
           </button>
@@ -255,7 +255,7 @@ export default function Practice() {
     return (
       <div style={{ background: '#0a0e1a', minHeight: '100vh', color: '#f1f5f9' }}>
         <Navbar />
-        <div style={{ maxWidth: '720px', margin: '0 auto', padding: '2rem 1.5rem 4rem' }}>
+        <div id="main-content" role="main" style={{ maxWidth: '720px', margin: '0 auto', padding: '2rem 1.5rem 4rem' }}>
           <button onClick={() => setStep('setup')} className="btn-ghost" style={{ marginBottom: '1.5rem' }}>
             <ChevronLeft size={15} /> New Question
           </button>

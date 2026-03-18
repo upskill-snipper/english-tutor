@@ -30,13 +30,21 @@ const EXAM_BOARDS = [
   { name: 'WJEC Eduqas', color: '#ea580c', bg: 'rgba(234,88,12,0.12)', border: 'rgba(234,88,12,0.3)' },
 ];
 
+const STATS = [
+  { label: 'Courses', value: '30+', icon: BookOpen },
+  { label: 'Flashcard Decks', value: '50+', icon: Library },
+  { label: 'Practice Questions', value: '30', icon: PenTool },
+  { label: 'Anthology Text Lessons', value: '20+', icon: Sparkles },
+];
+
 const FEATURES = [
   'Expert-written content by practising English teachers',
-  'Multi-board support — AQA, Edexcel, OCR & WJEC Eduqas',
+  'Trusted by students across all 4 major exam boards — AQA, Edexcel, OCR & WJEC Eduqas',
   'Aligned with real mark scheme criteria for every board',
   'Worked examples at every grade boundary',
   'Predicted grades dashboard to track your progress',
   'Instant quiz feedback with detailed explanations',
+  'Free exam technique courses to get you started',
   'Earn certificates to prove your progress',
   'Mobile-friendly — revise anywhere, any time',
 ];
@@ -124,6 +132,39 @@ export default function Landing() {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* Stats bar */}
+      <section style={{
+        padding: '2rem 1.5rem',
+        maxWidth: '900px',
+        margin: '0 auto',
+      }}>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
+          gap: '1rem',
+          textAlign: 'center',
+        }}>
+          {STATS.map((s, i) => (
+            <div key={i} style={{
+              background: 'rgba(255,255,255,0.03)',
+              border: '1px solid rgba(255,255,255,0.06)',
+              borderRadius: '12px',
+              padding: '1.25rem 1rem',
+            }}>
+              <s.icon size={20} color="#10b981" style={{ marginBottom: '0.5rem' }} />
+              <div style={{ fontSize: '1.75rem', fontWeight: 900, color: '#f1f5f9', lineHeight: 1 }}>{s.value}</div>
+              <div style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '0.35rem', fontWeight: 600 }}>{s.label}</div>
+            </div>
+          ))}
+        </div>
+        <p style={{
+          textAlign: 'center', color: '#64748b', fontSize: '0.8rem',
+          fontWeight: 600, marginTop: '1.25rem', letterSpacing: '0.04em',
+        }}>
+          Trusted by students across all major exam boards
+        </p>
       </section>
 
       {/* Pathway cards */}
