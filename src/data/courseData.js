@@ -11,11 +11,14 @@ import ocrLangReading from './ocr/ocrGcseLangReading';
 import ocrLangWriting from './ocr/ocrGcseLangWriting';
 import ocrLitTexts from './ocr/ocrGcseLitTexts';
 import ocrLitPoetry from './ocr/ocrGcseLitPoetry';
+import ocrLitSetTexts from './ocr/ocrLitSetTexts';
 import wjecLangReading from './wjec/wjecGcseLangReading';
 import wjecLangWriting from './wjec/wjecGcseLangWriting';
 import wjecLitTexts from './wjec/wjecGcseLitTexts';
 import wjecLitPoetry from './wjec/wjecGcseLitPoetry';
+import wjecLitSetTexts from './wjec/wjecLitSetTexts';
 import examTechniqueCourses from './examTechnique/index';
+import aqaLitSetTexts from './aqaLitSetTexts';
 
-const COURSES = [...ks3Courses, ...ks3CoursesExtra, ...ks4Courses, ...edexcelGcseLang, ...edexcelGcseLit, ...edexcelIgcse, ...edexcelIgcseLit, edexcelIgcseLitUnseen, edexcelIgcseSpecB, ocrLangReading, ocrLangWriting, ocrLitTexts, ocrLitPoetry, wjecLangReading, wjecLangWriting, wjecLitTexts, wjecLitPoetry, ...examTechniqueCourses];
+const COURSES = [...ks3Courses, ...ks3CoursesExtra, ...ks4Courses, ...edexcelGcseLang, ...edexcelGcseLit, ...edexcelIgcse, ...edexcelIgcseLit, edexcelIgcseLitUnseen, edexcelIgcseSpecB, ocrLangReading, ocrLangWriting, ocrLitTexts, ocrLitPoetry, ...ocrLitSetTexts, wjecLangReading, wjecLangWriting, wjecLitTexts, wjecLitPoetry, ...wjecLitSetTexts, ...examTechniqueCourses, ...aqaLitSetTexts];
 export default COURSES;
