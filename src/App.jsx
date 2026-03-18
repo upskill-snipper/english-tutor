@@ -1,5 +1,5 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { BrowserRouter, Routes, Route, Navigate, Link } from 'react-router-dom';
+import { useEffect, Component } from 'react';
 import { seedDemoData, getCurrentUser } from './utils/auth';
 
 import Landing from './pages/Landing';
@@ -18,6 +18,41 @@ import NotFound from './pages/NotFound';
 import TextLibrary from './pages/TextLibrary';
 import PredictedGrades from './pages/PredictedGrades';
 
+class ErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+  componentDidCatch(error, info) {
+    console.error('ErrorBoundary caught:', error, info);
+  }
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div style={{
+          background: '#0a0e1a', minHeight: '100vh', color: '#f1f5f9',
+          display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+          padding: '2rem', textAlign: 'center'
+        }}>
+          <h1 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '0.75rem' }}>
+            Something went wrong
+          </h1>
+          <p style={{ color: '#94a3b8', marginBottom: '2rem', maxWidth: '400px' }}>
+            An unexpected error occurred. Please try again or return to the home page.
+          </p>
+          <a href="/" className="btn-primary" style={{ textDecoration: 'none' }}>
+            Go Home
+          </a>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
 function ProtectedRoute({ children, adminOnly = false }) {
   const user = getCurrentUser();
   if (!user) return <Navigate to="/login" replace />;
@@ -31,6 +66,7 @@ export default function App() {
   }, []);
 
   return (
+    <ErrorBoundary>
     <BrowserRouter basename="/english-tutor">
       <Routes>
         <Route path="/" element={<Landing />} />
@@ -51,5 +87,6 @@ export default function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
+    </ErrorBoundary>
   );
 }

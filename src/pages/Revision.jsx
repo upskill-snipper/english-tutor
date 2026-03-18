@@ -5,6 +5,8 @@ import flashcardDecks from '../data/flashcardData';
 import techniques from '../data/techniquesData';
 import { getFlashcardProgress, saveFlashcardProgress } from '../utils/auth';
 
+const BOARD_COLORS = { AQA: '#2563eb', Edexcel: '#dc2626', OCR: '#7c3aed', WJEC: '#ea580c', All: '#10b981' };
+
 export default function Revision() {
   const [tab, setTab] = useState('flashcards'); // flashcards | techniques
   const [selectedDeck, setSelectedDeck] = useState(null);
@@ -12,6 +14,7 @@ export default function Revision() {
   const [flipped, setFlipped] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [filterCategory, setFilterCategory] = useState('');
+  const [boardFilter, setBoardFilter] = useState('all');
 
   const fcProgress = getFlashcardProgress();
 
@@ -176,8 +179,24 @@ export default function Revision() {
         </div>
 
         {tab === 'flashcards' && (
+          <>
+          {/* Board filter */}
+          <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
+            {['all', 'AQA', 'Edexcel', 'OCR', 'WJEC'].map(b => {
+              const active = boardFilter === b;
+              const col = b === 'all' ? '#10b981' : BOARD_COLORS[b];
+              return (
+                <button key={b} onClick={() => setBoardFilter(b)} style={{
+                  padding: '0.5rem 1rem', borderRadius: '100px', fontSize: '0.8rem', fontWeight: 600,
+                  border: `1px solid ${active ? col + '50' : 'rgba(255,255,255,0.08)'}`,
+                  background: active ? col + '18' : 'rgba(255,255,255,0.04)',
+                  color: active ? col : '#94a3b8', cursor: 'pointer',
+                }}>{b === 'all' ? 'All Boards' : b}</button>
+              );
+            })}
+          </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1rem' }}>
-            {flashcardDecks.map(deck => {
+            {flashcardDecks.filter(d => boardFilter === 'all' || d.board === boardFilter || d.board === 'All').map(deck => {
               const dp = fcProgress[deck.id] || {};
               const known = Object.values(dp).filter(v => v === 'known').length;
               return (
@@ -186,10 +205,20 @@ export default function Revision() {
                   onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-2px)'}
                   onMouseLeave={e => e.currentTarget.style.transform = 'none'}
                 >
-                  <span style={{
-                    fontSize: '0.65rem', fontWeight: 700, color: '#34d399', background: 'rgba(52,211,153,0.1)',
-                    padding: '0.2rem 0.5rem', borderRadius: '4px', display: 'inline-block', marginBottom: '0.75rem',
-                  }}>{deck.category}</span>
+                  <div style={{ display: 'flex', gap: '0.375rem', marginBottom: '0.75rem', flexWrap: 'wrap' }}>
+                    <span style={{
+                      fontSize: '0.65rem', fontWeight: 700, color: '#34d399', background: 'rgba(52,211,153,0.1)',
+                      padding: '0.2rem 0.5rem', borderRadius: '4px',
+                    }}>{deck.category}</span>
+                    {deck.board && deck.board !== 'All' && (
+                      <span style={{
+                        fontSize: '0.65rem', fontWeight: 700,
+                        color: BOARD_COLORS[deck.board] || '#94a3b8',
+                        background: (BOARD_COLORS[deck.board] || '#94a3b8') + '15',
+                        padding: '0.2rem 0.5rem', borderRadius: '4px',
+                      }}>{deck.board}</span>
+                    )}
+                  </div>
                   <h3 style={{ fontWeight: 700, fontSize: '1rem', color: '#f1f5f9', marginBottom: '0.375rem' }}>{deck.title}</h3>
                   <p style={{ color: '#94a3b8', fontSize: '0.8rem', marginBottom: '1rem' }}>{deck.description}</p>
                   <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: '#64748b' }}>
@@ -203,6 +232,7 @@ export default function Revision() {
               );
             })}
           </div>
+          </>
         )}
 
         {tab === 'techniques' && (

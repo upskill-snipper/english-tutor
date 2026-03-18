@@ -37,7 +37,7 @@ export default function Practice() {
     if (filters.type) pool = pool.filter(q => q.questionType === filters.type);
     if (filters.difficulty) pool = pool.filter(q => q.difficulty === filters.difficulty);
 
-    if (pool.length === 0) pool = practiceQuestions;
+    if (pool.length === 0) return;
 
     const q = pool[Math.floor(Math.random() * pool.length)];
     setCurrentQ(q);
@@ -119,7 +119,9 @@ export default function Practice() {
                         background: filters.board === b ? `${boardColor}15` : 'rgba(255,255,255,0.04)',
                       }}
                     >
-                      {BOARDS[b]?.name || b} {count === 0 && <span style={{ fontSize: '0.65rem', opacity: 0.6 }}>(soon)</span>}
+                      {BOARDS[b]?.name || b} {count > 0
+                        ? <span style={{ fontSize: '0.65rem', opacity: 0.7 }}>({count})</span>
+                        : <span style={{ fontSize: '0.65rem', opacity: 0.6 }}>(soon)</span>}
                     </button>
                   );
                 })}
@@ -134,7 +136,7 @@ export default function Practice() {
               }}>
                 <AlertCircle size={18} color="#f59e0b" />
                 <p style={{ color: '#f59e0b', fontSize: '0.85rem', margin: 0 }}>
-                  {BOARDS[filters.board]?.name || filters.board} practice questions are coming soon. In the meantime, try AQA practice questions — the core skills transfer across all boards.
+                  Practice questions for {BOARDS[filters.board]?.name || filters.board} are coming soon! In the meantime, try a board that has questions available — the core skills transfer across all boards.
                 </p>
               </div>
             )}
@@ -170,7 +172,15 @@ export default function Practice() {
               </div>
             </div>
 
-            <button onClick={startPractice} className="btn-primary" style={{ width: '100%', justifyContent: 'center', padding: '0.875rem' }}>
+            <button
+              onClick={startPractice}
+              disabled={!hasBoardQuestions}
+              className="btn-primary"
+              style={{
+                width: '100%', justifyContent: 'center', padding: '0.875rem',
+                ...(hasBoardQuestions ? {} : { opacity: 0.4, cursor: 'not-allowed' }),
+              }}
+            >
               Start Practice <ArrowRight size={16} />
             </button>
           </div>
@@ -189,9 +199,14 @@ export default function Practice() {
           </button>
 
           <div style={{ display: 'flex', gap: '0.75rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
-            <span style={{ fontSize: '0.7rem', fontWeight: 700, color: '#34d399', background: 'rgba(52,211,153,0.1)', padding: '0.25rem 0.625rem', borderRadius: '4px' }}>
-              {currentQ.board}
-            </span>
+            {(() => {
+              const bColor = BOARDS[currentQ.board]?.color || '#34d399';
+              return (
+                <span style={{ fontSize: '0.7rem', fontWeight: 700, color: bColor, background: `${bColor}18`, padding: '0.25rem 0.625rem', borderRadius: '4px', border: `1px solid ${bColor}30` }}>
+                  {BOARDS[currentQ.board]?.name || currentQ.board}
+                </span>
+              );
+            })()}
             <span style={{ fontSize: '0.7rem', fontWeight: 700, color: '#94a3b8', background: 'rgba(255,255,255,0.05)', padding: '0.25rem 0.625rem', borderRadius: '4px' }}>
               Paper {currentQ.paper}
             </span>
@@ -245,7 +260,17 @@ export default function Practice() {
             <ChevronLeft size={15} /> New Question
           </button>
 
-          <h2 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '1.5rem' }}>Model Answers</h2>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
+            <h2 style={{ fontSize: '1.25rem', fontWeight: 700, margin: 0 }}>Model Answers</h2>
+            {(() => {
+              const bColor = BOARDS[currentQ.board]?.color || '#34d399';
+              return (
+                <span style={{ fontSize: '0.65rem', fontWeight: 700, color: bColor, background: `${bColor}18`, padding: '0.2rem 0.5rem', borderRadius: '4px', border: `1px solid ${bColor}30` }}>
+                  {BOARDS[currentQ.board]?.name || currentQ.board}
+                </span>
+              );
+            })()}
+          </div>
 
           {/* Grade selector */}
           <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
@@ -267,7 +292,26 @@ export default function Practice() {
           {/* Mark scheme */}
           {currentQ.markScheme && (
             <div className="card" style={{ padding: '1.5rem', marginBottom: '1.5rem' }}>
-              <h3 style={{ fontWeight: 700, fontSize: '0.9rem', marginBottom: '0.75rem' }}>Mark Scheme Criteria</h3>
+              {(() => {
+                const boardTerms = {
+                  AQA: 'AQA Mark Scheme Criteria',
+                  Edexcel: 'Edexcel Assessment Criteria',
+                  'Edexcel IGCSE': 'Edexcel IGCSE Assessment Criteria',
+                  OCR: 'OCR Mark Band Descriptors',
+                  WJEC: 'Eduqas Marking Guidelines',
+                };
+                const bColor = BOARDS[currentQ.board]?.color || '#10b981';
+                return (
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
+                    <h3 style={{ fontWeight: 700, fontSize: '0.9rem', margin: 0 }}>
+                      {boardTerms[currentQ.board] || 'Mark Scheme Criteria'}
+                    </h3>
+                    <span style={{ fontSize: '0.6rem', fontWeight: 600, color: bColor, background: `${bColor}15`, padding: '0.15rem 0.4rem', borderRadius: '3px' }}>
+                      {currentQ.marks ? `${currentQ.marks} marks` : ''}
+                    </span>
+                  </div>
+                );
+              })()}
               <ul style={{ margin: 0, paddingLeft: '1.25rem' }}>
                 {currentQ.markScheme.map((m, i) => (
                   <li key={i} style={{ color: '#94a3b8', fontSize: '0.85rem', lineHeight: 1.7, marginBottom: '0.25rem' }}>{m}</li>

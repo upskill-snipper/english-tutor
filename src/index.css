@@ -17,6 +17,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: #0a0e1a;
   color: #f1f5f9;
@@ -105,6 +109,15 @@ body {
 .btn-ghost:hover {
   color: #f1f5f9;
   background: rgba(255, 255, 255, 0.05);
+}
+
+/* Touch targets — ensure all buttons meet 44px minimum */
+.btn-primary,
+.btn-secondary {
+  min-height: 44px;
+}
+.btn-ghost {
+  min-height: 44px;
 }
 
 .progress-track {
@@ -247,6 +260,35 @@ body {
   color: #94a3b8;
   font-size: 0.875rem;
   margin: 0;
+}
+
+/* ── Mobile overflow protection for module content ───────────────── */
+.module-content img {
+  max-width: 100%;
+  height: auto;
+}
+.module-content table {
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+/* ── Utility: narrow container for text-heavy pages ──────────────── */
+.container-narrow {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* ── Board filter badges: wrap on small screens ──────────────────── */
+.board-filters,
+[class*="badge-group"],
+[class*="filter-badges"] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 @keyframes fadeIn {

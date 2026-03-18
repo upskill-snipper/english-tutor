@@ -1,9 +1,17 @@
-const flashcardDecks = [
+import edexcelRelationshipsFlashcards from './edexcel/flashcards/edexcelRelationshipsFlashcards';
+import edexcelConflictFlashcards from './edexcel/flashcards/edexcelConflictFlashcards';
+import edexcelTimePlaceFlashcards from './edexcel/flashcards/edexcelTimePlaceFlashcards';
+import edexcelIgcseFlashcards from './edexcel/flashcards/edexcelIgcseFlashcards';
+import ocrPoetryFlashcards from './ocr/ocrPoetryFlashcards';
+import wjecFlashcards from './wjec/wjecFlashcards';
+
+const coreDecks = [
   {
     id: 'literary-techniques',
     title: 'Literary & Language Techniques',
     description: '50 essential techniques for GCSE English',
     category: 'Techniques',
+    board: 'All',
     cards: [
       { id: 'lt-1', front: 'Metaphor', back: 'A comparison that says something IS something else, without using "like" or "as."\n\nExample: "All the world\'s a stage" (Shakespeare)\n\nEffect: Creates a vivid image and implies a deeper connection between two things.' },
       { id: 'lt-2', front: 'Simile', back: 'A comparison using "like" or "as."\n\nExample: "Her smile was like sunshine after rain."\n\nEffect: Makes descriptions more vivid by linking the unfamiliar to the familiar.' },
@@ -62,6 +70,7 @@ const flashcardDecks = [
     title: 'Grammar Terms',
     description: '30 essential grammar terms',
     category: 'Grammar',
+    board: 'All',
     cards: [
       { id: 'gt-1', front: 'Noun', back: 'A word that names a person, place, thing, or idea.\n\nTypes: Proper (London), Common (city), Abstract (love), Collective (flock).' },
       { id: 'gt-2', front: 'Verb', back: 'A word that describes an action, state, or occurrence.\n\nTypes: Dynamic (run), Stative (believe), Modal (can, should), Auxiliary (is, have).' },
@@ -100,6 +109,7 @@ const flashcardDecks = [
     title: 'A Christmas Carol — Key Quotations',
     description: 'Essential quotes for GCSE Literature',
     category: 'Literature',
+    board: 'AQA',
     cards: [
       { id: 'cc-1', front: '"Oh! But he was a tight-fisted hand at the grindstone, Scrooge!"', back: 'Stave 1. Introduces Scrooge as miserly and mean. "Tight-fisted" = unwilling to spend. "Grindstone" = relentless, mechanical labour. Dickens establishes Scrooge as everything wrong with Victorian capitalism.' },
       { id: 'cc-2', front: '"Solitary as an oyster"', back: 'Stave 1. Simile showing Scrooge\'s isolation. Oysters are hard-shelled and closed off — like Scrooge. But oysters also contain pearls — hinting at the goodness hidden within.' },
@@ -121,6 +131,7 @@ const flashcardDecks = [
     title: 'Jekyll and Hyde — Key Quotations',
     description: 'Essential quotes for GCSE Literature',
     category: 'Literature',
+    board: 'AQA',
     cards: [
       { id: 'jh-1', front: '"Mr Hyde was pale and dwarfish, he gave an impression of deformity"', back: 'Chapter 1. Hyde\'s appearance reflects Victorian ideas that evil shows physically (physiognomy). "Dwarfish" = smaller, less evolved. "Impression" = people sense something wrong but cannot explain it.' },
       { id: 'jh-2', front: '"Trampled calmly over the child\'s body"', back: 'Chapter 1. Hyde\'s first act of violence. "Trampled" = animalistic, brutal. "Calmly" = the most disturbing word — no remorse. The juxtaposition shows Hyde lacks basic human empathy.' },
@@ -139,6 +150,7 @@ const flashcardDecks = [
     title: 'An Inspector Calls — Key Quotations',
     description: 'Essential quotes for GCSE Literature',
     category: 'Literature',
+    board: 'AQA',
     cards: [
       { id: 'ic-1', front: '"We are members of one body. We are responsible for each other."', back: 'Act 3. The Inspector\'s final speech. "One body" = organic metaphor for society. Directly states Priestley\'s socialist message. Echoes Christian teaching — deliberate, as the Birlings claim to be moral.' },
       { id: 'ic-2', front: '"If men will not learn that lesson, then they will be taught it in fire and blood and anguish"', back: 'Act 3. The Inspector\'s warning. Written in 1945, set in 1912 — Priestley\'s audience knew the "fire and blood" meant WWI and WWII. Tricolon builds to "anguish." Still relevant today.' },
@@ -154,6 +166,16 @@ const flashcardDecks = [
       { id: 'ic-12', front: '"Everything\'s all right now, Sheila. What about this ring?"', back: 'Act 3. Gerald trying to return to normal. The ring symbolises their superficial relationship. Gerald has learned nothing. Priestley shows that some people will never change.' },
     ],
   },
+];
+
+const flashcardDecks = [
+  ...coreDecks,
+  edexcelRelationshipsFlashcards,
+  edexcelConflictFlashcards,
+  edexcelTimePlaceFlashcards,
+  edexcelIgcseFlashcards,
+  ocrPoetryFlashcards,
+  ...wjecFlashcards,
 ];
 
 export default flashcardDecks;

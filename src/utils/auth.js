@@ -65,7 +65,7 @@ export function login(email, password) {
   return { success: true, user };
 }
 
-export function register(name, email, password) {
+export function register(name, email, password, examBoard = 'Not sure yet') {
   const users = getUsers();
   if (users.find(u => u.email.toLowerCase() === email.toLowerCase())) {
     return { success: false, error: 'An account with that email already exists' };
@@ -79,6 +79,7 @@ export function register(name, email, password) {
     email,
     password: simpleHash(password),
     role: 'student',
+    examBoard,
     enrolledCourses: [],
     completedCourses: [],
     certificates: [],
@@ -88,6 +89,21 @@ export function register(name, email, password) {
   saveUsers([...users, newUser]);
   setCurrentUser(newUser.id);
   return { success: true, user: newUser };
+}
+
+export function getExamBoard(userId) {
+  const users = getUsers();
+  const user = users.find(u => u.id === userId);
+  return user?.examBoard || 'Not sure yet';
+}
+
+export function setExamBoard(userId, board) {
+  const users = getUsers();
+  const userIdx = users.findIndex(u => u.id === userId);
+  if (userIdx < 0) return false;
+  users[userIdx].examBoard = board;
+  saveUsers(users);
+  return true;
 }
 
 export function getProgress() {

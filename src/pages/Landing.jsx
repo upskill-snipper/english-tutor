@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom';
-import { GraduationCap, BookOpen, PenTool, Library, Sparkles, CheckCircle, ArrowRight, Star, Users, Award, Dumbbell } from 'lucide-react';
+import { GraduationCap, BookOpen, PenTool, Library, Sparkles, CheckCircle, ArrowRight, Star, Users, Award, Dumbbell, Globe } from 'lucide-react';
 import Navbar from '../components/Navbar';
 
 const PATHWAYS = [
   { title: 'KS3 Reading', desc: 'Master comprehension, inference, and language analysis for Years 7-9', icon: BookOpen, color: '#10b981' },
   { title: 'KS3 Writing', desc: 'Build confidence in descriptive, narrative, and persuasive writing', icon: PenTool, color: '#34d399' },
-  { title: 'GCSE Language', desc: 'Paper 1 & 2 reading and writing — AQA exam-focused preparation', icon: Library, color: '#059669' },
+  { title: 'GCSE Language', desc: 'Paper 1 & 2 reading and writing — AQA, Edexcel, OCR & WJEC aligned', icon: Library, color: '#059669' },
   { title: 'GCSE Literature', desc: 'Poetry, prose, and drama — A Christmas Carol, Macbeth, and more', icon: Sparkles, color: '#047857' },
+  { title: 'IGCSE English', desc: 'Edexcel IGCSE Spec A & B — reading, writing, and coursework preparation', icon: Globe, color: '#dc2626' },
 ];
 
 const COURSES = [
@@ -22,10 +23,19 @@ const COURSES = [
 
 const TOTAL = COURSES.reduce((a, c) => a + c.price, 0);
 
+const EXAM_BOARDS = [
+  { name: 'AQA', color: '#2563eb', bg: 'rgba(37,99,235,0.12)', border: 'rgba(37,99,235,0.3)' },
+  { name: 'Edexcel', color: '#dc2626', bg: 'rgba(220,38,38,0.12)', border: 'rgba(220,38,38,0.3)', badge: 'IGCSE' },
+  { name: 'OCR', color: '#7c3aed', bg: 'rgba(124,58,237,0.12)', border: 'rgba(124,58,237,0.3)' },
+  { name: 'WJEC Eduqas', color: '#ea580c', bg: 'rgba(234,88,12,0.12)', border: 'rgba(234,88,12,0.3)' },
+];
+
 const FEATURES = [
   'Expert-written content by practising English teachers',
-  'AQA exam board aligned with real mark scheme criteria',
+  'Multi-board support — AQA, Edexcel, OCR & WJEC Eduqas',
+  'Aligned with real mark scheme criteria for every board',
   'Worked examples at every grade boundary',
+  'Predicted grades dashboard to track your progress',
   'Instant quiz feedback with detailed explanations',
   'Earn certificates to prove your progress',
   'Mobile-friendly — revise anywhere, any time',
@@ -71,7 +81,7 @@ export default function Landing() {
             fontSize: '1.15rem', color: '#94a3b8', lineHeight: 1.7,
             maxWidth: '560px', margin: '0 auto 2rem',
           }}>
-            Expert-built courses for KS3 and GCSE English. Practice, learn, and earn your certificate.
+            Complete GCSE & IGCSE English preparation for every UK exam board — AQA, Edexcel, OCR & WJEC. Practice, learn, and earn your certificate.
           </p>
 
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -82,6 +92,37 @@ export default function Landing() {
               <Dumbbell size={18} /> Free Practice Mode
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* Exam board badges */}
+      <section style={{
+        padding: '0 1.5rem 2rem',
+        maxWidth: '700px',
+        margin: '0 auto',
+      }}>
+        <p style={{ textAlign: 'center', color: '#64748b', fontSize: '0.8rem', fontWeight: 600, letterSpacing: '0.08em', marginBottom: '1rem', textTransform: 'uppercase' }}>
+          Covering all major UK exam boards
+        </p>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
+          {EXAM_BOARDS.map((board, i) => (
+            <div key={i} style={{
+              display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
+              background: board.bg, border: `1px solid ${board.border}`,
+              borderRadius: '100px', padding: '0.5rem 1.15rem',
+              fontSize: '0.85rem', fontWeight: 700, color: board.color,
+            }}>
+              {board.name}
+              {board.badge && (
+                <span style={{
+                  fontSize: '0.6rem', fontWeight: 800, background: board.color, color: '#fff',
+                  borderRadius: '4px', padding: '0.1rem 0.4rem', letterSpacing: '0.04em',
+                }}>
+                  {board.badge}
+                </span>
+              )}
+            </div>
+          ))}
         </div>
       </section>
 
@@ -146,7 +187,7 @@ export default function Landing() {
           Simple, Transparent Pricing
         </h2>
         <p style={{ textAlign: 'center', color: '#94a3b8', marginBottom: '2.5rem' }}>
-          Buy individual courses or save with the full bundle.
+          Courses from £29 — available for all major exam boards. Buy individually or save with the bundle.
         </p>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
@@ -193,7 +234,8 @@ export default function Landing() {
             <span style={{ fontSize: '2.5rem', fontWeight: 900, color: '#10b981' }}>£149</span>
             <span style={{ textDecoration: 'line-through', color: '#64748b', fontSize: '1.25rem' }}>£{TOTAL}</span>
           </div>
-          <p style={{ color: '#94a3b8', marginBottom: '1.5rem' }}>Save £{TOTAL - 149} — every KS3 and GCSE course included</p>
+          <p style={{ color: '#94a3b8', marginBottom: '0.75rem' }}>Save £{TOTAL - 149} — every KS3, GCSE & IGCSE course included</p>
+          <p style={{ color: '#64748b', fontSize: '0.8rem', marginBottom: '1.5rem' }}>Covers AQA, Edexcel (incl. IGCSE), OCR & WJEC Eduqas</p>
           <Link to="/register" className="btn-primary" style={{ padding: '0.875rem 2.5rem', fontSize: '1rem' }}>
             Get the Bundle <ArrowRight size={18} />
           </Link>
@@ -226,7 +268,7 @@ export default function Landing() {
           Not Sure Yet? Try Practice Mode Free
         </h2>
         <p style={{ color: '#94a3b8', maxWidth: '480px', margin: '0 auto 1.5rem', lineHeight: 1.7 }}>
-          Answer real exam-style questions, see model answers at every grade band, and track your streak. No account needed.
+          Answer real exam-style questions, see model answers at every grade band, and track your streak. Plus, explore our free text library with 20 fully annotated IGCSE anthology texts. No account needed.
         </p>
         <Link to="/practice" className="btn-primary" style={{ padding: '0.875rem 2rem' }}>
           Start Practising <ArrowRight size={18} />

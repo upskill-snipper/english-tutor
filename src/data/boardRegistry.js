@@ -484,6 +484,71 @@ const BOARDS = {
     },
   },
 
+  'Edexcel IGCSE': {
+    id: 'Edexcel IGCSE',
+    name: 'Edexcel IGCSE',
+    color: '#b91c1c',
+    specs: {
+      'igcse-lang-a': {
+        code: '4EA1',
+        name: 'IGCSE English Language Spec A',
+        tier: 'IGCSE',
+        papers: [
+          {
+            id: 1,
+            name: 'Component 1: Non-fiction Texts and Transactional Writing',
+            duration: '2h 15m',
+            marks: 90,
+            sections: [
+              {
+                name: 'Section A: Reading',
+                marks: 45,
+                texts: 'Two texts: one from Anthology (Part 1) + one unseen',
+                questions: [
+                  { num: 'Q1', type: 'Short retrieval (Text 1)', marks: 2, ao: ['AO1'] },
+                  { num: 'Q2', type: 'Explain thoughts/feelings', marks: 4, ao: ['AO1'] },
+                  { num: 'Q3', type: 'Describe information with quotations', marks: 5, ao: ['AO1'] },
+                  { num: 'Q4', type: 'Language and Structure Analysis (Text 2)', marks: 12, ao: ['AO2'] },
+                  { num: 'Q5', type: 'Comparative Analysis (both texts)', marks: 22, ao: ['AO3'] },
+                ],
+              },
+              {
+                name: 'Section B: Transactional Writing',
+                marks: 45,
+                questions: [
+                  { num: 'Q6/Q7', type: 'Transactional Writing (choice of two)', marks: 45, ao: ['AO4', 'AO5'] },
+                ],
+              },
+            ],
+          },
+          {
+            id: 2,
+            name: 'Component 2: Poetry and Prose Texts and Imaginative Writing',
+            duration: '1h 30m',
+            marks: 60,
+            sections: [
+              {
+                name: 'Section A: Reading',
+                marks: 30,
+                texts: 'One text from Anthology Part 2',
+                questions: [
+                  { num: 'Q1', type: 'Analyse effects (poetry/prose)', marks: 30, ao: ['AO1', 'AO2'] },
+                ],
+              },
+              {
+                name: 'Section B: Imaginative Writing',
+                marks: 30,
+                questions: [
+                  { num: 'Q2-Q4', type: 'Imaginative Writing (choice of three)', marks: 30, ao: ['AO4', 'AO5'] },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+    },
+  },
+
   OCR: {
     id: 'OCR',
     name: 'OCR',

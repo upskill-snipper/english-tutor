@@ -1,15 +1,54 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { BookOpen, Award, ArrowRight, CheckCircle, TrendingUp, Lock } from 'lucide-react';
+import { BookOpen, Award, ArrowRight, CheckCircle, TrendingUp, Lock, ChevronDown } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import ProgressRing from '../components/ProgressRing';
 import COURSES from '../data/courseData';
-import { getCurrentUser, getUserProgress, getPracticeProgress, getCompletedAssessmentCount } from '../utils/auth';
+import { getCurrentUser, getUserProgress, getPracticeProgress, getCompletedAssessmentCount, getExamBoard, setExamBoard } from '../utils/auth';
 
 export default function Dashboard() {
   const user = getCurrentUser();
   const practice = getPracticeProgress();
+  const [examBoardState, setExamBoardState] = useState(() => user ? getExamBoard(user.id) : 'Not sure yet');
+  const [showBoardPicker, setShowBoardPicker] = useState(false);
 
   if (!user) return null;
+
+  const EXAM_BOARDS = ['Not sure yet', 'AQA', 'Edexcel', 'Edexcel (IGCSE)', 'OCR', 'WJEC Eduqas'];
+
+  function handleBoardChange(board) {
+    setExamBoard(user.id, board);
+    setExamBoardState(board);
+    setShowBoardPicker(false);
+  }
+
+  // Map display board names to course board field values
+  function getBoardFilterValue(displayBoard) {
+    if (displayBoard === 'WJEC Eduqas') return 'WJEC';
+    if (displayBoard === 'Edexcel (IGCSE)') return 'Edexcel';
+    return displayBoard;
+  }
+
+  // Get recommended courses prioritised by exam board
+  function getRecommendedCourses() {
+    const enrolledIds = new Set(user.enrolledCourses || []);
+    const available = COURSES.filter(c => !enrolledIds.has(c.id));
+
+    if (examBoardState === 'Not sure yet') return available;
+
+    const boardValue = getBoardFilterValue(examBoardState);
+    const isIgcse = examBoardState === 'Edexcel (IGCSE)';
+
+    // Split into matching and non-matching
+    const matching = available.filter(c => {
+      if (!c.board) return false; // KS3 courses have no board
+      if (isIgcse) return c.board === 'Edexcel' && c.tier === 'IGCSE';
+      return c.board === boardValue && c.tier !== 'IGCSE';
+    });
+    const rest = available.filter(c => !matching.includes(c));
+
+    return [...matching, ...rest];
+  }
 
   const enrolled = (user.enrolledCourses || []).map(id => COURSES.find(c => c.id === id)).filter(Boolean);
   const completedCount = (user.completedCourses || []).length;
@@ -23,7 +62,44 @@ export default function Dashboard() {
         <h1 style={{ fontSize: '1.75rem', fontWeight: 900, marginBottom: '0.5rem' }}>
           Welcome back, {user.name.split(' ')[0]}
         </h1>
-        <p style={{ color: '#94a3b8', marginBottom: '2rem' }}>Keep up the great work. Here is your progress.</p>
+        <p style={{ color: '#94a3b8', marginBottom: '1rem' }}>Keep up the great work. Here is your progress.</p>
+
+        {/* Exam board badge */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '2rem', position: 'relative' }}>
+          <span style={{ fontSize: '0.8rem', color: '#64748b' }}>Exam board:</span>
+          <span style={{
+            fontSize: '0.8rem', fontWeight: 700, color: '#10b981',
+            background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.25)',
+            padding: '0.25rem 0.625rem', borderRadius: '6px',
+          }}>
+            {examBoardState}
+          </span>
+          <button onClick={() => setShowBoardPicker(!showBoardPicker)} style={{
+            background: 'none', border: '1px solid #1e2d4a', borderRadius: '6px',
+            color: '#94a3b8', fontSize: '0.75rem', padding: '0.25rem 0.5rem',
+            cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.25rem',
+          }}>
+            Change <ChevronDown size={12} />
+          </button>
+          {showBoardPicker && (
+            <div style={{
+              position: 'absolute', top: '100%', left: 0, marginTop: '0.5rem', zIndex: 50,
+              background: '#111827', border: '1px solid #1e2d4a', borderRadius: '8px',
+              padding: '0.5rem 0', minWidth: '180px', boxShadow: '0 8px 24px rgba(0,0,0,0.4)',
+            }}>
+              {EXAM_BOARDS.map(board => (
+                <button key={board} onClick={() => handleBoardChange(board)} style={{
+                  display: 'block', width: '100%', textAlign: 'left', padding: '0.5rem 1rem',
+                  background: board === examBoardState ? 'rgba(16,185,129,0.1)' : 'none',
+                  border: 'none', color: board === examBoardState ? '#10b981' : '#f1f5f9',
+                  fontSize: '0.8rem', cursor: 'pointer', fontWeight: board === examBoardState ? 700 : 400,
+                }}>
+                  {board}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
 
         {/* Stats grid */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1rem', marginBottom: '3rem' }}>
@@ -176,7 +252,7 @@ export default function Dashboard() {
         {certs.length > 0 && (
           <>
             <h2 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '1.25rem' }}>Certificates</h2>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1rem', marginBottom: '3rem' }}>
               {certs.map(cert => {
                 const course = COURSES.find(c => c.id === cert.courseId);
                 const grade = cert.score >= 90 ? 'Distinction' : cert.score >= 80 ? 'Merit' : 'Pass';
@@ -200,6 +276,51 @@ export default function Dashboard() {
             </div>
           </>
         )}
+
+        {/* Recommended Courses */}
+        {(() => {
+          const recommended = getRecommendedCourses();
+          if (recommended.length === 0) return null;
+          const boardLabel = examBoardState !== 'Not sure yet' ? ` for ${examBoardState}` : '';
+          return (
+            <>
+              <h2 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.25rem' }}>Recommended Courses</h2>
+              <p style={{ color: '#64748b', fontSize: '0.8rem', marginBottom: '1.25rem' }}>
+                {examBoardState !== 'Not sure yet'
+                  ? `Showing ${examBoardState} courses first`
+                  : 'Select an exam board above to see tailored recommendations'}
+              </p>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1rem' }}>
+                {recommended.slice(0, 6).map(course => (
+                  <Link key={course.id} to={`/courses/${course.id}`} style={{ textDecoration: 'none' }}>
+                    <div className="card" style={{ padding: '1.25rem', cursor: 'pointer' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
+                        <span style={{
+                          fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.05em',
+                          color: '#34d399', background: 'rgba(52,211,153,0.1)',
+                          padding: '0.2rem 0.5rem', borderRadius: '4px',
+                        }}>{course.tier}</span>
+                        {course.board && (
+                          <span style={{
+                            fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.05em',
+                            color: '#60a5fa', background: 'rgba(96,165,250,0.1)',
+                            padding: '0.2rem 0.5rem', borderRadius: '4px',
+                          }}>{course.board}</span>
+                        )}
+                      </div>
+                      <h3 style={{ fontWeight: 700, fontSize: '0.95rem', color: '#f1f5f9', lineHeight: 1.3, marginBottom: '0.5rem' }}>
+                        {course.title}
+                      </h3>
+                      <p style={{ fontSize: '0.75rem', color: '#64748b', lineHeight: 1.5 }}>
+                        {course.moduleList.length} modules
+                      </p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </>
+          );
+        })()}
       </div>
     </div>
   );
