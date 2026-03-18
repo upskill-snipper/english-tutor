@@ -15,6 +15,8 @@ import Practice from './pages/Practice';
 import Revision from './pages/Revision';
 import AdminPanel from './pages/AdminPanel';
 import NotFound from './pages/NotFound';
+import TextLibrary from './pages/TextLibrary';
+import PredictedGrades from './pages/PredictedGrades';
 
 function ProtectedRoute({ children, adminOnly = false }) {
   const user = getCurrentUser();
@@ -42,6 +44,9 @@ export default function App() {
         <Route path="/certificate/:certId" element={<Certificate />} />
         <Route path="/practice" element={<Practice />} />
         <Route path="/revision" element={<Revision />} />
+        <Route path="/texts" element={<TextLibrary />} />
+        <Route path="/grades" element={<ProtectedRoute><PredictedGrades /></ProtectedRoute>} />
+        <Route path="/predicted-grades" element={<ProtectedRoute><PredictedGrades /></ProtectedRoute>} />
         <Route path="/admin" element={<ProtectedRoute adminOnly><AdminPanel /></ProtectedRoute>} />
         <Route path="*" element={<NotFound />} />
       </Routes>

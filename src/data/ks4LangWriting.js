@@ -1,8 +1,11 @@
 const gcseLangWriting = {
   id: 'gcse-lang-writing',
-  title: 'GCSE Language: Writing',
-  subtitle: 'Craft compelling creative and non-fiction writing for top marks.',
+  title: 'GCSE Language: Writing (AQA)',
+  subtitle: 'Craft compelling creative and non-fiction writing for top AQA marks.',
   tier: 'GCSE',
+  board: 'AQA',
+  specId: 'gcse-lang',
+  specCode: '8700',
   price: 49,
   duration: '7-9 hours',
   level: 'GCSE (Years 10-11)',

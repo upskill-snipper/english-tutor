@@ -147,6 +147,13 @@ export function saveAssessmentResult(userId, courseId, score, passed) {
   }
   saveProgress(all);
 
+  // Also save to assessment history for predicted grades
+  saveAssessmentToHistory(userId, {
+    courseId,
+    score,
+    maxScore: 100,
+  });
+
   if (passed) {
     const users = getUsers();
     const userIdx = users.findIndex(u => u.id === userId);
@@ -219,6 +226,146 @@ export function saveFlashcardProgress(deckId, cardId, known) {
   if (!all[deckId]) all[deckId] = {};
   all[deckId][cardId] = known ? 'known' : 'learning';
   localStorage.setItem(STORAGE_PREFIX + 'flashcards', JSON.stringify(all));
+}
+
+// ─── Predicted Grades Helpers ───────────────────────────────────
+
+export function getCompletedAssessmentCount(userId) {
+  const progress = getProgress();
+  const userProgress = progress[userId] || {};
+  let count = 0;
+  for (const courseId of Object.keys(userProgress)) {
+    if (userProgress[courseId]?.assessmentPassed) {
+      count++;
+    }
+  }
+  return count;
+}
+
+export function getAllAssessmentScores(userId) {
+  const progress = getProgress();
+  const userProgress = progress[userId] || {};
+  const scores = [];
+  for (const courseId of Object.keys(userProgress)) {
+    const cp = userProgress[courseId];
+    if (cp.assessmentPassed && cp.assessmentScore !== null && cp.assessmentScore !== undefined) {
+      scores.push({
+        courseId,
+        score: cp.assessmentScore,
+        date: cp.completedAt || Date.now(),
+      });
+    }
+  }
+  // Sort by date ascending (oldest first)
+  return scores.sort((a, b) => a.date - b.date);
+}
+
+export function calculatePredictedGrade(scores) {
+  // scores: array of { courseId, score, date } sorted by date ascending
+  if (!scores || scores.length === 0) return null;
+
+  const values = scores.map(s => s.score);
+
+  // Current operating level: simple average
+  const currentAvg = values.reduce((a, b) => a + b, 0) / values.length;
+
+  // Predicted grade: last 3 weighted 60%, earlier ones 40%
+  let predictedAvg;
+  if (values.length <= 3) {
+    predictedAvg = currentAvg;
+  } else {
+    const recent = values.slice(-3);
+    const earlier = values.slice(0, -3);
+    const recentAvg = recent.reduce((a, b) => a + b, 0) / recent.length;
+    const earlierAvg = earlier.reduce((a, b) => a + b, 0) / earlier.length;
+    predictedAvg = recentAvg * 0.6 + earlierAvg * 0.4;
+  }
+
+  // Potential grade: improve weakest areas by 15%
+  const potentialValues = values.map(s => Math.min(100, s + 15));
+  const potentialAvg = potentialValues.reduce((a, b) => a + b, 0) / potentialValues.length;
+
+  // Trend: compare last 3 average to previous 3 average
+  let trend = 'stable';
+  if (values.length >= 4) {
+    const last3 = values.slice(-3);
+    const prev = values.slice(-6, -3);
+    if (prev.length > 0) {
+      const last3Avg = last3.reduce((a, b) => a + b, 0) / last3.length;
+      const prevAvg = prev.reduce((a, b) => a + b, 0) / prev.length;
+      if (last3Avg > prevAvg + 3) trend = 'improving';
+      else if (last3Avg < prevAvg - 3) trend = 'declining';
+    }
+  }
+
+  function toGrade(pct) {
+    if (pct >= 90) return 9;
+    if (pct >= 80) return '7-8';
+    if (pct >= 70) return 6;
+    if (pct >= 60) return 5;
+    if (pct >= 50) return 4;
+    if (pct >= 40) return 3;
+    return '1-2';
+  }
+
+  return {
+    currentAvg: Math.round(currentAvg),
+    currentGrade: toGrade(currentAvg),
+    predictedAvg: Math.round(predictedAvg),
+    predictedGrade: toGrade(predictedAvg),
+    potentialAvg: Math.round(potentialAvg),
+    potentialGrade: toGrade(potentialAvg),
+    trend,
+  };
+}
+
+// ─── Assessment History (for Predicted Grades) ─────────────────
+
+export function getAssessmentHistory(userId) {
+  const data = localStorage.getItem(STORAGE_PREFIX + 'assessment_history');
+  const all = data ? JSON.parse(data) : {};
+  return all[userId] || [];
+}
+
+export function saveAssessmentToHistory(userId, { courseId, board, specId, score, maxScore, skillBreakdown }) {
+  const data = localStorage.getItem(STORAGE_PREFIX + 'assessment_history');
+  const all = data ? JSON.parse(data) : {};
+  if (!all[userId]) all[userId] = [];
+
+  all[userId].push({
+    id: generateId(),
+    courseId,
+    board: board || 'AQA',
+    specId: specId || 'gcse-lang',
+    score,
+    maxScore: maxScore || 100,
+    percentage: Math.round((score / (maxScore || 100)) * 100),
+    skillBreakdown: skillBreakdown || {},
+    timestamp: Date.now(),
+  });
+
+  // Cap history at 200 entries
+  if (all[userId].length > 200) {
+    all[userId] = all[userId].slice(-200);
+  }
+
+  localStorage.setItem(STORAGE_PREFIX + 'assessment_history', JSON.stringify(all));
+  return all[userId];
+}
+
+export function getTotalScoredActivities(userId) {
+  const progress = getProgress();
+  const userProgress = progress[userId] || {};
+  const practice = getPracticeProgress();
+  const assessmentHistory = getAssessmentHistory(userId);
+
+  // Count quiz completions
+  let quizCount = 0;
+  for (const courseId of Object.keys(userProgress)) {
+    quizCount += Object.keys(userProgress[courseId]?.quizScores || {}).length;
+  }
+
+  return quizCount + assessmentHistory.length + (practice.history?.length || 0);
 }
 
 export function seedDemoData() {

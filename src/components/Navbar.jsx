@@ -1,6 +1,6 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { BookOpen, LogOut, User, LayoutDashboard, GraduationCap, Dumbbell, BookMarked, Shield } from 'lucide-react';
-import { getCurrentUser, logout } from '../utils/auth';
+import { BookOpen, LogOut, User, LayoutDashboard, GraduationCap, Dumbbell, BookMarked, Shield, Library, TrendingUp } from 'lucide-react';
+import { getCurrentUser, logout, getAssessmentHistory } from '../utils/auth';
 
 export default function Navbar() {
   const user = getCurrentUser();
@@ -60,13 +60,23 @@ export default function Navbar() {
           <Link to="/practice" style={linkStyle('/practice')}>
             <Dumbbell size={15} /> Practice
           </Link>
+          <Link to="/texts" style={linkStyle('/texts')}>
+            <Library size={15} /> Texts
+          </Link>
           <Link to="/revision" style={linkStyle('/revision')}>
             <BookMarked size={15} /> Revision
           </Link>
           {user && (
-            <Link to="/dashboard" style={linkStyle('/dashboard')}>
-              <LayoutDashboard size={15} /> Dashboard
-            </Link>
+            <>
+              <Link to="/dashboard" style={linkStyle('/dashboard')}>
+                <LayoutDashboard size={15} /> Dashboard
+              </Link>
+              {getAssessmentHistory(user.id).length >= 5 && (
+                <Link to="/grades" style={linkStyle('/grades')}>
+                  <TrendingUp size={15} /> Grades
+                </Link>
+              )}
+            </>
           )}
           {user?.role === 'admin' && (
             <Link to="/admin" style={linkStyle('/admin')}>

@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import { BookOpen, Award, Clock, ArrowRight, CheckCircle, TrendingUp } from 'lucide-react';
+import { BookOpen, Award, ArrowRight, CheckCircle, TrendingUp, Lock } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import ProgressRing from '../components/ProgressRing';
 import COURSES from '../data/courseData';
-import { getCurrentUser, getUserProgress, getPracticeProgress } from '../utils/auth';
+import { getCurrentUser, getUserProgress, getPracticeProgress, getCompletedAssessmentCount } from '../utils/auth';
 
 export default function Dashboard() {
   const user = getCurrentUser();
@@ -48,6 +48,54 @@ export default function Dashboard() {
             </div>
           ))}
         </div>
+
+        {/* Predicted Grades Banner */}
+        {(() => {
+          const assessmentCount = getCompletedAssessmentCount(user.id);
+          const isGradesUnlocked = assessmentCount >= 5;
+          const remaining = 5 - assessmentCount;
+          const progress = Math.round((assessmentCount / 5) * 100);
+          return (
+            <Link to="/predicted-grades" style={{ textDecoration: 'none', display: 'block', marginBottom: '3rem' }}>
+              <div className="card" style={{
+                padding: '1.5rem', display: 'flex', alignItems: 'center', gap: '1.25rem',
+                borderLeft: `3px solid ${isGradesUnlocked ? '#10b981' : '#f59e0b'}`,
+                cursor: 'pointer',
+              }}>
+                <div style={{
+                  width: '48px', height: '48px', borderRadius: '12px', flexShrink: 0,
+                  background: isGradesUnlocked ? 'rgba(16,185,129,0.1)' : 'rgba(245,158,11,0.1)',
+                  border: `1px solid ${isGradesUnlocked ? 'rgba(16,185,129,0.25)' : 'rgba(245,158,11,0.25)'}`,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                }}>
+                  {isGradesUnlocked
+                    ? <TrendingUp size={22} color="#10b981" />
+                    : <Lock size={22} color="#f59e0b" />}
+                </div>
+                <div style={{ flex: 1 }}>
+                  <p style={{ fontWeight: 700, fontSize: '1rem', color: '#f1f5f9', marginBottom: '0.25rem' }}>
+                    Predicted Grades
+                  </p>
+                  {isGradesUnlocked ? (
+                    <p style={{ fontSize: '0.8rem', color: '#94a3b8' }}>
+                      View your predicted grades, strengths, and recommendations
+                    </p>
+                  ) : (
+                    <div>
+                      <p style={{ fontSize: '0.8rem', color: '#94a3b8', marginBottom: '0.5rem' }}>
+                        Complete {remaining} more assessment{remaining !== 1 ? 's' : ''} to unlock
+                      </p>
+                      <div style={{ maxWidth: '200px', height: '6px', borderRadius: '3px', background: 'rgba(255,255,255,0.06)', overflow: 'hidden' }}>
+                        <div style={{ height: '100%', width: `${progress}%`, borderRadius: '3px', background: '#f59e0b', transition: 'width 0.3s' }} />
+                      </div>
+                    </div>
+                  )}
+                </div>
+                <ArrowRight size={18} color="#64748b" />
+              </div>
+            </Link>
+          );
+        })()}
 
         {/* My courses */}
         <h2 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '1.25rem' }}>My Courses</h2>

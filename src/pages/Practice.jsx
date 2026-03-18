@@ -1,8 +1,9 @@
-import { useState } from 'react';
-import { Dumbbell, ArrowRight, Star, Clock, ChevronLeft, TrendingUp, RotateCcw } from 'lucide-react';
+import { useState, useMemo } from 'react';
+import { Dumbbell, ArrowRight, Star, Clock, ChevronLeft, TrendingUp, RotateCcw, AlertCircle } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import practiceQuestions from '../data/practiceData';
 import { getPracticeProgress, savePracticeAttempt } from '../utils/auth';
+import BOARDS from '../data/boardRegistry';
 
 export default function Practice() {
   const [step, setStep] = useState('setup'); // setup | question | model | rated
@@ -15,9 +16,19 @@ export default function Practice() {
 
   const progress = getPracticeProgress();
 
-  const boards = ['AQA', 'Edexcel', 'OCR', 'WJEC'];
-  const types = [...new Set(practiceQuestions.map(q => q.questionType))];
+  const boards = Object.keys(BOARDS);
+
+  // Dynamic question types based on selected board
+  const boardQuestions = useMemo(() =>
+    practiceQuestions.filter(q => q.board === filters.board),
+    [filters.board]
+  );
+  const types = useMemo(() =>
+    [...new Set(boardQuestions.map(q => q.questionType))],
+    [boardQuestions]
+  );
   const difficulties = ['Foundation', 'Higher'];
+  const hasBoardQuestions = boardQuestions.length > 0;
 
   function startPractice() {
     let pool = practiceQuestions;
@@ -94,11 +105,39 @@ export default function Practice() {
             <div style={{ marginBottom: '1.25rem' }}>
               <label style={{ fontSize: '0.8rem', fontWeight: 600, color: '#94a3b8', display: 'block', marginBottom: '0.5rem' }}>Exam Board</label>
               <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                {boards.map(b => (
-                  <button key={b} onClick={() => setFilters(f => ({ ...f, board: b }))} style={selectStyle(filters.board === b)}>{b}</button>
-                ))}
+                {boards.map(b => {
+                  const boardColor = BOARDS[b]?.color || '#10b981';
+                  const count = practiceQuestions.filter(q => q.board === b).length;
+                  return (
+                    <button
+                      key={b}
+                      onClick={() => setFilters(f => ({ ...f, board: b, type: '', paper: 0 }))}
+                      style={{
+                        ...selectStyle(filters.board === b),
+                        borderColor: filters.board === b ? `${boardColor}60` : 'rgba(255,255,255,0.08)',
+                        color: filters.board === b ? boardColor : '#94a3b8',
+                        background: filters.board === b ? `${boardColor}15` : 'rgba(255,255,255,0.04)',
+                      }}
+                    >
+                      {BOARDS[b]?.name || b} {count === 0 && <span style={{ fontSize: '0.65rem', opacity: 0.6 }}>(soon)</span>}
+                    </button>
+                  );
+                })}
               </div>
             </div>
+
+            {!hasBoardQuestions && (
+              <div style={{
+                display: 'flex', alignItems: 'center', gap: '0.75rem',
+                padding: '1rem 1.25rem', borderRadius: '10px', marginBottom: '1.25rem',
+                background: 'rgba(245,158,11,0.08)', border: '1px solid rgba(245,158,11,0.2)',
+              }}>
+                <AlertCircle size={18} color="#f59e0b" />
+                <p style={{ color: '#f59e0b', fontSize: '0.85rem', margin: 0 }}>
+                  {BOARDS[filters.board]?.name || filters.board} practice questions are coming soon. In the meantime, try AQA practice questions — the core skills transfer across all boards.
+                </p>
+              </div>
+            )}
 
             <div style={{ marginBottom: '1.25rem' }}>
               <label style={{ fontSize: '0.8rem', fontWeight: 600, color: '#94a3b8', display: 'block', marginBottom: '0.5rem' }}>Paper</label>

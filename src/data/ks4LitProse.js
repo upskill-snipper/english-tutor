@@ -1,8 +1,11 @@
 const gcseLitProse = {
   id: 'gcse-lit-prose',
-  title: 'GCSE Literature: Prose & Drama',
-  subtitle: 'Ace your set texts — Macbeth, An Inspector Calls, and prose.',
+  title: 'GCSE Literature: Prose & Drama (AQA)',
+  subtitle: 'Ace your AQA set texts — Macbeth, An Inspector Calls, and prose.',
   tier: 'GCSE',
+  board: 'AQA',
+  specId: 'gcse-lit',
+  specCode: '8702',
   price: 39,
   duration: '5-7 hours',
   level: 'GCSE (Years 10-11)',

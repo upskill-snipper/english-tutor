@@ -1,8 +1,11 @@
 const gcseLangReading = {
   id: 'gcse-lang-reading',
-  title: 'GCSE Language: Reading',
-  subtitle: 'Conquer Paper 1 and Paper 2 reading questions with confidence.',
+  title: 'GCSE Language: Reading (AQA)',
+  subtitle: 'Conquer AQA Paper 1 and Paper 2 reading questions with confidence.',
   tier: 'GCSE',
+  board: 'AQA',
+  specId: 'gcse-lang',
+  specCode: '8700',
   price: 49,
   duration: '8-10 hours',
   level: 'GCSE (Years 10-11)',

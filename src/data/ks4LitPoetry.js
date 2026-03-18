@@ -1,8 +1,11 @@
 const gcseLitPoetry = {
   id: 'gcse-lit-poetry',
-  title: 'GCSE Literature: Poetry',
-  subtitle: 'Analyse unseen poetry and anthology poems with precision.',
+  title: 'GCSE Literature: Poetry (AQA)',
+  subtitle: 'Analyse unseen poetry and AQA anthology poems with precision.',
   tier: 'GCSE',
+  board: 'AQA',
+  specId: 'gcse-lit',
+  specCode: '8702',
   price: 39,
   duration: '5-7 hours',
   level: 'GCSE (Years 10-11)',

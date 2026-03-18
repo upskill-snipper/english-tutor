@@ -1,12 +1,15 @@
 const gcseRevisionBlitz = {
   id: 'gcse-revision-blitz',
-  title: 'GCSE Revision Blitz',
-  subtitle: 'Last-minute exam prep that actually works.',
+  title: 'GCSE Revision Blitz (AQA)',
+  subtitle: 'Last-minute AQA exam prep that actually works.',
   tier: 'GCSE',
+  board: 'AQA',
+  specId: 'gcse-lang',
+  specCode: '8700',
   price: 59,
   duration: '6-8 hours',
   level: 'GCSE (Years 10-11)',
-  description: 'The ultimate revision sprint. Condensed lessons covering every question type across Language and Literature, with exam walkthroughs, timing strategies, and grade-boosting tips from real examiners.',
+  description: 'The ultimate AQA revision sprint. Condensed lessons covering every question type across Language and Literature, with exam walkthroughs, timing strategies, and grade-boosting tips from real examiners.',
   color: '#f59e0b',
   moduleList: [
     {
