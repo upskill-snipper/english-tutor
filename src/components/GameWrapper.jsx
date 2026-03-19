@@ -10,25 +10,25 @@ export default function GameWrapper({ children, gameId }) {
 
   useEffect(() => {
     const user = getCurrentUser();
-    if (!user) {
-      setAllowed(false);
-      setRemaining(0);
-      return;
-    }
+    const userId = user?.id || null;
 
-    const userSubscribed = isSubscribed(user.id);
+    const userSubscribed = userId ? isSubscribed(userId) : false;
     setSubscribed(userSubscribed);
 
-    const canPlay = canPlayGame(user.id);
+    const canPlay = canPlayGame(userId);
     setAllowed(canPlay);
 
-    if (canPlay && !recorded.current) {
+    // Session-based deduplication: only count one attempt per gameId per browser session
+    const sessionKey = 'learnright_session_counted_' + gameId;
+    const alreadyCounted = sessionStorage.getItem(sessionKey);
+
+    if (canPlay && !recorded.current && !alreadyCounted) {
       recorded.current = true;
-      recordGameAttempt(user.id, gameId);
-      // Recalculate remaining after recording
-      setRemaining(getRemainingFreeAttempts(user.id));
+      sessionStorage.setItem(sessionKey, '1');
+      recordGameAttempt(userId, gameId);
+      setRemaining(getRemainingFreeAttempts(userId));
     } else {
-      setRemaining(getRemainingFreeAttempts(user.id));
+      setRemaining(getRemainingFreeAttempts(userId));
     }
   }, [gameId]);
 

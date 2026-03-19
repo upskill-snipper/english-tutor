@@ -501,23 +501,29 @@ export function isSubscribed(userId) {
 }
 
 export function getGameAttempts(userId) {
-  const data = localStorage.getItem(STORAGE_PREFIX + 'game_attempts_' + userId);
+  const key = userId
+    ? STORAGE_PREFIX + 'game_attempts_' + userId
+    : STORAGE_PREFIX + 'anon_game_attempts';
+  const data = localStorage.getItem(key);
   if (!data) return 0;
   const parsed = JSON.parse(data);
   return parsed.count || 0;
 }
 
 export function recordGameAttempt(userId, gameId) {
-  const data = localStorage.getItem(STORAGE_PREFIX + 'game_attempts_' + userId);
+  const key = userId
+    ? STORAGE_PREFIX + 'game_attempts_' + userId
+    : STORAGE_PREFIX + 'anon_game_attempts';
+  const data = localStorage.getItem(key);
   const parsed = data ? JSON.parse(data) : { count: 0, history: [] };
   parsed.count += 1;
   parsed.history.push({ gameId, timestamp: Date.now() });
-  localStorage.setItem(STORAGE_PREFIX + 'game_attempts_' + userId, JSON.stringify(parsed));
+  localStorage.setItem(key, JSON.stringify(parsed));
   return parsed.count;
 }
 
 export function canPlayGame(userId) {
-  if (isSubscribed(userId)) return true;
+  if (userId && isSubscribed(userId)) return true;
   return getGameAttempts(userId) < SUBSCRIPTION_TIERS.free.gameAttempts;
 }
 
