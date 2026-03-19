@@ -1,533 +1,699 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Calendar, Trophy, Flame, CheckCircle, XCircle, Star, Clock, Award } from 'lucide-react';
-import GameWrapper from '../../components/GameWrapper';
+import { ArrowLeft, Trophy, Flame, Calendar, Copy, Check, Clock, Star, CheckCircle, XCircle } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 
-// ── Question Pool (60+ questions across 5 categories) ──────────────────────
+const STORAGE_KEY = 'learnright_game_daily';
 
 const QUESTIONS = [
-  // ── Vocabulary (12) ──
-  { category: 'Vocabulary', question: "What does 'ubiquitous' mean?", options: ['Rare', 'Found everywhere', 'Mysterious', 'Ancient'], answer: 1 },
-  { category: 'Vocabulary', question: "What does 'ephemeral' mean?", options: ['Lasting forever', 'Short-lived', 'Invisible', 'Enormous'], answer: 1 },
-  { category: 'Vocabulary', question: "What is a synonym for 'benevolent'?", options: ['Cruel', 'Kind', 'Wealthy', 'Timid'], answer: 1 },
-  { category: 'Vocabulary', question: "What does 'pernicious' mean?", options: ['Helpful', 'Beautiful', 'Harmful', 'Boring'], answer: 2 },
-  { category: 'Vocabulary', question: "What does 'juxtaposition' mean in English?", options: ['Placing side by side for contrast', 'A type of metaphor', 'A grammatical error', 'A poetic rhythm'], answer: 0 },
-  { category: 'Vocabulary', question: "What does 'ambiguous' mean?", options: ['Clear', 'Open to interpretation', 'Angry', 'Quiet'], answer: 1 },
-  { category: 'Vocabulary', question: "What is the meaning of 'eloquent'?", options: ['Silent', 'Fluent and persuasive', 'Confused', 'Hostile'], answer: 1 },
-  { category: 'Vocabulary', question: "What does 'pragmatic' mean?", options: ['Idealistic', 'Practical and realistic', 'Dramatic', 'Poetic'], answer: 1 },
-  { category: 'Vocabulary', question: "What does 'resilient' mean?", options: ['Fragile', 'Able to recover quickly', 'Aggressive', 'Lazy'], answer: 1 },
-  { category: 'Vocabulary', question: "What is a synonym for 'meticulous'?", options: ['Careless', 'Thorough', 'Quick', 'Loud'], answer: 1 },
-  { category: 'Vocabulary', question: "What does 'ostentatious' mean?", options: ['Humble', 'Showy and pretentious', 'Quiet', 'Angry'], answer: 1 },
-  { category: 'Vocabulary', question: "What does 'candid' mean?", options: ['Secretive', 'Truthful and direct', 'Shy', 'Artistic'], answer: 1 },
+  // === LITERARY TERM DEFINITIONS (60) ===
+  { question: "What literary device gives human qualities to non-human things?", type: "definition", options: ["Simile", "Personification", "Metaphor", "Hyperbole"], answer: 1, explanation: "Personification attributes human characteristics to animals, objects, or ideas.", topic: "Literary Techniques" },
+  { question: "What is a comparison using 'like' or 'as' called?", type: "definition", options: ["Metaphor", "Simile", "Analogy", "Allegory"], answer: 1, explanation: "A simile explicitly compares two things using 'like' or 'as'.", topic: "Literary Techniques" },
+  { question: "What term describes a narrative technique where the story jumps back in time?", type: "definition", options: ["Foreshadowing", "Flashback", "Flash-forward", "In medias res"], answer: 1, explanation: "A flashback interrupts the chronological sequence to show past events.", topic: "Narrative Techniques" },
+  { question: "What is the deliberate use of exaggeration for emphasis called?", type: "definition", options: ["Litotes", "Hyperbole", "Understatement", "Euphemism"], answer: 1, explanation: "Hyperbole uses extreme exaggeration not meant to be taken literally.", topic: "Literary Techniques" },
+  { question: "What term means a recurring symbol or motif in literature?", type: "definition", options: ["Theme", "Motif", "Allegory", "Archetype"], answer: 3, explanation: "An archetype is a universally recognized symbol, character, or pattern in storytelling.", topic: "Literary Analysis" },
+  { question: "What is the mood or feeling created by a piece of writing called?", type: "definition", options: ["Tone", "Atmosphere", "Voice", "Style"], answer: 1, explanation: "Atmosphere (or mood) is the emotional feeling evoked in the reader by the text.", topic: "Literary Analysis" },
+  { question: "What technique involves hinting at future events in a story?", type: "definition", options: ["Flashback", "Foreshadowing", "Prolepsis", "Irony"], answer: 1, explanation: "Foreshadowing gives clues about what will happen later in the narrative.", topic: "Narrative Techniques" },
+  { question: "What is a story with a hidden moral or political meaning called?", type: "definition", options: ["Fable", "Parable", "Allegory", "Myth"], answer: 2, explanation: "An allegory uses characters and events as symbols for deeper meanings.", topic: "Literary Forms" },
+  { question: "What term describes the writer's attitude toward the subject?", type: "definition", options: ["Mood", "Tone", "Voice", "Register"], answer: 1, explanation: "Tone reflects the author's attitude and can be serious, playful, sarcastic, etc.", topic: "Literary Analysis" },
+  { question: "What is an extended metaphor that runs throughout an entire work?", type: "definition", options: ["Simile", "Conceit", "Symbol", "Motif"], answer: 1, explanation: "A conceit is an elaborate, extended metaphor comparing very dissimilar things.", topic: "Literary Techniques" },
+  { question: "What literary term describes a word that imitates a sound?", type: "definition", options: ["Alliteration", "Assonance", "Onomatopoeia", "Sibilance"], answer: 2, explanation: "Onomatopoeia uses words that phonetically resemble the sounds they describe (buzz, hiss, crash).", topic: "Sound Devices" },
+  { question: "What narrative perspective uses 'I' and 'me'?", type: "definition", options: ["Second person", "Third person limited", "First person", "Omniscient"], answer: 2, explanation: "First person narration uses 'I' to tell the story from one character's viewpoint.", topic: "Narrative Techniques" },
+  { question: "What is the central message or insight of a literary work?", type: "definition", options: ["Plot", "Theme", "Moral", "Motif"], answer: 1, explanation: "The theme is the underlying message or big idea explored in the text.", topic: "Literary Analysis" },
+  { question: "What is a contradiction that contains an unexpected truth?", type: "definition", options: ["Oxymoron", "Paradox", "Antithesis", "Irony"], answer: 1, explanation: "A paradox is a statement that seems contradictory but reveals a deeper truth.", topic: "Literary Techniques" },
+  { question: "What term describes two contrasting ideas placed side by side?", type: "definition", options: ["Paradox", "Oxymoron", "Juxtaposition", "Antithesis"], answer: 2, explanation: "Juxtaposition places contrasting elements close together for comparison.", topic: "Literary Techniques" },
+  { question: "What is the use of symbols to represent ideas or qualities?", type: "definition", options: ["Allegory", "Symbolism", "Imagery", "Metaphor"], answer: 1, explanation: "Symbolism uses objects, characters, or colours to represent abstract ideas.", topic: "Literary Techniques" },
+  { question: "What narrative device presents events out of chronological order?", type: "definition", options: ["Linear narrative", "Non-linear narrative", "Circular narrative", "Frame narrative"], answer: 1, explanation: "A non-linear narrative disrupts the time sequence of events.", topic: "Narrative Techniques" },
+  { question: "What is a protagonist's main opponent called?", type: "definition", options: ["Foil", "Antagonist", "Anti-hero", "Villain"], answer: 1, explanation: "The antagonist opposes the protagonist and creates conflict in the story.", topic: "Character Types" },
+  { question: "What literary device involves an indirect reference to another work?", type: "definition", options: ["Quotation", "Allusion", "Citation", "Parody"], answer: 1, explanation: "An allusion references another text, person, or event without explicit identification.", topic: "Literary Techniques" },
+  { question: "What is a character who contrasts with another to highlight qualities?", type: "definition", options: ["Antagonist", "Foil", "Protagonist", "Deuteragonist"], answer: 1, explanation: "A foil character has qualities that contrast with another character, making their traits more apparent.", topic: "Character Types" },
+  { question: "What term describes language that appeals to the senses?", type: "definition", options: ["Symbolism", "Imagery", "Description", "Diction"], answer: 1, explanation: "Imagery uses vivid, descriptive language to create mental pictures through the senses.", topic: "Literary Techniques" },
+  { question: "What is a seemingly absurd statement that has two contradictory words?", type: "definition", options: ["Paradox", "Oxymoron", "Antithesis", "Irony"], answer: 1, explanation: "An oxymoron combines two contradictory terms (e.g., 'deafening silence').", topic: "Literary Techniques" },
+  { question: "What is the sequence of events in a story called?", type: "definition", options: ["Narrative", "Plot", "Structure", "Timeline"], answer: 1, explanation: "The plot is the sequence of events that make up the story's action.", topic: "Narrative Structure" },
+  { question: "What term describes the emotional release experienced by the audience?", type: "definition", options: ["Pathos", "Catharsis", "Empathy", "Bathos"], answer: 1, explanation: "Catharsis is the purging of emotions, especially pity and fear, through art.", topic: "Drama" },
+  { question: "What is a word or phrase that has become overused called?", type: "definition", options: ["Idiom", "Cliche", "Proverb", "Colloquialism"], answer: 1, explanation: "A cliche is an expression that has lost originality through overuse.", topic: "Language" },
+  { question: "What is the final part of a narrative where conflicts are resolved?", type: "definition", options: ["Climax", "Falling action", "Denouement", "Epilogue"], answer: 2, explanation: "The denouement ties up loose ends after the climax and falling action.", topic: "Narrative Structure" },
+  { question: "What literary term means giving an object significance beyond its literal meaning?", type: "definition", options: ["Metaphor", "Symbol", "Motif", "Allegory"], answer: 1, explanation: "A symbol is an object, person, or place that represents something beyond itself.", topic: "Literary Techniques" },
+  { question: "What is a long narrative poem about heroic deeds called?", type: "definition", options: ["Ballad", "Ode", "Epic", "Saga"], answer: 2, explanation: "An epic is a lengthy narrative poem celebrating the feats of a legendary hero.", topic: "Literary Forms" },
+  { question: "What technique uses the same consonant sounds at the start of nearby words?", type: "definition", options: ["Assonance", "Alliteration", "Consonance", "Sibilance"], answer: 1, explanation: "Alliteration repeats initial consonant sounds in consecutive or close words.", topic: "Sound Devices" },
+  { question: "What is a recurring element or idea in a literary work?", type: "definition", options: ["Theme", "Motif", "Symbol", "Leitmotif"], answer: 1, explanation: "A motif is a repeated image, symbol, or idea that develops a theme.", topic: "Literary Analysis" },
+  { question: "What term describes the speed at which a narrative moves?", type: "definition", options: ["Rhythm", "Pacing", "Tempo", "Cadence"], answer: 1, explanation: "Pacing refers to how fast or slow the story progresses.", topic: "Narrative Techniques" },
+  { question: "What is the highest point of tension in a story?", type: "definition", options: ["Rising action", "Climax", "Crisis", "Turning point"], answer: 1, explanation: "The climax is the moment of greatest tension where the central conflict reaches its peak.", topic: "Narrative Structure" },
+  { question: "What is a figure of speech that says the opposite of what is meant?", type: "definition", options: ["Sarcasm", "Verbal irony", "Satire", "Parody"], answer: 1, explanation: "Verbal irony occurs when a speaker says something contrary to what they actually mean.", topic: "Literary Techniques" },
+  { question: "What term describes expectations that differ from what actually happens?", type: "definition", options: ["Verbal irony", "Dramatic irony", "Situational irony", "Cosmic irony"], answer: 2, explanation: "Situational irony occurs when the outcome contradicts what was expected.", topic: "Literary Techniques" },
+  { question: "What device involves the audience knowing something characters don't?", type: "definition", options: ["Situational irony", "Dramatic irony", "Verbal irony", "Foreshadowing"], answer: 1, explanation: "Dramatic irony occurs when the audience has information that characters lack.", topic: "Literary Techniques" },
+  { question: "What is the choice and use of words by an author called?", type: "definition", options: ["Syntax", "Diction", "Register", "Lexis"], answer: 1, explanation: "Diction refers to the author's choice of words and their arrangement.", topic: "Language" },
+  { question: "What is the arrangement of words and phrases in sentences?", type: "definition", options: ["Diction", "Syntax", "Grammar", "Semantics"], answer: 1, explanation: "Syntax is the way words are organized into sentences.", topic: "Language" },
+  { question: "What literary form uses ridicule to criticise society?", type: "definition", options: ["Parody", "Satire", "Farce", "Burlesque"], answer: 1, explanation: "Satire uses humour, irony, and exaggeration to criticise human flaws and institutions.", topic: "Literary Forms" },
+  { question: "What is a short tale that teaches a moral lesson?", type: "definition", options: ["Fable", "Allegory", "Parable", "Legend"], answer: 0, explanation: "A fable is a short story, often with animals, that teaches a moral.", topic: "Literary Forms" },
+  { question: "What technique uses 's' sounds to create a hissing effect?", type: "definition", options: ["Alliteration", "Assonance", "Sibilance", "Consonance"], answer: 2, explanation: "Sibilance uses repeated 's', 'sh', or 'z' sounds to create a specific effect.", topic: "Sound Devices" },
+  { question: "What is the repetition of vowel sounds within words called?", type: "definition", options: ["Alliteration", "Assonance", "Consonance", "Rhyme"], answer: 1, explanation: "Assonance is the repetition of vowel sounds in nearby words.", topic: "Sound Devices" },
+  { question: "What is a protagonist who lacks traditional heroic qualities?", type: "definition", options: ["Antagonist", "Villain", "Anti-hero", "Tragic hero"], answer: 2, explanation: "An anti-hero is a central character who lacks conventional heroic attributes.", topic: "Character Types" },
+  { question: "What term describes a character who doesn't change throughout the story?", type: "definition", options: ["Round character", "Static character", "Flat character", "Stock character"], answer: 1, explanation: "A static character remains unchanged in personality or outlook throughout the narrative.", topic: "Character Types" },
+  { question: "What is a character with complex, multi-dimensional traits?", type: "definition", options: ["Flat character", "Round character", "Dynamic character", "Stock character"], answer: 1, explanation: "A round character has depth, complexity, and often contradictory traits.", topic: "Character Types" },
+  { question: "What is the perspective from which a story is told?", type: "definition", options: ["Voice", "Point of view", "Perspective", "Narration"], answer: 1, explanation: "Point of view determines through whose eyes the reader experiences the story.", topic: "Narrative Techniques" },
+  { question: "What term describes language particular to a specific region?", type: "definition", options: ["Slang", "Dialect", "Jargon", "Vernacular"], answer: 1, explanation: "Dialect is a form of language specific to a particular region or social group.", topic: "Language" },
+  { question: "What is the emotional response a text evokes in the reader?", type: "definition", options: ["Tone", "Mood", "Atmosphere", "Affect"], answer: 1, explanation: "Mood is the emotional feeling a reader gets from a text.", topic: "Literary Analysis" },
+  { question: "What is a narrator who cannot be fully trusted called?", type: "definition", options: ["First person narrator", "Unreliable narrator", "Omniscient narrator", "Limited narrator"], answer: 1, explanation: "An unreliable narrator's account of events is questionable or biased.", topic: "Narrative Techniques" },
+  { question: "What literary device presents the stream of a character's thoughts?", type: "definition", options: ["Interior monologue", "Stream of consciousness", "Soliloquy", "Free indirect discourse"], answer: 1, explanation: "Stream of consciousness captures the continuous flow of a character's thoughts and feelings.", topic: "Narrative Techniques" },
+  { question: "What is a brief and amusing story about a real incident?", type: "definition", options: ["Anecdote", "Vignette", "Parable", "Fable"], answer: 0, explanation: "An anecdote is a short account of an interesting or humorous incident.", topic: "Literary Forms" },
+  { question: "What is a mild or indirect expression used to replace a harsh one?", type: "definition", options: ["Litotes", "Euphemism", "Understatement", "Circumlocution"], answer: 1, explanation: "A euphemism substitutes a milder expression for something considered harsh or blunt.", topic: "Literary Techniques" },
+  { question: "What term describes the use of informal language in writing?", type: "definition", options: ["Dialect", "Colloquialism", "Slang", "Vernacular"], answer: 1, explanation: "Colloquialism is the use of ordinary, informal language in writing.", topic: "Language" },
+  { question: "What is a story that explains natural phenomena through gods and heroes?", type: "definition", options: ["Legend", "Myth", "Fable", "Folklore"], answer: 1, explanation: "A myth is a traditional story explaining natural events through supernatural beings.", topic: "Literary Forms" },
+  { question: "What narrative structure begins and ends at the same point?", type: "definition", options: ["Linear narrative", "Circular narrative", "Frame narrative", "Episodic narrative"], answer: 1, explanation: "A circular narrative returns to its starting point, creating a sense of completion.", topic: "Narrative Structure" },
+  { question: "What is a protagonist whose flaws lead to their downfall?", type: "definition", options: ["Anti-hero", "Byronic hero", "Tragic hero", "Flawed hero"], answer: 2, explanation: "A tragic hero is a noble character whose fatal flaw leads to their downfall.", topic: "Character Types" },
+  { question: "What term describes deliberate understatement through negation?", type: "definition", options: ["Euphemism", "Litotes", "Meiosis", "Irony"], answer: 1, explanation: "Litotes uses a negative to express a positive meaning (e.g., 'not bad' meaning 'good').", topic: "Literary Techniques" },
+  { question: "What is the introductory section of a literary work?", type: "definition", options: ["Preface", "Prologue", "Foreword", "Exposition"], answer: 1, explanation: "A prologue provides background information before the main story begins.", topic: "Narrative Structure" },
+  { question: "What is the concluding section after the main narrative?", type: "definition", options: ["Denouement", "Epilogue", "Postscript", "Coda"], answer: 1, explanation: "An epilogue follows the main story, often revealing what happens to characters later.", topic: "Narrative Structure" },
+  { question: "What is a character's moment of sudden insight or realisation?", type: "definition", options: ["Catharsis", "Anagnorisis", "Epiphany", "Peripeteia"], answer: 2, explanation: "An epiphany is a moment of sudden revelation or deep understanding.", topic: "Literary Techniques" },
+  { question: "What term describes placing two opposing ideas in balanced phrases?", type: "definition", options: ["Juxtaposition", "Antithesis", "Parallelism", "Contrast"], answer: 1, explanation: "Antithesis uses balanced, parallel structures to contrast opposing ideas.", topic: "Literary Techniques" },
 
-  // ── Grammar (12) ──
-  { category: 'Grammar', question: "Which sentence uses the correct form?", options: ["Its a lovely day", "It's a lovely day", "Its' a lovely day", "Its's a lovely day"], answer: 1 },
-  { category: 'Grammar', question: "What is the plural of 'phenomenon'?", options: ['Phenomenons', 'Phenomena', 'Phenomeni', 'Phenomenae'], answer: 1 },
-  { category: 'Grammar', question: "Which is correct?", options: ["Who's book is this?", "Whose book is this?", "Whom's book is this?", "Whos book is this?"], answer: 1 },
-  { category: 'Grammar', question: "Identify the subordinate conjunction:", options: ['And', 'But', 'Although', 'Or'], answer: 2 },
-  { category: 'Grammar', question: "'She could of gone' — what is wrong?", options: ['Nothing', "'of' should be 'have'", "'gone' should be 'went'", "'could' should be 'can'"], answer: 1 },
-  { category: 'Grammar', question: "What is a split infinitive?", options: ['An infinitive cut in two sentences', 'A word placed between to and the verb', 'A verb without a subject', 'Two infinitives joined'], answer: 1 },
-  { category: 'Grammar', question: "Which sentence is in the subjunctive mood?", options: ['She was happy', 'If I were you', 'He is running', 'They went home'], answer: 1 },
-  { category: 'Grammar', question: "What type of word is 'however' in: 'However, she tried again'?", options: ['Conjunction', 'Conjunctive adverb', 'Preposition', 'Pronoun'], answer: 1 },
-  { category: 'Grammar', question: "'The team are playing well' uses which agreement?", options: ['Singular', 'Plural (notional agreement)', 'Neither', 'Both'], answer: 1 },
-  { category: 'Grammar', question: "A dangling modifier is:", options: ['A misplaced descriptive phrase', 'A type of verb', 'An extra comma', 'A run-on sentence'], answer: 0 },
-  { category: 'Grammar', question: "Which is a compound-complex sentence?", options: ['She ran.', 'She ran and he walked.', 'Although it rained, she ran and he walked.', 'Although it rained, she ran.'], answer: 2 },
-  { category: 'Grammar', question: "What is an appositive?", options: ['A type of verb', 'A noun phrase that renames another noun', 'An adverb clause', 'A dangling modifier'], answer: 1 },
+  // === QUOTE IDENTIFICATION (60) ===
+  { question: "Who wrote: 'To be, or not to be: that is the question'?", type: "quote", options: ["Christopher Marlowe", "William Shakespeare", "John Milton", "Ben Jonson"], answer: 1, explanation: "This is from Hamlet's famous soliloquy in Act 3, Scene 1.", topic: "Shakespeare" },
+  { question: "Which novel begins: 'It was the best of times, it was the worst of times'?", type: "quote", options: ["Great Expectations", "A Tale of Two Cities", "Oliver Twist", "David Copperfield"], answer: 1, explanation: "This is the iconic opening of Dickens' A Tale of Two Cities.", topic: "19th Century Literature" },
+  { question: "'All animals are equal, but some animals are more equal than others' is from?", type: "quote", options: ["1984", "Animal Farm", "Brave New World", "Lord of the Flies"], answer: 1, explanation: "This quote from Animal Farm satirises the corruption of revolutionary ideals.", topic: "20th Century Literature" },
+  { question: "Who said: 'Is this a dagger which I see before me'?", type: "quote", options: ["Hamlet", "Macbeth", "Othello", "King Lear"], answer: 1, explanation: "Macbeth speaks this before murdering King Duncan in Act 2, Scene 1.", topic: "Shakespeare" },
+  { question: "'It is a truth universally acknowledged' opens which novel?", type: "quote", options: ["Emma", "Pride and Prejudice", "Sense and Sensibility", "Jane Eyre"], answer: 1, explanation: "This is the famous first line of Jane Austen's Pride and Prejudice.", topic: "19th Century Literature" },
+  { question: "'Big Brother is watching you' comes from which novel?", type: "quote", options: ["Animal Farm", "Fahrenheit 451", "1984", "The Handmaid's Tale"], answer: 2, explanation: "This dystopian phrase is from George Orwell's 1984.", topic: "20th Century Literature" },
+  { question: "Who wrote: 'I wandered lonely as a cloud'?", type: "quote", options: ["John Keats", "William Wordsworth", "Percy Shelley", "Lord Byron"], answer: 1, explanation: "This is the opening line of Wordsworth's 'Daffodils'.", topic: "Romantic Poetry" },
+  { question: "'Call me Ishmael' is the opening of which novel?", type: "quote", options: ["Moby-Dick", "Treasure Island", "Robinson Crusoe", "The Old Man and the Sea"], answer: 0, explanation: "This is the famous three-word opening of Melville's Moby-Dick.", topic: "19th Century Literature" },
+  { question: "'Out, damned spot!' is said by which character?", type: "quote", options: ["Macbeth", "Lady Macbeth", "The Porter", "Macduff"], answer: 1, explanation: "Lady Macbeth says this while sleepwalking, tortured by guilt.", topic: "Shakespeare" },
+  { question: "Which play features: 'If music be the food of love, play on'?", type: "quote", options: ["Romeo and Juliet", "A Midsummer Night's Dream", "Twelfth Night", "The Tempest"], answer: 2, explanation: "Duke Orsino speaks this opening line of Twelfth Night.", topic: "Shakespeare" },
+  { question: "'The lady doth protest too much, methinks' is from?", type: "quote", options: ["Macbeth", "Hamlet", "Othello", "King Lear"], answer: 1, explanation: "Queen Gertrude speaks this line while watching the play-within-a-play in Hamlet.", topic: "Shakespeare" },
+  { question: "Who wrote: 'Because I could not stop for Death, He kindly stopped for me'?", type: "quote", options: ["Sylvia Plath", "Emily Dickinson", "Maya Angelou", "Elizabeth Barrett Browning"], answer: 1, explanation: "This is from Emily Dickinson's famous poem about death.", topic: "Poetry" },
+  { question: "'Two roads diverged in a wood, and I -- I took the one less traveled by' is by?", type: "quote", options: ["Walt Whitman", "Robert Frost", "T.S. Eliot", "W.B. Yeats"], answer: 1, explanation: "This is from Robert Frost's 'The Road Not Taken'.", topic: "Poetry" },
+  { question: "Which novel opens: 'Last night I dreamt I went to Manderley again'?", type: "quote", options: ["Jane Eyre", "Wuthering Heights", "Rebecca", "The Turn of the Screw"], answer: 2, explanation: "This is the haunting opening of Daphne du Maurier's Rebecca.", topic: "20th Century Literature" },
+  { question: "'Not all those who wander are lost' comes from?", type: "quote", options: ["The Odyssey", "The Lord of the Rings", "The Hobbit", "Don Quixote"], answer: 1, explanation: "This line is from a poem in Tolkien's The Lord of the Rings.", topic: "20th Century Literature" },
+  { question: "'Reader, I married him' is the famous line from?", type: "quote", options: ["Pride and Prejudice", "Wuthering Heights", "Jane Eyre", "Middlemarch"], answer: 2, explanation: "Jane Eyre directly addresses the reader with this declaration.", topic: "19th Century Literature" },
+  { question: "Who wrote: 'Do not go gentle into that good night'?", type: "quote", options: ["W.H. Auden", "Dylan Thomas", "Seamus Heaney", "Ted Hughes"], answer: 1, explanation: "Dylan Thomas wrote this villanelle about resisting death.", topic: "Poetry" },
+  { question: "'Shall I compare thee to a summer's day?' is from which Shakespeare sonnet?", type: "quote", options: ["Sonnet 18", "Sonnet 116", "Sonnet 130", "Sonnet 73"], answer: 0, explanation: "Sonnet 18 is one of Shakespeare's most famous love poems.", topic: "Shakespeare" },
+  { question: "'War is peace. Freedom is slavery. Ignorance is strength' is from?", type: "quote", options: ["Brave New World", "1984", "Animal Farm", "The Handmaid's Tale"], answer: 1, explanation: "These are the Party's three paradoxical slogans in Orwell's 1984.", topic: "20th Century Literature" },
+  { question: "'It was a bright cold day in April, and the clocks were striking thirteen' opens?", type: "quote", options: ["Brave New World", "Fahrenheit 451", "1984", "A Clockwork Orange"], answer: 2, explanation: "This unsettling first line opens Orwell's 1984.", topic: "20th Century Literature" },
+  { question: "Who wrote: 'My mistress' eyes are nothing like the sun'?", type: "quote", options: ["John Donne", "William Shakespeare", "Edmund Spenser", "Philip Sidney"], answer: 1, explanation: "Shakespeare's Sonnet 130 subverts traditional love poetry conventions.", topic: "Shakespeare" },
+  { question: "'O Romeo, Romeo, wherefore art thou Romeo?' -- what does 'wherefore' mean?", type: "quote", options: ["Where", "Why", "How", "When"], answer: 1, explanation: "Juliet asks why Romeo must be a Montague, not where he is.", topic: "Shakespeare" },
+  { question: "'Things fall apart; the centre cannot hold' is by which poet?", type: "quote", options: ["T.S. Eliot", "W.B. Yeats", "Ezra Pound", "W.H. Auden"], answer: 1, explanation: "This is from Yeats' 'The Second Coming'.", topic: "Poetry" },
+  { question: "'April is the cruellest month' opens which poem?", type: "quote", options: ["The Waste Land", "The Love Song of J. Alfred Prufrock", "The Hollow Men", "Four Quartets"], answer: 0, explanation: "T.S. Eliot's The Waste Land begins with this famous line.", topic: "Modernist Poetry" },
+  { question: "Which novel begins: 'It was a pleasure to burn'?", type: "quote", options: ["1984", "Brave New World", "Fahrenheit 451", "The Road"], answer: 2, explanation: "Ray Bradbury's Fahrenheit 451 opens with this provocative line.", topic: "20th Century Literature" },
+  { question: "'Look on my Works, ye Mighty, and despair!' is from?", type: "quote", options: ["Ozymandias", "Kubla Khan", "The Tyger", "Ode to the West Wind"], answer: 0, explanation: "Shelley's 'Ozymandias' uses this line to show the futility of power.", topic: "Romantic Poetry" },
+  { question: "'To err is human; to forgive, divine' was written by?", type: "quote", options: ["John Milton", "Alexander Pope", "Jonathan Swift", "Samuel Johnson"], answer: 1, explanation: "This comes from Pope's 'An Essay on Criticism'.", topic: "18th Century Literature" },
+  { question: "'The horror! The horror!' are the last words of which character?", type: "quote", options: ["Captain Ahab", "Kurtz", "Heathcliff", "Rochester"], answer: 1, explanation: "Kurtz speaks these dying words in Conrad's Heart of Darkness.", topic: "20th Century Literature" },
+  { question: "'I think therefore I am' is a concept explored in which literary tradition?", type: "quote", options: ["Romanticism", "Existentialism", "Rationalism", "Modernism"], answer: 2, explanation: "Descartes' famous philosophical statement is central to Rationalist thought.", topic: "Philosophy in Literature" },
+  { question: "Which play features: 'All the world's a stage'?", type: "quote", options: ["Hamlet", "The Tempest", "As You Like It", "A Midsummer Night's Dream"], answer: 2, explanation: "Jaques delivers this speech in Shakespeare's As You Like It.", topic: "Shakespeare" },
+  { question: "'Once more unto the breach, dear friends' is from?", type: "quote", options: ["Henry IV", "Henry V", "Richard III", "Julius Caesar"], answer: 1, explanation: "King Henry V rallies his troops with this speech before battle.", topic: "Shakespeare" },
+  { question: "'It is a far, far better thing that I do' is said by?", type: "quote", options: ["Pip", "Sydney Carton", "David Copperfield", "Oliver Twist"], answer: 1, explanation: "Sydney Carton speaks these words before his sacrifice in A Tale of Two Cities.", topic: "19th Century Literature" },
+  { question: "Who wrote: 'If you can keep your head when all about you are losing theirs'?", type: "quote", options: ["Rudyard Kipling", "Wilfred Owen", "Alfred Tennyson", "Robert Browning"], answer: 0, explanation: "This is the opening of Kipling's poem 'If--'.", topic: "Poetry" },
+  { question: "'We shall fight on the beaches' was said by?", type: "quote", options: ["Winston Churchill", "A fictional character", "King George VI", "Franklin Roosevelt"], answer: 0, explanation: "Churchill delivered this famous wartime speech in 1940.", topic: "Speeches" },
+  { question: "'I have a dream' is a famous speech by?", type: "quote", options: ["Nelson Mandela", "Abraham Lincoln", "Martin Luther King Jr.", "Malcolm X"], answer: 2, explanation: "MLK Jr. delivered this iconic speech during the March on Washington in 1963.", topic: "Speeches" },
+  { question: "'What's in a name? That which we call a rose by any other name would smell as sweet' is from?", type: "quote", options: ["A Midsummer Night's Dream", "Romeo and Juliet", "The Taming of the Shrew", "Much Ado About Nothing"], answer: 1, explanation: "Juliet speaks this line on her balcony in Romeo and Juliet.", topic: "Shakespeare" },
+  { question: "'How do I love thee? Let me count the ways' was written by?", type: "quote", options: ["Emily Dickinson", "Christina Rossetti", "Elizabeth Barrett Browning", "Edna St. Vincent Millay"], answer: 2, explanation: "Elizabeth Barrett Browning wrote this famous Sonnet 43.", topic: "Victorian Poetry" },
+  { question: "Who created the character of Ebenezer Scrooge?", type: "quote", options: ["Thomas Hardy", "Charles Dickens", "George Eliot", "William Thackeray"], answer: 1, explanation: "Scrooge is the protagonist of Dickens' A Christmas Carol.", topic: "19th Century Literature" },
+  { question: "'Tomorrow, and tomorrow, and tomorrow' is spoken by?", type: "quote", options: ["Hamlet", "Macbeth", "King Lear", "Othello"], answer: 1, explanation: "Macbeth delivers this nihilistic soliloquy after Lady Macbeth's death.", topic: "Shakespeare" },
+  { question: "'I am no bird; and no net ensnares me' is spoken by?", type: "quote", options: ["Catherine Earnshaw", "Jane Eyre", "Elizabeth Bennet", "Tess Durbeyfield"], answer: 1, explanation: "Jane Eyre asserts her independence with this powerful declaration.", topic: "19th Century Literature" },
 
-  // ── Literary Techniques (12) ──
-  { category: 'Literary Techniques', question: "'The fog crept in on little cat feet' uses which technique?", options: ['Simile', 'Metaphor', 'Personification', 'Hyperbole'], answer: 1 },
-  { category: 'Literary Techniques', question: "What technique is 'as cold as ice'?", options: ['Metaphor', 'Simile', 'Personification', 'Alliteration'], answer: 1 },
-  { category: 'Literary Techniques', question: "'I died of embarrassment' is an example of?", options: ['Irony', 'Litotes', 'Hyperbole', 'Euphemism'], answer: 2 },
-  { category: 'Literary Techniques', question: "When weather reflects a character's mood, it is called?", options: ['Symbolism', 'Pathetic fallacy', 'Foreshadowing', 'Imagery'], answer: 1 },
-  { category: 'Literary Techniques', question: "'Bitter sweet' is an example of?", options: ['Paradox', 'Oxymoron', 'Antithesis', 'Irony'], answer: 1 },
-  { category: 'Literary Techniques', question: "Repeating the first word(s) of successive clauses is?", options: ['Epistrophe', 'Anaphora', 'Parallelism', 'Refrain'], answer: 1 },
-  { category: 'Literary Techniques', question: "A narrative that works on two levels (literal and symbolic) is?", options: ['Metaphor', 'Allegory', 'Fable', 'Myth'], answer: 1 },
-  { category: 'Literary Techniques', question: "'The stars danced in the sky' uses?", options: ['Simile', 'Alliteration', 'Personification', 'Onomatopoeia'], answer: 2 },
-  { category: 'Literary Techniques', question: "Giving animals human characteristics is specifically?", options: ['Personification', 'Anthropomorphism', 'Zoomorphism', 'Allegory'], answer: 1 },
-  { category: 'Literary Techniques', question: "What is an extended metaphor?", options: ['A very long simile', 'A metaphor sustained across several lines', 'Two metaphors combined', 'A metaphor with alliteration'], answer: 1 },
-  { category: 'Literary Techniques', question: "A sudden shift in a sonnet is called a?", options: ['Caesura', 'Enjambment', 'Volta', 'Couplet'], answer: 2 },
-  { category: 'Literary Techniques', question: "'Silence was deafening' is an example of?", options: ['Simile', 'Oxymoron', 'Litotes', 'Metonymy'], answer: 1 },
+  // === GRAMMAR (65) ===
+  { question: "Which sentence is grammatically correct?", type: "grammar", options: ["Me and him went to the shop", "Him and I went to the shop", "He and I went to the shop", "He and me went to the shop"], answer: 2, explanation: "Subject pronouns (He, I) are used as the subject of the sentence.", topic: "Grammar" },
+  { question: "Identify the correct use of the semicolon.", type: "grammar", options: ["I like cats; and dogs", "I like cats; I also like dogs", "I like cats; dogs too", "I like; cats and dogs"], answer: 1, explanation: "A semicolon joins two related independent clauses.", topic: "Punctuation" },
+  { question: "What is the correct possessive form of 'it'?", type: "grammar", options: ["It's", "Its", "Its'", "Its's"], answer: 1, explanation: "'Its' (no apostrophe) is the possessive form; 'it's' means 'it is'.", topic: "Grammar" },
+  { question: "Which sentence uses the subjunctive mood correctly?", type: "grammar", options: ["If I was rich, I'd travel", "If I were rich, I'd travel", "If I am rich, I'd travel", "If I be rich, I'd travel"], answer: 1, explanation: "The subjunctive 'were' is used for hypothetical or contrary-to-fact conditions.", topic: "Grammar" },
+  { question: "'Who' vs 'whom': which is correct? '__ did you see?'", type: "grammar", options: ["Who did you see?", "Whom did you see?", "Both are correct", "Neither is correct"], answer: 1, explanation: "'Whom' is the object form. You saw him (whom), not he (who).", topic: "Grammar" },
+  { question: "Which word is a conjunction?", type: "grammar", options: ["Quickly", "Although", "Beautiful", "Running"], answer: 1, explanation: "'Although' is a subordinating conjunction that introduces a dependent clause.", topic: "Grammar" },
+  { question: "What type of sentence is: 'Although it was raining, we went outside'?", type: "grammar", options: ["Simple", "Compound", "Complex", "Compound-complex"], answer: 2, explanation: "A complex sentence has one independent clause and at least one dependent clause.", topic: "Sentence Structure" },
+  { question: "Which is an example of a run-on sentence?", type: "grammar", options: ["I ran fast, but I lost.", "I ran fast I lost the race.", "Although I ran fast, I lost.", "I ran fast; I lost."], answer: 1, explanation: "A run-on sentence joins two independent clauses without proper punctuation or conjunction.", topic: "Sentence Structure" },
+  { question: "In 'The dog quickly ate its dinner', what is the adverb?", type: "grammar", options: ["dog", "quickly", "ate", "dinner"], answer: 1, explanation: "'Quickly' modifies the verb 'ate', telling us how the dog ate.", topic: "Grammar" },
+  { question: "What is the plural of 'criterion'?", type: "grammar", options: ["Criterions", "Criterias", "Criteria", "Criteriae"], answer: 2, explanation: "'Criteria' is the plural of the Greek-derived word 'criterion'.", topic: "Grammar" },
+  { question: "Which sentence uses a colon correctly?", type: "grammar", options: ["I need: milk, eggs, bread", "I need the following: milk, eggs, and bread", "I need, milk: eggs, and bread", "I: need milk, eggs, and bread"], answer: 1, explanation: "A colon follows a complete sentence and introduces a list or explanation.", topic: "Punctuation" },
+  { question: "'Affect' vs 'effect': which is correct? 'The weather will __ our plans.'", type: "grammar", options: ["affect", "effect", "Both work", "Neither works"], answer: 0, explanation: "'Affect' is the verb meaning to influence; 'effect' is usually a noun.", topic: "Commonly Confused Words" },
+  { question: "Which is the correct spelling?", type: "grammar", options: ["Definately", "Definatley", "Definitely", "Deffinitely"], answer: 2, explanation: "'Definitely' is the correct spelling -- remember 'finite' in the middle.", topic: "Spelling" },
+  { question: "What is a dangling modifier?", type: "grammar", options: ["A modifier placed next to the wrong word", "A modifier missing the word it describes", "A modifier that is too long", "A modifier with a spelling error"], answer: 1, explanation: "A dangling modifier lacks a clear word to modify in the sentence.", topic: "Grammar" },
+  { question: "Which sentence has correct subject-verb agreement?", type: "grammar", options: ["The team are playing well", "The team is playing well", "Both are correct", "Neither is correct"], answer: 2, explanation: "In British English, collective nouns can take singular or plural verbs.", topic: "Grammar" },
+  { question: "'Less' vs 'fewer': which is correct? 'There are __ students today.'", type: "grammar", options: ["less", "fewer", "Both are correct", "lesser"], answer: 1, explanation: "'Fewer' is used for countable nouns; 'less' for uncountable quantities.", topic: "Grammar" },
+  { question: "What type of clause is 'because she was tired'?", type: "grammar", options: ["Independent clause", "Dependent clause", "Relative clause", "Noun clause"], answer: 1, explanation: "It cannot stand alone as a sentence -- it depends on a main clause.", topic: "Sentence Structure" },
+  { question: "Which sentence uses an apostrophe correctly?", type: "grammar", options: ["The dog's are playing", "The dogs' toy was lost (multiple dogs)", "The dog's toy's were lost", "Its' a nice day"], answer: 1, explanation: "The apostrophe after 'dogs' shows the toy belongs to multiple dogs.", topic: "Punctuation" },
+  { question: "'Their', 'there', or 'they're'? '__ going to the park.'", type: "grammar", options: ["Their", "There", "They're", "Theyre"], answer: 2, explanation: "'They're' is the contraction of 'they are'.", topic: "Commonly Confused Words" },
+  { question: "What is a split infinitive?", type: "grammar", options: ["An infinitive at the end of a sentence", "A word placed between 'to' and the verb", "Two infinitives in one sentence", "An infinitive without 'to'"], answer: 1, explanation: "A split infinitive places a word between 'to' and the verb (e.g., 'to boldly go').", topic: "Grammar" },
+  { question: "Which is correct: 'who's' or 'whose'? '__ book is this?'", type: "grammar", options: ["Who's", "Whose", "Whos", "Whom's"], answer: 1, explanation: "'Whose' is possessive; 'who's' is a contraction of 'who is'.", topic: "Commonly Confused Words" },
+  { question: "What part of speech is 'however' in: 'However, I disagree'?", type: "grammar", options: ["Conjunction", "Conjunctive adverb", "Preposition", "Interjection"], answer: 1, explanation: "'However' is a conjunctive adverb that connects ideas and shows contrast.", topic: "Grammar" },
+  { question: "Which sentence is in the passive voice?", type: "grammar", options: ["The cat chased the mouse", "The mouse was chased by the cat", "The cat is chasing the mouse", "The cat will chase the mouse"], answer: 1, explanation: "In passive voice, the subject receives the action rather than performing it.", topic: "Grammar" },
+  { question: "What tense is: 'She will have been working for ten hours'?", type: "grammar", options: ["Future perfect", "Future continuous", "Future perfect continuous", "Past perfect continuous"], answer: 2, explanation: "Future perfect continuous combines will + have been + present participle.", topic: "Grammar" },
+  { question: "'Practise' vs 'practice': in British English, which is the verb?", type: "grammar", options: ["Practice", "Practise", "Both", "Neither"], answer: 1, explanation: "In British English, 'practise' is the verb and 'practice' is the noun.", topic: "Spelling" },
+  { question: "What is a gerund?", type: "grammar", options: ["A verb ending in -ed", "A verb used as a noun ending in -ing", "A verb in past tense", "A verb with a helper"], answer: 1, explanation: "A gerund is a verb form ending in -ing that functions as a noun.", topic: "Grammar" },
+  { question: "Which sentence contains a relative clause?", type: "grammar", options: ["I ate the cake quickly", "The cake, which was chocolate, was delicious", "The chocolate cake was delicious", "I love cake"], answer: 1, explanation: "'Which was chocolate' is a relative clause giving extra information about the cake.", topic: "Sentence Structure" },
+  { question: "What is the function of a modal verb?", type: "grammar", options: ["To describe a noun", "To express necessity, possibility, or permission", "To connect clauses", "To show past tense"], answer: 1, explanation: "Modal verbs (can, could, may, might, must, shall, should, will, would) express modality.", topic: "Grammar" },
+  { question: "'I could of done it' -- what is wrong with this sentence?", type: "grammar", options: ["Nothing, it's correct", "'of' should be 'have'", "'could' should be 'can'", "'done' should be 'did'"], answer: 1, explanation: "The correct form is 'could have' -- 'of' is a common error from mishearing.", topic: "Commonly Confused Words" },
+  { question: "What is an imperative sentence?", type: "grammar", options: ["A question", "A statement", "A command", "An exclamation"], answer: 2, explanation: "Imperative sentences give commands or instructions (e.g., 'Close the door').", topic: "Sentence Structure" },
 
-  // ── Quote Identification (12) ──
-  { category: 'Quote Identification', question: "Who said 'To be, or not to be'?", options: ['Macbeth', 'Hamlet', 'Romeo', 'Othello'], answer: 1 },
-  { category: 'Quote Identification', question: "'It is a truth universally acknowledged...' opens which novel?", options: ['Jane Eyre', 'Wuthering Heights', 'Pride and Prejudice', 'Emma'], answer: 2 },
-  { category: 'Quote Identification', question: "Who says 'Is this a dagger which I see before me'?", options: ['Banquo', 'Lady Macbeth', 'Macduff', 'Macbeth'], answer: 3 },
-  { category: 'Quote Identification', question: "'All animals are equal, but some are more equal than others' is from?", options: ['1984', 'Animal Farm', 'Brave New World', 'Lord of the Flies'], answer: 1 },
-  { category: 'Quote Identification', question: "'Big Brother is watching you' is from?", options: ['Animal Farm', 'Fahrenheit 451', '1984', 'The Handmaid\'s Tale'], answer: 2 },
-  { category: 'Quote Identification', question: "Who wrote 'I wandered lonely as a cloud'?", options: ['Keats', 'Shelley', 'Byron', 'Wordsworth'], answer: 3 },
-  { category: 'Quote Identification', question: "'Et tu, Brute?' is from which Shakespeare play?", options: ['Hamlet', 'Macbeth', 'Julius Caesar', 'Othello'], answer: 2 },
-  { category: 'Quote Identification', question: "'It was the best of times, it was the worst of times' opens?", options: ['Great Expectations', 'Oliver Twist', 'A Christmas Carol', 'A Tale of Two Cities'], answer: 3 },
-  { category: 'Quote Identification', question: "Who says 'Out, damned spot! Out, I say!'?", options: ['Macbeth', 'Lady Macbeth', 'The Porter', 'Banquo'], answer: 1 },
-  { category: 'Quote Identification', question: "'The lady doth protest too much' is from?", options: ['Macbeth', 'Romeo and Juliet', 'Hamlet', 'Othello'], answer: 2 },
-  { category: 'Quote Identification', question: "'Call me Ishmael' opens which novel?", options: ['Treasure Island', 'Robinson Crusoe', 'Moby-Dick', 'The Old Man and the Sea'], answer: 2 },
-  { category: 'Quote Identification', question: "Who wrote 'My Last Duchess'?", options: ['Tennyson', 'Robert Browning', 'Shelley', 'Keats'], answer: 1 },
+  // === TECHNIQUE SPOTTING (60) ===
+  { question: "What technique is used: 'The moon smiled down on the village'?", type: "technique", options: ["Metaphor", "Simile", "Personification", "Hyperbole"], answer: 2, explanation: "The moon is given the human ability to smile (personification).", topic: "Literary Techniques" },
+  { question: "Identify the technique: 'She sells sea shells by the sea shore'", type: "technique", options: ["Assonance", "Alliteration", "Sibilance", "Onomatopoeia"], answer: 1, explanation: "The repetition of the 's' and 'sh' sounds at the start of words is alliteration.", topic: "Sound Devices" },
+  { question: "What technique: 'He was a lion in battle'?", type: "technique", options: ["Simile", "Metaphor", "Personification", "Hyperbole"], answer: 1, explanation: "This directly states he IS a lion -- a metaphor (no 'like' or 'as').", topic: "Literary Techniques" },
+  { question: "Identify: 'The silence was deafening'", type: "technique", options: ["Paradox", "Oxymoron", "Antithesis", "Hyperbole"], answer: 1, explanation: "'Deafening silence' combines contradictory words -- an oxymoron.", topic: "Literary Techniques" },
+  { question: "What technique: 'I died of embarrassment'?", type: "technique", options: ["Metaphor", "Hyperbole", "Litotes", "Idiom"], answer: 1, explanation: "This is exaggeration for effect -- you didn't literally die.", topic: "Literary Techniques" },
+  { question: "'Buzz, hiss, crackle' -- what technique do these words use?", type: "technique", options: ["Alliteration", "Onomatopoeia", "Assonance", "Consonance"], answer: 1, explanation: "These words imitate the sounds they represent -- onomatopoeia.", topic: "Sound Devices" },
+  { question: "What technique: 'It was not unlike a disaster'?", type: "technique", options: ["Euphemism", "Litotes", "Understatement", "Irony"], answer: 1, explanation: "Using a double negative ('not unlike') to make an understatement is litotes.", topic: "Literary Techniques" },
+  { question: "Identify: 'The fog comes on little cat feet'", type: "technique", options: ["Simile", "Metaphor", "Personification", "Imagery"], answer: 1, explanation: "The fog is described AS having cat feet -- an implied metaphor.", topic: "Literary Techniques" },
+  { question: "What technique: 'Shall I compare thee to a summer's day? / Thou art more lovely and more temperate'?", type: "technique", options: ["Metaphor", "Rhetorical question followed by simile", "Conceit", "Blazon"], answer: 1, explanation: "Shakespeare asks a rhetorical question then compares the beloved to summer.", topic: "Literary Techniques" },
+  { question: "'Break, break, break, / On thy cold gray stones, O Sea!' uses?", type: "technique", options: ["Repetition and apostrophe", "Alliteration and simile", "Onomatopoeia only", "Personification only"], answer: 0, explanation: "The word 'break' is repeated, and the sea is directly addressed (apostrophe).", topic: "Poetic Techniques" },
+  { question: "What technique: 'The trees danced in the wind'?", type: "technique", options: ["Metaphor", "Simile", "Personification", "Imagery"], answer: 2, explanation: "Trees are given the human ability to dance -- personification.", topic: "Literary Techniques" },
+  { question: "Identify the technique: 'My love is like a red, red rose'", type: "technique", options: ["Metaphor", "Simile", "Personification", "Symbol"], answer: 1, explanation: "The word 'like' signals a simile -- comparing love to a rose.", topic: "Literary Techniques" },
+  { question: "What technique: 'He has a heart of stone'?", type: "technique", options: ["Simile", "Metaphor", "Hyperbole", "Idiom"], answer: 1, explanation: "His heart IS stone -- a metaphor describing someone as cold or unfeeling.", topic: "Literary Techniques" },
+  { question: "Identify: 'Water, water, every where, / Nor any drop to drink'", type: "technique", options: ["Irony", "Paradox", "Repetition and irony", "Hyperbole"], answer: 2, explanation: "The repetition of 'water' emphasises the irony of being surrounded by undrinkable sea water.", topic: "Poetic Techniques" },
+  { question: "What technique: 'Parting is such sweet sorrow'?", type: "technique", options: ["Paradox", "Oxymoron", "Antithesis", "Irony"], answer: 1, explanation: "'Sweet sorrow' combines contradictory words -- an oxymoron.", topic: "Literary Techniques" },
+  { question: "'The pen is mightier than the sword' is an example of?", type: "technique", options: ["Metaphor", "Metonymy", "Synecdoche", "Hyperbole"], answer: 1, explanation: "'Pen' represents writing/ideas and 'sword' represents military force -- metonymy.", topic: "Literary Techniques" },
+  { question: "What technique: 'From morn to noon he fell, from noon to dewy eve'?", type: "technique", options: ["Anaphora", "Epistrophe", "Parallelism", "Chiasmus"], answer: 2, explanation: "The repeated structure 'from X to Y' creates parallel construction.", topic: "Literary Techniques" },
+  { question: "Identify: 'I have told you a thousand times'", type: "technique", options: ["Litotes", "Hyperbole", "Metaphor", "Idiom"], answer: 1, explanation: "'A thousand times' is an exaggeration for emphasis -- hyperbole.", topic: "Literary Techniques" },
+  { question: "What technique: 'The thunder roared and the lightning danced'?", type: "technique", options: ["Pathetic fallacy", "Personification", "Both A and B", "Imagery"], answer: 2, explanation: "Weather given human qualities is both personification and pathetic fallacy.", topic: "Literary Techniques" },
+  { question: "'Ask not what your country can do for you -- ask what you can do for your country' uses?", type: "technique", options: ["Anaphora", "Chiasmus", "Antithesis", "Parallelism"], answer: 1, explanation: "The reversed structure (country/you then you/country) is chiasmus.", topic: "Rhetorical Devices" },
+  { question: "What technique: 'I came, I saw, I conquered'?", type: "technique", options: ["Tricolon", "Anaphora", "Asyndeton", "All of these"], answer: 3, explanation: "It uses three elements (tricolon), repeated 'I' (anaphora), and no conjunctions (asyndeton).", topic: "Rhetorical Devices" },
+  { question: "Identify the technique: 'Friends, Romans, countrymen, lend me your ears'", type: "technique", options: ["Tricolon and metonymy", "Simile and metaphor", "Alliteration and imagery", "Anaphora and hyperbole"], answer: 0, explanation: "Three groups addressed (tricolon) and 'ears' represents attention (metonymy).", topic: "Rhetorical Devices" },
+  { question: "'It was a dark and stormy night' setting the mood is?", type: "technique", options: ["Imagery", "Pathetic fallacy", "Foreshadowing", "All of these"], answer: 3, explanation: "The weather creates mood (pathetic fallacy), paints a picture (imagery), and hints at trouble (foreshadowing).", topic: "Literary Techniques" },
+  { question: "What technique: 'The early bird catches the worm, but the second mouse gets the cheese'?", type: "technique", options: ["Proverb and subversion", "Metaphor", "Irony", "Antithesis"], answer: 0, explanation: "A traditional proverb is followed by a subversive twist.", topic: "Rhetorical Devices" },
+  { question: "Identify: 'We few, we happy few, we band of brothers'", type: "technique", options: ["Anaphora and tricolon", "Metaphor and simile", "Alliteration only", "Repetition only"], answer: 0, explanation: "'We' repeats at the start (anaphora) in three phrases (tricolon).", topic: "Shakespeare" },
+  { question: "What technique is used when an author describes sounds, smells, and textures vividly?", type: "technique", options: ["Imagery", "Symbolism", "Description", "Sensory language"], answer: 0, explanation: "Imagery appeals to the five senses to create vivid mental pictures.", topic: "Literary Techniques" },
+  { question: "'After the destruction, wildflowers began to bloom' -- the flowers likely symbolise?", type: "technique", options: ["Death", "Hope and renewal", "Nature's power", "Fragility"], answer: 1, explanation: "Flowers growing after destruction commonly symbolise hope and new beginnings.", topic: "Symbolism" },
+  { question: "What technique: 'The government denied any wrongdoing' when they clearly did wrong?", type: "technique", options: ["Verbal irony", "Dramatic irony", "Situational irony", "Euphemism"], answer: 2, explanation: "The gap between what is said and reality creates situational irony.", topic: "Literary Techniques" },
+  { question: "Identify: 'To be great is to be misunderstood' (Emerson)", type: "technique", options: ["Paradox", "Oxymoron", "Antithesis", "Irony"], answer: 0, explanation: "This seems contradictory but contains a deeper truth -- a paradox.", topic: "Literary Techniques" },
+  { question: "What technique: writing in short, sharp sentences during an action scene?", type: "technique", options: ["Minor sentences", "Staccato rhythm", "Parataxis", "All of these"], answer: 3, explanation: "Short sentences create urgency using staccato rhythm, minor sentences, and parataxis.", topic: "Writing Techniques" },
 
-  // ── Comprehension (12) ──
-  { category: 'Comprehension', question: "What does 'reading between the lines' mean?", options: ['Speed reading', 'Understanding implied meaning', 'Skipping paragraphs', 'Reading aloud'], answer: 1 },
-  { category: 'Comprehension', question: "An unreliable narrator is one who?", options: ['Cannot read', 'Cannot be fully trusted', 'Speaks in third person', 'Uses dialect'], answer: 1 },
-  { category: 'Comprehension', question: "What is the purpose of a topic sentence?", options: ['To end a paragraph', 'To introduce the main idea', 'To provide evidence', 'To summarise the essay'], answer: 1 },
-  { category: 'Comprehension', question: "What does PEE stand for in essay writing?", options: ['Point, Evidence, Explain', 'Plan, Edit, Evaluate', 'Predict, Examine, Explore', 'Paragraph, Essay, Extract'], answer: 0 },
-  { category: 'Comprehension', question: "What is inference in reading?", options: ['Copying text directly', 'Drawing conclusions from evidence', 'Summarising a chapter', 'Identifying the author'], answer: 1 },
-  { category: 'Comprehension', question: "A bildungsroman is a novel about?", options: ['War', 'Coming of age', 'A detective', 'The future'], answer: 1 },
-  { category: 'Comprehension', question: "What is the denouement of a story?", options: ['The opening', 'The climax', 'The final resolution', 'The rising action'], answer: 2 },
-  { category: 'Comprehension', question: "In media res means starting a story?", options: ['At the beginning', 'At the end', 'In the middle of action', 'With a flashback'], answer: 2 },
-  { category: 'Comprehension', question: "What is the difference between theme and motif?", options: ['They are the same', 'Theme is the message; motif is a recurring element', 'Motif is the message; theme is a symbol', 'Theme is in poetry only'], answer: 1 },
-  { category: 'Comprehension', question: "What is dramatic irony?", options: ['When a character is sarcastic', 'When the audience knows more than characters', 'When the outcome is unexpected', 'When the narrator lies'], answer: 1 },
-  { category: 'Comprehension', question: "A foil character serves to?", options: ['Narrate the story', 'Contrast with another character', 'Provide comic relief', 'Resolve the conflict'], answer: 1 },
-  { category: 'Comprehension', question: "What is the effect of short, simple sentences in prose?", options: ['They slow the pace', 'They create tension or impact', 'They confuse the reader', 'They add description'], answer: 1 },
+  // === CONTEXT KNOWLEDGE (60) ===
+  { question: "In which century did Shakespeare write most of his plays?", type: "context", options: ["15th century", "16th-17th century", "18th century", "14th century"], answer: 1, explanation: "Shakespeare wrote most of his plays between 1590 and 1613.", topic: "Literary History" },
+  { question: "The Romantic period in English literature began approximately when?", type: "context", options: ["1660", "1750", "1789", "1830"], answer: 2, explanation: "Romanticism is generally dated from the French Revolution (1789) to around 1830.", topic: "Literary History" },
+  { question: "Which literary movement valued emotion and nature over reason?", type: "context", options: ["Neoclassicism", "Romanticism", "Modernism", "Realism"], answer: 1, explanation: "Romanticism emphasised emotion, individualism, and the beauty of nature.", topic: "Literary Movements" },
+  { question: "George Orwell wrote during which historical context?", type: "context", options: ["Victorian era", "World War I", "World War II and Cold War", "Elizabethan era"], answer: 2, explanation: "Orwell wrote during and after WWII, reflecting on totalitarianism.", topic: "20th Century Literature" },
+  { question: "What was the Globe Theatre?", type: "context", options: ["A modern London theatre", "Shakespeare's theatre", "A Victorian music hall", "A Greek amphitheatre"], answer: 1, explanation: "The Globe was the playhouse associated with Shakespeare's company.", topic: "Shakespeare" },
+  { question: "The Victorian era of literature corresponds to the reign of?", type: "context", options: ["Queen Elizabeth I", "Queen Victoria", "King George III", "Queen Anne"], answer: 1, explanation: "The Victorian era (1837-1901) corresponds to Queen Victoria's reign.", topic: "Literary History" },
+  { question: "Which war heavily influenced the poetry of Wilfred Owen and Siegfried Sassoon?", type: "context", options: ["Boer War", "World War I", "World War II", "Crimean War"], answer: 1, explanation: "Owen and Sassoon were War Poets who wrote about the horrors of WWI.", topic: "War Poetry" },
+  { question: "Modernist literature emerged primarily after which event?", type: "context", options: ["The Industrial Revolution", "World War I", "World War II", "The French Revolution"], answer: 1, explanation: "Modernism arose from the disillusionment following World War I.", topic: "Literary Movements" },
+  { question: "Charles Dickens' novels often criticised what aspect of Victorian society?", type: "context", options: ["The monarchy", "Social inequality and poverty", "Religious institutions", "The education system only"], answer: 1, explanation: "Dickens highlighted poverty, child labour, and class divisions in Victorian England.", topic: "19th Century Literature" },
+  { question: "What genre is 'The Handmaid's Tale' by Margaret Atwood?", type: "context", options: ["Historical fiction", "Dystopian fiction", "Science fiction", "Gothic fiction"], answer: 1, explanation: "The Handmaid's Tale is a dystopian novel about a totalitarian patriarchal society.", topic: "20th Century Literature" },
+  { question: "The Bronte sisters (Charlotte, Emily, Anne) wrote during which period?", type: "context", options: ["Romantic", "Victorian", "Edwardian", "Georgian"], answer: 1, explanation: "The Brontes published their major works in the 1840s-50s, during the Victorian era.", topic: "19th Century Literature" },
+  { question: "What is Gothic literature characterised by?", type: "context", options: ["Realism and social commentary", "Mystery, horror, and the supernatural", "Comedy and satire", "Nature and emotion"], answer: 1, explanation: "Gothic literature features dark settings, mystery, supernatural elements, and emotional extremes.", topic: "Literary Genres" },
+  { question: "Mary Shelley's 'Frankenstein' is considered an early example of?", type: "context", options: ["Realist fiction", "Science fiction", "Detective fiction", "Naturalism"], answer: 1, explanation: "Frankenstein (1818) is widely regarded as one of the first science fiction novels.", topic: "Literary History" },
+  { question: "What social issue does 'Of Mice and Men' primarily explore?", type: "context", options: ["Racism in the Deep South", "The American Dream during the Great Depression", "World War I trauma", "Industrialisation"], answer: 1, explanation: "Steinbeck explores the unattainability of the American Dream during the 1930s Depression.", topic: "20th Century Literature" },
+  { question: "In what century was 'A Christmas Carol' published?", type: "context", options: ["18th century", "19th century", "20th century", "17th century"], answer: 1, explanation: "Dickens published A Christmas Carol in 1843.", topic: "19th Century Literature" },
+  { question: "Which literary movement rejected traditional forms and experimented with structure?", type: "context", options: ["Romanticism", "Realism", "Modernism", "Naturalism"], answer: 2, explanation: "Modernism broke with traditional forms, using stream of consciousness and fragmented narratives.", topic: "Literary Movements" },
+  { question: "What was the Elizabethan era named after?", type: "context", options: ["Queen Elizabeth II", "Queen Elizabeth I", "Elizabeth Bennet", "Elizabeth Barrett Browning"], answer: 1, explanation: "The Elizabethan era (1558-1603) was named after Queen Elizabeth I.", topic: "Literary History" },
+  { question: "Arthur Miller's 'The Crucible' is an allegory for?", type: "context", options: ["The French Revolution", "McCarthyism", "The Salem Witch Trials only", "The Cold War arms race"], answer: 1, explanation: "While set during the Salem Witch Trials, The Crucible allegorises McCarthy-era persecution.", topic: "20th Century Drama" },
+  { question: "J.B. Priestley's 'An Inspector Calls' promotes what political ideology?", type: "context", options: ["Capitalism", "Socialism", "Conservatism", "Anarchism"], answer: 1, explanation: "Priestley uses the play to promote socialist ideas of collective responsibility.", topic: "20th Century Drama" },
+  { question: "What historical period is 'Lord of the Flies' often interpreted as reflecting?", type: "context", options: ["Victorian colonialism", "Post-WWII anxiety about human nature", "The Cold War", "The Industrial Revolution"], answer: 1, explanation: "Golding wrote it after WWII, exploring the darkness within human nature.", topic: "20th Century Literature" },
+  { question: "William Blake was associated with which literary and artistic movement?", type: "context", options: ["Neoclassicism", "Romanticism", "Pre-Raphaelites", "Modernism"], answer: 1, explanation: "Blake was a precursor to Romanticism, emphasising imagination and vision.", topic: "Romantic Poetry" },
+  { question: "What is the significance of the moors in 'Wuthering Heights'?", type: "context", options: ["They symbolise civilisation", "They mirror the wild, passionate nature of characters", "They represent safety", "They are purely decorative"], answer: 1, explanation: "The wild moors reflect Heathcliff and Catherine's untamed passions.", topic: "19th Century Literature" },
+  { question: "Harper Lee's 'To Kill a Mockingbird' primarily addresses?", type: "context", options: ["World War II", "Racial injustice in the American South", "British colonialism", "The Great Depression only"], answer: 1, explanation: "The novel confronts racial prejudice and injustice in 1930s Alabama.", topic: "20th Century Literature" },
+  { question: "The Metaphysical poets (Donne, Herbert, Marvell) were known for?", type: "context", options: ["Simple, pastoral verse", "Complex conceits and intellectual wit", "Political satire", "Nature poetry"], answer: 1, explanation: "Metaphysical poetry features elaborate conceits, wit, and philosophical arguments.", topic: "Poetry" },
+  { question: "What was the Harlem Renaissance?", type: "context", options: ["A British literary movement", "An African American cultural and intellectual movement", "A European art movement", "A musical genre"], answer: 1, explanation: "The Harlem Renaissance (1920s-30s) was a flourishing of African American arts and literature.", topic: "Literary History" },
+  { question: "In which decade was 'The Great Gatsby' published?", type: "context", options: ["1910s", "1920s", "1930s", "1940s"], answer: 1, explanation: "F. Scott Fitzgerald published The Great Gatsby in 1925.", topic: "20th Century Literature" },
+  { question: "Post-colonial literature often explores themes of?", type: "context", options: ["Space exploration", "Identity, displacement, and cultural conflict", "Medieval history", "Scientific progress"], answer: 1, explanation: "Post-colonial literature examines the lasting impacts of colonialism on identity and culture.", topic: "Literary Movements" },
+  { question: "What genre does 'Dracula' by Bram Stoker belong to?", type: "context", options: ["Realist fiction", "Gothic fiction", "Science fiction", "Romance"], answer: 1, explanation: "Dracula is a classic of Gothic fiction with horror, mystery, and supernatural elements.", topic: "Literary Genres" },
+  { question: "The Beat Generation writers (Kerouac, Ginsberg) emerged in which decade?", type: "context", options: ["1930s", "1940s", "1950s", "1960s"], answer: 2, explanation: "The Beat Generation was a literary movement of the 1950s rejecting mainstream values.", topic: "Literary Movements" },
+  { question: "What social class did most characters in Austen's novels belong to?", type: "context", options: ["Working class", "Gentry and middle class", "Aristocracy", "Peasantry"], answer: 1, explanation: "Austen wrote about the landed gentry and rising middle class of Regency England.", topic: "19th Century Literature" },
+
+  // === CREATIVE WRITING PROMPTS (60) ===
+  { question: "Which opening line is most effective for a suspense story?", type: "creative", options: ["It was a nice day", "The letter arrived three days after she died", "Once upon a time there was a house", "The house was old and big"], answer: 1, explanation: "This creates immediate intrigue -- who died? What's in the letter?", topic: "Creative Writing" },
+  { question: "What is 'show, don't tell' in creative writing?", type: "creative", options: ["Using dialogue only", "Describing emotions through actions and details", "Writing in present tense", "Using first person"], answer: 1, explanation: "'Show, don't tell' means conveying feelings through behaviour and sensory details, not stating them directly.", topic: "Creative Writing" },
+  { question: "Which description best shows a character is nervous?", type: "creative", options: ["She was very nervous", "She felt nervous and scared", "Her fingers drummed the table; she couldn't meet his eyes", "She told everyone she was nervous"], answer: 2, explanation: "Physical details (drumming fingers, avoiding eye contact) show nervousness without stating it.", topic: "Creative Writing" },
+  { question: "What is the purpose of a 'hook' in writing?", type: "creative", options: ["To summarise the plot", "To grab the reader's attention immediately", "To introduce all characters", "To set the historical context"], answer: 1, explanation: "A hook is an engaging opening that compels the reader to continue.", topic: "Creative Writing" },
+  { question: "Which sentence uses more effective sensory language?", type: "creative", options: ["The garden was nice", "The scent of jasmine hung heavy in the warm evening air", "The garden had flowers in it", "It was a good-looking garden"], answer: 1, explanation: "This engages smell and touch, creating a vivid, immersive experience.", topic: "Creative Writing" },
+  { question: "In creative writing, what does 'voice' refer to?", type: "creative", options: ["Speaking aloud", "The narrator's unique style and personality", "Using dialogue", "Writing in first person only"], answer: 1, explanation: "Voice is the distinctive style and personality that comes through in writing.", topic: "Creative Writing" },
+  { question: "Which is a stronger verb choice: 'She walked slowly' or 'She crept'?", type: "creative", options: ["She walked slowly -- it's clearer", "She crept -- it's more precise and evocative", "Both are equally effective", "Neither is good writing"], answer: 1, explanation: "'Crept' is a single, precise verb that conveys more meaning and atmosphere.", topic: "Creative Writing" },
+  { question: "What is the 'rule of three' in writing?", type: "creative", options: ["Write three drafts", "Use three characters", "Group ideas or descriptions in threes for impact", "Write three paragraphs"], answer: 2, explanation: "The rule of three creates satisfying rhythm and emphasis in writing.", topic: "Creative Writing" },
+  { question: "Which technique creates tension in a narrative?", type: "creative", options: ["Long, detailed descriptions of scenery", "Short sentences and delayed revelation", "Using lots of adverbs", "Writing in passive voice"], answer: 1, explanation: "Short sentences quicken pace, and withholding information builds suspense.", topic: "Creative Writing" },
+  { question: "What is 'pathetic fallacy' most useful for in creative writing?", type: "creative", options: ["Character development", "Reflecting characters' emotions through weather/setting", "Creating dialogue", "Establishing time period"], answer: 1, explanation: "Pathetic fallacy uses the environment to mirror emotional states.", topic: "Creative Writing" },
+  { question: "Which closing line is most impactful?", type: "creative", options: ["And then I went home", "And so everything was fine", "The door closed softly behind her. She never looked back.", "The end"], answer: 2, explanation: "This ending is concrete, visual, and carries emotional weight through implication.", topic: "Creative Writing" },
+  { question: "What makes dialogue effective?", type: "creative", options: ["Characters all speak the same way", "It moves the plot forward and reveals character", "Using 'said' alternatives constantly", "Long speeches without interruption"], answer: 1, explanation: "Good dialogue serves double duty -- advancing plot while revealing personality.", topic: "Creative Writing" },
+  { question: "What is the effect of starting a story 'in medias res'?", type: "creative", options: ["It confuses readers", "It creates immediate engagement by starting in the middle of action", "It provides detailed background", "It's only for epic poems"], answer: 1, explanation: "Starting in the middle of events creates instant intrigue and momentum.", topic: "Creative Writing" },
+  { question: "Which is better for building atmosphere?", type: "creative", options: ["It was scary", "Shadows pooled in the corners; something scratched behind the wall", "The room was dark and scary", "I felt scared in the room"], answer: 1, explanation: "Specific sensory details create atmosphere far more effectively than stating emotions.", topic: "Creative Writing" },
+  { question: "What is a 'motif' useful for in creative writing?", type: "creative", options: ["Making word count", "Reinforcing themes through repeated symbols or images", "Confusing the reader", "Following genre conventions"], answer: 1, explanation: "Recurring motifs create cohesion and deepen thematic meaning.", topic: "Creative Writing" },
+  { question: "What does 'write tight' mean?", type: "creative", options: ["Use small handwriting", "Eliminate unnecessary words for clarity and impact", "Write short stories only", "Use short sentences only"], answer: 1, explanation: "Writing tight means cutting filler words to make every word count.", topic: "Creative Writing" },
+  { question: "When is it effective to use a sentence fragment in creative writing?", type: "creative", options: ["Never -- they're always wrong", "For emphasis, impact, or mimicking natural thought", "Only in dialogue", "Only in poetry"], answer: 1, explanation: "Deliberate fragments can create punch, rhythm, or reflect a character's thoughts.", topic: "Creative Writing" },
+  { question: "What is 'foreshadowing' most effective for?", type: "creative", options: ["Spoiling the ending", "Creating a sense of inevitability and dramatic tension", "Confusing readers", "Padding word count"], answer: 1, explanation: "Foreshadowing hints at future events, building suspense and dramatic irony.", topic: "Creative Writing" },
+  { question: "Which point of view creates the most intimacy with a character?", type: "creative", options: ["Third person omniscient", "Second person", "First person", "Third person objective"], answer: 2, explanation: "First person gives direct access to a character's thoughts and feelings.", topic: "Creative Writing" },
+  { question: "What is the effect of varying sentence length?", type: "creative", options: ["It looks messy", "It creates rhythm, pace changes, and emphasis", "It confuses readers", "It's poor style"], answer: 1, explanation: "Mixing short and long sentences controls pacing and creates dynamic prose.", topic: "Creative Writing" },
+
+  // === ADDITIONAL MIXED QUESTIONS TO REACH 365 ===
+  { question: "What is a 'volta' in a sonnet?", type: "definition", options: ["The final couplet", "A turn in thought or argument", "The rhyme scheme", "The metre"], answer: 1, explanation: "The volta is the shift in thought, typically occurring at line 9 in a Petrarchan sonnet.", topic: "Poetry" },
+  { question: "Who wrote 'Paradise Lost'?", type: "context", options: ["John Donne", "John Milton", "John Bunyan", "John Keats"], answer: 1, explanation: "John Milton published Paradise Lost in 1667.", topic: "17th Century Literature" },
+  { question: "What technique: 'The camera loves her'?", type: "technique", options: ["Simile", "Personification", "Metaphor", "Hyperbole"], answer: 1, explanation: "The camera is given the human ability to love -- personification.", topic: "Literary Techniques" },
+  { question: "Which is correct: 'I feel bad' or 'I feel badly'?", type: "grammar", options: ["I feel bad", "I feel badly", "Both are correct", "Neither is correct"], answer: 0, explanation: "'Bad' is an adjective describing 'I'; 'badly' would mean your sense of touch is impaired.", topic: "Grammar" },
+  { question: "What is a 'bildungsroman'?", type: "definition", options: ["A horror novel", "A coming-of-age novel", "A romance novel", "An epistolary novel"], answer: 1, explanation: "A bildungsroman follows the moral and psychological growth of the protagonist.", topic: "Literary Forms" },
+  { question: "Who wrote 'Wuthering Heights'?", type: "context", options: ["Charlotte Bronte", "Emily Bronte", "Anne Bronte", "Elizabeth Gaskell"], answer: 1, explanation: "Emily Bronte published Wuthering Heights in 1847.", topic: "19th Century Literature" },
+  { question: "What technique is used in: 'All hope abandon, ye who enter here'?", type: "technique", options: ["Hyperbole", "Imperative and apostrophe", "Metaphor", "Litotes"], answer: 1, explanation: "This uses an imperative command and directly addresses the reader (apostrophe).", topic: "Literary Techniques" },
+  { question: "What is 'free indirect discourse'?", type: "definition", options: ["Direct speech without quotation marks", "Narration blending narrator's voice with character's thoughts", "A type of monologue", "Writing without punctuation"], answer: 1, explanation: "Free indirect discourse merges the narrator's and character's perspectives seamlessly.", topic: "Narrative Techniques" },
+  { question: "What is the difference between 'tone' and 'mood'?", type: "definition", options: ["They mean the same thing", "Tone is the author's attitude; mood is the reader's feeling", "Mood is the author's attitude; tone is the reader's feeling", "Neither relates to literature"], answer: 1, explanation: "Tone is how the writer feels about the subject; mood is the emotional effect on the reader.", topic: "Literary Analysis" },
+  { question: "In Shakespeare's time, who played female roles?", type: "context", options: ["Women from the court", "Young boys and men", "Professional actresses", "No one -- there were no female roles"], answer: 1, explanation: "Women were not allowed on stage in Elizabethan England; boys played female parts.", topic: "Shakespeare" },
+  { question: "What technique: 'To live is to suffer, to survive is to find some meaning in the suffering'?", type: "technique", options: ["Parallelism", "Antithesis", "Chiasmus", "Paradox"], answer: 0, explanation: "The repeated structure creates parallelism, balancing the two ideas.", topic: "Literary Techniques" },
+  { question: "What is an 'epistolary novel'?", type: "definition", options: ["A novel about religion", "A novel told through letters or documents", "A novel set in historical times", "A novel with multiple narrators"], answer: 1, explanation: "An epistolary novel uses letters, diary entries, or other documents to tell the story.", topic: "Literary Forms" },
+  { question: "Who wrote 'Great Expectations'?", type: "context", options: ["Thomas Hardy", "Charles Dickens", "George Eliot", "William Thackeray"], answer: 1, explanation: "Charles Dickens published Great Expectations in 1861.", topic: "19th Century Literature" },
+  { question: "What is 'dramatic monologue' in poetry?", type: "definition", options: ["A poem recited on stage", "A poem where a single speaker addresses a silent listener", "A poem with dialogue", "A poem about drama"], answer: 1, explanation: "A dramatic monologue has one speaker addressing an implied audience, revealing their character.", topic: "Poetry" },
+  { question: "Which word is a preposition: 'The cat sat under the table'?", type: "grammar", options: ["cat", "sat", "under", "table"], answer: 2, explanation: "'Under' is a preposition showing the relationship between the cat and the table.", topic: "Grammar" },
+  { question: "What is 'bathos'?", type: "definition", options: ["Deep emotion", "An anticlimax -- a shift from serious to ridiculous", "Pathetic fallacy", "A type of tragedy"], answer: 1, explanation: "Bathos is an unintentional or deliberate shift from the sublime to the absurd.", topic: "Literary Techniques" },
+  { question: "Robert Louis Stevenson wrote which famous novella about duality?", type: "context", options: ["Dracula", "Frankenstein", "The Strange Case of Dr Jekyll and Mr Hyde", "The Picture of Dorian Gray"], answer: 2, explanation: "Stevenson's 1886 novella explores the duality of human nature.", topic: "19th Century Literature" },
+  { question: "What technique: 'Not a creature was stirring, not even a mouse'?", type: "technique", options: ["Hyperbole", "Litotes and imagery", "Understatement", "Personification"], answer: 1, explanation: "The negative construction (litotes) combined with specific detail creates a vivid, quiet image.", topic: "Literary Techniques" },
+  { question: "What is a 'red herring' in literature?", type: "definition", options: ["A symbol of danger", "A misleading clue", "A character's nickname", "A type of metaphor"], answer: 1, explanation: "A red herring is something that misleads or distracts from the real issue.", topic: "Narrative Techniques" },
+  { question: "What period does 'The Canterbury Tales' belong to?", type: "context", options: ["Elizabethan", "Medieval", "Romantic", "Victorian"], answer: 1, explanation: "Chaucer wrote The Canterbury Tales in the late 14th century, during the Medieval period.", topic: "Literary History" },
+  { question: "Which sentence uses a semicolon incorrectly?", type: "grammar", options: ["I love reading; it relaxes me", "She was tired; however, she kept going", "I went to the shop; and bought milk", "The sky darkened; rain was coming"], answer: 2, explanation: "Don't use a semicolon before a coordinating conjunction like 'and'.", topic: "Punctuation" },
+  { question: "What is 'hubris'?", type: "definition", options: ["False modesty", "Excessive pride leading to downfall", "A type of tragic hero", "A plot device"], answer: 1, explanation: "Hubris is excessive pride or arrogance that leads to a character's downfall.", topic: "Drama" },
+  { question: "What is the effect of using second person ('you') in fiction?", type: "creative", options: ["It's always wrong", "It creates directness and immerses the reader", "It's only for instructions", "It creates distance"], answer: 1, explanation: "Second person puts the reader in the character's position, creating immediacy.", topic: "Creative Writing" },
+  { question: "Who wrote 'The Tyger'?", type: "context", options: ["William Wordsworth", "William Blake", "Samuel Taylor Coleridge", "John Keats"], answer: 1, explanation: "William Blake published 'The Tyger' in Songs of Experience (1794).", topic: "Romantic Poetry" },
+  { question: "What is 'intertextuality'?", type: "definition", options: ["Text within text", "The relationship between texts that shape meaning", "A type of footnote", "Quoting other authors"], answer: 1, explanation: "Intertextuality is when a text references, echoes, or is influenced by other texts.", topic: "Literary Analysis" },
+  { question: "What technique: 'The stars winked at us from above'?", type: "technique", options: ["Simile", "Metaphor", "Personification", "Imagery"], answer: 2, explanation: "Stars are given the human ability to wink -- personification.", topic: "Literary Techniques" },
+  { question: "Which tense is most common in academic essay writing?", type: "grammar", options: ["Past tense", "Present tense", "Future tense", "Past perfect"], answer: 1, explanation: "Academic essays typically use present tense to discuss texts and ideas.", topic: "Academic Writing" },
+  { question: "What is the 'fourth wall'?", type: "definition", options: ["The back wall of a stage", "The imaginary wall between audience and performers", "A dramatic technique", "A type of set design"], answer: 1, explanation: "The fourth wall is the invisible barrier between performers and audience; 'breaking' it means addressing the audience directly.", topic: "Drama" },
+  { question: "What is 'pathos'?", type: "definition", options: ["A type of humour", "An appeal to emotion, especially pity", "A logical argument", "A character flaw"], answer: 1, explanation: "Pathos evokes feelings of sympathy, pity, or sadness in the audience.", topic: "Rhetorical Devices" },
+  { question: "What is 'ethos' in rhetoric?", type: "definition", options: ["Appeal to emotion", "Appeal to logic", "Appeal to credibility or authority", "Appeal to morality"], answer: 2, explanation: "Ethos establishes the speaker's credibility and trustworthiness.", topic: "Rhetorical Devices" },
+  { question: "What is 'logos' in rhetoric?", type: "definition", options: ["Appeal to emotion", "Appeal to logic and reason", "Appeal to authority", "Appeal to tradition"], answer: 1, explanation: "Logos uses facts, statistics, and logical reasoning to persuade.", topic: "Rhetorical Devices" },
+  { question: "Which novel explores the theme of the American Dream?", type: "context", options: ["1984", "The Great Gatsby", "Lord of the Flies", "Brave New World"], answer: 1, explanation: "Fitzgerald's novel critiques the corrupted American Dream of the 1920s.", topic: "20th Century Literature" },
+  { question: "What technique: 'bitter sweet'?", type: "technique", options: ["Paradox", "Oxymoron", "Antithesis", "Juxtaposition"], answer: 1, explanation: "Combining contradictory words into a single phrase is an oxymoron.", topic: "Literary Techniques" },
+  { question: "What is a 'soliloquy'?", type: "definition", options: ["A conversation between two characters", "A speech by one character, alone on stage, revealing thoughts", "A song in a musical", "A type of poem"], answer: 1, explanation: "A soliloquy reveals a character's inner thoughts directly to the audience.", topic: "Drama" },
+  { question: "Which is the correct form: 'between you and me' or 'between you and I'?", type: "grammar", options: ["Between you and I", "Between you and me", "Both are acceptable", "Neither is correct"], answer: 1, explanation: "'Between' is a preposition requiring object pronouns: 'me', not 'I'.", topic: "Grammar" },
+  { question: "What is 'verisimilitude' in literature?", type: "definition", options: ["True stories only", "The appearance of being true or real", "Historical accuracy", "Autobiography"], answer: 1, explanation: "Verisimilitude is the quality of seeming real or true, even in fiction.", topic: "Literary Analysis" },
+  { question: "What literary movement emphasised precise imagery and clear language?", type: "context", options: ["Romanticism", "Imagism", "Surrealism", "Naturalism"], answer: 1, explanation: "Imagism (early 20th century) focused on precise, clear imagery and economy of language.", topic: "Literary Movements" },
+  { question: "What technique: 'Time flies'?", type: "technique", options: ["Simile", "Metaphor", "Personification", "Idiom"], answer: 1, explanation: "Time is compared to something that flies -- a metaphor (time doesn't literally fly).", topic: "Literary Techniques" },
+  { question: "What is 'deus ex machina'?", type: "definition", options: ["A type of dramatic irony", "An unexpected power or event that resolves a seemingly unsolvable problem", "A character's hidden motive", "A dramatic monologue"], answer: 1, explanation: "Deus ex machina is an improbable resolution that appears out of nowhere.", topic: "Narrative Techniques" },
+  { question: "What is the effect of a cyclical/circular structure in narrative?", type: "creative", options: ["It confuses readers", "It creates a sense of fate, inevitability, or futility", "It's lazy writing", "It only works in poetry"], answer: 1, explanation: "Returning to the beginning can emphasise that nothing has changed, or show transformation.", topic: "Narrative Structure" },
+  { question: "Who wrote 'Beloved'?", type: "context", options: ["Alice Walker", "Toni Morrison", "Maya Angelou", "Zora Neale Hurston"], answer: 1, explanation: "Toni Morrison published Beloved in 1987, exploring the legacy of slavery.", topic: "20th Century Literature" },
+  { question: "What technique: 'Ask not what your country can do for you'?", type: "technique", options: ["Anaphora", "Rhetorical question with chiasmus", "Antithesis", "Imperative"], answer: 1, explanation: "JFK's famous line combines a rhetorical question with reversed structure (chiasmus).", topic: "Rhetorical Devices" },
+  { question: "What is 'anagnorisis'?", type: "definition", options: ["A character's death", "A moment of critical discovery or recognition", "A plot twist", "A change in fortune"], answer: 1, explanation: "Anagnorisis is the moment a character discovers a crucial truth, often about themselves.", topic: "Drama" },
+  { question: "What is 'peripeteia'?", type: "definition", options: ["A character's flaw", "A sudden reversal of fortune", "A moment of recognition", "A tragic ending"], answer: 1, explanation: "Peripeteia is a sudden reversal of circumstances, especially in tragedy.", topic: "Drama" },
+  { question: "Which is an example of synecdoche?", type: "technique", options: ["'The White House announced...'", "'All hands on deck'", "'The pen is mightier than the sword'", "'Time is money'"], answer: 1, explanation: "'Hands' (a part) represents whole people -- synecdoche uses a part to represent the whole.", topic: "Literary Techniques" },
+  { question: "What is the main purpose of an analytical essay?", type: "creative", options: ["To tell a story", "To examine and interpret a text closely", "To persuade the reader", "To describe an experience"], answer: 1, explanation: "An analytical essay closely examines how a text creates meaning through language and structure.", topic: "Academic Writing" },
+  { question: "What is 'semantic field'?", type: "definition", options: ["A type of farm in literature", "A group of words related to the same topic", "A grammatical term", "A type of metaphor"], answer: 1, explanation: "A semantic field is a set of words grouped by meaning (e.g., war: battle, fight, combat).", topic: "Language" },
+  { question: "Who is the author of 'Things Fall Apart'?", type: "context", options: ["Wole Soyinka", "Chinua Achebe", "Ngugi wa Thiong'o", "Ben Okri"], answer: 1, explanation: "Chinua Achebe published Things Fall Apart in 1958, a foundational post-colonial novel.", topic: "Post-Colonial Literature" },
+  { question: "What is the difference between 'empathy' and 'sympathy' in literary response?", type: "definition", options: ["They're identical", "Empathy is feeling with; sympathy is feeling for", "Sympathy is stronger", "Empathy is only for fiction"], answer: 1, explanation: "Empathy means sharing someone's feelings; sympathy means feeling concern for them.", topic: "Literary Analysis" },
+  { question: "What technique: 'Now is the winter of our discontent / Made glorious summer'?", type: "technique", options: ["Metaphor and antithesis", "Simile and personification", "Hyperbole only", "Alliteration only"], answer: 0, explanation: "Seasons metaphorically represent emotional states, with winter/summer in antithesis.", topic: "Shakespeare" },
+  { question: "What does 'unreliable narration' achieve?", type: "creative", options: ["It's always a mistake", "It creates tension and makes readers question the truth", "It simplifies the story", "It's only used in comedy"], answer: 1, explanation: "Unreliable narration adds complexity, forcing readers to actively interpret events.", topic: "Narrative Techniques" },
+  { question: "What is 'didactic' literature?", type: "definition", options: ["Literature that entertains", "Literature intended to teach a moral lesson", "Literature about education", "Literature for children only"], answer: 1, explanation: "Didactic literature aims to instruct or convey a moral or practical lesson.", topic: "Literary Forms" },
+  { question: "Which word is an adverb: 'She spoke softly to the child'?", type: "grammar", options: ["She", "spoke", "softly", "child"], answer: 2, explanation: "'Softly' modifies the verb 'spoke', telling us how she spoke.", topic: "Grammar" },
+  { question: "What literary period is characterised by a focus on ordinary life and social issues?", type: "context", options: ["Romanticism", "Realism", "Modernism", "Postmodernism"], answer: 1, explanation: "Realism (mid-19th century) depicted everyday life truthfully, without idealisation.", topic: "Literary Movements" },
+  { question: "What is a 'caesura' used for in poetry?", type: "definition", options: ["To end a poem", "To create a deliberate pause within a line", "To change the rhyme scheme", "To introduce a new speaker"], answer: 1, explanation: "A caesura is a pause in the middle of a line, often marked by punctuation.", topic: "Poetry" },
+  { question: "What is the effect of listing in persuasive writing?", type: "creative", options: ["It bores the reader", "It builds a cumulative, overwhelming argument", "It wastes words", "It's only for essays"], answer: 1, explanation: "Lists create a cumulative effect, making the argument feel comprehensive and powerful.", topic: "Persuasive Writing" },
+  { question: "What is 'denouement'?", type: "definition", options: ["The climax", "The unravelling of the plot after the climax", "The opening of a story", "A type of conflict"], answer: 1, explanation: "The denouement resolves remaining plot threads after the climax.", topic: "Narrative Structure" },
+  { question: "In which work does the character of Atticus Finch appear?", type: "context", options: ["Of Mice and Men", "To Kill a Mockingbird", "The Color Purple", "Invisible Man"], answer: 1, explanation: "Atticus Finch is the moral centre of Harper Lee's To Kill a Mockingbird.", topic: "20th Century Literature" },
+  { question: "What technique: repeating a word at the start of successive clauses?", type: "technique", options: ["Epistrophe", "Anaphora", "Alliteration", "Refrain"], answer: 1, explanation: "Anaphora repeats a word or phrase at the beginning of successive clauses for emphasis.", topic: "Rhetorical Devices" },
+  { question: "Which literary form uses a question-and-answer format to explore ideas?", type: "definition", options: ["Essay", "Dialogue", "Socratic dialogue", "Interview"], answer: 2, explanation: "Socratic dialogue uses questions and answers to examine philosophical ideas.", topic: "Literary Forms" },
+  { question: "What is the purpose of a 'foil' character?", type: "definition", options: ["To be the villain", "To highlight the protagonist's qualities through contrast", "To provide comic relief", "To narrate the story"], answer: 1, explanation: "A foil contrasts with another character to make their traits more prominent.", topic: "Character Types" },
+  { question: "What technique: 'All that glitters is not gold'?", type: "technique", options: ["Metaphor", "Proverb", "Paradox", "Irony"], answer: 1, explanation: "This is a well-known proverb -- a short saying expressing a general truth.", topic: "Literary Techniques" },
+  { question: "Who wrote 'The Bell Jar'?", type: "context", options: ["Virginia Woolf", "Sylvia Plath", "Margaret Atwood", "Iris Murdoch"], answer: 1, explanation: "Sylvia Plath published The Bell Jar in 1963.", topic: "20th Century Literature" },
+  { question: "What is 'metafiction'?", type: "definition", options: ["Fiction about fiction -- self-aware storytelling", "Fiction set in the future", "Fiction based on real events", "Fiction with multiple narrators"], answer: 0, explanation: "Metafiction draws attention to its own nature as a constructed narrative.", topic: "Literary Forms" },
+  { question: "What does 'in medias res' literally mean?", type: "definition", options: ["In the beginning", "In the middle of things", "At the end", "In retrospect"], answer: 1, explanation: "'In medias res' is Latin for 'in the middle of things' -- starting mid-action.", topic: "Narrative Techniques" },
+  { question: "What is the correct order of Freytag's Pyramid?", type: "definition", options: ["Climax, exposition, rising action, falling action, denouement", "Exposition, rising action, climax, falling action, denouement", "Exposition, climax, rising action, denouement, falling action", "Rising action, exposition, climax, denouement, falling action"], answer: 1, explanation: "Freytag's Pyramid maps the five stages of dramatic structure.", topic: "Narrative Structure" },
+  { question: "What is 'polysyndeton'?", type: "definition", options: ["Omitting conjunctions", "Using many conjunctions in succession", "A type of rhyme", "Repeated sentence structures"], answer: 1, explanation: "Polysyndeton uses multiple conjunctions (and...and...and) to create a specific rhythm.", topic: "Rhetorical Devices" },
+  { question: "What is 'asyndeton'?", type: "definition", options: ["Using many conjunctions", "Omitting conjunctions between words or clauses", "A type of metaphor", "A poetic form"], answer: 1, explanation: "Asyndeton deliberately omits conjunctions to create pace and urgency.", topic: "Rhetorical Devices" },
+  { question: "Who wrote 'Mrs Dalloway'?", type: "context", options: ["Jane Austen", "George Eliot", "Virginia Woolf", "Charlotte Bronte"], answer: 2, explanation: "Virginia Woolf published Mrs Dalloway in 1925, using stream of consciousness.", topic: "Modernist Literature" },
+  { question: "What effect does a first-person plural narrator ('we') create?", type: "creative", options: ["Confusion", "A sense of collective identity and shared experience", "Formality", "Distance"], answer: 1, explanation: "The 'we' narrator creates community, shared responsibility, or collective voice.", topic: "Narrative Techniques" },
+  { question: "What is 'catharsis' in the context of tragedy?", type: "definition", options: ["The hero's death", "The purging of emotions through art", "The climax of the play", "The villain's defeat"], answer: 1, explanation: "Aristotle described catharsis as the emotional cleansing experienced by the audience.", topic: "Drama" },
+  { question: "What technique: 'The road stretched endlessly before them, a ribbon of grey'?", type: "technique", options: ["Simile and imagery", "Metaphor and imagery", "Personification", "Hyperbole"], answer: 1, explanation: "The road is metaphorically described as 'a ribbon of grey' with visual imagery.", topic: "Literary Techniques" },
+  { question: "What is the difference between 'theme' and 'subject'?", type: "definition", options: ["They're the same thing", "Subject is the topic; theme is the message about it", "Theme is the topic; subject is the message", "Subject is for non-fiction only"], answer: 1, explanation: "The subject is what the work is about; the theme is what it says about that subject.", topic: "Literary Analysis" },
 ];
 
-// ── Deterministic seeded random (date-based) ──────────────────────────────
-
-function seededRandom(seed) {
-  let s = seed;
-  return function () {
-    s = (s * 16807 + 0) % 2147483647;
-    return (s - 1) / 2147483646;
-  };
-}
-
-function getDateSeed(dateStr) {
+// Deterministic daily question selection using date as seed
+function getDayIndex(dateStr) {
   let hash = 0;
   for (let i = 0; i < dateStr.length; i++) {
-    hash = ((hash << 5) - hash) + dateStr.charCodeAt(i);
+    const char = dateStr.charCodeAt(i);
+    hash = ((hash << 5) - hash) + char;
     hash |= 0;
   }
-  return Math.abs(hash) || 1;
+  return Math.abs(hash) % QUESTIONS.length;
 }
 
-function getDailyQuestions(dateStr) {
-  const rng = seededRandom(getDateSeed(dateStr));
-  const indices = QUESTIONS.map((_, i) => i);
-  // Fisher-Yates with seeded random
-  for (let i = indices.length - 1; i > 0; i--) {
-    const j = Math.floor(rng() * (i + 1));
-    [indices[i], indices[j]] = [indices[j], indices[i]];
-  }
-  return indices.slice(0, 10).map(i => QUESTIONS[i]);
-}
-
-function getTodayStr() {
+function getToday() {
   return new Date().toISOString().slice(0, 10);
 }
 
-function formatDisplayDate(dateStr) {
-  const d = new Date(dateStr + 'T00:00:00');
-  return d.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
-}
-
-// ── Streak helpers ────────────────────────────────────────────────────────
-
-function getStreak() {
+function loadData() {
   try {
-    return parseInt(localStorage.getItem('lr_daily_streak'), 10) || 0;
-  } catch { return 0; }
-}
-
-function getBestStreak() {
-  try {
-    return parseInt(localStorage.getItem('lr_daily_best_streak'), 10) || 0;
-  } catch { return 0; }
-}
-
-function getCompletionData(dateStr) {
-  try {
-    const raw = localStorage.getItem(`lr_daily_completed_${dateStr}`);
-    return raw ? JSON.parse(raw) : null;
-  } catch { return null; }
-}
-
-function wasYesterdayCompleted() {
-  const yesterday = new Date();
-  yesterday.setDate(yesterday.getDate() - 1);
-  const yStr = yesterday.toISOString().slice(0, 10);
-  return !!getCompletionData(yStr);
-}
-
-function saveCompletion(dateStr, data) {
-  localStorage.setItem(`lr_daily_completed_${dateStr}`, JSON.stringify(data));
-
-  // Update streak
-  let streak = getStreak();
-  const yesterdayDone = wasYesterdayCompleted();
-  const todayAlreadyDone = !!getCompletionData(dateStr);
-
-  if (!todayAlreadyDone) {
-    streak = yesterdayDone ? streak + 1 : 1;
-  }
-
-  localStorage.setItem('lr_daily_streak', String(streak));
-  const best = getBestStreak();
-  if (streak > best) {
-    localStorage.setItem('lr_daily_best_streak', String(streak));
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : { history: {}, streak: 0, bestStreak: 0 };
+  } catch {
+    return { history: {}, streak: 0, bestStreak: 0 };
   }
 }
 
-// ── Component ─────────────────────────────────────────────────────────────
+function saveData(data) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
 
-const cardBg = 'rgba(255,255,255,0.04)';
-const borderCol = 'rgba(255,255,255,0.08)';
+function calculateStreak(history) {
+  let streak = 0;
+  const today = new Date();
+  for (let i = 0; i < 400; i++) {
+    const d = new Date(today);
+    d.setDate(d.getDate() - i);
+    const key = d.toISOString().slice(0, 10);
+    const entry = history[key];
+    if (entry && entry.correct) {
+      streak++;
+    } else if (i === 0 && !entry) {
+      continue;
+    } else {
+      break;
+    }
+  }
+  return streak;
+}
+
+function getLast30Days() {
+  const days = [];
+  const today = new Date();
+  for (let i = 29; i >= 0; i--) {
+    const d = new Date(today);
+    d.setDate(d.getDate() - i);
+    days.push(d.toISOString().slice(0, 10));
+  }
+  return days;
+}
+
+function formatCountdown(ms) {
+  if (ms <= 0) return '00:00:00';
+  const h = Math.floor(ms / 3600000);
+  const m = Math.floor((ms % 3600000) / 60000);
+  const s = Math.floor((ms % 60000) / 1000);
+  return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+}
 
 export default function DailyChallenge() {
-  const today = getTodayStr();
-  const questions = useMemo(() => getDailyQuestions(today), [today]);
+  const today = getToday();
+  const dayIndex = getDayIndex(today);
+  const todayQuestion = QUESTIONS[dayIndex];
 
-  const [phase, setPhase] = useState('intro'); // intro | playing | review | completed
-  const [qIndex, setQIndex] = useState(0);
-  const [answers, setAnswers] = useState([]); // array of chosen indices
+  const [data, setData] = useState(() => loadData());
   const [selected, setSelected] = useState(null);
-  const [showFeedback, setShowFeedback] = useState(false);
-  const [streak, setStreak] = useState(getStreak());
-  const [bestStreak, setBestStreak] = useState(getBestStreak());
-  const [completionData, setCompletionData] = useState(null);
+  const [answered, setAnswered] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const [countdown, setCountdown] = useState('');
 
-  // Check if already completed today
+  const todayEntry = data.history[today];
+  const streak = calculateStreak(data.history);
+  const last30 = getLast30Days();
+
   useEffect(() => {
-    const existing = getCompletionData(today);
-    if (existing) {
-      setCompletionData(existing);
-      setAnswers(existing.answers || []);
-      setPhase('completed');
+    function update() {
+      const now = new Date();
+      const tomorrow = new Date(now);
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      tomorrow.setHours(0, 0, 0, 0);
+      setCountdown(formatCountdown(tomorrow - now));
     }
-    setStreak(getStreak());
-    setBestStreak(getBestStreak());
-  }, [today]);
+    update();
+    const interval = setInterval(update, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
-  const score = useMemo(() => {
-    if (!completionData) return 0;
-    return completionData.score;
-  }, [completionData]);
+  useEffect(() => {
+    if (todayEntry) {
+      setAnswered(true);
+      setSelected(todayEntry.selected);
+    }
+  }, [todayEntry]);
 
-  const handleSelect = (optIdx) => {
-    if (showFeedback) return;
-    setSelected(optIdx);
-    setShowFeedback(true);
-
-    setTimeout(() => {
-      const newAnswers = [...answers, optIdx];
-      setAnswers(newAnswers);
-
-      if (qIndex + 1 < questions.length) {
-        setQIndex(qi => qi + 1);
-        setSelected(null);
-        setShowFeedback(false);
-      } else {
-        // Calculate score
-        const finalScore = newAnswers.reduce((acc, ans, i) => acc + (ans === questions[i].answer ? 1 : 0), 0);
-        const data = { score: finalScore, total: 10, answers: newAnswers, date: today };
-        saveCompletion(today, data);
-        setCompletionData(data);
-        setStreak(getStreak());
-        setBestStreak(getBestStreak());
-        setPhase('review');
-      }
-    }, 1200);
+  const handleSelect = (idx) => {
+    if (answered) return;
+    setSelected(idx);
   };
 
-  const currentQ = questions[qIndex];
-
-  const containerStyle = {
-    minHeight: '100vh',
-    background: '#0a0e1a',
-    color: '#f1f5f9',
+  const handleSubmit = () => {
+    if (selected === null || answered) return;
+    const correct = selected === todayQuestion.answer;
+    const newHistory = { ...data.history, [today]: { selected, correct, questionIndex: dayIndex } };
+    const newStreak = calculateStreak(newHistory);
+    const newBest = Math.max(data.bestStreak, newStreak);
+    const newData = { history: newHistory, streak: newStreak, bestStreak: newBest };
+    setData(newData);
+    saveData(newData);
+    setAnswered(true);
   };
+
+  const handleShare = useCallback(() => {
+    const correct = todayEntry?.correct;
+    const text = correct
+      ? `I got today's LearnRight challenge right! Day ${streak} streak`
+      : `I attempted today's LearnRight Daily Challenge! Can you do better?`;
+    navigator.clipboard.writeText(text).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  }, [todayEntry, streak]);
+
+  const isCorrect = todayEntry?.correct;
 
   return (
-    <GameWrapper gameId="daily-challenge" gameName="Daily Challenge">
-      <div style={containerStyle}>
-        <Navbar />
-        <main id="main-content" style={{ maxWidth: '800px', margin: '0 auto', padding: '2rem 1.5rem' }}>
-          <Link to="/games" style={{ color: '#10b981', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.375rem', fontSize: '0.85rem', marginBottom: '1.5rem' }}>
-            <ArrowLeft size={16} /> Back to Games
+    <div style={{ background: '#0a0e1a', minHeight: '100vh', color: '#f1f5f9' }}>
+      <Navbar />
+      <div style={{ maxWidth: 700, margin: '0 auto', padding: '2rem 1rem' }}>
+        {/* Header */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: '1.5rem' }}>
+          <Link to="/games" style={{ color: '#94a3b8', display: 'flex', alignItems: 'center' }}>
+            <ArrowLeft size={22} />
           </Link>
-
-          {/* Header */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
-            <div style={{ width: 48, height: 48, borderRadius: 12, background: 'linear-gradient(135deg, #10b981, #059669)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <Calendar size={24} color="white" />
-            </div>
-            <div>
-              <h1 style={{ fontSize: '1.75rem', fontWeight: 800, margin: 0 }}>Daily Challenge</h1>
-              <p style={{ color: '#94a3b8', margin: 0, fontSize: '0.9rem' }}>A fresh set of 10 questions every day</p>
-            </div>
+          <div>
+            <h1 style={{ fontSize: '1.75rem', fontWeight: 800, margin: 0, display: 'flex', alignItems: 'center', gap: 10 }}>
+              <Calendar size={28} style={{ color: '#f59e42' }} />
+              Daily Challenge
+            </h1>
+            <p style={{ color: '#94a3b8', margin: '0.25rem 0 0', fontSize: '0.95rem' }}>{today}</p>
           </div>
+        </div>
 
-          {/* Date banner */}
+        {/* Streak & Stats Bar */}
+        <div style={{
+          display: 'flex', gap: 16, marginBottom: '1.5rem', flexWrap: 'wrap'
+        }}>
           <div style={{
-            background: 'linear-gradient(135deg, rgba(16,185,129,0.1), rgba(52,211,153,0.05))',
-            border: '1px solid rgba(16,185,129,0.2)',
-            borderRadius: 12,
-            padding: '0.75rem 1.25rem',
-            marginBottom: '2rem',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            flexWrap: 'wrap',
-            gap: '0.5rem',
+            flex: 1, minWidth: 140, background: 'linear-gradient(135deg, #f59e42 0%, #f97316 100%)',
+            borderRadius: 14, padding: '1rem 1.25rem', display: 'flex', alignItems: 'center', gap: 12
           }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <Clock size={16} color="#34d399" />
-              <span style={{ fontWeight: 600, color: '#34d399' }}>{formatDisplayDate(today)}</span>
-            </div>
-            <div style={{ display: 'flex', gap: '1.25rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.375rem' }}>
-                <Flame size={16} color="#f59e0b" />
-                <span style={{ fontWeight: 700, fontSize: '0.9rem' }}>{streak} day streak</span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.375rem' }}>
-                <Award size={16} color="#8b5cf6" />
-                <span style={{ fontWeight: 700, fontSize: '0.9rem', color: '#94a3b8' }}>Best: {bestStreak}</span>
-              </div>
+            <Flame size={28} color="#fff" />
+            <div>
+              <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#fff' }}>{streak}</div>
+              <div style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.85)' }}>Day Streak</div>
             </div>
           </div>
-
-          {/* ── INTRO PHASE ── */}
-          {phase === 'intro' && (
-            <div style={{ textAlign: 'center', padding: '2rem 1rem' }}>
-              <div style={{ marginBottom: '1.5rem' }}>
-                <div style={{
-                  width: 100, height: 100, borderRadius: '50%',
-                  background: 'linear-gradient(135deg, rgba(16,185,129,0.15), rgba(52,211,153,0.08))',
-                  border: '2px solid rgba(16,185,129,0.3)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  margin: '0 auto',
-                }}>
-                  <Star size={48} color="#34d399" />
-                </div>
-              </div>
-              <h2 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '0.75rem' }}>Today's Challenge Awaits</h2>
-              <p style={{ color: '#94a3b8', marginBottom: '0.5rem', maxWidth: 450, margin: '0 auto 0.5rem' }}>
-                10 questions covering vocabulary, grammar, literary techniques, famous quotes, and comprehension.
-              </p>
-              <p style={{ color: '#64748b', marginBottom: '2rem', fontSize: '0.85rem' }}>
-                Everyone gets the same questions today. How will you compare?
-              </p>
-              <button onClick={() => setPhase('playing')} style={{
-                background: 'linear-gradient(135deg, #10b981, #059669)',
-                color: '#fff', border: 'none', padding: '1rem 3rem', borderRadius: 12,
-                fontSize: '1.1rem', fontWeight: 700, cursor: 'pointer',
-                boxShadow: '0 4px 20px rgba(16,185,129,0.4)',
-                transition: 'transform 0.15s',
-              }}
-              onMouseOver={e => e.currentTarget.style.transform = 'scale(1.05)'}
-              onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'}
-              >
-                Begin Challenge
-              </button>
-            </div>
-          )}
-
-          {/* ── PLAYING PHASE ── */}
-          {phase === 'playing' && currentQ && (
+          <div style={{
+            flex: 1, minWidth: 140, background: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)',
+            borderRadius: 14, padding: '1rem 1.25rem', display: 'flex', alignItems: 'center', gap: 12
+          }}>
+            <Trophy size={28} color="#fff" />
             <div>
-              {/* Progress bar */}
-              <div style={{ marginBottom: '1.5rem' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
-                  <span style={{ fontSize: '0.85rem', color: '#94a3b8', fontWeight: 600 }}>
-                    Question {qIndex + 1} of 10
-                  </span>
-                  <span style={{
-                    fontSize: '0.75rem', color: '#10b981',
-                    background: 'rgba(16,185,129,0.1)',
-                    padding: '0.25rem 0.75rem', borderRadius: 20, fontWeight: 600,
-                  }}>
-                    {currentQ.category}
-                  </span>
-                </div>
-                <div style={{ height: 6, borderRadius: 3, background: 'rgba(255,255,255,0.08)', overflow: 'hidden' }}>
-                  <div style={{
-                    height: '100%', borderRadius: 3,
-                    width: `${((qIndex) / 10) * 100}%`,
-                    background: 'linear-gradient(90deg, #10b981, #34d399)',
-                    transition: 'width 0.4s ease',
-                  }} />
-                </div>
-              </div>
-
-              {/* Question card */}
-              <div style={{
-                background: cardBg,
-                border: `1px solid ${borderCol}`,
-                borderRadius: 16, padding: '2rem',
-                marginBottom: '1rem',
-              }}>
-                <p style={{ fontSize: '1.15rem', fontWeight: 600, marginBottom: '1.75rem', lineHeight: 1.5 }}>
-                  {currentQ.question}
-                </p>
-                <div style={{ display: 'grid', gap: '0.75rem' }}>
-                  {currentQ.options.map((opt, i) => {
-                    const isCorrect = i === currentQ.answer;
-                    const isSelected = selected === i;
-                    let bg = 'rgba(255,255,255,0.06)';
-                    let border = 'rgba(255,255,255,0.1)';
-                    let color = '#f1f5f9';
-
-                    if (showFeedback) {
-                      if (isCorrect) {
-                        bg = 'rgba(16,185,129,0.15)';
-                        border = 'rgba(16,185,129,0.5)';
-                        color = '#34d399';
-                      } else if (isSelected && !isCorrect) {
-                        bg = 'rgba(239,68,68,0.15)';
-                        border = 'rgba(239,68,68,0.5)';
-                        color = '#f87171';
-                      }
-                    }
-
-                    return (
-                      <button key={i} onClick={() => handleSelect(i)} style={{
-                        background: bg,
-                        border: `1px solid ${border}`,
-                        color,
-                        padding: '1rem 1.25rem',
-                        borderRadius: 10,
-                        fontSize: '0.95rem',
-                        fontWeight: 500,
-                        cursor: showFeedback ? 'default' : 'pointer',
-                        transition: 'all 0.2s',
-                        textAlign: 'left',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '0.75rem',
-                      }}
-                      onMouseOver={e => { if (!showFeedback) { e.currentTarget.style.background = 'rgba(255,255,255,0.12)'; e.currentTarget.style.borderColor = 'rgba(16,185,129,0.4)'; } }}
-                      onMouseOut={e => { if (!showFeedback) { e.currentTarget.style.background = bg; e.currentTarget.style.borderColor = border; } }}
-                      >
-                        <span style={{
-                          width: 28, height: 28, borderRadius: '50%',
-                          display: 'flex', alignItems: 'center', justifyContent: 'center',
-                          background: showFeedback && isCorrect ? 'rgba(16,185,129,0.2)' : showFeedback && isSelected && !isCorrect ? 'rgba(239,68,68,0.2)' : 'rgba(255,255,255,0.08)',
-                          fontSize: '0.8rem', fontWeight: 700, flexShrink: 0,
-                          color: showFeedback && isCorrect ? '#34d399' : showFeedback && isSelected && !isCorrect ? '#f87171' : '#64748b',
-                        }}>
-                          {showFeedback && isCorrect ? <CheckCircle size={16} /> : showFeedback && isSelected && !isCorrect ? <XCircle size={16} /> : String.fromCharCode(65 + i)}
-                        </span>
-                        {opt}
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-
-              {/* Score so far */}
-              <div style={{ textAlign: 'center', color: '#64748b', fontSize: '0.85rem' }}>
-                {answers.filter((a, i) => a === questions[i].answer).length} / {answers.length} correct so far
-              </div>
+              <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#fff' }}>{data.bestStreak}</div>
+              <div style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.85)' }}>Best Streak</div>
             </div>
-          )}
-
-          {/* ── REVIEW PHASE (just finished) ── */}
-          {(phase === 'review' || phase === 'completed') && completionData && (
+          </div>
+          <div style={{
+            flex: 1, minWidth: 140, background: 'linear-gradient(135deg, #0ea5e9 0%, #38bdf8 100%)',
+            borderRadius: 14, padding: '1rem 1.25rem', display: 'flex', alignItems: 'center', gap: 12
+          }}>
+            <Star size={28} color="#fff" />
             <div>
-              {/* Results banner */}
-              <div style={{
-                textAlign: 'center',
-                padding: '2rem',
-                background: cardBg,
-                border: `1px solid ${borderCol}`,
-                borderRadius: 16,
-                marginBottom: '2rem',
-              }}>
-                {phase === 'completed' && (
-                  <div style={{
-                    background: 'rgba(16,185,129,0.1)',
-                    border: '1px solid rgba(16,185,129,0.2)',
-                    borderRadius: 10,
-                    padding: '0.75rem',
-                    marginBottom: '1.5rem',
-                    color: '#34d399',
+              <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#fff' }}>
+                {Object.values(data.history).filter(e => e.correct).length}
+              </div>
+              <div style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.85)' }}>Total Correct</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Calendar View (last 30 days) */}
+        <div style={{
+          background: '#131828', borderRadius: 14, padding: '1rem 1.25rem', marginBottom: '1.5rem',
+          border: '1px solid rgba(255,255,255,0.06)'
+        }}>
+          <div style={{ fontSize: '0.85rem', color: '#94a3b8', marginBottom: 10, fontWeight: 600 }}>Last 30 Days</div>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+            {last30.map(day => {
+              const entry = data.history[day];
+              const isToday = day === today;
+              let bg = '#1e293b';
+              let border = '2px solid transparent';
+              if (entry && entry.correct) bg = '#22c55e';
+              else if (entry && !entry.correct) bg = '#ef4444';
+              if (isToday) border = '2px solid #f59e42';
+              return (
+                <div
+                  key={day}
+                  title={`${day}${entry ? (entry.correct ? ' Correct' : ' Incorrect') : ''}`}
+                  style={{
+                    width: 18, height: 18, borderRadius: 5, background: bg,
+                    border, cursor: 'default', transition: 'transform 0.15s',
+                  }}
+                />
+              );
+            })}
+          </div>
+          <div style={{ display: 'flex', gap: 16, marginTop: 10, fontSize: '0.75rem', color: '#94a3b8' }}>
+            <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+              <span style={{ width: 10, height: 10, borderRadius: 3, background: '#22c55e', display: 'inline-block' }} /> Correct
+            </span>
+            <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+              <span style={{ width: 10, height: 10, borderRadius: 3, background: '#ef4444', display: 'inline-block' }} /> Incorrect
+            </span>
+            <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+              <span style={{ width: 10, height: 10, borderRadius: 3, background: '#1e293b', display: 'inline-block' }} /> Not attempted
+            </span>
+          </div>
+        </div>
+
+        {/* Question Card */}
+        <div style={{
+          background: '#131828', borderRadius: 16, padding: '1.75rem', marginBottom: '1.5rem',
+          border: '1px solid rgba(255,255,255,0.06)',
+          boxShadow: '0 4px 24px rgba(0,0,0,0.2)'
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
+            <span style={{
+              background: '#1e293b', color: '#f59e42', fontSize: '0.75rem', fontWeight: 700,
+              padding: '3px 10px', borderRadius: 8, textTransform: 'uppercase', letterSpacing: 0.5
+            }}>
+              {todayQuestion.topic}
+            </span>
+            <span style={{
+              background: '#1e293b', color: '#94a3b8', fontSize: '0.75rem', fontWeight: 600,
+              padding: '3px 10px', borderRadius: 8, textTransform: 'capitalize'
+            }}>
+              {todayQuestion.type}
+            </span>
+          </div>
+          <h2 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: '1.25rem', lineHeight: 1.5 }}>
+            {todayQuestion.question}
+          </h2>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+            {todayQuestion.options.map((opt, i) => {
+              let bg = '#1e293b';
+              let borderColor = 'transparent';
+              let color = '#f1f5f9';
+
+              if (answered) {
+                if (i === todayQuestion.answer) {
+                  bg = 'rgba(34,197,94,0.15)';
+                  borderColor = '#22c55e';
+                  color = '#4ade80';
+                } else if (i === selected && i !== todayQuestion.answer) {
+                  bg = 'rgba(239,68,68,0.15)';
+                  borderColor = '#ef4444';
+                  color = '#f87171';
+                }
+              } else if (i === selected) {
+                bg = 'rgba(99,102,241,0.2)';
+                borderColor = '#6366f1';
+                color = '#a5b4fc';
+              }
+
+              return (
+                <button
+                  key={i}
+                  onClick={() => handleSelect(i)}
+                  disabled={answered}
+                  style={{
+                    background: bg,
+                    border: `2px solid ${borderColor}`,
+                    borderRadius: 12,
+                    padding: '0.85rem 1.15rem',
+                    color,
+                    fontSize: '1rem',
                     fontWeight: 600,
-                    fontSize: '0.9rem',
+                    cursor: answered ? 'default' : 'pointer',
+                    textAlign: 'left',
+                    transition: 'all 0.15s',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 10,
+                    fontFamily: 'inherit',
+                  }}
+                >
+                  <span style={{
+                    width: 28, height: 28, borderRadius: 8, display: 'flex', alignItems: 'center',
+                    justifyContent: 'center', fontWeight: 800, fontSize: '0.85rem',
+                    background: answered && i === todayQuestion.answer ? '#22c55e'
+                      : answered && i === selected && i !== todayQuestion.answer ? '#ef4444'
+                      : i === selected ? '#6366f1' : '#283040',
+                    color: '#fff', flexShrink: 0,
                   }}>
-                    You have already completed today's challenge. Come back tomorrow!
-                  </div>
-                )}
+                    {String.fromCharCode(65 + i)}
+                  </span>
+                  {opt}
+                  {answered && i === todayQuestion.answer && <CheckCircle size={18} style={{ marginLeft: 'auto', color: '#22c55e' }} />}
+                  {answered && i === selected && i !== todayQuestion.answer && <XCircle size={18} style={{ marginLeft: 'auto', color: '#ef4444' }} />}
+                </button>
+              );
+            })}
+          </div>
 
-                <div style={{ marginBottom: '1rem' }}>
-                  <Trophy size={40} color={completionData.score >= 8 ? '#f59e0b' : completionData.score >= 5 ? '#10b981' : '#64748b'} />
-                </div>
-                <h2 style={{ fontSize: '1.75rem', fontWeight: 800, marginBottom: '0.25rem' }}>
-                  {completionData.score} / 10
-                </h2>
-                <p style={{ color: '#94a3b8', marginBottom: '1.5rem', fontSize: '0.95rem' }}>
-                  {completionData.score === 10 ? 'Perfect score! Incredible!' :
-                   completionData.score >= 8 ? 'Excellent work!' :
-                   completionData.score >= 6 ? 'Great effort!' :
-                   completionData.score >= 4 ? 'Good try — keep practising!' :
-                   'Keep going — every day is a chance to improve!'}
-                </p>
+          {/* Submit Button */}
+          {!answered && (
+            <button
+              onClick={handleSubmit}
+              disabled={selected === null}
+              style={{
+                width: '100%', marginTop: '1.25rem', padding: '0.9rem',
+                background: selected !== null ? 'linear-gradient(135deg, #6366f1, #8b5cf6)' : '#1e293b',
+                color: selected !== null ? '#fff' : '#64748b',
+                border: 'none', borderRadius: 12, fontSize: '1.05rem', fontWeight: 700,
+                cursor: selected !== null ? 'pointer' : 'not-allowed',
+                transition: 'all 0.2s', fontFamily: 'inherit',
+              }}
+            >
+              Submit Answer
+            </button>
+          )}
 
-                <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem' }}>
-                  <div style={{ textAlign: 'center' }}>
-                    <Flame size={20} color="#f59e0b" style={{ marginBottom: 4 }} />
-                    <div style={{ fontWeight: 800, fontSize: '1.25rem' }}>{streak}</div>
-                    <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Day Streak</div>
-                  </div>
-                  <div style={{ textAlign: 'center' }}>
-                    <Award size={20} color="#8b5cf6" style={{ marginBottom: 4 }} />
-                    <div style={{ fontWeight: 800, fontSize: '1.25rem' }}>{bestStreak}</div>
-                    <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Best Streak</div>
-                  </div>
-                  <div style={{ textAlign: 'center' }}>
-                    <Star size={20} color="#10b981" style={{ marginBottom: 4 }} />
-                    <div style={{ fontWeight: 800, fontSize: '1.25rem' }}>{completionData.score * 10}%</div>
-                    <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Accuracy</div>
-                  </div>
-                </div>
+          {/* Result & Explanation */}
+          {answered && (
+            <div style={{
+              marginTop: '1.25rem', padding: '1rem 1.15rem', borderRadius: 12,
+              background: isCorrect ? 'rgba(34,197,94,0.1)' : 'rgba(239,68,68,0.1)',
+              border: `1px solid ${isCorrect ? 'rgba(34,197,94,0.25)' : 'rgba(239,68,68,0.25)'}`
+            }}>
+              <div style={{
+                display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8,
+                color: isCorrect ? '#4ade80' : '#f87171', fontWeight: 700, fontSize: '1.05rem'
+              }}>
+                {isCorrect ? <CheckCircle size={20} /> : <XCircle size={20} />}
+                {isCorrect ? 'Correct!' : 'Not quite!'}
               </div>
-
-              {/* Question review */}
-              <h3 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '1rem' }}>Review Answers</h3>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                {questions.map((q, i) => {
-                  const userAnswer = completionData.answers[i];
-                  const isCorrect = userAnswer === q.answer;
-                  return (
-                    <div key={i} style={{
-                      background: isCorrect ? 'rgba(16,185,129,0.05)' : 'rgba(239,68,68,0.05)',
-                      border: `1px solid ${isCorrect ? 'rgba(16,185,129,0.2)' : 'rgba(239,68,68,0.2)'}`,
-                      borderRadius: 12,
-                      padding: '1rem 1.25rem',
-                    }}>
-                      <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
-                        <div style={{ marginTop: 2, flexShrink: 0 }}>
-                          {isCorrect
-                            ? <CheckCircle size={18} color="#10b981" />
-                            : <XCircle size={18} color="#ef4444" />
-                          }
-                        </div>
-                        <div style={{ flex: 1 }}>
-                          <div style={{ fontWeight: 600, marginBottom: '0.375rem', fontSize: '0.95rem' }}>{q.question}</div>
-                          {isCorrect ? (
-                            <div style={{ fontSize: '0.85rem', color: '#34d399' }}>
-                              {q.options[q.answer]}
-                            </div>
-                          ) : (
-                            <div style={{ fontSize: '0.85rem' }}>
-                              <span style={{ color: '#f87171', textDecoration: 'line-through' }}>{q.options[userAnswer]}</span>
-                              <span style={{ color: '#64748b', margin: '0 0.5rem' }}>&rarr;</span>
-                              <span style={{ color: '#34d399' }}>{q.options[q.answer]}</span>
-                            </div>
-                          )}
-                          <div style={{ fontSize: '0.75rem', color: '#64748b', marginTop: '0.25rem' }}>{q.category}</div>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
+              <p style={{ color: '#cbd5e1', margin: 0, fontSize: '0.95rem', lineHeight: 1.6 }}>
+                {todayQuestion.explanation}
+              </p>
             </div>
           )}
-        </main>
+        </div>
 
-        <style>{`
-          @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-          }
-        `}</style>
+        {/* Share & Countdown */}
+        {answered && (
+          <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginBottom: '1.5rem' }}>
+            <button
+              onClick={handleShare}
+              style={{
+                flex: 1, minWidth: 180, padding: '0.85rem 1.25rem',
+                background: copied ? '#22c55e' : 'linear-gradient(135deg, #6366f1, #8b5cf6)',
+                color: '#fff', border: 'none', borderRadius: 12, fontSize: '0.95rem',
+                fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center',
+                justifyContent: 'center', gap: 8, transition: 'all 0.2s', fontFamily: 'inherit',
+              }}
+            >
+              {copied ? <Check size={18} /> : <Copy size={18} />}
+              {copied ? 'Copied!' : 'Share Result'}
+            </button>
+            <div style={{
+              flex: 1, minWidth: 180, padding: '0.85rem 1.25rem',
+              background: '#131828', border: '1px solid rgba(255,255,255,0.06)',
+              borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center',
+              gap: 8, color: '#94a3b8', fontSize: '0.95rem', fontWeight: 600
+            }}>
+              <Clock size={18} style={{ color: '#f59e42' }} />
+              Next challenge in {countdown}
+            </div>
+          </div>
+        )}
+
+        {/* Back to Games */}
+        <div style={{ textAlign: 'center', marginTop: '1rem' }}>
+          <Link to="/games" style={{
+            color: '#6366f1', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem',
+            display: 'inline-flex', alignItems: 'center', gap: 6
+          }}>
+            <ArrowLeft size={16} /> Back to Games Hub
+          </Link>
+        </div>
       </div>
-    </GameWrapper>
+    </div>
   );
 }
