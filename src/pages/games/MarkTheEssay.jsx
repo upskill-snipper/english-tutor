@@ -1,636 +1,636 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowLeft, Trophy, RotateCcw, BookOpen, CheckCircle, XCircle, ChevronRight, Award, Star } from 'lucide-react';
+import { RotateCcw, Trophy, Star, Target, ChevronRight, BookOpen, Award, CheckCircle, Eye } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import GameWrapper from '../../components/GameWrapper';
 
-const GRADE_BANDS = ['Grade 3', 'Grade 4', 'Grade 5', 'Grade 6', 'Grade 7', 'Grade 8', 'Grade 9'];
+/* ───────────────────────── ESSAY EXCERPT DATA ───────────────────────── */
 
 const ESSAYS = [
-  // --- 4 Language Analysis Responses (Q2/Q3 style) ---
+  // ── Grade 9 ──────────────────────────────────────────────────
   {
-    type: 'Language Analysis',
-    question: 'AQA Paper 1, Q2: How does the writer use language to describe the storm?',
-    response: `The writer uses lots of language techniques to describe the storm. They say the wind "screamed through the broken shutters" which is personification because wind can't actually scream. This makes the storm sound angry and alive, like it's attacking the house on purpose. The verb "screamed" has connotations of pain and fear, which creates a threatening atmosphere for the reader.
+    id: 1,
+    grade: 9,
+    topic: "Macbeth — Ambition",
+    excerpt: `Shakespeare masterfully constructs Macbeth's ambition as an insidious force that corrodes moral integrity. The metaphor "vaulting ambition, which o'erleaps itself" encapsulates the self-destructive paradox at the heart of the play: ambition, by its very nature, sows the seeds of its own downfall. The verb "o'erleaps" suggests a hubristic overreach reminiscent of Icarus, drawing on a classical archetype that Jacobean audiences would have recognised instantly.
 
-The writer also uses a metaphor when they describe the rain as "a thousand tiny hammers on the roof." This comparison suggests the rain is violent and relentless, almost like it's trying to break through. The word "hammers" implies something industrial and aggressive, which contrasts with what rain normally feels like.
-
-There is also a short sentence: "Then silence." This creates a dramatic pause after all the chaos of the storm description. It makes the reader feel shocked and uncertain about what will happen next. The contrast between the long, detailed sentences before and this sudden short one mirrors how storms can suddenly stop.
-
-Finally, the writer uses listing when they describe "branches, tiles, fragments of glass scattered across the garden." The list of three builds up an image of total destruction and shows the aftermath of the storm's power.`,
-    actualGrade: 'Grade 6',
-    markSchemeNotes: 'Clear understanding of language with appropriate examples. Comments on effects of techniques (personification, metaphor, short sentences, listing). Some analysis of word-level choices ("screamed", "hammers") with reasonable explanations of connotations. Lacks the sophistication and perceptive analysis needed for higher grades — explanations are competent but somewhat formulaic.',
-    aoCriteria: 'AO2: Explain, comment on and analyse how writers use language and structure to achieve effects and influence readers, using relevant subject terminology.',
-    improvementTip: 'To reach Grade 7+, explore multiple layers of meaning in single words, consider how techniques work together to build meaning, and analyse the writer\'s intent more precisely rather than using generic phrases like "creates atmosphere."'
+Furthermore, the progressive deterioration of Macbeth's soliloquies — from measured deliberation in Act 1 to fragmented nihilism in "Tomorrow, and tomorrow, and tomorrow" — structurally mirrors his psychological disintegration. Shakespeare thus uses form itself as a vehicle for meaning, compelling the audience to experience the entropy of unchecked ambition viscerally rather than merely intellectually.`,
+    feedback: "This response demonstrates sophisticated, conceptualised analysis with seamless integration of subject terminology. The candidate explores multiple layers of meaning, links to contextual factors (Jacobean audience, classical archetypes), and analyses structural choices with perceptive originality. The writing is fluent, academic, and precisely controlled throughout."
   },
   {
-    type: 'Language Analysis',
-    question: 'Edexcel English Language, Q3: Analyse how the writer presents the character of Mrs Dalloway in this extract.',
-    response: `The writer presents Mrs Dalloway as posh. She is described as wearing nice clothes and going to a party. The writer says she "felt very young" which shows she is happy. She walks through London and sees flowers which she likes.
+    id: 2,
+    grade: 9,
+    topic: "An Inspector Calls — Responsibility",
+    excerpt: `Priestley weaponises dramatic irony to dismantle Birling's capitalist philosophy before it has even been fully articulated. The audience, armed with historical hindsight regarding the Titanic and two World Wars, perceives Birling not merely as wrong but as dangerously, almost comically, deluded. This positions the audience as ideological allies of the Inspector before he even arrives, a masterful piece of theatrical manipulation.
 
-The writer uses adjectives to describe things. For example they say the flowers are "delicious" which means she likes them. There is also description of the morning which is "fresh" showing it is a nice day.
-
-Mrs Dalloway seems like a nice person because she is friendly. The writer describes her going outside and enjoying herself. She thinks about things from her past which shows she has memories.
-
-The language is quite descriptive and the writer uses lots of details. This makes the reader feel like they are there with Mrs Dalloway walking through London. Overall the writer presents Mrs Dalloway as a happy wealthy woman who enjoys life.`,
-    actualGrade: 'Grade 3',
-    markSchemeNotes: 'Simple, limited comments on language with little genuine analysis. Identifies basic features ("adjectives", "descriptive") but does not explore effects meaningfully. Assertions without development — "shows she is happy" with no exploration of why or how. Paraphrases rather than analyses. No subject terminology applied with purpose. Struggles to move beyond surface-level description.',
-    aoCriteria: 'AO2: Explain, comment on and analyse how writers use language and structure to achieve effects and influence readers, using relevant subject terminology.',
-    improvementTip: 'To reach Grade 4+, quote specific words and phrases, explain what techniques the writer uses (e.g. sensory language, stream of consciousness), and describe the effect on the reader with more detail than "it shows" or "it makes the reader feel."'
+The cyclical structure — the telephone ringing at the denouement mirroring the Inspector's initial entrance — transforms what could be a neat morality tale into something far more disturbing. Priestley implies that social responsibility is not a lesson learned once but a perpetual struggle against the gravitational pull of self-interest. The play, therefore, functions not as a conclusion but as a warning, its open ending demanding continued vigilance from every generation that encounters it.`,
+    feedback: "Assured, perceptive analysis that synthesises form, structure, and context with conceptualised fluency. The candidate moves beyond character analysis to interrogate Priestley's craft and ideological project. Vocabulary is precise and ambitious; the argument is sustained and original throughout."
   },
   {
-    type: 'Language Analysis',
-    question: 'AQA Paper 2, Q3: How does the writer use language to persuade the reader that zoos should be abolished?',
-    response: `The writer employs a powerfully emotive lexical field of imprisonment throughout the extract: "caged," "confined," "trapped," and "incarcerated" create a sustained parallel between zoos and prisons that positions the reader to view these institutions as morally indefensible. The deliberate choice of "incarcerated" — a term loaded with legal and criminal connotations — elevates the animals' status to that of wrongly convicted prisoners, compelling the reader's sympathy through an implied injustice.
+    id: 3,
+    grade: 9,
+    topic: "Power and Conflict Poetry — Exposure",
+    excerpt: `Owen subverts the conventional war poem by making the true antagonist not the enemy but the weather itself. The sibilance in "merciless iced east winds that knive us" transforms nature into a predatory force, while the neologism "knive" — grammatically jarring as a verb — enacts the violence it describes at the level of language itself. This is poetry that performs its own argument.
 
-Structurally, the writer deploys a tricolon — "pacing, circling, slowly losing their minds" — where the progressive verb forms create a sense of endless, repetitive suffering. The climactic final element shifts from physical to psychological damage, which is particularly persuasive because it challenges the common defence that animals in zoos are physically well cared for.
+Structurally, the pararhyme ("knife/knive," "silent/salient") creates a persistent sense of incompleteness, an acoustic dissonance that mirrors the soldiers' psychological state. Nothing resolves; nothing concludes. The repeated refrain "But nothing happens" is devastating precisely because of its banality — Owen denies the reader the catharsis of action, trapping us in the same paralysing stasis as the men in the trenches.`,
+    feedback: "Exceptional analysis that operates at the highest conceptual level. The candidate examines how Owen's linguistic and structural choices embody meaning rather than merely conveying it. The discussion of pararhyme and its psychological implications is sophisticated and original. This is assured Grade 9 work throughout."
+  },
+  // ── Grade 8 ──────────────────────────────────────────────────
+  {
+    id: 4,
+    grade: 8,
+    topic: "A Christmas Carol — Redemption",
+    excerpt: `Dickens presents Scrooge's transformation as both personal redemption and social critique. The simile "hard and sharp as flint" in Stave 1 dehumanises Scrooge, reducing him to an object incapable of warmth. This contrasts powerfully with the exclamatory joy of Stave 5 — "I am as light as a feather!" — where the tricolon of similes suggests an almost childlike rebirth.
 
-The rhetorical question "Would you swap your freedom for a warm meal?" directly confronts the reader, collapsing the distance between human and animal experience. The second person pronoun "you" makes this challenge inescapable and personal. This is immediately followed by the blunt declarative "Neither would they," where the pronoun "they" grants animals agency and equivalence with humans.
-
-Furthermore, the writer's use of statistical evidence — "seventy-five percent of elephants in UK zoos display stereotypic behaviours" — anchors the emotional argument in empirical authority, making dismissal more difficult for a sceptical reader.`,
-    actualGrade: 'Grade 9',
-    markSchemeNotes: 'Sophisticated, perceptive analysis that explores multiple layers of meaning. Precise subject terminology used purposefully (lexical field, tricolon, progressive verb forms, declarative). Analyses the cumulative and combined effects of techniques. Considers writer\'s intent and reader positioning with nuance. Comments on structural and grammatical choices, not just word-level features. Evaluates how language choices serve the argument\'s persuasive function.',
-    aoCriteria: 'AO2: Explain, comment on and analyse how writers use language and structure to achieve effects and influence readers, using relevant subject terminology.',
-    improvementTip: 'This is a top-band response. To maintain this standard, continue exploring how techniques interact, consider alternative interpretations, and sustain this level of analytical precision throughout a full exam response.'
+Contextually, Dickens uses Scrooge as a vehicle to challenge the utilitarian philosophy prevalent among the Victorian upper classes. The rhetorical questions "Are there no prisons? Are there no workhouses?" echo the callous attitudes Dickens witnessed firsthand, making the novella a deliberate act of social advocacy as much as a festive tale.`,
+    feedback: "Detailed, perceptive analysis with well-integrated context and terminology. The candidate tracks Scrooge's transformation structurally and links language choices to wider Victorian attitudes. Expression is fluent and the argument well-sustained, though it could push further into the conceptualised territory of a Grade 9 by exploring more original or ambitious interpretations."
   },
   {
-    type: 'Language Analysis',
-    question: 'AQA Paper 1, Q3: How does the writer structure the text to interest the reader?',
-    response: `At the beginning of the extract, the writer starts with a wide description of the whole city, describing the "sprawling rooftops" and "distant hum of traffic." This gives the reader a broad perspective and sets the scene. Then the focus gradually narrows down to the specific street and then to the house, like a camera zooming in. This shift in focus draws the reader closer to the action and builds curiosity.
+    id: 5,
+    grade: 8,
+    topic: "Romeo and Juliet — Love",
+    excerpt: `Shakespeare presents love as a consuming, almost violent force through sustained light and dark imagery. Romeo's metaphor "Juliet is the sun" elevates her beyond the mortal, yet this deification also foreshadows tragedy: the sun must set. The juxtaposition of Petrarchan conventions with genuine emotion — Romeo abandons his formulaic love for Rosaline the instant he sees Juliet — critiques superficial courtly love while affirming the destructive authenticity of passion.
 
-In the middle of the extract, the pace changes. The writer uses shorter paragraphs and dialogue appears for the first time. This speeds things up and creates tension because the reader can sense something is about to happen. The conversation between the two characters is quite tense with pauses shown by ellipsis.
-
-The writer also uses a flashback in the middle section where the narrator remembers a childhood event. This interrupts the present-day narrative and gives the reader background information that helps explain why the character is so nervous. It creates a contrast between the innocence of childhood and the current threatening situation.
-
-At the end, there is a cliffhanger — "the door handle began to turn." This structural choice leaves the reader in suspense and wanting to read on. The whole extract moves from calm to tense, which is an effective way to engage the reader.`,
-    actualGrade: 'Grade 7',
-    markSchemeNotes: 'Clear, detailed analysis of structural features with effective use of terminology (focus shift, pace, flashback, cliffhanger). Tracks the development across the whole text (beginning, middle, end) and explains the effects on the reader. The cinematic metaphor "like a camera zooming in" shows thoughtful engagement. Analysis is secure and detailed but could be more perceptive — the flashback analysis, for instance, could explore how it creates dramatic irony or foreshadows events.',
-    aoCriteria: 'AO2: Explain, comment on and analyse how writers use language and structure to achieve effects and influence readers, using relevant subject terminology.',
-    improvementTip: 'To reach Grade 8+, explore how structural choices create more complex effects — e.g. how the flashback might create dramatic irony, or how the shift in narrative pace mirrors the character\'s psychological state. Consider the writer\'s deliberate manipulation of reader expectations.'
+The sonnet form shared by Romeo and Juliet at their first meeting is structurally significant: Shakespeare merges two voices into one poetic form, symbolising their unity while the rigid structure foreshadows the societal constraints that will ultimately destroy them.`,
+    feedback: "Thoughtful and well-evidenced analysis that moves between language, structure, and context effectively. The candidate demonstrates strong understanding of Shakespeare's craft and uses terminology precisely. A confident top-of-Band-5 response that occasionally reaches the perceptive, conceptualised quality of a Grade 9."
   },
-
-  // --- 4 Literature Extract Responses ---
+  // ── Grade 7 ──────────────────────────────────────────────────
   {
-    type: 'Literature Analysis',
-    question: 'How does Shakespeare present the theme of ambition in this extract from Macbeth? (Act 1, Scene 7 — "If it were done when \'tis done")',
-    response: `In this extract Shakespeare presents ambition as something dangerous. Macbeth is thinking about killing Duncan and he uses a soliloquy to show his thoughts. He says "if it were done when 'tis done, then 'twere well it were done quickly" which shows he wants to get the murder over with fast.
+    id: 6,
+    grade: 7,
+    topic: "Macbeth — Guilt",
+    excerpt: `Shakespeare uses the motif of blood to symbolise Macbeth's guilt. After killing Duncan, Macbeth asks "Will all great Neptune's ocean wash this blood clean from my hand?" The hyperbole suggests that his guilt is so overwhelming that nothing in nature could remove it. The reference to Neptune, the Roman god of the sea, elevates the scale of his crime to something cosmic.
 
-Shakespeare uses the word "done" three times which is repetition. This shows Macbeth is trying to convince himself. He is ambitious because he wants to be king but he is also scared of the consequences. He talks about "judgment" which could mean God's judgment because people in Shakespeare's time were very religious.
-
-Macbeth also says Duncan is his "kinsman" and his "host" which shows he knows killing Duncan would be wrong because of the rules of hospitality. Shakespeare is showing that ambition can make people go against what they know is right.
-
-The audience would find this interesting because they know Macbeth is going to do the murder anyway. This creates dramatic irony and tension. Overall Shakespeare presents ambition as a force that conflicts with morality.`,
-    actualGrade: 'Grade 5',
-    markSchemeNotes: 'Developing analysis with some relevant points about ambition. Identifies techniques (soliloquy, repetition) and makes some valid comments about effects. Begins to consider context (religious beliefs, hospitality codes) but these are not fully integrated into the analysis. The response explains rather than analyses at points — "shows he is ambitious" without fully exploring how the language reveals the complexity of Macbeth\'s psychological state. Some awareness of audience response but underdeveloped.',
-    aoCriteria: 'AO1: Read, respond to texts, maintaining a critical style and using textual references. AO2: Analyse language, form and structure. AO3: Show understanding of contexts.',
-    improvementTip: 'To reach Grade 6+, analyse specific word choices in more depth (e.g. why "done" is deliberately ambiguous — does it mean "finished" or "committed"?), explore the conditional "if" that opens the speech, and develop contextual points more thoroughly.'
+Lady Macbeth's sleepwalking scene mirrors this imagery. Her repetition of "Out, damned spot!" reveals that the guilt she initially dismissed has consumed her. The shift from her earlier confident tone to fragmented, desperate language shows how guilt has destroyed her psychological stability.`,
+    feedback: "Clear, well-structured analysis that identifies relevant techniques and explains their effects thoughtfully. The candidate links language to themes and tracks character development across the play. To reach Grade 8, the response would benefit from more sustained exploration of context and more ambitious conceptualised interpretations rather than explaining individual techniques sequentially."
   },
   {
-    type: 'Literature Analysis',
-    question: 'How does Priestley present social responsibility in this extract from An Inspector Calls? (Act 3 — Sheila\'s final speech)',
-    response: `Priestley uses Sheila as a mouthpiece for his socialist message in this extract. Her transformation throughout the play culminates here — she has moved from being a "pretty" girl who abused her consumer power to someone who recognises collective social responsibility. When she says "You're pretending everything's all right," the present continuous verb "pretending" exposes her parents' deliberate self-deception, and her direct accusation signals a complete reversal of the family hierarchy.
+    id: 7,
+    grade: 7,
+    topic: "An Inspector Calls — Generational Divide",
+    excerpt: `Priestley presents the younger generation as more capable of moral growth than their parents. Sheila's exclamation "But these girls aren't cheap labour — they're people" shows her developing social conscience, contrasting with Mrs Birling's cold declaration "I accept no blame for it at all." The antithesis between mother and daughter highlights Priestley's message that hope lies with the young.
 
-The dramatic irony is devastating: while Mr and Mrs Birling celebrate the Inspector's apparent fraudulence, Sheila understands that the moral truth of his message is independent of his identity. Priestley structures this moment so that the younger generation's moral clarity contrasts sharply with the older generation's wilful ignorance, embodying his belief that post-war Britain's hope lay with the young.
+Eric also changes, confronting his father with "You're not the kind of father a chap could go to when he's in trouble." The direct address is accusatory, suggesting Eric now sees through the facade of respectability. Priestley uses these generational contrasts to suggest that post-war Britain could be rebuilt only if the young reject the values of their elders.`,
+    feedback: "A solid, well-organised response that makes clear points supported by relevant quotations. The candidate identifies techniques and links them to Priestley's message effectively. The contextual references are present but somewhat bolted-on rather than woven into the analysis. Consistent Grade 7 work."
+  },
+  // ── Grade 6 ──────────────────────────────────────────────────
+  {
+    id: 8,
+    grade: 6,
+    topic: "A Christmas Carol — Social Class",
+    excerpt: `Dickens shows the divide between rich and poor in Victorian society. Scrooge represents the wealthy upper class who do not care about the poor. When he says "decrease the surplus population" it shows he sees poor people as a burden rather than as human beings. This is a very harsh and uncaring statement.
 
-Sheila's line "It frightens me the way you talk" is particularly significant. The verb "frightens" suggests that moral blindness is not merely disappointing but genuinely dangerous — Priestley implies that the attitudes of the capitalist class pose an existential threat to social cohesion. Written in 1945 but set in 1912, Priestley's audience would recognise this as prophetic: the Birlings' refusal to accept responsibility mirrors the complacency that led to two world wars.
-
-The stage direction "(with feeling)" indicates Priestley wants Sheila's emotion to be visible, ensuring the audience connects intellectually and emotionally with his argument.`,
-    actualGrade: 'Grade 8',
-    markSchemeNotes: 'Convincing, sustained analysis with a perceptive understanding of Priestley\'s methods and intentions. Integrates context (1945/1912 time settings, socialist ideology) organically into analysis rather than bolting it on. Precise terminology (present continuous, dramatic irony, stage directions) deployed purposefully. Explores the interplay between form, language and meaning. The point about moral truth being independent of the Inspector\'s identity shows sophisticated critical thinking. Close to Grade 9 but could push further with alternative interpretations.',
-    aoCriteria: 'AO1: Read, respond to texts, maintaining a critical style and using textual references. AO2: Analyse language, form and structure. AO3: Show understanding of contexts.',
-    improvementTip: 'To reach Grade 9, consider offering alternative readings — could Sheila\'s transformation be seen as performative or incomplete? Engage with critical perspectives (feminist, Marxist) and explore how Priestley\'s dramatic form itself is an argument for social change.'
+The Cratchit family are presented as the opposite of Scrooge. Despite being poor, they are happy and loving. Bob Cratchit toasts Scrooge even though Scrooge treats him badly. Dickens uses this contrast to show that money does not equal goodness, and that the poor often have more moral value than the rich.`,
+    feedback: "The response makes relevant points and selects appropriate quotations. There is some explanation of language effects, though this tends toward narration ('it shows he sees poor people as a burden') rather than close analysis of specific words. The contrast between Scrooge and the Cratchits is identified but could be explored with more precision and terminology. Solid Grade 6."
   },
   {
-    type: 'Literature Analysis',
-    question: 'How does Dickens present Scrooge\'s transformation in this extract from A Christmas Carol? (Stave 5 — "I am as light as a feather")',
-    response: `Dickens presents Scrooge's transformation through his language and behaviour in this extract. The simile "light as a feather" shows that Scrooge feels free and happy, which is very different from how he was at the start of the novella when he was described as cold and hard. The list of similes "as happy as an angel, as merry as a schoolboy" reinforces this change by comparing him to innocent and joyful figures.
+    id: 9,
+    grade: 6,
+    topic: "Jekyll and Hyde — Duality",
+    excerpt: `Stevenson presents the idea of duality through the characters of Jekyll and Hyde. Jekyll describes himself as having "two natures" which shows that he believes everyone has a good side and a bad side. Hyde is described as giving "an impression of deformity" which suggests that evil manifests physically.
 
-Scrooge's exclamations like "I don't know what day of the month it is!" show his excitement and confusion. The use of exclamation marks throughout this section contrasts with his earlier dialogue which was short and dismissive. Dickens is showing that Scrooge has become a completely different person.
-
-The reader would feel pleased at this point because Scrooge has finally changed. Dickens wrote this in Victorian times when there was a big gap between rich and poor, so Scrooge's transformation is meant to be a message to wealthy people that they should be more generous. The novella was written partly to highlight the conditions of the poor.
-
-Scrooge also opens the window and talks to a boy in the street, which symbolises him reconnecting with the outside world after being isolated. He sends a turkey to the Cratchits which shows his generosity. Overall Dickens presents the transformation as total and joyful.`,
-    actualGrade: 'Grade 6',
-    markSchemeNotes: 'Clear, sustained response with a good range of relevant points. Identifies language features (similes, exclamations, contrast) and comments on their effects. Makes relevant contextual links to Victorian poverty and Dickens\' purpose, though these could be more tightly woven into analysis. The structural contrast with the opening is noted but not deeply explored. Analysis is sound and competent but tends toward description of effects rather than exploration of deeper meaning — e.g. does not consider the religious dimension of redemption or the allegorical nature of the novella.',
-    aoCriteria: 'AO1: Read, respond to texts, maintaining a critical style and using textual references. AO2: Analyse language, form and structure. AO3: Show understanding of contexts.',
-    improvementTip: 'To reach Grade 7+, explore how the similes connect to specific ideas (angels = spiritual redemption, schoolboy = reclaiming lost innocence), consider Dickens\' allegorical purpose more deeply, and analyse how the novella\'s form (five staves, like a carol) reinforces the theme of transformation.'
+The setting of London also reflects duality. The respectable streets contrast with the dark, sinister back alleys where Hyde is often found. This could represent the idea that Victorian society had a public face of respectability but hid its darker desires behind closed doors. Stevenson uses this to criticise the hypocrisy of the time.`,
+    feedback: "Clearly written with relevant points and some awareness of context. The candidate identifies the theme of duality at both character and setting level, which is promising. However, the analysis of language is underdeveloped — phrases like 'which shows that' signal explanation rather than analysis. More precise terminology and closer engagement with individual word choices would push this higher."
   },
   {
-    type: 'Literature Analysis',
-    question: 'How does Stevenson present the duality of human nature in this extract from Jekyll and Hyde? (Chapter 10 — Jekyll\'s full statement)',
-    response: `Stevenson shows that people have two sides. Jekyll says he has a good side and a bad side. The bad side is Hyde who does terrible things. This shows duality because Jekyll is good and Hyde is bad.
+    id: 10,
+    grade: 6,
+    topic: "Lord of the Flies — Civilisation",
+    excerpt: `Golding uses the conch shell as a symbol of civilisation and democracy. When the boys first arrive on the island, the conch is used to call meetings and whoever holds it is allowed to speak. This represents order and fairness, similar to a democratic society.
 
-Jekyll does experiments to separate the two sides. He drinks a potion and turns into Hyde. Stevenson uses this to show that everyone has darkness inside them. Hyde is described as small and ugly which shows he is evil.
-
-The extract is set in Victorian London when people had to behave properly. Jekyll is a respectable doctor but secretly he wants to do bad things. This is like how Victorian society had a public face and a private face. Stevenson is criticising society for being hypocritical.
-
-In conclusion, Stevenson presents duality through the characters of Jekyll and Hyde who represent good and evil in all people.`,
-    actualGrade: 'Grade 4',
-    markSchemeNotes: 'Some understanding of the theme with basic points about duality. Makes simple assertions ("Jekyll is good and Hyde is bad") without analysing the complexity of their relationship. Very limited engagement with language — no quotations from the extract, no analysis of specific word choices or techniques. Contextual knowledge is present but generalised and not connected to specific textual details. The response tells rather than shows, and reads more like a summary than an analysis. Needs to engage with the actual extract text.',
-    aoCriteria: 'AO1: Read, respond to texts, maintaining a critical style and using textual references. AO2: Analyse language, form and structure. AO3: Show understanding of contexts.',
-    improvementTip: 'To reach Grade 5+, you must quote directly from the extract and analyse specific language choices. Explore the complexity of Jekyll and Hyde\'s relationship — is it really as simple as good vs evil? Consider how Stevenson\'s narrative structure (multiple narrators, delayed revelation) itself reflects the theme of hidden truths.'
+As the boys become more savage, the conch loses its power. When it is finally destroyed along with Piggy, it shows that civilisation has completely broken down. Golding might be suggesting that civilisation is fragile and can easily be destroyed when people give in to their darker instincts. The island could represent the wider world.`,
+    feedback: "The candidate identifies the conch as a symbol and tracks its significance through the novel with some effectiveness. The analysis shows understanding of Golding's allegorical intentions. However, the response lacks close language analysis — there are no quotations examined at word level. The final point about the island as microcosm is valid but undeveloped. A secure Grade 6 response."
   },
-
-  // --- 4 Creative Writing Pieces ---
+  // ── Grade 5 ──────────────────────────────────────────────────
   {
-    type: 'Creative Writing',
-    question: 'AQA Paper 1, Q5: Write a description suggested by this picture of an abandoned fairground.',
-    response: `The Ferris wheel stood frozen against the grey sky like a giant clock that had stopped ticking. Its carriages — once bright red and gold — now hung at odd angles, paint peeling in long strips that fluttered in the wind like dead skin. Below, the trampled grass had turned to mud, crisscrossed with the ghostly tracks of a thousand forgotten footsteps.
+    id: 11,
+    grade: 5,
+    topic: "Macbeth — Supernatural",
+    excerpt: `The witches are important in the play because they start everything off by telling Macbeth he will be king. Their chant "Double, double toil and trouble" creates a spooky atmosphere and would have scared the audience in Shakespeare's time because people believed in witchcraft.
 
-I walked slowly through what had been the entrance. The ticket booth still had a sign: "ADULTS £3, CHILDREN £1.50" — the prices of another era, preserved in faded ink. A single teddy bear sat propped against the shooting gallery, one glass eye missing, its fur matted with rain. Something about that bear made my stomach tighten. It had been waiting for someone who would never come back.
-
-The carousel was the worst. Its horses were trapped mid-gallop, mouths open in painted screams. One had fallen from its pole and lay on its side in the dirt, legs still reaching forward. I thought of my daughter — how she used to grip the golden pole with both hands, laughing as the music played. The music box was still there, rusted shut, holding its last song prisoner inside corroded gears.
-
-Wind moved through the empty stalls, carrying the smell of rust and something sweeter underneath — candyfloss, maybe, or the memory of it. The dodgems sat in their arena like abandoned chess pieces, and I realised that this place hadn't just been left. It had been forgotten. And there is a particular cruelty in forgetting places that were built entirely for joy.`,
-    actualGrade: 'Grade 8',
-    markSchemeNotes: 'Compelling, crafted writing with a strong sense of atmosphere and control. Sustained use of effective imagery (Ferris wheel as stopped clock, horses\' "painted screams," music box holding its song "prisoner"). The personal emotional thread (the daughter) gives the description a narrative depth that elevates it beyond mere scene-setting. Varied sentence structures used for deliberate effect. Vocabulary is ambitious and precise ("corroded," "preserved," "cruelty"). The final reflection adds a conceptual layer. Punctuation is used artistically (dashes, the list of prices). Very strong but could push into Grade 9 with even more risk-taking in structure or voice.',
-    aoCriteria: 'AO5: Content and organisation — communicate clearly, effectively and imaginatively. AO6: Technical accuracy — use a range of vocabulary and sentence structures with accurate spelling, punctuation and grammar.',
-    improvementTip: 'To reach Grade 9, experiment with more unconventional structural choices — perhaps a fragmented or non-linear approach that mirrors the disintegration of the fairground. Take risks with form: could the piece use second person, or shift tense unexpectedly to blur past and present?'
+Macbeth sees a floating dagger before he kills Duncan which shows his mind is disturbed. The audience doesn't know if the dagger is real or just in his imagination. This creates tension because it makes us question whether Macbeth is going mad or if supernatural forces are actually at work.`,
+    feedback: "The response shows understanding of the text and makes relevant points about the supernatural. There is a reference to context (Jacobean belief in witchcraft) though it is not developed. The analysis tends to describe events rather than analyse language closely. The candidate would benefit from using more subject terminology and examining specific word choices rather than summarising what happens."
   },
   {
-    type: 'Creative Writing',
-    question: 'Edexcel Paper 1: Write a story that begins with the sentence "The door was already open when I arrived."',
-    response: `The door was already open when I arrived. I went inside and looked around. The house was old and dark. There were cobwebs on the ceiling and dust on the floor. It was very quiet and a bit scary.
+    id: 12,
+    grade: 5,
+    topic: "An Inspector Calls — Social Inequality",
+    excerpt: `Priestley shows that the rich have power over the poor. Mr Birling fired Eva Smith because she asked for higher wages, which shows he only cares about money. The Inspector tries to make the family see that their actions have consequences for other people.
 
-I walked down the hallway and saw a room on the left. Inside there was a table with a candle on it. The candle was still burning which was weird because no one was supposed to be here. I started to feel nervous.
+Sheila feels guilty when she finds out what happened, but her parents do not change. This might be because Priestley wanted to show that older people are set in their ways. The play was written in 1945 but set in 1912, which helps the audience see how attitudes have changed and need to keep changing.`,
+    feedback: "A competent response that demonstrates understanding of the plot and Priestley's message. The candidate makes valid points but relies on narrative rather than textual analysis. The contextual point about the dual time setting is relevant but undeveloped. More direct engagement with quotations and language features would strengthen this to a Grade 6."
+  },
+  // ── Grade 4 ──────────────────────────────────────────────────
+  {
+    id: 13,
+    grade: 4,
+    topic: "Romeo and Juliet — Conflict",
+    excerpt: `Romeo and Juliet is about two families who hate each other. The Montagues and Capulets are always fighting which causes problems for Romeo and Juliet who are in love. When Tybalt kills Mercutio, Romeo gets angry and kills Tybalt which gets him banished.
 
-Then I heard a noise upstairs. It sounded like footsteps. I didn't know if I should go upstairs or leave. I decided to be brave and go up. The stairs were creaky and old. At the top there was a long corridor with doors on both sides.
-
-I opened the first door and saw an empty room with just a chair in it. The second room had a bed with old sheets. The third room was locked. I tried to open it but it wouldn't budge. Then the footsteps started again, coming from behind the locked door.
-
-I was really scared now. I ran back down the stairs and out the front door. When I got outside I looked back at the house and saw a face in the window of the locked room. I ran all the way home and never went back.`,
-    actualGrade: 'Grade 4',
-    markSchemeNotes: 'Simple, sequential narrative with basic vocabulary. The story follows a logical structure but relies heavily on chronological listing ("Then... I... Then..."). Description is limited and tells rather than shows ("It was very quiet and a bit scary"). No figurative language or ambitious vocabulary. Sentence structures are simple and repetitive (Subject-Verb-Object pattern dominates). The story has a clear beginning, middle and end but lacks crafted detail, tension-building, or any distinctive voice. Spelling and grammar are largely accurate, which prevents it from falling to Grade 3.',
-    aoCriteria: 'AO5: Content and organisation — communicate clearly, effectively and imaginatively. AO6: Technical accuracy — use a range of vocabulary and sentence structures with accurate spelling, punctuation and grammar.',
-    improvementTip: 'To reach Grade 5+, replace "telling" phrases like "I was really scared" with sensory details that show fear (racing heartbeat, sweating palms, shortened breath). Use varied sentence openings, add figurative language (similes, metaphors, personification), and build tension through pacing rather than just listing events.'
+This is important because it means Romeo can't be with Juliet anymore. The conflict between the families is the main reason the play ends in tragedy. Shakespeare is trying to show that fighting and hatred only lead to bad things happening.`,
+    feedback: "The candidate retells events accurately but offers very limited analysis. There are no quotations from the text and no discussion of language or techniques. The final sentence gestures toward Shakespeare's intentions but remains vague. To improve, the candidate needs to embed quotations and analyse how Shakespeare uses language and structure to present conflict."
   },
   {
-    type: 'Creative Writing',
-    question: 'AQA Paper 1, Q5: Write a narrative about a time when everything changed.',
-    response: `Tuesday. That's when it happened. Not a dramatic Tuesday — no thunder, no ominous sky. Just a Tuesday that smelled like toast and sounded like Radio 2.
+    id: 14,
+    grade: 4,
+    topic: "A Christmas Carol — Scrooge",
+    excerpt: `At the start of the story Scrooge is mean and doesn't like Christmas. He says "Bah! Humbug!" when people wish him merry Christmas. He won't give money to charity and makes Bob Cratchit work in the cold.
 
-Mum was at the kitchen table, but she wasn't eating. She was holding her phone in both hands the way people hold things they're afraid of dropping. Or afraid of keeping.
+After being visited by three ghosts he changes and becomes a nice person. He buys a turkey for the Cratchits and gives money to the poor. Dickens wanted to show that people can change and become better. The story has a happy ending because Scrooge learns his lesson.`,
+    feedback: "The response demonstrates basic understanding of the text and uses one quotation. However, the analysis is very surface-level, largely retelling the plot. Phrases like 'mean' and 'nice person' lack precision. There is no analysis of language techniques and the contextual comment is generic. The candidate needs to move beyond describing what happens to examining how Dickens uses language to convey meaning."
+  },
+  // ── Grade 3 ──────────────────────────────────────────────────
+  {
+    id: 15,
+    grade: 3,
+    topic: "Macbeth — Power",
+    excerpt: `Macbeth wants to be king so he kills Duncan. Lady Macbeth helps him plan it. After he becomes king he starts killing more people because he is worried they will find out. He becomes a bad king and everyone turns against him. In the end Macduff kills him.
 
-"Sit down," she said, and the two words rearranged the room. The kitchen I'd known my whole life — the wonky clock, the fridge magnets from holidays we couldn't afford, the permanent smell of something slightly burning — suddenly felt like a set. A stage. And I was about to be given a role I hadn't auditioned for.
-
-She told me Dad wasn't coming back. Not in the dramatic film way — no affair, no argument, no slammed doors. He'd just... left. Quietly. The way a light goes off in a room you're not in. You only notice later, when you reach for the switch and find darkness already there.
-
-I said "okay" because that's what you say when language fails and your body hasn't caught up with your brain. The toast popped up. We both looked at it like it had said something inappropriate.
-
-After she went to work I sat in his chair. It still held the shape of him — a dent in the cushion, a crease in the armrest where he'd rest his tea. I thought about how a person can be everywhere in a house and nowhere in it at the same time. How the evidence of someone doesn't equal the someone.
-
-The clock ticked. The fridge hummed. Radio 2 played something upbeat and utterly wrong.
-
-Everything had changed. And the toast went cold.`,
-    actualGrade: 'Grade 9',
-    markSchemeNotes: 'Exceptional writing that demonstrates complete control of tone, pace, and voice. The understated, controlled narrative voice is perfectly suited to the subject matter — this is a writer who understands that restraint can be more powerful than melodrama. Imagery is original and precise (the phone "held like something afraid of dropping," the light going off in another room, the chair holding "the shape of him"). The toast motif bookends the piece brilliantly. Sentence variety is masterful — fragments, compounds, and complex sentences all serve deliberate purposes. The reflection "the evidence of someone doesn\'t equal the someone" is genuinely profound. Technically flawless with sophisticated punctuation choices.',
-    aoCriteria: 'AO5: Content and organisation — communicate clearly, effectively and imaginatively. AO6: Technical accuracy — use a range of vocabulary and sentence structures with accurate spelling, punctuation and grammar.',
-    improvementTip: 'This is an exemplary response. Maintain this level of authentic voice, emotional restraint, and precise imagery. The ability to find the extraordinary in ordinary moments is exactly what top-band creative writing requires.'
+Shakespeare is showing that wanting too much power is bad. Macbeth goes from being a good soldier to a terrible king because of his ambition. The play teaches us that we shouldn't be too greedy.`,
+    feedback: "This response retells the plot without analysing the text. There are no quotations, no identification of techniques, and no engagement with language or structure. The 'moral' identified is simplistic. The candidate needs to use evidence from the text and begin to explain how Shakespeare communicates ideas through his writing choices."
   },
   {
-    type: 'Creative Writing',
-    question: 'AQA Paper 1, Q5: Describe a place that is full of life and energy.',
-    response: `The market was alive with colour and noise. Stalls stretched out in every direction, their canopies a patchwork of red, orange and blue against the pale morning sky. Vendors called out to passers-by, their voices competing with each other in a cheerful chaos that bounced off the old brick walls surrounding the square.
+    id: 16,
+    grade: 3,
+    topic: "An Inspector Calls — The Inspector",
+    excerpt: `The Inspector comes to the Birling house and asks them questions about a girl who died. He shows them a photo and they all had something to do with her. Mr Birling fired her and Sheila got her fired from a shop.
 
-The air was thick with smells that tangled together: frying onions from the burger van, the sharp sweetness of fresh strawberries, coffee from the artisan stand where a woman with paint-stained fingers poured careful spirals of milk into ceramic cups. A busker near the fountain played guitar, his case open at his feet like a mouth waiting to be fed, a handful of coins glinting inside.
+The Inspector makes them feel bad about what they did. At the end they find out he might not be a real inspector which is confusing. Priestley probably wanted to show that everyone should be nice to each other and think about how their actions affect other people.`,
+    feedback: "The response shows basic awareness of the plot but offers no analysis of language, form, or structure. There are no quotations and the candidate relies entirely on retelling events. Comments on Priestley's intentions are simplistic ('everyone should be nice'). Significant improvement needed in textual analysis and use of evidence."
+  },
+  {
+    id: 17,
+    grade: 3,
+    topic: "Romeo and Juliet — Fate",
+    excerpt: `Romeo and Juliet were not lucky because everything went wrong for them. If the letter had arrived in time Romeo would have known Juliet wasn't really dead. It seems like they were always going to die because of bad luck and timing.
 
-Children weaved between the legs of adults like small, determined fish swimming upstream. One boy tugged his mother toward a stall selling homemade fudge, his free hand already reaching. An elderly couple moved slowly through the crowd, arm in arm, a small island of calm in the current of bodies.
-
-I stopped at the flower stall where buckets of sunflowers stood to attention like bright soldiers. The woman running it had soil under her nails and a smile that could warm a room. "Pick your favourite," she said, gesturing at the blooms. I chose one that leaned slightly to the left, imperfect and cheerful, like the market itself.
-
-Above it all, pigeons circled lazily, and the clock tower chimed eleven times, each note dissolving into the noise below like sugar into tea.`,
-    actualGrade: 'Grade 7',
-    markSchemeNotes: 'Well-crafted descriptive writing with a strong sense of place and effective sensory detail. Good range of figurative language (guitar case "like a mouth," children "like small determined fish," sunflowers "like bright soldiers"). The writing is engaging and shows clear control of tone and structure. Vocabulary is varied and sometimes precise ("patchwork," "artisan," "dissolving"). The piece maintains focus and builds a coherent scene. However, some similes are slightly conventional, and the piece could take more risks with structure or perspective to push into the highest band. The observation is skilled but stays within comfortable territory.',
-    aoCriteria: 'AO5: Content and organisation — communicate clearly, effectively and imaginatively. AO6: Technical accuracy — use a range of vocabulary and sentence structures with accurate spelling, punctuation and grammar.',
-    improvementTip: 'To reach Grade 8+, push beyond conventional similes and find more surprising, original comparisons. Experiment with perspective shifts, vary paragraph length more dramatically for effect, and add a reflective or conceptual layer that elevates the description beyond surface observation.'
+Shakespeare might be saying that some things are meant to happen and you can't stop them. The prologue says they are "star-cross'd lovers" which means the stars are against them. The play is very sad because they both die at the end.`,
+    feedback: "The candidate shows some understanding of fate as a theme and includes one brief quotation. However, the analysis remains at a narrative level — describing what happens rather than how Shakespeare presents the theme through language and structural choices. The single quotation is identified but not analysed. More evidence, terminology, and analytical depth are required."
   }
 ];
 
-const STORAGE_KEY = 'learnright_game_marktheessay';
-const ESSAYS_PER_ROUND = 6;
+const GRADE_BANDS = [9, 8, 7, 6, 5, 4, 3];
 
-function shuffle(arr) {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
+const GRADE_COLORS = {
+  9: "#a855f7",
+  8: "#8b5cf6",
+  7: "#3b82f6",
+  6: "#10b981",
+  5: "#f59e0b",
+  4: "#f97316",
+  3: "#ef4444"
+};
+
+function getExaminerRating(accuracy) {
+  if (accuracy >= 90) return { title: "Senior Examiner", color: "#a855f7", desc: "Exceptional judgement — you could lead a marking team." };
+  if (accuracy >= 75) return { title: "Lead Examiner", color: "#8b5cf6", desc: "Highly accurate grading with strong consistency." };
+  if (accuracy >= 60) return { title: "Experienced Examiner", color: "#3b82f6", desc: "Solid marking skills with good instincts." };
+  if (accuracy >= 45) return { title: "Examiner", color: "#10b981", desc: "Competent grading — keep practising for greater precision." };
+  if (accuracy >= 30) return { title: "Assistant Examiner", color: "#f59e0b", desc: "Developing your eye — focus on what separates each band." };
+  return { title: "Trainee Examiner", color: "#f97316", desc: "Early days — read more exemplar essays to calibrate your judgement." };
 }
 
-function getLeaderboard() {
-  try {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-  } catch { return []; }
-}
-
-function saveScore(entry) {
-  const lb = getLeaderboard();
-  lb.push(entry);
-  lb.sort((a, b) => b.score - a.score);
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(lb.slice(0, 10)));
-}
-
-function gradeIndex(grade) {
-  return GRADE_BANDS.indexOf(grade);
-}
-
-function calculatePoints(selectedGrade, actualGrade) {
-  const diff = Math.abs(gradeIndex(selectedGrade) - gradeIndex(actualGrade));
-  if (diff === 0) return 30;
-  if (diff === 1) return 15;
+function getPointsForDiff(diff) {
+  if (diff === 0) return 100;
+  if (diff === 1) return 60;
+  if (diff === 2) return 20;
   return 0;
 }
 
-const TYPE_COLORS = {
-  'Language Analysis': { bg: '#1e3a5f', border: '#3b82f6', text: '#93c5fd' },
-  'Literature Analysis': { bg: '#3b1f4e', border: '#a855f7', text: '#d8b4fe' },
-  'Creative Writing': { bg: '#1a3c34', border: '#10b981', text: '#6ee7b7' },
-};
+function getDiffLabel(diff) {
+  if (diff === 0) return { text: "Exact match!", color: "#10b981" };
+  if (diff === 1) return { text: "1 grade off", color: "#34d399" };
+  if (diff === 2) return { text: "2 grades off", color: "#f59e0b" };
+  return { text: `${diff} grades off`, color: "#ef4444" };
+}
 
+const LS_KEY = 'lr_markessay_best';
+
+function loadBest() {
+  try { return parseInt(localStorage.getItem(LS_KEY)) || 0; } catch { return 0; }
+}
+function saveBest(score) {
+  const prev = loadBest();
+  if (score > prev) localStorage.setItem(LS_KEY, String(score));
+}
+
+/* ═══════════════════════════════════════════
+   MAIN COMPONENT
+   ═══════════════════════════════════════════ */
 export default function MarkTheEssay() {
   const [phase, setPhase] = useState('menu');
   const [essays, setEssays] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [essayIndex, setEssayIndex] = useState(0);
   const [selectedGrade, setSelectedGrade] = useState(null);
   const [revealed, setRevealed] = useState(false);
   const [results, setResults] = useState([]);
-  const [leaderboard, setLeaderboard] = useState(getLeaderboard());
+  const [score, setScore] = useState(0);
+  const [bestScore, setBestScore] = useState(loadBest);
+  const [essayCount, setEssayCount] = useState(10);
 
+  const currentEssay = essays[essayIndex];
+
+  /* Start game */
   const startGame = useCallback(() => {
-    const selected = shuffle(ESSAYS).slice(0, ESSAYS_PER_ROUND);
+    const shuffled = [...ESSAYS].sort(() => Math.random() - 0.5);
+    const selected = shuffled.slice(0, Math.min(essayCount, ESSAYS.length));
     setEssays(selected);
-    setCurrentIndex(0);
+    setEssayIndex(0);
     setSelectedGrade(null);
     setRevealed(false);
     setResults([]);
+    setScore(0);
     setPhase('playing');
-  }, []);
+  }, [essayCount]);
 
-  const handleSubmitGrade = useCallback(() => {
-    if (!selectedGrade) return;
-    setRevealed(true);
-  }, [selectedGrade]);
+  /* Submit grade */
+  const handleGradeSelect = useCallback((grade) => {
+    if (revealed) return;
+    setSelectedGrade(grade);
+  }, [revealed]);
 
-  const handleNext = useCallback(() => {
-    const essay = essays[currentIndex];
-    const points = calculatePoints(selectedGrade, essay.actualGrade);
-    const newResults = [...results, { essay, selectedGrade, points }];
+  const handleSubmit = useCallback(() => {
+    if (selectedGrade === null || revealed) return;
+    const diff = Math.abs(selectedGrade - currentEssay.grade);
+    const pts = getPointsForDiff(diff);
+    const newResults = [...results, { essay: currentEssay, selected: selectedGrade, actual: currentEssay.grade, diff, pts }];
     setResults(newResults);
+    setScore(s => s + pts);
+    setRevealed(true);
+  }, [selectedGrade, revealed, currentEssay, results]);
 
-    if (currentIndex + 1 >= ESSAYS_PER_ROUND) {
-      const totalScore = newResults.reduce((s, r) => s + r.points, 0);
-      const exactMatches = newResults.filter(r => r.points === 30).length;
-      saveScore({
-        score: totalScore,
-        exactMatches,
-        date: new Date().toISOString(),
-      });
-      setLeaderboard(getLeaderboard());
-      const today = new Date().toISOString().slice(0, 10);
-      localStorage.setItem('learnright_last_game_date', today);
+  /* Next essay */
+  const nextEssay = useCallback(() => {
+    if (essayIndex + 1 >= essays.length) {
+      const finalScore = score;
+      saveBest(finalScore);
+      setBestScore(Math.max(bestScore, finalScore));
       setPhase('results');
     } else {
-      setCurrentIndex(currentIndex + 1);
+      setEssayIndex(i => i + 1);
       setSelectedGrade(null);
       setRevealed(false);
     }
-  }, [essays, currentIndex, selectedGrade, results]);
+  }, [essayIndex, essays.length, score, bestScore]);
 
-  const totalScore = results.reduce((s, r) => s + r.points, 0);
+  const accuracy = results.length > 0
+    ? Math.round((results.filter(r => r.diff === 0).length / results.length) * 100)
+    : 0;
+  const closeAccuracy = results.length > 0
+    ? Math.round((results.filter(r => r.diff <= 1).length / results.length) * 100)
+    : 0;
+  const examinerRating = getExaminerRating(closeAccuracy);
 
   return (
-    <div style={{ background: '#0a0e1a', minHeight: '100vh', color: '#f1f5f9' }}>
+    <div style={{ minHeight: '100vh', background: '#0a0e1a', color: '#f1f5f9' }}>
       <Navbar />
-      <div style={{ maxWidth: '900px', margin: '0 auto', padding: '2rem 1rem' }}>
-        {/* Header */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2rem' }}>
-          <Link to="/games" style={{ color: '#94a3b8', display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-            <ArrowLeft size={20} />
-          </Link>
-          <div>
-            <h1 style={{ fontSize: '1.75rem', fontWeight: 700, margin: 0 }}>Mark the Essay</h1>
-            <p style={{ color: '#94a3b8', margin: '0.25rem 0 0', fontSize: '0.9rem' }}>
-              Read student essays and assign grades using real mark scheme criteria
-            </p>
-          </div>
-        </div>
+      <GameWrapper gameId="mark-the-essay" gameName="Mark the Essay">
+      <div style={{ maxWidth: 800, margin: '0 auto', padding: '24px 16px' }}>
 
-        {/* MENU PHASE */}
+        {/* ── MENU ── */}
         {phase === 'menu' && (
-          <div>
-            <div style={{
-              background: 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)',
-              borderRadius: '1rem', padding: '2rem', border: '1px solid #1e293b',
-              marginBottom: '2rem', textAlign: 'center'
-            }}>
-              <BookOpen size={48} style={{ color: '#f59e0b', marginBottom: '1rem' }} />
-              <h2 style={{ fontSize: '1.3rem', fontWeight: 600, marginBottom: '0.75rem' }}>How It Works</h2>
-              <div style={{ color: '#94a3b8', lineHeight: 1.7, maxWidth: '600px', margin: '0 auto', textAlign: 'left' }}>
-                <p style={{ marginBottom: '0.5rem' }}>1. Read a sample student essay response</p>
-                <p style={{ marginBottom: '0.5rem' }}>2. Assign a GCSE grade (Grade 3 to Grade 9)</p>
-                <p style={{ marginBottom: '0.5rem' }}>3. See the actual grade with examiner commentary</p>
-                <p style={{ marginBottom: '1rem' }}>4. Grade {ESSAYS_PER_ROUND} essays per round</p>
-                <div style={{
-                  background: '#0f172a', borderRadius: '0.5rem', padding: '1rem',
-                  border: '1px solid #1e293b'
-                }}>
-                  <p style={{ fontWeight: 600, color: '#f59e0b', marginBottom: '0.5rem' }}>Scoring</p>
-                  <p>Exact grade match: <span style={{ color: '#22c55e', fontWeight: 600 }}>30 points</span></p>
-                  <p>One grade off: <span style={{ color: '#f59e0b', fontWeight: 600 }}>15 points</span></p>
-                  <p>Two or more off: <span style={{ color: '#ef4444', fontWeight: 600 }}>0 points</span></p>
-                  <p style={{ marginTop: '0.5rem', fontWeight: 600 }}>Max score: {ESSAYS_PER_ROUND * 30} points</p>
-                </div>
-              </div>
-              <button onClick={startGame} style={{
-                marginTop: '1.5rem', padding: '0.875rem 2.5rem', background: 'linear-gradient(135deg, #f59e0b, #d97706)',
-                color: '#000', fontWeight: 700, fontSize: '1.1rem', border: 'none', borderRadius: '0.75rem', cursor: 'pointer'
+          <div style={{ animation: 'mteSlideUp 0.4s ease' }}>
+            <div style={{ textAlign: 'center', marginBottom: 32 }}>
+              <div style={{
+                display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                width: 72, height: 72, borderRadius: '50%',
+                background: 'rgba(16, 185, 129, 0.15)', marginBottom: 16
               }}>
-                Start Marking
-              </button>
+                <BookOpen style={{ width: 36, height: 36, color: '#34d399' }} />
+              </div>
+              <h1 style={{ fontSize: 28, fontWeight: 700, marginBottom: 8 }}>Mark the Essay</h1>
+              <p style={{ color: '#94a3b8', fontSize: 15, maxWidth: 500, margin: '0 auto' }}>
+                Read essay excerpts and assign a GCSE grade band. How close can you get to the real examiner's mark?
+              </p>
             </div>
 
-            {/* Leaderboard */}
-            {leaderboard.length > 0 && (
-              <div style={{
-                background: '#1e293b', borderRadius: '1rem', padding: '1.5rem',
-                border: '1px solid #334155'
+            {/* Essay count selector */}
+            <div className="card" style={{
+              background: 'rgba(30, 41, 59, 0.5)', border: '1px solid rgba(71, 85, 105, 0.4)',
+              borderRadius: 16, padding: 24, marginBottom: 20
+            }}>
+              <p style={{ color: '#94a3b8', fontSize: 13, marginBottom: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: 1 }}>
+                Number of essays
+              </p>
+              <div style={{ display: 'flex', gap: 10 }}>
+                {[5, 10, 15].map(n => (
+                  <button
+                    key={n}
+                    onClick={() => setEssayCount(n)}
+                    style={{
+                      flex: 1, padding: '10px 0', borderRadius: 12, fontWeight: 600, fontSize: 15,
+                      border: essayCount === n ? '2px solid #10b981' : '2px solid rgba(71, 85, 105, 0.4)',
+                      background: essayCount === n ? 'rgba(16, 185, 129, 0.15)' : 'rgba(30, 41, 59, 0.3)',
+                      color: essayCount === n ? '#34d399' : '#94a3b8',
+                      cursor: 'pointer', transition: 'all 0.2s'
+                    }}
+                  >
+                    {n}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Best score */}
+            {bestScore > 0 && (
+              <div className="card" style={{
+                background: 'rgba(30, 41, 59, 0.5)', border: '1px solid rgba(71, 85, 105, 0.4)',
+                borderRadius: 16, padding: 16, marginBottom: 20, display: 'flex', alignItems: 'center', gap: 12
               }}>
-                <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem', fontSize: '1.1rem' }}>
-                  <Trophy size={18} style={{ color: '#f59e0b' }} /> Best Scores
-                </h3>
-                {leaderboard.slice(0, 5).map((entry, i) => (
-                  <div key={i} style={{
-                    display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-                    padding: '0.5rem 0', borderBottom: i < 4 ? '1px solid #334155' : 'none'
-                  }}>
-                    <span style={{ color: '#94a3b8' }}>
-                      #{i + 1} — {new Date(entry.date).toLocaleDateString()}
-                    </span>
-                    <span style={{ fontWeight: 700, color: '#f59e0b' }}>
-                      {entry.score}/{ESSAYS_PER_ROUND * 30}
-                      {entry.exactMatches > 0 && (
-                        <span style={{ color: '#22c55e', fontSize: '0.8rem', marginLeft: '0.5rem' }}>
-                          ({entry.exactMatches} exact)
+                <Trophy style={{ width: 20, height: 20, color: '#f59e0b' }} />
+                <span style={{ color: '#94a3b8', fontSize: 14 }}>Best score:</span>
+                <span style={{ color: '#f59e0b', fontWeight: 700, fontSize: 16 }}>{bestScore} pts</span>
+              </div>
+            )}
+
+            <button
+              onClick={startGame}
+              style={{
+                width: '100%', padding: '14px 0', borderRadius: 14,
+                background: 'linear-gradient(135deg, #10b981, #059669)',
+                color: '#fff', fontWeight: 700, fontSize: 16,
+                border: 'none', cursor: 'pointer', transition: 'all 0.2s',
+                display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8
+              }}
+            >
+              Start Marking <ChevronRight style={{ width: 18, height: 18 }} />
+            </button>
+          </div>
+        )}
+
+        {/* ── PLAYING ── */}
+        {phase === 'playing' && currentEssay && (
+          <div style={{ animation: 'mteSlideUp 0.35s ease' }}>
+            {/* Top bar */}
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
+              <span style={{ fontSize: 13, color: '#94a3b8' }}>
+                Essay <span style={{ color: '#e2e8f0', fontWeight: 600 }}>{essayIndex + 1}</span> / {essays.length}
+              </span>
+              <span style={{ fontSize: 17, fontWeight: 700, color: '#34d399' }}>{score} pts</span>
+            </div>
+
+            {/* Progress bar */}
+            <div style={{ display: 'flex', gap: 5, marginBottom: 20 }}>
+              {essays.map((_, i) => (
+                <div
+                  key={i}
+                  style={{
+                    height: 5, flex: 1, borderRadius: 4,
+                    background: i < essayIndex ? '#10b981' : i === essayIndex ? 'rgba(16, 185, 129, 0.4)' : '#1e293b',
+                    transition: 'background 0.3s'
+                  }}
+                />
+              ))}
+            </div>
+
+            {/* Topic badge */}
+            <div style={{ marginBottom: 12 }}>
+              <span style={{
+                display: 'inline-block', fontSize: 12, fontWeight: 600,
+                background: 'rgba(16, 185, 129, 0.15)', color: '#34d399',
+                padding: '4px 12px', borderRadius: 20
+              }}>
+                {currentEssay.topic}
+              </span>
+            </div>
+
+            {/* Essay card */}
+            <div className="card" style={{
+              background: 'rgba(30, 41, 59, 0.5)', border: '1px solid rgba(71, 85, 105, 0.4)',
+              borderRadius: 16, padding: 24, marginBottom: 20, maxHeight: 400, overflowY: 'auto'
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16 }}>
+                <Eye style={{ width: 16, height: 16, color: '#64748b' }} />
+                <span style={{ fontSize: 12, color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: 1 }}>
+                  Student Response
+                </span>
+              </div>
+              {currentEssay.excerpt.split('\n\n').map((para, i) => (
+                <p key={i} style={{
+                  fontSize: 14, lineHeight: 1.75, color: '#cbd5e1',
+                  marginBottom: i < currentEssay.excerpt.split('\n\n').length - 1 ? 16 : 0,
+                  fontStyle: 'italic'
+                }}>
+                  {para}
+                </p>
+              ))}
+            </div>
+
+            {/* Grade selection */}
+            <div style={{ marginBottom: 16 }}>
+              <p style={{ fontSize: 13, color: '#94a3b8', fontWeight: 600, marginBottom: 10, textTransform: 'uppercase', letterSpacing: 1 }}>
+                Assign a grade
+              </p>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: 8 }}>
+                {GRADE_BANDS.map(g => {
+                  let bg = 'rgba(30, 41, 59, 0.5)';
+                  let borderColor = 'rgba(71, 85, 105, 0.4)';
+                  let textColor = '#94a3b8';
+
+                  if (revealed) {
+                    if (g === currentEssay.grade) {
+                      bg = 'rgba(16, 185, 129, 0.2)';
+                      borderColor = '#10b981';
+                      textColor = '#34d399';
+                    } else if (g === selectedGrade && g !== currentEssay.grade) {
+                      bg = 'rgba(239, 68, 68, 0.2)';
+                      borderColor = '#ef4444';
+                      textColor = '#f87171';
+                    } else {
+                      bg = 'rgba(30, 41, 59, 0.25)';
+                      textColor = '#475569';
+                    }
+                  } else if (g === selectedGrade) {
+                    bg = 'rgba(16, 185, 129, 0.15)';
+                    borderColor = '#10b981';
+                    textColor = '#34d399';
+                  }
+
+                  return (
+                    <button
+                      key={g}
+                      onClick={() => handleGradeSelect(g)}
+                      disabled={revealed}
+                      style={{
+                        padding: '12px 0', borderRadius: 12, fontWeight: 700, fontSize: 16,
+                        border: `2px solid ${borderColor}`, background: bg, color: textColor,
+                        cursor: revealed ? 'default' : 'pointer', transition: 'all 0.2s'
+                      }}
+                    >
+                      {g}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Submit / Revealed feedback */}
+            {!revealed && (
+              <button
+                onClick={handleSubmit}
+                disabled={selectedGrade === null}
+                style={{
+                  width: '100%', padding: '14px 0', borderRadius: 14,
+                  background: selectedGrade !== null
+                    ? 'linear-gradient(135deg, #10b981, #059669)'
+                    : 'rgba(30, 41, 59, 0.5)',
+                  color: selectedGrade !== null ? '#fff' : '#475569',
+                  fontWeight: 700, fontSize: 15, border: 'none',
+                  cursor: selectedGrade !== null ? 'pointer' : 'default',
+                  transition: 'all 0.2s'
+                }}
+              >
+                Submit Grade
+              </button>
+            )}
+
+            {revealed && (
+              <div style={{ animation: 'mteSlideUp 0.3s ease' }}>
+                {/* Result banner */}
+                {(() => {
+                  const diff = Math.abs(selectedGrade - currentEssay.grade);
+                  const diffInfo = getDiffLabel(diff);
+                  const pts = getPointsForDiff(diff);
+                  return (
+                    <div className="card" style={{
+                      background: diff === 0 ? 'rgba(16, 185, 129, 0.1)' : diff <= 1 ? 'rgba(52, 211, 153, 0.08)' : 'rgba(239, 68, 68, 0.08)',
+                      border: `1px solid ${diff <= 1 ? 'rgba(16, 185, 129, 0.3)' : 'rgba(239, 68, 68, 0.3)'}`,
+                      borderRadius: 14, padding: 16, marginBottom: 16, textAlign: 'center'
+                    }}>
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12, marginBottom: 8 }}>
+                        <span style={{ fontSize: 14, color: '#94a3b8' }}>
+                          Your grade: <strong style={{ color: GRADE_COLORS[selectedGrade] || '#f1f5f9' }}>{selectedGrade}</strong>
                         </span>
-                      )}
+                        <span style={{ color: '#475569' }}>→</span>
+                        <span style={{ fontSize: 14, color: '#94a3b8' }}>
+                          Actual grade: <strong style={{ color: GRADE_COLORS[currentEssay.grade] || '#f1f5f9' }}>{currentEssay.grade}</strong>
+                        </span>
+                      </div>
+                      <span style={{ fontWeight: 700, fontSize: 16, color: diffInfo.color }}>{diffInfo.text}</span>
+                      <span style={{ color: '#64748b', fontSize: 13, marginLeft: 8 }}>+{pts} pts</span>
+                    </div>
+                  );
+                })()}
+
+                {/* Examiner feedback */}
+                <div className="card" style={{
+                  background: 'rgba(30, 41, 59, 0.5)', border: '1px solid rgba(71, 85, 105, 0.4)',
+                  borderRadius: 14, padding: 20, marginBottom: 16
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10 }}>
+                    <Award style={{ width: 16, height: 16, color: '#f59e0b' }} />
+                    <span style={{ fontSize: 12, fontWeight: 600, color: '#f59e0b', textTransform: 'uppercase', letterSpacing: 1 }}>
+                      Examiner Feedback
                     </span>
                   </div>
-                ))}
+                  <p style={{ fontSize: 14, lineHeight: 1.7, color: '#cbd5e1' }}>
+                    {currentEssay.feedback}
+                  </p>
+                </div>
+
+                <button
+                  onClick={nextEssay}
+                  style={{
+                    width: '100%', padding: '14px 0', borderRadius: 14,
+                    background: 'rgba(30, 41, 59, 0.6)', border: '1px solid rgba(71, 85, 105, 0.5)',
+                    color: '#fff', fontWeight: 600, fontSize: 15, cursor: 'pointer',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+                    transition: 'all 0.2s'
+                  }}
+                >
+                  {essayIndex + 1 >= essays.length ? 'See Results' : 'Next Essay'}
+                  <ChevronRight style={{ width: 16, height: 16 }} />
+                </button>
               </div>
             )}
           </div>
         )}
 
-        {/* PLAYING PHASE */}
-        {phase === 'playing' && essays[currentIndex] && (() => {
-          const essay = essays[currentIndex];
-          const typeColor = TYPE_COLORS[essay.type] || TYPE_COLORS['Language Analysis'];
-          return (
-            <div>
-              {/* Progress bar */}
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
-                <span style={{ color: '#94a3b8', fontSize: '0.9rem' }}>
-                  Essay {currentIndex + 1} of {ESSAYS_PER_ROUND}
-                </span>
-                <span style={{ color: '#f59e0b', fontWeight: 600 }}>
-                  Score: {totalScore + (revealed && selectedGrade ? calculatePoints(selectedGrade, essay.actualGrade) : 0)}
-                </span>
-              </div>
-              <div style={{
-                height: '4px', background: '#1e293b', borderRadius: '2px', marginBottom: '1.5rem'
-              }}>
-                <div style={{
-                  height: '100%', background: 'linear-gradient(90deg, #f59e0b, #d97706)',
-                  borderRadius: '2px', width: `${((currentIndex + (revealed ? 1 : 0)) / ESSAYS_PER_ROUND) * 100}%`,
-                  transition: 'width 0.3s'
-                }} />
-              </div>
-
-              {/* Essay type badge */}
-              <div style={{
-                display: 'inline-block', padding: '0.25rem 0.75rem', borderRadius: '999px',
-                background: typeColor.bg, border: `1px solid ${typeColor.border}`,
-                color: typeColor.text, fontSize: '0.8rem', fontWeight: 600, marginBottom: '0.75rem'
-              }}>
-                {essay.type}
-              </div>
-
-              {/* Question */}
-              <div style={{
-                background: '#1e293b', borderRadius: '0.75rem', padding: '1rem 1.25rem',
-                border: '1px solid #334155', marginBottom: '1rem'
-              }}>
-                <p style={{ fontWeight: 600, color: '#e2e8f0', margin: 0, fontSize: '0.95rem' }}>
-                  {essay.question}
-                </p>
-              </div>
-
-              {/* Essay response */}
-              <div style={{
-                background: '#0f172a', borderRadius: '0.75rem', padding: '1.5rem',
-                border: '1px solid #1e293b', marginBottom: '1.5rem', maxHeight: '400px',
-                overflowY: 'auto', lineHeight: 1.8
-              }}>
-                <div style={{ fontSize: '0.8rem', color: '#64748b', marginBottom: '0.75rem', fontStyle: 'italic' }}>
-                  Student Response:
-                </div>
-                {essay.response.split('\n\n').map((para, i) => (
-                  <p key={i} style={{ color: '#cbd5e1', marginBottom: '0.75rem', fontSize: '0.95rem' }}>
-                    {para}
-                  </p>
-                ))}
-              </div>
-
-              {/* Grade selection */}
-              {!revealed && (
-                <div style={{ marginBottom: '1.5rem' }}>
-                  <p style={{ fontWeight: 600, marginBottom: '0.75rem', color: '#e2e8f0' }}>
-                    What grade would you give this response?
-                  </p>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1rem' }}>
-                    {GRADE_BANDS.map(grade => (
-                      <button
-                        key={grade}
-                        onClick={() => setSelectedGrade(grade)}
-                        style={{
-                          padding: '0.625rem 1.25rem', borderRadius: '0.5rem', cursor: 'pointer',
-                          fontWeight: 600, fontSize: '0.9rem', border: '2px solid',
-                          transition: 'all 0.15s',
-                          background: selectedGrade === grade ? '#f59e0b' : '#1e293b',
-                          color: selectedGrade === grade ? '#000' : '#e2e8f0',
-                          borderColor: selectedGrade === grade ? '#f59e0b' : '#334155',
-                        }}
-                      >
-                        {grade}
-                      </button>
-                    ))}
-                  </div>
-                  <button
-                    onClick={handleSubmitGrade}
-                    disabled={!selectedGrade}
-                    style={{
-                      padding: '0.75rem 2rem', borderRadius: '0.75rem', cursor: selectedGrade ? 'pointer' : 'not-allowed',
-                      fontWeight: 700, fontSize: '1rem', border: 'none',
-                      background: selectedGrade ? 'linear-gradient(135deg, #f59e0b, #d97706)' : '#334155',
-                      color: selectedGrade ? '#000' : '#64748b',
-                      opacity: selectedGrade ? 1 : 0.6,
-                    }}
-                  >
-                    Submit Grade
-                  </button>
-                </div>
-              )}
-
-              {/* Revealed feedback */}
-              {revealed && (() => {
-                const points = calculatePoints(selectedGrade, essay.actualGrade);
-                const isExact = points === 30;
-                const isClose = points === 15;
-                return (
-                  <div style={{
-                    background: '#1e293b', borderRadius: '0.75rem', padding: '1.5rem',
-                    border: `2px solid ${isExact ? '#22c55e' : isClose ? '#f59e0b' : '#ef4444'}`,
-                    marginBottom: '1.5rem'
-                  }}>
-                    {/* Score result */}
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                      {isExact ? <CheckCircle size={28} style={{ color: '#22c55e' }} /> :
-                        isClose ? <Star size={28} style={{ color: '#f59e0b' }} /> :
-                          <XCircle size={28} style={{ color: '#ef4444' }} />}
-                      <div>
-                        <div style={{
-                          fontWeight: 700, fontSize: '1.1rem',
-                          color: isExact ? '#22c55e' : isClose ? '#f59e0b' : '#ef4444'
-                        }}>
-                          {isExact ? 'Exact Match! +30 points' : isClose ? 'Close! +15 points' : 'Not quite — 0 points'}
-                        </div>
-                        <div style={{ color: '#94a3b8', fontSize: '0.9rem' }}>
-                          Your grade: <strong style={{ color: '#e2e8f0' }}>{selectedGrade}</strong>
-                          {' '} | Actual grade: <strong style={{ color: '#f59e0b' }}>{essay.actualGrade}</strong>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Examiner commentary */}
-                    <div style={{
-                      background: '#0f172a', borderRadius: '0.5rem', padding: '1rem',
-                      border: '1px solid #334155', marginBottom: '1rem'
-                    }}>
-                      <p style={{ fontWeight: 600, color: '#f59e0b', marginBottom: '0.5rem', fontSize: '0.9rem' }}>
-                        Examiner's Commentary
-                      </p>
-                      <p style={{ color: '#cbd5e1', fontSize: '0.9rem', lineHeight: 1.7 }}>
-                        {essay.markSchemeNotes}
-                      </p>
-                    </div>
-
-                    {/* AO criteria */}
-                    <div style={{
-                      background: '#0f172a', borderRadius: '0.5rem', padding: '1rem',
-                      border: '1px solid #334155', marginBottom: '1rem'
-                    }}>
-                      <p style={{ fontWeight: 600, color: '#a78bfa', marginBottom: '0.5rem', fontSize: '0.9rem' }}>
-                        Assessment Objectives
-                      </p>
-                      <p style={{ color: '#cbd5e1', fontSize: '0.85rem', lineHeight: 1.6 }}>
-                        {essay.aoCriteria}
-                      </p>
-                    </div>
-
-                    {/* Improvement tip */}
-                    <div style={{
-                      background: '#0f172a', borderRadius: '0.5rem', padding: '1rem',
-                      border: '1px solid #334155'
-                    }}>
-                      <p style={{ fontWeight: 600, color: '#22c55e', marginBottom: '0.5rem', fontSize: '0.9rem' }}>
-                        How Could This Be Improved?
-                      </p>
-                      <p style={{ color: '#cbd5e1', fontSize: '0.85rem', lineHeight: 1.6 }}>
-                        {essay.improvementTip}
-                      </p>
-                    </div>
-
-                    {/* Next button */}
-                    <button
-                      onClick={handleNext}
-                      style={{
-                        marginTop: '1rem', padding: '0.75rem 2rem', borderRadius: '0.75rem', cursor: 'pointer',
-                        fontWeight: 700, fontSize: '1rem', border: 'none',
-                        background: 'linear-gradient(135deg, #3b82f6, #2563eb)',
-                        color: '#fff', display: 'flex', alignItems: 'center', gap: '0.5rem'
-                      }}
-                    >
-                      {currentIndex + 1 >= ESSAYS_PER_ROUND ? 'See Results' : 'Next Essay'}
-                      <ChevronRight size={18} />
-                    </button>
-                  </div>
-                );
-              })()}
-            </div>
-          );
-        })()}
-
-        {/* RESULTS PHASE */}
+        {/* ── RESULTS ── */}
         {phase === 'results' && (
-          <div>
+          <div style={{ animation: 'mteSlideUp 0.4s ease', textAlign: 'center' }}>
             <div style={{
-              background: 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)',
-              borderRadius: '1rem', padding: '2rem', border: '1px solid #334155',
-              textAlign: 'center', marginBottom: '2rem'
+              display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+              width: 80, height: 80, borderRadius: '50%',
+              background: 'rgba(16, 185, 129, 0.15)', marginBottom: 20
             }}>
-              <Award size={48} style={{ color: '#f59e0b', marginBottom: '1rem' }} />
-              <h2 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '0.5rem' }}>Round Complete!</h2>
-              <div style={{ fontSize: '2.5rem', fontWeight: 800, color: '#f59e0b', marginBottom: '0.5rem' }}>
-                {totalScore} / {ESSAYS_PER_ROUND * 30}
+              <Trophy style={{ width: 40, height: 40, color: '#34d399' }} />
+            </div>
+            <h2 style={{ fontSize: 28, fontWeight: 700, marginBottom: 6 }}>Marking Complete!</h2>
+            <p style={{ color: '#94a3b8', marginBottom: 24, fontSize: 15 }}>Here's your examiner report:</p>
+
+            {/* Examiner rating badge */}
+            <div className="card" style={{
+              background: 'rgba(30, 41, 59, 0.6)', border: `1px solid ${examinerRating.color}40`,
+              borderRadius: 16, padding: 20, marginBottom: 24
+            }}>
+              <Award style={{ width: 28, height: 28, color: examinerRating.color, margin: '0 auto 8px' }} />
+              <div style={{ fontSize: 22, fontWeight: 700, color: examinerRating.color, marginBottom: 4 }}>
+                {examinerRating.title}
               </div>
-              <div style={{ color: '#94a3b8', marginBottom: '0.5rem' }}>
-                {results.filter(r => r.points === 30).length} exact matches,{' '}
-                {results.filter(r => r.points === 15).length} close,{' '}
-                {results.filter(r => r.points === 0).length} missed
-              </div>
-              <div style={{
-                color: totalScore >= 150 ? '#22c55e' : totalScore >= 90 ? '#f59e0b' : '#ef4444',
-                fontWeight: 600, fontSize: '1.1rem'
+              <p style={{ fontSize: 13, color: '#94a3b8' }}>{examinerRating.desc}</p>
+            </div>
+
+            {/* Stats grid */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12, marginBottom: 24 }}>
+              <div className="card" style={{
+                background: 'rgba(30, 41, 59, 0.5)', border: '1px solid rgba(71, 85, 105, 0.4)',
+                borderRadius: 14, padding: 16
               }}>
-                {totalScore >= 150 ? 'Chief Examiner Material!' :
-                  totalScore >= 120 ? 'Senior Examiner Level!' :
-                    totalScore >= 90 ? 'Solid Marking Skills!' :
-                      totalScore >= 60 ? 'Getting There — Keep Practising!' :
-                        'Keep Reading Mark Schemes!'}
+                <Star style={{ width: 18, height: 18, color: '#f59e0b', margin: '0 auto 4px' }} />
+                <div style={{ fontSize: 24, fontWeight: 700, color: '#34d399' }}>{score}</div>
+                <div style={{ fontSize: 11, color: '#64748b' }}>Score</div>
+              </div>
+              <div className="card" style={{
+                background: 'rgba(30, 41, 59, 0.5)', border: '1px solid rgba(71, 85, 105, 0.4)',
+                borderRadius: 14, padding: 16
+              }}>
+                <Target style={{ width: 18, height: 18, color: '#3b82f6', margin: '0 auto 4px' }} />
+                <div style={{ fontSize: 24, fontWeight: 700, color: '#3b82f6' }}>{accuracy}%</div>
+                <div style={{ fontSize: 11, color: '#64748b' }}>Exact Match</div>
+              </div>
+              <div className="card" style={{
+                background: 'rgba(30, 41, 59, 0.5)', border: '1px solid rgba(71, 85, 105, 0.4)',
+                borderRadius: 14, padding: 16
+              }}>
+                <CheckCircle style={{ width: 18, height: 18, color: '#10b981', margin: '0 auto 4px' }} />
+                <div style={{ fontSize: 24, fontWeight: 700, color: '#10b981' }}>{closeAccuracy}%</div>
+                <div style={{ fontSize: 11, color: '#64748b' }}>Within 1 Grade</div>
               </div>
             </div>
+
+            {/* New best */}
+            {score >= bestScore && score > 0 && (
+              <div style={{
+                background: 'rgba(245, 158, 11, 0.1)', border: '1px solid rgba(245, 158, 11, 0.3)',
+                borderRadius: 14, padding: 12, marginBottom: 20, color: '#fbbf24', fontWeight: 600, fontSize: 14
+              }}>
+                New Best Score!
+              </div>
+            )}
 
             {/* Results breakdown */}
-            <div style={{ marginBottom: '2rem' }}>
-              <h3 style={{ fontSize: '1.1rem', fontWeight: 600, marginBottom: '1rem' }}>Essay Breakdown</h3>
+            <div style={{ textAlign: 'left', marginBottom: 24 }}>
+              <p style={{ fontSize: 13, fontWeight: 600, color: '#94a3b8', marginBottom: 10, textTransform: 'uppercase', letterSpacing: 1 }}>
+                Breakdown
+              </p>
               {results.map((r, i) => {
-                const typeColor = TYPE_COLORS[r.essay.type] || TYPE_COLORS['Language Analysis'];
+                const diffInfo = getDiffLabel(r.diff);
                 return (
-                  <div key={i} style={{
-                    background: '#1e293b', borderRadius: '0.75rem', padding: '1rem 1.25rem',
-                    border: '1px solid #334155', marginBottom: '0.75rem',
-                    display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-                    flexWrap: 'wrap', gap: '0.5rem'
+                  <div key={i} className="card" style={{
+                    background: 'rgba(30, 41, 59, 0.4)', border: '1px solid rgba(71, 85, 105, 0.3)',
+                    borderRadius: 12, padding: 12, marginBottom: 8,
+                    display: 'flex', alignItems: 'center', justifyContent: 'space-between'
                   }}>
-                    <div style={{ flex: 1, minWidth: '200px' }}>
-                      <span style={{
-                        display: 'inline-block', padding: '0.15rem 0.5rem', borderRadius: '999px',
-                        background: typeColor.bg, border: `1px solid ${typeColor.border}`,
-                        color: typeColor.text, fontSize: '0.7rem', fontWeight: 600, marginBottom: '0.25rem'
-                      }}>
-                        {r.essay.type}
-                      </span>
-                      <div style={{ color: '#94a3b8', fontSize: '0.85rem', marginTop: '0.25rem' }}>
-                        Your grade: <strong style={{ color: '#e2e8f0' }}>{r.selectedGrade}</strong>
-                        {' → '}Actual: <strong style={{ color: '#f59e0b' }}>{r.essay.actualGrade}</strong>
+                    <div>
+                      <div style={{ fontSize: 13, fontWeight: 600, color: '#e2e8f0', marginBottom: 2 }}>{r.essay.topic}</div>
+                      <div style={{ fontSize: 12, color: '#64748b' }}>
+                        You: <span style={{ color: GRADE_COLORS[r.selected], fontWeight: 600 }}>{r.selected}</span>
+                        {' '} / Actual: <span style={{ color: GRADE_COLORS[r.actual], fontWeight: 600 }}>{r.actual}</span>
                       </div>
                     </div>
-                    <div style={{
-                      fontWeight: 700, fontSize: '1rem',
-                      color: r.points === 30 ? '#22c55e' : r.points === 15 ? '#f59e0b' : '#ef4444'
-                    }}>
-                      +{r.points}
+                    <div style={{ textAlign: 'right' }}>
+                      <div style={{ fontSize: 13, fontWeight: 700, color: diffInfo.color }}>{diffInfo.text}</div>
+                      <div style={{ fontSize: 11, color: '#64748b' }}>+{r.pts}</div>
                     </div>
                   </div>
                 );
@@ -638,26 +638,43 @@ export default function MarkTheEssay() {
             </div>
 
             {/* Action buttons */}
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-              <button onClick={startGame} style={{
-                padding: '0.75rem 2rem', borderRadius: '0.75rem', cursor: 'pointer',
-                fontWeight: 700, fontSize: '1rem', border: 'none',
-                background: 'linear-gradient(135deg, #f59e0b, #d97706)',
-                color: '#000', display: 'flex', alignItems: 'center', gap: '0.5rem'
-              }}>
-                <RotateCcw size={18} /> Play Again
+            <div style={{ display: 'flex', gap: 12 }}>
+              <button
+                onClick={startGame}
+                style={{
+                  flex: 1, padding: '14px 0', borderRadius: 14,
+                  background: 'linear-gradient(135deg, #10b981, #059669)',
+                  color: '#fff', fontWeight: 700, fontSize: 15, border: 'none',
+                  cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+                  transition: 'all 0.2s'
+                }}
+              >
+                <RotateCcw style={{ width: 16, height: 16 }} /> Play Again
               </button>
-              <Link to="/games" style={{
-                padding: '0.75rem 2rem', borderRadius: '0.75rem', textDecoration: 'none',
-                fontWeight: 700, fontSize: '1rem', border: '2px solid #334155',
-                color: '#e2e8f0', display: 'flex', alignItems: 'center', gap: '0.5rem'
-              }}>
-                <ArrowLeft size={18} /> Back to Games
-              </Link>
+              <button
+                onClick={() => setPhase('menu')}
+                style={{
+                  flex: 1, padding: '14px 0', borderRadius: 14,
+                  background: 'rgba(30, 41, 59, 0.6)', border: '1px solid rgba(71, 85, 105, 0.5)',
+                  color: '#fff', fontWeight: 600, fontSize: 15, cursor: 'pointer',
+                  transition: 'all 0.2s'
+                }}
+              >
+                Back to Menu
+              </button>
             </div>
           </div>
         )}
       </div>
+
+      {/* Animations */}
+      <style>{`
+        @keyframes mteSlideUp {
+          from { opacity: 0; transform: translateY(16px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
+      </GameWrapper>
     </div>
   );
 }

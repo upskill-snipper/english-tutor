@@ -228,7 +228,7 @@ export default function Landing() {
               <span style={{ fontSize: '2.5rem', fontWeight: 900, color: '#f1f5f9' }}>£0</span>
             </div>
             <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 1.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem', flex: 1 }}>
-              {['3 free game attempts', 'Course previews', 'Glossary access'].map((item, i) => (
+              {['3 free game trials', 'Course previews', 'Glossary access'].map((item, i) => (
                 <li key={i} style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start', color: '#cbd5e1', fontSize: '0.9rem' }}>
                   <CheckCircle size={16} color="#10b981" style={{ flexShrink: 0, marginTop: '2px' }} /> {item}
                 </li>

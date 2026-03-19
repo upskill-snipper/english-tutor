@@ -659,6 +659,7 @@ export default function PunctuationFixer() {
     return (
       <div style={s.page}>
         <Navbar />
+        <GameWrapper gameId="punctuation-fixer">
         <div style={s.container}>
           <h1 style={s.title}>Punctuation Fixer</h1>
           <p style={s.subtitle}>Fix the broken punctuation in each passage -- perfect for AO6 SPaG skills!</p>
@@ -740,6 +741,7 @@ export default function PunctuationFixer() {
             </p>
           </div>
         </div>
+        </GameWrapper>
       </div>
     );
   }
@@ -753,6 +755,7 @@ export default function PunctuationFixer() {
     return (
       <div style={s.page}>
         <Navbar />
+        <GameWrapper gameId="punctuation-fixer">
         <div style={s.container}>
           <h1 style={{ ...s.title, fontSize: '1.8rem' }}>Punctuation Fixer</h1>
 
@@ -868,6 +871,7 @@ export default function PunctuationFixer() {
             </button>
           </div>
         </div>
+        </GameWrapper>
       </div>
     );
   }
@@ -877,6 +881,7 @@ export default function PunctuationFixer() {
     return (
       <div style={s.page}>
         <Navbar />
+        <GameWrapper gameId="punctuation-fixer">
         <div style={s.container}>
           <h1 style={{ ...s.title, fontSize: '2rem' }}>Results</h1>
 
@@ -1010,6 +1015,7 @@ export default function PunctuationFixer() {
             </button>
           </div>
         </div>
+        </GameWrapper>
       </div>
     );
   }
@@ -1018,9 +1024,11 @@ export default function PunctuationFixer() {
   return (
     <div style={s.page}>
       <Navbar />
+      <GameWrapper gameId="punctuation-fixer">
       <div style={s.container}>
         <p>Loading...</p>
       </div>
+      </GameWrapper>
     </div>
   );
 }

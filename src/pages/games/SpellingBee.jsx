@@ -269,6 +269,7 @@ export default function SpellingBee() {
   return (
     <div style={{ background: '#0a0e1a', minHeight: '100vh', color: '#f1f5f9', backgroundImage: honeycombBg }}>
       <Navbar />
+      <GameWrapper gameId="spelling-bee">
       <div style={{ maxWidth: 720, margin: '0 auto', padding: '2rem 1rem' }}>
         {/* Header */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2rem' }}>
@@ -577,6 +578,7 @@ export default function SpellingBee() {
           </div>
         )}
       </div>
+      </GameWrapper>
     </div>
   );
 }

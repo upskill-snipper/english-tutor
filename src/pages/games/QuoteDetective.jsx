@@ -304,9 +304,9 @@ export default function QuoteDetective() {
   // ── Menu ──
   if (phase === "menu") {
     return (
-      <GameWrapper gameId="quote-detective">
       <div style={{ background: '#0a0e1a', minHeight: '100vh', color: '#f1f5f9' }}>
         <Navbar />
+        <GameWrapper gameId="quote-detective">
         <div style={{ maxWidth: 600, margin: '0 auto', padding: '2rem 1rem', animation: 'qdFadeUp 0.5s ease' }}>
           {/* Header */}
           <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
@@ -398,8 +398,8 @@ export default function QuoteDetective() {
             <Search size={20} /> Start Investigation
           </button>
         </div>
+        </GameWrapper>
       </div>
-      </GameWrapper>
     );
   }
 
@@ -410,9 +410,9 @@ export default function QuoteDetective() {
     const percentage = Math.round((totalScore / maxPossible) * 100);
 
     return (
-      <GameWrapper gameId="quote-detective">
       <div style={{ background: '#0a0e1a', minHeight: '100vh', color: '#f1f5f9' }}>
         <Navbar />
+        <GameWrapper gameId="quote-detective">
         <div style={{ maxWidth: 640, margin: '0 auto', padding: '2rem 1rem', animation: 'qdFadeUp 0.5s ease' }}>
           {/* Header */}
           <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
@@ -512,8 +512,8 @@ export default function QuoteDetective() {
             </button>
           </div>
         </div>
+        </GameWrapper>
       </div>
-      </GameWrapper>
     );
   }
 
@@ -524,9 +524,9 @@ export default function QuoteDetective() {
   const progress = ((qIndex * 3 + subRound) / (questions.length * 3)) * 100;
 
   return (
-    <GameWrapper gameId="quote-detective">
     <div style={{ background: '#0a0e1a', minHeight: '100vh', color: '#f1f5f9' }}>
       <Navbar />
+      <GameWrapper gameId="quote-detective">
       <div style={{ maxWidth: 640, margin: '0 auto', padding: '1.5rem 1rem' }}>
         {/* Top bar */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
@@ -676,7 +676,7 @@ export default function QuoteDetective() {
           })}
         </div>
       </div>
+      </GameWrapper>
     </div>
-    </GameWrapper>
   );
 }

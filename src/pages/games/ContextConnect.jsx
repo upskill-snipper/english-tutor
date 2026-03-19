@@ -359,7 +359,7 @@ export default function ContextConnect() {
   return (
     <div className="min-h-screen bg-[#0a0e1a] text-slate-100">
       <Navbar />
-
+      <GameWrapper gameId="context-connect">
       <div className="max-w-2xl mx-auto px-4 pt-8 pb-16">
         {/* ── MENU ── */}
         {phase === "menu" && (
@@ -625,6 +625,7 @@ export default function ContextConnect() {
           </div>
         )}
       </div>
+      </GameWrapper>
     </div>
   );
 }
