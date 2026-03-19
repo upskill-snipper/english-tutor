@@ -39,11 +39,32 @@ export default function CoursePlayer() {
 
   const progress = user ? getUserProgress(user.id, courseId) : null;
 
+  const isFirstModule = course && module && course.moduleList[0]?.id === moduleId;
+  const isEnrolled = user && (user.enrolledCourses || []).includes(courseId);
+
   useEffect(() => {
-    if (user && course && !(user.enrolledCourses || []).includes(courseId)) {
+    if (user && course && !isEnrolled && !isFirstModule) {
       enrollUser(user.id, courseId);
     }
-  }, [user, course, courseId]);
+  }, [user, course, courseId, isEnrolled, isFirstModule]);
+
+  // Block non-enrolled users from accessing modules beyond the first (free preview)
+  if (course && module && !isFirstModule && !isEnrolled) {
+    return (
+      <div style={{ background: '#0a0e1a', minHeight: '100vh', color: '#f0f4f8' }}>
+        <Navbar />
+        <div style={{ padding: '4rem', textAlign: 'center' }}>
+          <h2>Enrol to access this module</h2>
+          <p style={{ color: '#94a3b8', marginTop: '0.75rem', marginBottom: '1.5rem' }}>
+            Module 1 is available as a free preview. Enrol in the course to unlock all modules.
+          </p>
+          <Link to={`/course/${courseId}`} className="btn-primary" style={{ textDecoration: 'none', display: 'inline-flex' }}>
+            Back to course
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   useEffect(() => {
     setQuizAnswers({});

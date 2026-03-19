@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { BookOpen, LogOut, User, LayoutDashboard, GraduationCap, Dumbbell, BookMarked, Shield, Library, TrendingUp, Sun, Moon, Search, CalendarDays, BookText } from 'lucide-react';
+import { BookOpen, LogOut, User, LayoutDashboard, GraduationCap, Dumbbell, BookMarked, Shield, Library, TrendingUp, Sun, Moon, Search, CalendarDays, BookText, Gamepad2, CreditCard } from 'lucide-react';
 import { getCurrentUser, logout, getAssessmentHistory } from '../utils/auth';
 import { getTheme, setTheme } from '../utils/theme';
 import SearchModal from './SearchModal';
@@ -108,6 +108,9 @@ export default function Navbar() {
           <Link to="/glossary" style={linkStyle('/glossary')} aria-label="Glossary" {...(isActive('/glossary') ? { 'aria-current': 'page' } : {})}>
             <BookText size={15} /> Glossary
           </Link>
+          <Link to="/games" style={linkStyle('/games')} aria-label="Games" {...(isActive('/games') ? { 'aria-current': 'page' } : {})}>
+            <Gamepad2 size={15} /> Games
+          </Link>
           {user && (
             <>
               <Link to="/dashboard" style={linkStyle('/dashboard')} aria-label="Dashboard" {...(isActive('/dashboard') ? { 'aria-current': 'page' } : {})}>
@@ -123,6 +126,9 @@ export default function Navbar() {
               )}
             </>
           )}
+          <Link to="/pricing" style={linkStyle('/pricing')} aria-label="Pricing" {...(isActive('/pricing') ? { 'aria-current': 'page' } : {})}>
+            <CreditCard size={15} /> Pricing
+          </Link>
           {user?.role === 'admin' && (
             <Link to="/admin" style={linkStyle('/admin')} aria-label="Admin Panel" {...(isActive('/admin') ? { 'aria-current': 'page' } : {})}>
               <Shield size={15} /> Admin

@@ -19,6 +19,20 @@ const TextLibrary = lazy(() => import('./pages/TextLibrary'));
 const PredictedGrades = lazy(() => import('./pages/PredictedGrades'));
 const StudyPlanner = lazy(() => import('./pages/StudyPlanner'));
 const Glossary = lazy(() => import('./pages/Glossary'));
+const WhoSaidIt = lazy(() => import('./pages/games/WhoSaidIt'));
+const TechniqueSpotter = lazy(() => import('./pages/games/TechniqueSpotter'));
+const WordMatch = lazy(() => import('./pages/games/WordMatch'));
+const TimelineScramble = lazy(() => import('./pages/games/TimelineScramble'));
+const GrammarNinja = lazy(() => import('./pages/games/GrammarNinja'));
+const GamesHub = lazy(() => import('./pages/GamesHub'));
+const SpeedRound = lazy(() => import('./pages/games/SpeedRound'));
+const QuoteDetective = lazy(() => import('./pages/games/QuoteDetective'));
+const ContextConnect = lazy(() => import('./pages/games/ContextConnect'));
+const SpellingBee = lazy(() => import('./pages/games/SpellingBee'));
+const PunctuationFixer = lazy(() => import('./pages/games/PunctuationFixer'));
+const MarkTheEssay = lazy(() => import('./pages/games/MarkTheEssay'));
+const DailyChallenge = lazy(() => import('./pages/games/DailyChallenge'));
+const Pricing = lazy(() => import('./pages/Pricing'));
 
 class ErrorBoundary extends Component {
   constructor(props) {
@@ -88,6 +102,20 @@ export default function App() {
         <Route path="/grades" element={<ProtectedRoute><PredictedGrades /></ProtectedRoute>} />
         <Route path="/predicted-grades" element={<ProtectedRoute><PredictedGrades /></ProtectedRoute>} />
         <Route path="/planner" element={<ProtectedRoute><StudyPlanner /></ProtectedRoute>} />
+        <Route path="/games" element={<GamesHub />} />
+        <Route path="/games/speed-round" element={<SpeedRound />} />
+        <Route path="/games/who-said-it" element={<WhoSaidIt />} />
+        <Route path="/games/technique-spotter" element={<TechniqueSpotter />} />
+        <Route path="/games/word-match" element={<WordMatch />} />
+        <Route path="/games/timeline-scramble" element={<TimelineScramble />} />
+        <Route path="/games/grammar-ninja" element={<GrammarNinja />} />
+        <Route path="/games/quote-detective" element={<QuoteDetective />} />
+        <Route path="/games/context-connect" element={<ContextConnect />} />
+        <Route path="/games/spelling-bee" element={<SpellingBee />} />
+        <Route path="/games/punctuation-fixer" element={<PunctuationFixer />} />
+        <Route path="/games/mark-the-essay" element={<MarkTheEssay />} />
+        <Route path="/games/daily-challenge" element={<DailyChallenge />} />
+        <Route path="/pricing" element={<Pricing />} />
         <Route path="/admin" element={<ProtectedRoute adminOnly><AdminPanel /></ProtectedRoute>} />
         <Route path="*" element={<NotFound />} />
       </Routes>

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { GraduationCap, BookOpen, PenTool, Library, Sparkles, CheckCircle, ArrowRight, Star, Users, Award, Dumbbell, Globe } from 'lucide-react';
+import { GraduationCap, BookOpen, PenTool, Library, Sparkles, CheckCircle, ArrowRight, Star, Users, Award, Dumbbell, Globe, Gamepad2 } from 'lucide-react';
 import Navbar from '../components/Navbar';
 
 const PATHWAYS = [
@@ -10,18 +10,6 @@ const PATHWAYS = [
   { title: 'IGCSE English', desc: 'Edexcel IGCSE Spec A & B — reading, writing, and coursework preparation', icon: Globe, color: '#dc2626' },
 ];
 
-const COURSES = [
-  { title: 'KS3 Reading Skills', price: 29, modules: 6, tier: 'KS3' },
-  { title: 'KS3 Writing Skills', price: 29, modules: 6, tier: 'KS3' },
-  { title: 'KS3 Grammar & Vocabulary', price: 19, modules: 5, tier: 'KS3' },
-  { title: 'GCSE Language — Reading', price: 49, modules: 8, tier: 'GCSE' },
-  { title: 'GCSE Language — Writing', price: 49, modules: 7, tier: 'GCSE' },
-  { title: 'GCSE Literature — Poetry', price: 39, modules: 6, tier: 'GCSE' },
-  { title: 'GCSE Literature — Prose', price: 39, modules: 6, tier: 'GCSE' },
-  { title: 'GCSE Revision Blitz', price: 59, modules: 8, tier: 'GCSE' },
-];
-
-const TOTAL = COURSES.reduce((a, c) => a + c.price, 0);
 
 const EXAM_BOARDS = [
   { name: 'AQA', color: '#2563eb', bg: 'rgba(37,99,235,0.12)', border: 'rgba(37,99,235,0.3)' },
@@ -44,6 +32,7 @@ const FEATURES = [
   'Worked examples at every grade boundary',
   'Predicted grades dashboard to track your progress',
   'Instant quiz feedback with detailed explanations',
+  '12 learning games with 3 free trials — vocabulary, spelling, grammar & more',
   'Free exam technique courses to get you started',
   'Earn certificates to prove your progress',
   'Mobile-friendly — revise anywhere, any time',
@@ -228,72 +217,88 @@ export default function Landing() {
           Simple, Transparent Pricing
         </h2>
         <p style={{ textAlign: 'center', color: '#94a3b8', marginBottom: '2.5rem' }}>
-          Courses from £29 — available for all major exam boards. Buy individually or save with the bundle.
+          Start free, upgrade when you're ready. Cancel anytime.
         </p>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
-          {COURSES.map((c, i) => (
-            <div key={i} className="card" style={{
-              padding: '1.25rem',
-              display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-            }}>
-              <div>
-                <span style={{
-                  fontSize: '0.65rem', fontWeight: 700, color: c.tier === 'KS3' ? '#34d399' : '#10b981',
-                  background: c.tier === 'KS3' ? 'rgba(52,211,153,0.1)' : 'rgba(16,185,129,0.1)',
-                  padding: '0.2rem 0.5rem', borderRadius: '4px', marginBottom: '0.375rem', display: 'inline-block',
-                  letterSpacing: '0.05em',
-                }}>
-                  {c.tier}
-                </span>
-                <div style={{ fontWeight: 600, fontSize: '0.9rem', color: '#f1f5f9', marginTop: '0.25rem' }}>{c.title}</div>
-                <div style={{ fontSize: '0.75rem', color: '#64748b' }}>{c.modules} modules</div>
-              </div>
-              <div style={{ fontWeight: 800, fontSize: '1.25rem', color: '#f1f5f9' }}>£{c.price}</div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
+          {/* Free tier */}
+          <div className="card" style={{ padding: '2rem', display: 'flex', flexDirection: 'column' }}>
+            <h3 style={{ fontWeight: 700, fontSize: '1.15rem', color: '#f1f5f9', marginBottom: '0.5rem' }}>Free</h3>
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.25rem', marginBottom: '1.25rem' }}>
+              <span style={{ fontSize: '2.5rem', fontWeight: 900, color: '#f1f5f9' }}>£0</span>
             </div>
-          ))}
-        </div>
+            <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 1.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem', flex: 1 }}>
+              {['3 free game attempts', 'Course previews', 'Glossary access'].map((item, i) => (
+                <li key={i} style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start', color: '#cbd5e1', fontSize: '0.9rem' }}>
+                  <CheckCircle size={16} color="#10b981" style={{ flexShrink: 0, marginTop: '2px' }} /> {item}
+                </li>
+              ))}
+            </ul>
+            <Link to="/register" className="btn-secondary" style={{ padding: '0.75rem 1.5rem', textAlign: 'center', width: '100%' }}>
+              Get Started <ArrowRight size={16} />
+            </Link>
+          </div>
 
-        {/* Bundle card */}
-        <div style={{
-          background: 'linear-gradient(135deg, rgba(16,185,129,0.15), rgba(5,150,105,0.08))',
-          border: '2px solid rgba(16,185,129,0.3)',
-          borderRadius: '16px',
-          padding: '2.5rem',
-          textAlign: 'center',
-        }}>
+          {/* Monthly tier */}
           <div style={{
-            display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-            background: 'rgba(16,185,129,0.15)', borderRadius: '100px',
-            padding: '0.375rem 1rem', fontSize: '0.75rem', color: '#34d399',
-            fontWeight: 700, marginBottom: '1rem', letterSpacing: '0.05em',
+            background: 'linear-gradient(135deg, rgba(16,185,129,0.15), rgba(5,150,105,0.08))',
+            border: '2px solid rgba(16,185,129,0.3)',
+            borderRadius: '16px',
+            padding: '2rem',
+            display: 'flex', flexDirection: 'column',
+            position: 'relative',
           }}>
-            <Star size={14} /> BEST VALUE
+            <div style={{
+              position: 'absolute', top: '-12px', left: '50%', transform: 'translateX(-50%)',
+              display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
+              background: 'rgba(16,185,129,0.2)', border: '1px solid rgba(16,185,129,0.4)',
+              borderRadius: '100px', padding: '0.3rem 1rem', fontSize: '0.7rem', color: '#34d399',
+              fontWeight: 700, letterSpacing: '0.06em', whiteSpace: 'nowrap',
+            }}>
+              <Star size={12} /> MOST POPULAR
+            </div>
+            <h3 style={{ fontWeight: 700, fontSize: '1.15rem', color: '#f1f5f9', marginBottom: '0.5rem' }}>Monthly</h3>
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.25rem', marginBottom: '1.25rem' }}>
+              <span style={{ fontSize: '2.5rem', fontWeight: 900, color: '#10b981' }}>£12.50</span>
+              <span style={{ color: '#64748b', fontSize: '0.9rem' }}>/month</span>
+            </div>
+            <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 1.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem', flex: 1 }}>
+              {['Unlimited access to all courses', 'Unlimited game attempts', 'Full glossary & flashcard decks', 'Progress tracking & certificates', 'Cancel anytime'].map((item, i) => (
+                <li key={i} style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start', color: '#cbd5e1', fontSize: '0.9rem' }}>
+                  <CheckCircle size={16} color="#10b981" style={{ flexShrink: 0, marginTop: '2px' }} /> {item}
+                </li>
+              ))}
+            </ul>
+            <Link to="/register" className="btn-primary" style={{ padding: '0.75rem 1.5rem', textAlign: 'center', width: '100%' }}>
+              Subscribe Now <ArrowRight size={16} />
+            </Link>
           </div>
-          <h3 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '0.5rem' }}>All 8 Courses Bundle</h3>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem', marginBottom: '0.75rem' }}>
-            <span style={{ fontSize: '2.5rem', fontWeight: 900, color: '#10b981' }}>£149</span>
-            <span style={{ textDecoration: 'line-through', color: '#64748b', fontSize: '1.25rem' }}>£{TOTAL}</span>
-          </div>
-          <p style={{ color: '#94a3b8', marginBottom: '0.75rem' }}>Save £{TOTAL - 149} — every KS3, GCSE & IGCSE course included</p>
-          <p style={{ color: '#64748b', fontSize: '0.8rem', marginBottom: '1.5rem' }}>Covers AQA, Edexcel (incl. IGCSE), OCR & WJEC Eduqas</p>
-          <Link to="/register" className="btn-primary" style={{ padding: '0.875rem 2.5rem', fontSize: '1rem' }}>
-            Get the Bundle <ArrowRight size={18} />
-          </Link>
-        </div>
 
-        {/* Parent/Teacher tier */}
-        <div className="card" style={{
-          padding: '1.5rem 2rem', marginTop: '1.5rem',
-          display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem',
-        }}>
-          <div>
-            <h4 style={{ fontWeight: 700, fontSize: '1rem', color: '#f1f5f9', marginBottom: '0.25rem' }}>Parent/Teacher Plan</h4>
-            <p style={{ color: '#94a3b8', fontSize: '0.875rem' }}>All courses for up to 3 students. Perfect for families or small groups.</p>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.25rem' }}>
-            <span style={{ fontSize: '1.75rem', fontWeight: 900, color: '#f1f5f9' }}>£199</span>
-            <span style={{ color: '#64748b', fontSize: '0.85rem' }}>/year</span>
+          {/* Pro tier */}
+          <div className="card" style={{ padding: '2rem', display: 'flex', flexDirection: 'column' }}>
+            <div style={{
+              display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
+              background: 'rgba(16,185,129,0.1)', borderRadius: '100px',
+              padding: '0.25rem 0.75rem', fontSize: '0.7rem', color: '#34d399',
+              fontWeight: 700, letterSpacing: '0.06em', marginBottom: '0.5rem', alignSelf: 'flex-start',
+            }}>
+              LIFETIME
+            </div>
+            <h3 style={{ fontWeight: 700, fontSize: '1.15rem', color: '#f1f5f9', marginBottom: '0.5rem' }}>Pro</h3>
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem', marginBottom: '1.25rem' }}>
+              <span style={{ fontSize: '2.5rem', fontWeight: 900, color: '#f1f5f9' }}>£179</span>
+              <span style={{ color: '#64748b', fontSize: '0.85rem' }}>one-time</span>
+            </div>
+            <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 1.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem', flex: 1 }}>
+              {['Everything in Monthly', 'Lifetime access — pay once, learn forever', 'All future courses & updates included', 'Priority support'].map((item, i) => (
+                <li key={i} style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start', color: '#cbd5e1', fontSize: '0.9rem' }}>
+                  <CheckCircle size={16} color="#10b981" style={{ flexShrink: 0, marginTop: '2px' }} /> {item}
+                </li>
+              ))}
+            </ul>
+            <Link to="/pricing" className="btn-secondary" style={{ padding: '0.75rem 1.5rem', textAlign: 'center', width: '100%' }}>
+              Get Lifetime Access <ArrowRight size={16} />
+            </Link>
           </div>
         </div>
       </section>
@@ -306,14 +311,19 @@ export default function Landing() {
       }}>
         <Award size={40} color="#10b981" style={{ marginBottom: '1rem' }} />
         <h2 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '0.75rem' }}>
-          Not Sure Yet? Try Practice Mode Free
+          Not Sure Yet? Try It Free
         </h2>
-        <p style={{ color: '#94a3b8', maxWidth: '480px', margin: '0 auto 1.5rem', lineHeight: 1.7 }}>
-          Answer real exam-style questions, see model answers at every grade band, and track your streak. Plus, explore our free text library with 20 fully annotated IGCSE anthology texts. No account needed.
+        <p style={{ color: '#94a3b8', maxWidth: '520px', margin: '0 auto 1.5rem', lineHeight: 1.7 }}>
+          Answer real exam-style questions, see model answers at every grade band, and track your streak. Try all 12 learning games free for 3 goes — build your vocabulary, spelling, and grammar. Plus, explore our text library with 20 fully annotated IGCSE anthology texts.
         </p>
-        <Link to="/practice" className="btn-primary" style={{ padding: '0.875rem 2rem' }}>
-          Start Practising <ArrowRight size={18} />
-        </Link>
+        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <Link to="/practice" className="btn-primary" style={{ padding: '0.875rem 2rem' }}>
+            Start Practising <ArrowRight size={18} />
+          </Link>
+          <Link to="/games" className="btn-secondary" style={{ padding: '0.875rem 2rem' }}>
+            <Gamepad2 size={18} /> Try Games Free
+          </Link>
+        </div>
       </section>
 
       {/* Footer */}

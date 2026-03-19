@@ -198,7 +198,7 @@ export default function CourseCatalogue() {
                     }}>
                       <div style={{ display: 'flex', gap: '1rem' }}>
                         <span style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', color: '#64748b', fontSize: '0.78rem' }}>
-                          <BookOpen size={13} /> {course.moduleList.length} modules
+                          <BookOpen size={13} /> {(course.moduleList || []).length} modules
                         </span>
                         <span style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', color: '#64748b', fontSize: '0.78rem' }}>
                           <Clock size={13} /> {course.duration}

@@ -1,5 +1,5 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { BookOpen, Clock, Award, CheckCircle, Circle, ArrowRight, ChevronLeft } from 'lucide-react';
+import { BookOpen, Clock, Award, CheckCircle, Circle, ArrowRight, ChevronLeft, Play } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import ProgressRing from '../components/ProgressRing';
 import COURSES from '../data/courseData';
@@ -138,7 +138,7 @@ export default function CourseDetail() {
                     </div>
                     <div style={{ fontSize: '0.75rem', color: '#64748b' }}>{m.duration}</div>
                   </div>
-                  {enrolled && (
+                  {enrolled ? (
                     <Link
                       to={`/learn/${course.id}/module/${m.id}`}
                       className="btn-ghost"
@@ -146,7 +146,18 @@ export default function CourseDetail() {
                     >
                       {done ? 'Review' : 'Start'} <ArrowRight size={13} />
                     </Link>
-                  )}
+                  ) : i === 0 ? (
+                    <Link
+                      to={`/learn/${course.id}/module/${course.moduleList[0].id}`}
+                      className="btn-ghost"
+                      style={{
+                        textDecoration: 'none', fontSize: '0.8rem',
+                        color: '#10b981', display: 'flex', alignItems: 'center', gap: '0.375rem',
+                      }}
+                    >
+                      <Play size={13} fill="#10b981" /> Free Preview
+                    </Link>
+                  ) : null}
                 </div>
               );
             })}

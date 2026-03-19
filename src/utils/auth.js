@@ -466,3 +466,62 @@ export function seedDemoData() {
   };
   saveProgress(progress);
 }
+
+// ─── Subscription & Paywall System ─────────────────────────────
+
+export const SUBSCRIPTION_TIERS = {
+  free: { name: 'Free', price: 0, gameAttempts: 3, features: ['3 free game attempts', 'Course previews', 'Glossary access'] },
+  monthly: { name: 'Monthly', price: 12.50, gameAttempts: Infinity, features: ['Unlimited games', 'All courses', 'All flashcards', 'Practice questions', 'Study planner', 'Certificates'] },
+  pro: { name: 'Pro (Lifetime)', price: 179, gameAttempts: Infinity, features: ['Everything in Monthly', 'Lifetime access', 'Priority support', 'Early access to new content'] },
+};
+
+export function getSubscription(userId) {
+  const data = localStorage.getItem(STORAGE_PREFIX + 'subscription_' + userId);
+  if (!data) return { tier: 'free', expiresAt: null };
+  return JSON.parse(data);
+}
+
+export function setSubscription(userId, tier) {
+  let expiresAt = null;
+  if (tier === 'monthly') {
+    expiresAt = Date.now() + 30 * 24 * 60 * 60 * 1000;
+  }
+  const subscription = { tier, expiresAt };
+  localStorage.setItem(STORAGE_PREFIX + 'subscription_' + userId, JSON.stringify(subscription));
+  return subscription;
+}
+
+export function isSubscribed(userId) {
+  const sub = getSubscription(userId);
+  if (sub.tier === 'pro') return true;
+  if (sub.tier === 'monthly') {
+    return sub.expiresAt !== null && sub.expiresAt > Date.now();
+  }
+  return false;
+}
+
+export function getGameAttempts(userId) {
+  const data = localStorage.getItem(STORAGE_PREFIX + 'game_attempts_' + userId);
+  if (!data) return 0;
+  const parsed = JSON.parse(data);
+  return parsed.count || 0;
+}
+
+export function recordGameAttempt(userId, gameId) {
+  const data = localStorage.getItem(STORAGE_PREFIX + 'game_attempts_' + userId);
+  const parsed = data ? JSON.parse(data) : { count: 0, history: [] };
+  parsed.count += 1;
+  parsed.history.push({ gameId, timestamp: Date.now() });
+  localStorage.setItem(STORAGE_PREFIX + 'game_attempts_' + userId, JSON.stringify(parsed));
+  return parsed.count;
+}
+
+export function canPlayGame(userId) {
+  if (isSubscribed(userId)) return true;
+  return getGameAttempts(userId) < SUBSCRIPTION_TIERS.free.gameAttempts;
+}
+
+export function getRemainingFreeAttempts(userId) {
+  const used = getGameAttempts(userId);
+  return Math.max(0, SUBSCRIPTION_TIERS.free.gameAttempts - used);
+}

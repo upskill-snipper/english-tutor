@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { BookOpen, Award, ArrowRight, CheckCircle, TrendingUp, Lock, ChevronDown } from 'lucide-react';
+import { BookOpen, Award, ArrowRight, CheckCircle, TrendingUp, Lock, ChevronDown, Gamepad2, Crown, CreditCard, Sparkles } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import ProgressRing from '../components/ProgressRing';
 import COURSES from '../data/courseData';
-import { getCurrentUser, getUserProgress, getPracticeProgress, getCompletedAssessmentCount, getExamBoard, setExamBoard } from '../utils/auth';
+import { getCurrentUser, getUserProgress, getPracticeProgress, getCompletedAssessmentCount, getExamBoard, setExamBoard, getSubscription, isSubscribed, getGameAttempts, getRemainingFreeAttempts } from '../utils/auth';
 
 export default function Dashboard() {
   const user = getCurrentUser();
@@ -49,6 +49,89 @@ export default function Dashboard() {
 
     return [...matching, ...rest];
   }
+
+  // ─── Subscription info ────────────────────────────────────────
+  const subscription = getSubscription(user.id);
+  const subscribed = isSubscribed(user.id);
+  const remaining = getRemainingFreeAttempts(user.id);
+  const totalGameAttempts = getGameAttempts(user.id);
+
+  // ─── Game stats helpers ──────────────────────────────────────
+  const GAME_STORAGE_KEYS = [
+    { name: 'Who Said It?', key: 'learnright_game_whosaidit' },
+    { name: 'Word Match', key: 'learnright_game_wordmatch' },
+    { name: 'Technique Spotter', key: 'learnright_game_techniquespotter' },
+    { name: 'Grammar Ninja', key: 'learnright_game_grammarninja' },
+    { name: 'Timeline Scramble', key: 'learnright_game_timelinescramble' },
+    { name: 'Speed Round', key: 'learnright_game_speedround' },
+  ];
+
+  function getGamePlayCounts() {
+    const counts = {};
+    let total = 0;
+    for (const g of GAME_STORAGE_KEYS) {
+      try {
+        const data = JSON.parse(localStorage.getItem(g.key));
+        const count = Array.isArray(data) ? data.length : 0;
+        counts[g.name] = count;
+        total += count;
+      } catch {
+        counts[g.name] = 0;
+      }
+    }
+    return { counts, total };
+  }
+
+  function getDailyStreak() {
+    try {
+      const last = localStorage.getItem('learnright_last_game_date');
+      const streakCount = parseInt(localStorage.getItem('learnright_game_daily_streak') || '0', 10);
+      if (!last) return 0;
+      const today = new Date().toISOString().slice(0, 10);
+      const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+      if (last === today) return Math.max(streakCount, 1);
+      if (last === yesterday) return streakCount;
+      return 0;
+    } catch { return 0; }
+  }
+
+  function getAchievementCount() {
+    const achievements = [];
+    const { counts, total } = gamePlays;
+    // First game played
+    if (total >= 1) achievements.push('first_game');
+    // Played 10 games
+    if (total >= 10) achievements.push('10_games');
+    // Played 50 games
+    if (total >= 50) achievements.push('50_games');
+    // Tried every game
+    const triedAll = GAME_STORAGE_KEYS.every(g => counts[g.name] > 0);
+    if (triedAll) achievements.push('tried_all');
+    // 3-day streak
+    if (getDailyStreak() >= 3) achievements.push('streak_3');
+    // 7-day streak
+    if (getDailyStreak() >= 7) achievements.push('streak_7');
+    // Completed a course
+    if ((user.completedCourses || []).length >= 1) achievements.push('first_course');
+    // Earned a certificate
+    if ((user.certificates || []).length >= 1) achievements.push('first_cert');
+    return { unlocked: achievements.length, total: 8 };
+  }
+
+  const gamePlays = getGamePlayCounts();
+  const dailyStreak = getDailyStreak();
+  const favouriteGame = (() => {
+    let best = null;
+    let bestCount = 0;
+    for (const g of GAME_STORAGE_KEYS) {
+      if (gamePlays.counts[g.name] > bestCount) {
+        bestCount = gamePlays.counts[g.name];
+        best = g.name;
+      }
+    }
+    return best;
+  })();
+  const achievementInfo = getAchievementCount();
 
   const enrolled = (user.enrolledCourses || []).map(id => COURSES.find(c => c.id === id)).filter(Boolean);
   const completedCount = (user.completedCourses || []).length;
@@ -100,6 +183,138 @@ export default function Dashboard() {
             </div>
           )}
         </div>
+
+        {/* Subscription Status Card */}
+        <div className="card" style={{
+          padding: '1.5rem', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '1.25rem',
+          borderLeft: `3px solid ${subscription.tier === 'pro' ? '#f59e0b' : subscription.tier === 'monthly' ? '#10b981' : '#64748b'}`,
+        }}>
+          <div style={{
+            width: '48px', height: '48px', borderRadius: '12px', flexShrink: 0,
+            background: subscription.tier === 'pro' ? 'rgba(245,158,11,0.1)' : subscription.tier === 'monthly' ? 'rgba(16,185,129,0.1)' : 'rgba(100,116,139,0.1)',
+            border: `1px solid ${subscription.tier === 'pro' ? 'rgba(245,158,11,0.25)' : subscription.tier === 'monthly' ? 'rgba(16,185,129,0.25)' : 'rgba(100,116,139,0.25)'}`,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+          }}>
+            {subscription.tier === 'pro' ? <Crown size={22} color="#f59e0b" />
+              : subscription.tier === 'monthly' ? <CreditCard size={22} color="#10b981" />
+              : <Sparkles size={22} color="#64748b" />}
+          </div>
+          <div style={{ flex: 1 }}>
+            {subscription.tier === 'pro' ? (
+              <>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem' }}>
+                  <p style={{ fontWeight: 700, fontSize: '1rem', color: '#f1f5f9', margin: 0 }}>Pro (Lifetime)</p>
+                  <span style={{
+                    fontSize: '0.6rem', fontWeight: 800, letterSpacing: '0.05em',
+                    background: 'linear-gradient(135deg, #f59e0b, #d97706)', color: '#000',
+                    padding: '0.15rem 0.5rem', borderRadius: '4px',
+                  }}>GOLD</span>
+                </div>
+                <p style={{ fontSize: '0.8rem', color: '#94a3b8', margin: 0 }}>Lifetime access</p>
+              </>
+            ) : subscription.tier === 'monthly' ? (
+              <>
+                <p style={{ fontWeight: 700, fontSize: '1rem', color: '#f1f5f9', margin: 0, marginBottom: '0.25rem' }}>
+                  Monthly Plan &mdash; &pound;12.50/month
+                </p>
+                <p style={{ fontSize: '0.8rem', color: '#94a3b8', margin: 0 }}>
+                  Renews {subscription.expiresAt ? new Date(subscription.expiresAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) : 'N/A'}
+                </p>
+              </>
+            ) : (
+              <>
+                <p style={{ fontWeight: 700, fontSize: '1rem', color: '#f1f5f9', margin: 0, marginBottom: '0.25rem' }}>
+                  Free Plan &mdash; {remaining} game attempt{remaining !== 1 ? 's' : ''} remaining
+                </p>
+                <p style={{ fontSize: '0.8rem', color: '#94a3b8', margin: 0 }}>
+                  3 free game attempts included
+                </p>
+              </>
+            )}
+          </div>
+          {subscription.tier === 'pro' ? null
+            : subscription.tier === 'monthly' ? (
+              <Link to="/pricing" className="btn-ghost" style={{ textDecoration: 'none', fontSize: '0.8rem', whiteSpace: 'nowrap' }}>
+                Manage
+              </Link>
+            ) : (
+              <Link to="/pricing" className="btn-primary" style={{ textDecoration: 'none', fontSize: '0.8rem', padding: '0.5rem 1rem', whiteSpace: 'nowrap' }}>
+                Upgrade
+              </Link>
+            )}
+        </div>
+
+        {/* Game Stats & Quick Links */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1rem', marginBottom: '1.5rem' }}>
+          <div className="card" style={{ padding: '1.25rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <div style={{
+              width: '40px', height: '40px', borderRadius: '10px',
+              background: 'rgba(139,92,246,0.1)', border: '1px solid rgba(139,92,246,0.3)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
+            }}>
+              <Gamepad2 size={18} color="#8b5cf6" />
+            </div>
+            <div>
+              <div style={{ fontSize: '1.25rem', fontWeight: 800, color: '#f1f5f9' }}>{gamePlays.total}</div>
+              <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Games Played</div>
+            </div>
+          </div>
+
+          <div className="card" style={{ padding: '1.25rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <div style={{
+              width: '40px', height: '40px', borderRadius: '10px',
+              background: 'rgba(236,72,153,0.1)', border: '1px solid rgba(236,72,153,0.3)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
+            }}>
+              <Crown size={18} color="#ec4899" />
+            </div>
+            <div>
+              <div style={{ fontSize: '0.95rem', fontWeight: 800, color: '#f1f5f9' }}>{favouriteGame || 'None yet'}</div>
+              <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Favourite Game</div>
+            </div>
+          </div>
+
+          <div className="card" style={{ padding: '1.25rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <div style={{
+              width: '40px', height: '40px', borderRadius: '10px',
+              background: 'rgba(245,158,11,0.1)', border: '1px solid rgba(245,158,11,0.3)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
+            }}>
+              <TrendingUp size={18} color="#f59e0b" />
+            </div>
+            <div>
+              <div style={{ fontSize: '1.25rem', fontWeight: 800, color: '#f1f5f9' }}>{dailyStreak} day{dailyStreak !== 1 ? 's' : ''}</div>
+              <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Daily Challenge Streak</div>
+            </div>
+          </div>
+
+          <div className="card" style={{ padding: '1.25rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <div style={{
+              width: '40px', height: '40px', borderRadius: '10px',
+              background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.3)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
+            }}>
+              <Award size={18} color="#10b981" />
+            </div>
+            <div>
+              <div style={{ fontSize: '1.25rem', fontWeight: 800, color: '#f1f5f9' }}>{achievementInfo.unlocked} / {achievementInfo.total}</div>
+              <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Achievements</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Quick Links to Games Hub */}
+        <Link to="/games" style={{ textDecoration: 'none', display: 'block', marginBottom: '2rem' }}>
+          <div className="card" style={{
+            padding: '1rem 1.5rem', display: 'flex', alignItems: 'center', gap: '1rem',
+            cursor: 'pointer', borderColor: 'rgba(139,92,246,0.2)',
+          }}>
+            <Gamepad2 size={20} color="#8b5cf6" />
+            <span style={{ fontWeight: 600, fontSize: '0.9rem', color: '#f1f5f9', flex: 1 }}>Games Hub</span>
+            <span style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Play games to practise your skills</span>
+            <ArrowRight size={16} color="#64748b" />
+          </div>
+        </Link>
 
         {/* Stats grid */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1rem', marginBottom: '3rem' }}>
