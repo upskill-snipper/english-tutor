@@ -124,7 +124,7 @@ export default function PaywallModal({ onClose }) {
             You've used your 3 free games!
           </h2>
           <p style={{ color: '#a0a0b8', fontSize: '15px', margin: 0 }}>
-            Upgrade to keep learning with unlimited games and more.
+            Subscribe to unlock courses, games, flashcards, and all study tools.
           </p>
         </div>
 

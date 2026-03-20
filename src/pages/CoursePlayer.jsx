@@ -3,7 +3,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, CheckCircle, Circle, Award, BookOpen, Menu, X } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import COURSES from '../data/courseData';
-import { getCurrentUser, getUserProgress, markModuleComplete, enrollUser } from '../utils/auth';
+import { getCurrentUser, getUserProgress, markModuleComplete, enrollUser, isSubscribed } from '../utils/auth';
 
 export default function CoursePlayer() {
   const { courseId, moduleId } = useParams();
@@ -39,27 +39,27 @@ export default function CoursePlayer() {
 
   const progress = user ? getUserProgress(user.id, courseId) : null;
 
-  const isFirstModule = course && module && course.moduleList[0]?.id === moduleId;
   const isEnrolled = user && (user.enrolledCourses || []).includes(courseId);
+  const subscribed = user ? isSubscribed(user.id) : false;
 
   useEffect(() => {
-    if (user && course && !isEnrolled && !isFirstModule) {
+    if (user && course && subscribed && !isEnrolled) {
       enrollUser(user.id, courseId);
     }
-  }, [user, course, courseId, isEnrolled, isFirstModule]);
+  }, [user, course, courseId, isEnrolled, subscribed]);
 
-  // Block non-enrolled users from accessing modules beyond the first (free preview)
-  if (course && module && !isFirstModule && !isEnrolled) {
+  // Block non-subscribed users from ALL course content
+  if (course && module && !subscribed) {
     return (
       <div style={{ background: '#0a0e1a', minHeight: '100vh', color: '#f0f4f8' }}>
         <Navbar />
         <div style={{ padding: '4rem', textAlign: 'center' }}>
-          <h2>Enrol to access this module</h2>
+          <h2>Subscribe to access course content</h2>
           <p style={{ color: '#94a3b8', marginTop: '0.75rem', marginBottom: '1.5rem' }}>
-            Module 1 is available as a free preview. Enrol in the course to unlock all modules.
+            A subscription is required to access courses, games, flashcards, and all study tools.
           </p>
-          <Link to={`/course/${courseId}`} className="btn-primary" style={{ textDecoration: 'none', display: 'inline-flex' }}>
-            Back to course
+          <Link to="/pricing" className="btn-primary" style={{ textDecoration: 'none', display: 'inline-flex' }}>
+            View Plans
           </Link>
         </div>
       </div>

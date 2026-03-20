@@ -459,6 +459,9 @@ export function seedDemoData() {
 
   saveUsers([adminUser, studentUser]);
 
+  // Give admin Pro subscription
+  localStorage.setItem(STORAGE_PREFIX + 'subscription_admin-001', JSON.stringify({ tier: 'pro', expiresAt: null }));
+
   const progress = {
     'user-001': {
       'ks3-reading': {
@@ -476,7 +479,7 @@ export function seedDemoData() {
 // ─── Subscription & Paywall System ─────────────────────────────
 
 export const SUBSCRIPTION_TIERS = {
-  free: { name: 'Free', price: 0, gameAttempts: 3, features: ['3 free game attempts', 'Course previews', 'Glossary access'] },
+  free: { name: 'Free', price: 0, gameAttempts: 3, features: ['3 free game trials', 'Browse course catalogue'] },
   monthly: { name: 'Monthly', price: 12.50, gameAttempts: Infinity, features: ['Unlimited games', 'All courses', 'All flashcards', 'Practice questions', 'Study planner', 'Certificates'] },
   pro: { name: 'Pro (Lifetime)', price: 179, gameAttempts: Infinity, features: ['Everything in Monthly', 'Lifetime access', 'Priority support', 'Early access to new content'] },
 };

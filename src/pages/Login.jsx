@@ -111,15 +111,6 @@ export default function Login() {
           </p>
         </div>
 
-        <div style={{
-          marginTop: '1.5rem', padding: '1rem', borderRadius: '10px',
-          background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.15)',
-          fontSize: '0.78rem', color: '#94a3b8',
-        }}>
-          <div style={{ fontWeight: 600, color: '#34d399', marginBottom: '0.5rem' }}>Demo accounts:</div>
-          <div>Student: student@learnright.com / Student2026!</div>
-          <div>Admin: admin@learnright.com / Admin2026!</div>
-        </div>
       </div>
     </div>
   );

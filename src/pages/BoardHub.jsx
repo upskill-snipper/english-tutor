@@ -30,6 +30,44 @@ function getSectionLink(sectionId, boardName) {
   }
 }
 
+/* ── Shared styles ─────────────────────────────────────────────── */
+const fullWidthCard = {
+  width: '100%',
+  background: 'rgba(255,255,255,0.03)',
+  border: '1px solid rgba(255,255,255,0.06)',
+  borderRadius: '12px',
+  padding: '1.75rem 2rem',
+  marginBottom: '1.25rem',
+};
+
+const sectionHeading = {
+  fontSize: '1.5rem',
+  fontWeight: 800,
+  marginBottom: '0.5rem',
+};
+
+const sectionDesc = {
+  color: '#94a3b8',
+  lineHeight: 1.7,
+  fontSize: '0.95rem',
+  marginBottom: '1.5rem',
+};
+
+const fullWidthLink = (color) => ({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  width: '100%',
+  padding: '1.25rem 1.75rem',
+  background: `${color}08`,
+  border: `1px solid ${color}25`,
+  borderRadius: '12px',
+  textDecoration: 'none',
+  color: '#f1f5f9',
+  transition: 'all 0.2s',
+  cursor: 'pointer',
+});
+
 export default function BoardHub() {
   const { boardId } = useParams();
   const [activeSection, setActiveSection] = useState('overview');
@@ -64,154 +102,250 @@ export default function BoardHub() {
   // ─── Overview Content ───────────────────────────────────────
   const renderOverview = () => (
     <div>
-      <h2 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '0.5rem' }}>
-        Your {board.name} Study Hub
-      </h2>
-      <p style={{ color: '#94a3b8', marginBottom: '2rem', lineHeight: 1.6 }}>
-        Everything you need to prepare for your {board.name} English exams, all in one place.
-      </p>
-
-      {/* Quick stats */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '1rem', marginBottom: '2.5rem' }}>
-        {[
-          { label: 'Courses', value: boardCourses.length, color: '#10b981' },
-          { label: 'Modules', value: practiceCount, color: '#3b82f6' },
-          { label: 'Board Spec', value: board.name, color: board.color },
-        ].map((s, i) => (
-          <div key={i} className="card" style={{ padding: '1.25rem' }}>
-            <div style={{ fontSize: '1.25rem', fontWeight: 800, color: s.color }}>{s.value}</div>
-            <div style={{ fontSize: '0.75rem', color: '#64748b', marginTop: '0.25rem' }}>{s.label}</div>
-          </div>
-        ))}
+      {/* Welcome Banner */}
+      <div style={{
+        width: '100%', borderRadius: '14px', padding: '2.25rem 2.5rem',
+        background: `linear-gradient(135deg, ${board.color}18, ${board.color}08)`,
+        border: `1px solid ${board.color}30`,
+        borderLeft: `4px solid ${board.color}`,
+        marginBottom: '2rem',
+      }}>
+        <h2 style={{ fontSize: '1.75rem', fontWeight: 800, marginBottom: '0.75rem', color: '#f1f5f9' }}>
+          Your {board.name} Study Hub
+        </h2>
+        <p style={{ color: '#94a3b8', lineHeight: 1.7, fontSize: '0.95rem', margin: 0 }}>
+          Everything you need to ace your {board.name} English Language and Literature exams — structured courses,
+          board-specific revision materials, exam-style practice questions graded against {board.name} mark schemes,
+          a comprehensive glossary of literary and linguistic terms, interactive learning games, and a study planner
+          to keep you on track. Select a section from the sidebar to dive in.
+        </p>
       </div>
 
-      {/* Quick links */}
-      <h3 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '1rem' }}>Quick Links</h3>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '0.75rem', marginBottom: '2.5rem' }}>
-        {SECTIONS.map(section => {
-          const Icon = section.icon;
-          return (
-            <button
-              key={section.id}
-              onClick={() => setActiveSection(section.id)}
-              className="card"
-              style={{
-                padding: '1.25rem', cursor: 'pointer', border: '1px solid rgba(255,255,255,0.06)',
-                background: 'rgba(255,255,255,0.02)', textAlign: 'left', width: '100%',
-                display: 'flex', alignItems: 'center', gap: '0.75rem', transition: 'all 0.2s',
-              }}
-            >
-              <div style={{
-                width: '36px', height: '36px', borderRadius: '8px', flexShrink: 0,
-                background: `${board.color}15`, border: `1px solid ${board.color}30`,
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-              }}>
-                <Icon size={16} color={board.color} />
-              </div>
-              <div style={{ flex: 1 }}>
-                <div style={{ fontWeight: 600, fontSize: '0.9rem', color: '#f1f5f9' }}>{section.label}</div>
-                <div style={{ fontSize: '0.72rem', color: '#64748b', marginTop: '0.15rem' }}>{section.desc}</div>
-              </div>
-              <ChevronRight size={14} color="#475569" />
-            </button>
-          );
-        })}
-      </div>
+      {/* ── Courses Section ──────────────────────────────────── */}
+      <div style={fullWidthCard}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
+          <BookMarked size={20} color={board.color} />
+          <h3 style={{ fontSize: '1.2rem', fontWeight: 700, margin: 0 }}>Courses</h3>
+          <span style={{
+            fontSize: '0.7rem', fontWeight: 700, color: board.color,
+            background: `${board.color}15`, padding: '0.2rem 0.6rem', borderRadius: '4px',
+            marginLeft: '0.25rem',
+          }}>
+            {boardCourses.length} available
+          </span>
+        </div>
+        <p style={{ color: '#94a3b8', fontSize: '0.9rem', lineHeight: 1.6, marginBottom: '1.25rem' }}>
+          Structured learning paths covering the full {board.name} specification — {practiceCount} modules across
+          {' '}{boardCourses.length} courses. Each course breaks down the content you need to know, with lessons,
+          examples, and checkpoint activities.
+        </p>
 
-      {/* Board courses */}
-      {boardCourses.length > 0 && (
-        <>
-          <h3 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '1rem' }}>{board.name} Courses</h3>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '0.75rem' }}>
+        {/* Course list — full-width rows */}
+        {boardCourses.length > 0 && (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
             {boardCourses.map(course => (
               <Link key={course.id} to={`/courses/${course.id}`} style={{ textDecoration: 'none' }}>
-                <div className="card" style={{ padding: '1.25rem', cursor: 'pointer' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-                    <span style={{
-                      fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.05em',
-                      color: '#34d399', background: 'rgba(52,211,153,0.1)',
-                      padding: '0.2rem 0.5rem', borderRadius: '4px',
-                    }}>{course.tier}</span>
-                    <span style={{
-                      fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.05em',
-                      color: board.color, background: `${board.color}15`,
-                      padding: '0.2rem 0.5rem', borderRadius: '4px',
-                    }}>{board.name}</span>
+                <div style={{
+                  display: 'flex', alignItems: 'center', gap: '1.25rem', flexWrap: 'wrap',
+                  width: '100%', padding: '1.15rem 1.5rem', borderRadius: '10px',
+                  background: 'rgba(255,255,255,0.025)', border: '1px solid rgba(255,255,255,0.06)',
+                  transition: 'all 0.2s', cursor: 'pointer',
+                }}>
+                  <div style={{ flex: 1, minWidth: '200px' }}>
+                    <h4 style={{ fontWeight: 700, fontSize: '1.05rem', color: '#f1f5f9', margin: 0, lineHeight: 1.4 }}>
+                      {course.title}
+                    </h4>
+                    {course.subtitle && (
+                      <p style={{ fontSize: '0.8rem', color: '#64748b', margin: '0.25rem 0 0' }}>{course.subtitle}</p>
+                    )}
                   </div>
-                  <h4 style={{ fontWeight: 700, fontSize: '0.95rem', color: '#f1f5f9', lineHeight: 1.3, marginBottom: '0.5rem' }}>
-                    {course.title}
-                  </h4>
-                  <p style={{ fontSize: '0.75rem', color: '#64748b' }}>
-                    {course.moduleList?.length || 0} modules
-                  </p>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexShrink: 0 }}>
+                    <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>
+                      {course.moduleList?.length || 0} modules
+                    </span>
+                    {course.duration && (
+                      <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>{course.duration}</span>
+                    )}
+                    <span style={{
+                      fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.05em',
+                      color: '#fff', background: board.color,
+                      padding: '0.2rem 0.5rem', borderRadius: '4px',
+                    }}>
+                      {board.name}
+                    </span>
+                    <span style={{ fontSize: '0.85rem', color: board.color, fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+                      Start Course <ArrowRight size={14} />
+                    </span>
+                  </div>
                 </div>
               </Link>
             ))}
           </div>
-        </>
-      )}
+        )}
+
+        {boardCourses.length > 0 && (
+          <div style={{ marginTop: '1rem' }}>
+            <Link to="/courses" style={{ fontSize: '0.85rem', color: board.color, textDecoration: 'none', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
+              Browse all courses <ArrowRight size={14} />
+            </Link>
+          </div>
+        )}
+      </div>
+
+      {/* ── Quick Actions Section ─────────────────────────────── */}
+      <div style={fullWidthCard}>
+        <h3 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: '1rem' }}>Quick Actions</h3>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+          {SECTIONS.map(section => {
+            const Icon = section.icon;
+            const link = getSectionLink(section.id, board.name);
+            return (
+              <Link key={section.id} to={link} style={{ textDecoration: 'none' }}>
+                <div style={{
+                  display: 'flex', alignItems: 'center', gap: '1rem',
+                  width: '100%', padding: '1.15rem 1.5rem', borderRadius: '10px',
+                  background: `${board.color}06`, border: `1px solid ${board.color}18`,
+                  transition: 'all 0.2s', cursor: 'pointer',
+                }}>
+                  <div style={{
+                    width: '42px', height: '42px', borderRadius: '10px', flexShrink: 0,
+                    background: `${board.color}15`, border: `1px solid ${board.color}30`,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  }}>
+                    <Icon size={18} color={board.color} />
+                  </div>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ fontWeight: 700, fontSize: '1rem', color: '#f1f5f9' }}>{section.label}</div>
+                    <div style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '0.15rem' }}>{section.desc}</div>
+                  </div>
+                  <ArrowRight size={16} color="#475569" />
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 
-  // ─── Section placeholder ────────────────────────────────────
-  const renderSection = (section) => {
-    const Icon = section.icon;
-    const fullLink = getSectionLink(section.id, board.name);
-    return (
-      <div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
-          <div style={{
-            width: '40px', height: '40px', borderRadius: '10px',
-            background: `${board.color}15`, border: `1px solid ${board.color}30`,
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-          }}>
-            <Icon size={18} color={board.color} />
+  // ─── Revision Section ─────────────────────────────────────
+  const renderRevision = () => (
+    <div>
+      <h2 style={sectionHeading}>Revision &mdash; {board.name}</h2>
+      <p style={sectionDesc}>
+        Access a full library of revision tools tailored to the {board.name} specification. Work through flashcard
+        decks covering key quotes, character analysis, themes and context. Explore proven revision techniques
+        including retrieval practice, spaced repetition, and mind-mapping strategies — all mapped to the topics
+        you need for your {board.name} exams.
+      </p>
+      <Link to={`/revision?board=${board.name}`} style={fullWidthLink(board.color)}>
+        <div>
+          <div style={{ fontWeight: 700, fontSize: '1.05rem' }}>Open Revision Tools</div>
+          <div style={{ fontSize: '0.8rem', color: '#94a3b8', marginTop: '0.25rem' }}>
+            Flashcards, key quotes, revision techniques for {board.name}
           </div>
-          <h2 style={{ fontSize: '1.35rem', fontWeight: 800 }}>{section.label}</h2>
         </div>
-        <p style={{ color: '#94a3b8', marginBottom: '1.5rem', lineHeight: 1.6 }}>
-          {section.desc}
-        </p>
+        <ArrowRight size={18} color={board.color} />
+      </Link>
+    </div>
+  );
 
-        <Link to={fullLink} className="btn-primary" style={{
-          textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-          padding: '0.625rem 1.25rem', fontSize: '0.85rem', marginBottom: '2.5rem',
-        }}>
-          Go to full page <ArrowRight size={14} />
-        </Link>
+  // ─── Practice Section ─────────────────────────────────────
+  const renderPractice = () => (
+    <div>
+      <h2 style={sectionHeading}>Practice Questions &mdash; {board.name}</h2>
+      <p style={sectionDesc}>
+        Exam-style questions with model answers graded against {board.name} mark schemes. Practice Paper 1 and
+        Paper 2 questions with AO-based feedback. Work through extract-based questions, essay-style responses,
+        and creative writing tasks — each with detailed examiner commentary so you know exactly how to improve.
+      </p>
+      <Link to={`/practice?board=${board.name}`} style={fullWidthLink(board.color)}>
+        <div>
+          <div style={{ fontWeight: 700, fontSize: '1.05rem' }}>Open Practice Questions</div>
+          <div style={{ fontSize: '0.8rem', color: '#94a3b8', marginTop: '0.25rem' }}>
+            Exam-style questions graded against {board.name} mark schemes
+          </div>
+        </div>
+        <ArrowRight size={18} color={board.color} />
+      </Link>
+    </div>
+  );
 
-        {/* Show filtered courses for non-games/planner sections */}
-        {section.id !== 'games' && section.id !== 'planner' && boardCourses.length > 0 && (
-          <>
-            <h3 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '1rem' }}>Related {board.name} Courses</h3>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '0.75rem' }}>
-              {boardCourses.slice(0, 6).map(course => (
-                <Link key={course.id} to={`/courses/${course.id}`} style={{ textDecoration: 'none' }}>
-                  <div className="card" style={{ padding: '1.25rem', cursor: 'pointer' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-                      <span style={{
-                        fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.05em',
-                        color: '#34d399', background: 'rgba(52,211,153,0.1)',
-                        padding: '0.2rem 0.5rem', borderRadius: '4px',
-                      }}>{course.tier}</span>
-                    </div>
-                    <h4 style={{ fontWeight: 700, fontSize: '0.95rem', color: '#f1f5f9', lineHeight: 1.3, marginBottom: '0.5rem' }}>
-                      {course.title}
-                    </h4>
-                    <p style={{ fontSize: '0.75rem', color: '#64748b' }}>
-                      {course.moduleList?.length || 0} modules
-                    </p>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </>
-        )}
-      </div>
-    );
+  // ─── Glossary Section ─────────────────────────────────────
+  const renderGlossary = () => (
+    <div>
+      <h2 style={sectionHeading}>Glossary &mdash; {board.name}</h2>
+      <p style={sectionDesc}>
+        A comprehensive glossary of literary and linguistic terms you need for your {board.name} exams.
+        Each entry includes a clear definition, examples from set texts, and guidance on how to use the
+        term effectively in your exam responses to demonstrate your understanding of key concepts.
+      </p>
+      <Link to={`/glossary?board=${board.name}`} style={fullWidthLink(board.color)}>
+        <div>
+          <div style={{ fontWeight: 700, fontSize: '1.05rem' }}>Open Glossary</div>
+          <div style={{ fontSize: '0.8rem', color: '#94a3b8', marginTop: '0.25rem' }}>
+            Key terms and definitions for {board.name}
+          </div>
+        </div>
+        <ArrowRight size={18} color={board.color} />
+      </Link>
+    </div>
+  );
+
+  // ─── Games Section ────────────────────────────────────────
+  const renderGames = () => (
+    <div>
+      <h2 style={sectionHeading}>Learning Games</h2>
+      <p style={sectionDesc}>
+        Reinforce your knowledge with interactive learning games. Match key terms to definitions, identify
+        literary devices in passages, race against the clock on quote recall, and compete on leaderboards.
+        A fun way to consolidate what you have learned and keep revision engaging.
+      </p>
+      <Link to="/games" style={fullWidthLink(board.color)}>
+        <div>
+          <div style={{ fontWeight: 700, fontSize: '1.05rem' }}>Open Learning Games</div>
+          <div style={{ fontSize: '0.8rem', color: '#94a3b8', marginTop: '0.25rem' }}>
+            Interactive games to reinforce your revision
+          </div>
+        </div>
+        <ArrowRight size={18} color={board.color} />
+      </Link>
+    </div>
+  );
+
+  // ─── Planner Section ──────────────────────────────────────
+  const renderPlanner = () => (
+    <div>
+      <h2 style={sectionHeading}>Study Planner</h2>
+      <p style={sectionDesc}>
+        Build a personalised study schedule that keeps you on track for your exams. Set target dates,
+        allocate revision blocks across your subjects, track your progress, and get reminders so nothing
+        falls through the cracks. Stay organised and make sure every topic gets the time it deserves.
+      </p>
+      <Link to="/planner" style={fullWidthLink(board.color)}>
+        <div>
+          <div style={{ fontWeight: 700, fontSize: '1.05rem' }}>Open Study Planner</div>
+          <div style={{ fontSize: '0.8rem', color: '#94a3b8', marginTop: '0.25rem' }}>
+            Plan your study schedule and track progress
+          </div>
+        </div>
+        <ArrowRight size={18} color={board.color} />
+      </Link>
+    </div>
+  );
+
+  // ─── Section router ───────────────────────────────────────
+  const renderActiveSection = () => {
+    switch (activeSection) {
+      case 'overview':  return renderOverview();
+      case 'revision':  return renderRevision();
+      case 'practice':  return renderPractice();
+      case 'glossary':  return renderGlossary();
+      case 'games':     return renderGames();
+      case 'planner':   return renderPlanner();
+      default:          return renderOverview();
+    }
   };
-
-  const activeObj = SECTIONS.find(s => s.id === activeSection);
 
   return (
     <div style={{ background: '#0a0e1a', minHeight: '100vh', color: '#f1f5f9' }}>
@@ -297,7 +431,7 @@ export default function BoardHub() {
             </Link>
           </div>
 
-          {activeSection === 'overview' ? renderOverview() : activeObj ? renderSection(activeObj) : null}
+          {renderActiveSection()}
         </main>
       </div>
 

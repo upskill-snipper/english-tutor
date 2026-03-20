@@ -3,7 +3,7 @@ import { BookOpen, Clock, Award, CheckCircle, Circle, ArrowRight, ChevronLeft, P
 import Navbar from '../components/Navbar';
 import ProgressRing from '../components/ProgressRing';
 import COURSES from '../data/courseData';
-import { getCurrentUser, getUserProgress, enrollUser } from '../utils/auth';
+import { getCurrentUser, getUserProgress, enrollUser, isSubscribed } from '../utils/auth';
 
 export default function CourseDetail() {
   const { id } = useParams();
@@ -26,9 +26,15 @@ export default function CourseDetail() {
     );
   }
 
-  const enrolled = user?.enrolledCourses?.includes(course.id);
+  const subscribed = isSubscribed(user?.id);
+  const enrolled = user?.enrolledCourses?.includes(course.id) || subscribed;
   const completedCount = progress?.completedModules?.length || 0;
   const progressPct = course.moduleList.length > 0 ? Math.round((completedCount / course.moduleList.length) * 100) : 0;
+
+  // Auto-enroll subscribed users when they visit a course detail page
+  if (user && subscribed && !user.enrolledCourses?.includes(course.id)) {
+    enrollUser(user.id, course.id);
+  }
 
   function handleEnrol() {
     if (!user) {
@@ -146,16 +152,16 @@ export default function CourseDetail() {
                     >
                       {done ? 'Review' : 'Start'} <ArrowRight size={13} />
                     </Link>
-                  ) : i === 0 ? (
+                  ) : !subscribed && i === 0 ? (
                     <Link
-                      to={`/learn/${course.id}/module/${course.moduleList[0].id}`}
+                      to="/pricing"
                       className="btn-ghost"
                       style={{
                         textDecoration: 'none', fontSize: '0.8rem',
-                        color: '#10b981', display: 'flex', alignItems: 'center', gap: '0.375rem',
+                        color: '#f59e0b', display: 'flex', alignItems: 'center', gap: '0.375rem',
                       }}
                     >
-                      <Play size={13} fill="#10b981" /> Free Preview
+                      Subscribe to Access <ArrowRight size={13} />
                     </Link>
                   ) : null}
                 </div>

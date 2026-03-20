@@ -164,21 +164,25 @@ const CATEGORIES = [
   {
     key: 'literature',
     label: '\u{1F4DA} Literature & Texts',
+    description: 'Revise your GCSE set texts — quotes, plot, characters, and context across all major exam boards.',
     names: ['Who Said It?', 'Quote Detective', 'Timeline Scramble', 'Context Connect'],
   },
   {
     key: 'language',
     label: '\u{270D}\uFE0F Language & Writing',
+    description: 'Sharpen your analytical and writing skills — spot techniques, fix punctuation, and think like an examiner.',
     names: ['Technique Spotter', 'Punctuation Fixer', 'Mark the Essay'],
   },
   {
     key: 'vocabulary',
     label: '\u{1F524} Vocabulary & Grammar',
+    description: 'Build your word power and grammar foundations — definitions, spelling, and parts of speech.',
     names: ['Word Match', 'Grammar Ninja', 'Spelling Bee'],
   },
   {
     key: 'quick',
     label: '\u26A1 Quick Play',
+    description: 'Short, sharp revision sessions — perfect for a quick warm-up or daily practice.',
     names: ['Speed Round', 'Daily Challenge'],
   },
 ];
@@ -258,88 +262,87 @@ function SkillTag({ label }) {
   );
 }
 
-/* ─── Game Card component ─── */
+/* ─── Game Row component (full-width catalogue entry) ─── */
 
-function GameCard({ game, cardBg, borderCol }) {
+function GameRow({ game, isLast }) {
   const best = getBestScore(game.storageKey);
 
   return (
-    <Link to={game.path} style={{ textDecoration: 'none', color: 'inherit' }}>
+    <Link to={game.path} style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
       <div
         style={{
-          background: cardBg,
-          border: `1px solid ${borderCol}`,
-          borderRadius: 16,
-          padding: '1.5rem',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '1.25rem',
+          padding: '1.25rem 1.5rem',
+          minHeight: 100,
+          borderLeft: `4px solid ${game.color}`,
+          borderBottom: isLast ? 'none' : '1px solid rgba(255,255,255,0.06)',
+          background: 'rgba(255,255,255,0.02)',
           transition: 'all 0.2s',
           cursor: 'pointer',
           position: 'relative',
-          overflow: 'hidden',
-          display: 'flex',
-          flexDirection: 'column',
-          height: '100%',
         }}
         onMouseOver={e => {
-          e.currentTarget.style.borderColor = game.color + '44';
-          e.currentTarget.style.transform = 'translateY(-2px)';
-          e.currentTarget.style.boxShadow = `0 8px 30px ${game.color}22`;
+          e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
+          e.currentTarget.style.boxShadow = `inset 4px 0 0 ${game.color}, 0 2px 12px rgba(0,0,0,0.2)`;
         }}
         onMouseOut={e => {
-          e.currentTarget.style.borderColor = borderCol;
-          e.currentTarget.style.transform = 'translateY(0)';
+          e.currentTarget.style.background = 'rgba(255,255,255,0.02)';
           e.currentTarget.style.boxShadow = 'none';
         }}
       >
-        {/* Best score badge */}
-        {best !== null && (
+        {/* Left section: icon + meta */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', flex: '1 1 auto', minWidth: 0 }}>
+          {/* Icon circle */}
           <div style={{
-            position: 'absolute', top: 12, right: 12,
-            background: 'rgba(245,158,11,0.12)',
-            border: '1px solid rgba(245,158,11,0.2)',
-            borderRadius: 8, padding: '0.25rem 0.625rem',
-            display: 'flex', alignItems: 'center', gap: '0.25rem',
-            fontSize: '0.75rem', fontWeight: 700, color: '#f59e0b',
+            width: 52, height: 52, minWidth: 52, borderRadius: '50%',
+            background: game.gradient,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            color: 'white',
+            boxShadow: `0 4px 15px ${game.color}33`,
           }}>
-            <Trophy size={12} /> Best: {best}
+            {game.icon}
           </div>
-        )}
 
-        {/* Icon */}
-        <div style={{
-          width: 52, height: 52, borderRadius: 14,
-          background: game.gradient,
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          marginBottom: '0.75rem', color: 'white',
-          boxShadow: `0 4px 15px ${game.color}33`,
-        }}>
-          {game.icon}
+          {/* Name + badges + tags + description */}
+          <div style={{ flex: '1 1 auto', minWidth: 0 }}>
+            {/* Top line: name + difficulty + tags + best score */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', flexWrap: 'wrap', marginBottom: '0.4rem' }}>
+              <h3 style={{ fontSize: '1.05rem', fontWeight: 700, margin: 0, whiteSpace: 'nowrap' }}>{game.name}</h3>
+              <DifficultyBadge level={game.difficulty} />
+              {game.tags.map(tag => <SkillTag key={tag} label={tag} />)}
+              {best !== null && (
+                <span style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '0.25rem',
+                  background: 'rgba(245,158,11,0.12)',
+                  border: '1px solid rgba(245,158,11,0.2)',
+                  borderRadius: 8, padding: '0.2rem 0.6rem',
+                  fontSize: '0.72rem', fontWeight: 700, color: '#f59e0b',
+                }}>
+                  <Trophy size={12} /> Best: {best}
+                </span>
+              )}
+            </div>
+
+            {/* Description */}
+            <p style={{
+              fontSize: '0.82rem', color: '#94a3b8', lineHeight: 1.6,
+              margin: 0,
+            }}>
+              {game.description}
+            </p>
+          </div>
         </div>
 
-        {/* Name + difficulty row */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem', flexWrap: 'wrap' }}>
-          <h3 style={{ fontSize: '1.1rem', fontWeight: 700, margin: 0 }}>{game.name}</h3>
-          <DifficultyBadge level={game.difficulty} />
-        </div>
-
-        {/* Skill tags */}
-        <div style={{ display: 'flex', gap: '0.35rem', flexWrap: 'wrap', marginBottom: '0.6rem' }}>
-          {game.tags.map(tag => <SkillTag key={tag} label={tag} />)}
-        </div>
-
-        {/* Full description */}
-        <p style={{
-          fontSize: '0.82rem', color: '#94a3b8', lineHeight: 1.6,
-          marginBottom: '1rem', flex: 1,
-        }}>
-          {game.description}
-        </p>
-
-        {/* Play button */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
+        {/* Right section: play button */}
+        <div style={{ flexShrink: 0 }}>
           <span style={{
-            fontSize: '0.8rem', fontWeight: 600,
+            fontSize: '0.82rem', fontWeight: 600,
             background: game.gradient, color: 'white',
-            padding: '0.4rem 1rem', borderRadius: 8,
+            padding: '0.5rem 1.25rem', borderRadius: 8,
+            whiteSpace: 'nowrap',
+            display: 'inline-block',
           }}>
             Play &rarr;
           </span>
@@ -366,9 +369,6 @@ export default function GamesHub() {
       }
     } catch { /* guest user */ }
   }, []);
-
-  const cardBg = 'rgba(255,255,255,0.04)';
-  const borderCol = 'rgba(255,255,255,0.08)';
 
   // Build a lookup from game name to game object
   const gamesByName = {};
@@ -401,27 +401,33 @@ export default function GamesHub() {
         }}>
           <p style={{ margin: 0, fontSize: '0.88rem', color: '#94a3b8', lineHeight: 1.6 }}>
             <strong style={{ color: '#10b981' }}>How to Play:</strong>{' '}
-            Play any 3 games free &mdash; then subscribe for unlimited access. Your progress and high scores are saved automatically.
+            Try any 3 games free &mdash; then subscribe for unlimited access to games, courses, and all study tools.
           </p>
         </div>
 
-        {/* Stats Row */}
+        {/* Stats Bar — full-width horizontal */}
         <div style={{
-          display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1rem', marginBottom: '2.5rem',
+          display: 'flex',
+          alignItems: 'center',
+          background: 'rgba(255,255,255,0.03)',
+          border: '1px solid rgba(255,255,255,0.08)',
+          borderRadius: 14,
+          padding: '0.75rem 0',
+          marginBottom: '2.5rem',
+          overflow: 'hidden',
         }}>
           {/* Daily Streak */}
           <div style={{
-            background: streak > 0 ? 'rgba(245,158,11,0.08)' : cardBg,
-            border: `1px solid ${streak > 0 ? 'rgba(245,158,11,0.2)' : borderCol}`,
-            borderRadius: 12, padding: '0.75rem 1.5rem',
-            display: 'flex', alignItems: 'center', gap: '0.75rem',
+            flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem',
+            padding: '0.5rem 1rem',
+            borderRight: '1px solid rgba(255,255,255,0.06)',
           }}>
             <Flame size={22} color={streak > 0 ? '#f59e0b' : '#475569'} />
             <div>
-              <div style={{ fontWeight: 700, fontSize: '1.1rem', color: streak > 0 ? '#f59e0b' : '#64748b' }}>
+              <div style={{ fontWeight: 700, fontSize: '1.05rem', color: streak > 0 ? '#f59e0b' : '#64748b' }}>
                 {streak} day{streak !== 1 ? 's' : ''} streak
               </div>
-              <div style={{ fontSize: '0.75rem', color: '#64748b' }}>
+              <div style={{ fontSize: '0.72rem', color: '#64748b' }}>
                 {streak > 0 ? 'Keep it going \u2014 play a game today!' : 'Play a game to start your streak!'}
               </div>
             </div>
@@ -429,20 +435,19 @@ export default function GamesHub() {
 
           {/* Subscription Badge */}
           <div style={{
-            background: subscribed ? 'rgba(16,185,129,0.08)' : 'rgba(239,68,68,0.08)',
-            border: `1px solid ${subscribed ? 'rgba(16,185,129,0.2)' : 'rgba(239,68,68,0.2)'}`,
-            borderRadius: 12, padding: '0.75rem 1.5rem',
-            display: 'flex', alignItems: 'center', gap: '0.75rem',
+            flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem',
+            padding: '0.5rem 1rem',
+            borderRight: '1px solid rgba(255,255,255,0.06)',
           }}>
             {subscribed
               ? <Unlock size={22} color="#10b981" />
               : <Lock size={22} color="#ef4444" />
             }
             <div>
-              <div style={{ fontWeight: 700, fontSize: '1.1rem', color: subscribed ? '#10b981' : '#ef4444' }}>
+              <div style={{ fontWeight: 700, fontSize: '1.05rem', color: subscribed ? '#10b981' : '#ef4444' }}>
                 {subscribed ? 'Unlimited' : '3 Free Games'}
               </div>
-              <div style={{ fontSize: '0.75rem', color: '#64748b' }}>
+              <div style={{ fontSize: '0.72rem', color: '#64748b' }}>
                 {subscribed ? 'All games unlocked' : 'Subscribe for unlimited access'}
               </div>
             </div>
@@ -450,43 +455,53 @@ export default function GamesHub() {
 
           {/* Achievements */}
           <div style={{
-            background: achievementCount > 0 ? 'rgba(168,85,247,0.08)' : cardBg,
-            border: `1px solid ${achievementCount > 0 ? 'rgba(168,85,247,0.2)' : borderCol}`,
-            borderRadius: 12, padding: '0.75rem 1.5rem',
-            display: 'flex', alignItems: 'center', gap: '0.75rem',
+            flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem',
+            padding: '0.5rem 1rem',
           }}>
             <Award size={22} color={achievementCount > 0 ? '#a855f7' : '#475569'} />
             <div>
-              <div style={{ fontWeight: 700, fontSize: '1.1rem', color: achievementCount > 0 ? '#a855f7' : '#64748b' }}>
+              <div style={{ fontWeight: 700, fontSize: '1.05rem', color: achievementCount > 0 ? '#a855f7' : '#64748b' }}>
                 {achievementCount} Unlocked
               </div>
-              <div style={{ fontSize: '0.75rem', color: '#64748b' }}>
+              <div style={{ fontSize: '0.72rem', color: '#64748b' }}>
                 Achievements earned
               </div>
             </div>
           </div>
         </div>
 
-        {/* Game Cards by Category */}
+        {/* Game Catalogue by Category */}
         {CATEGORIES.map(cat => {
           const catGames = cat.names.map(n => gamesByName[n]).filter(Boolean);
           if (catGames.length === 0) return null;
           return (
             <section key={cat.key} style={{ marginBottom: '2.5rem' }}>
-              <h2 style={{
-                fontSize: '1.3rem', fontWeight: 700, marginBottom: '1rem',
-                paddingBottom: '0.5rem',
-                borderBottom: '1px solid rgba(255,255,255,0.06)',
-              }}>
-                {cat.label}
-              </h2>
+              {/* Category heading */}
+              <div style={{ marginBottom: '0.75rem' }}>
+                <h2 style={{
+                  fontSize: '1.3rem', fontWeight: 700, margin: 0, marginBottom: '0.3rem',
+                }}>
+                  {cat.label}
+                </h2>
+                <p style={{
+                  fontSize: '0.82rem', color: '#64748b', margin: 0, lineHeight: 1.5,
+                }}>
+                  {cat.description}
+                </p>
+              </div>
+
+              {/* Game rows */}
               <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-                gap: '1.25rem',
+                border: '1px solid rgba(255,255,255,0.08)',
+                borderRadius: 14,
+                overflow: 'hidden',
               }}>
-                {catGames.map(game => (
-                  <GameCard key={game.name} game={game} cardBg={cardBg} borderCol={borderCol} />
+                {catGames.map((game, i) => (
+                  <GameRow
+                    key={game.name}
+                    game={game}
+                    isLast={i === catGames.length - 1}
+                  />
                 ))}
               </div>
             </section>

@@ -12,9 +12,8 @@ const plans = [
     period: '',
     badge: null,
     features: [
-      '3 free game attempts',
-      'Course previews (Module 1 only)',
-      'Glossary access',
+      '3 free game trials',
+      'Browse course catalogue',
     ],
     icon: <Zap size={28} />,
     color: '#64748b',
@@ -64,7 +63,7 @@ const faqs = [
   },
   {
     q: "What's included in the free plan?",
-    a: 'The free plan gives you 3 game attempts, access to Module 1 previews of all courses, and full glossary access. It is a great way to explore the platform before committing.',
+    a: 'The free plan gives you 3 game trials and lets you browse the course catalogue. Subscribe to a paid plan to access courses, games, flashcards, and all study tools.',
   },
   {
     q: 'Is the lifetime access really lifetime?',
