@@ -217,6 +217,7 @@ export default function AdminPanel() {
                       <td style={{ padding: '0.75rem', color: '#64748b' }}>{u.createdAt ? new Date(u.createdAt).toLocaleDateString('en-GB') : '—'}</td>
                       <td style={{ padding: '0.75rem' }}>
                         <button onClick={(e) => { e.stopPropagation(); deleteUser(u.id); }}
+                          aria-label={`Delete user ${u.name}`}
                           style={{ background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: '6px', padding: '0.375rem', cursor: 'pointer', color: '#ef4444', display: 'flex' }}>
                           <Trash2 size={14} />
                         </button>
@@ -258,7 +259,7 @@ export default function AdminPanel() {
                                 <div style={{ fontSize: '0.75rem', color: '#64748b', marginBottom: '0.35rem' }}>Assessment Scores:</div>
                                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem' }}>
                                   {scores.map((s, i) => (
-                                    <span key={i} style={{
+                                    <span key={`${s.courseTitle}-${s.moduleId}`} style={{
                                       fontSize: '0.7rem', padding: '0.2rem 0.5rem', borderRadius: '4px',
                                       background: 'rgba(6,182,212,0.1)', color: '#06b6d4',
                                       border: '1px solid rgba(6,182,212,0.15)',
@@ -286,7 +287,7 @@ export default function AdminPanel() {
           <span>Content Preview</span>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '1.5rem', marginBottom: '3rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(400px, 100%), 1fr))', gap: '1.5rem', marginBottom: '3rem' }}>
           {/* Course Preview */}
           <div style={{ ...cardStyle, padding: '1.25rem' }}>
             <div style={{ fontSize: '0.85rem', fontWeight: 700, marginBottom: '0.75rem', color: '#94a3b8' }}>Course Preview</div>

@@ -60,7 +60,7 @@ function searchAll(query) {
       results.Practice.push({
         id: pq.id,
         title: `${pq.board} — ${title}`,
-        subtitle: pq.difficulty || '',
+        subtitle: '',
         path: '/practice',
       });
     }
@@ -139,15 +139,22 @@ export default function SearchModal({ isOpen, onClose }) {
     }
   };
 
+  // Clean up debounce timer on unmount
   useEffect(() => {
+    return () => clearTimeout(timerRef.current);
+  }, []);
+
+  useEffect(() => {
+    let focusTimer;
     if (isOpen && inputRef.current) {
-      setTimeout(() => inputRef.current?.focus(), 50);
+      focusTimer = setTimeout(() => inputRef.current?.focus(), 50);
     }
     if (!isOpen) {
       setQuery('');
       setResults({});
       setActiveIndex(-1);
     }
+    return () => clearTimeout(focusTimer);
   }, [isOpen]);
 
   if (!isOpen) return null;
@@ -197,6 +204,7 @@ export default function SearchModal({ isOpen, onClose }) {
             value={query}
             onChange={handleChange}
             onKeyDown={handleKeyDown}
+            aria-label="Search"
             placeholder="Search courses, flashcards, practice, texts..."
             style={{
               flex: 1,

@@ -1,0 +1,3036 @@
+const jekyllHydeComplete = {
+  id: 'jekyll-hyde-complete',
+  title: 'The Strange Case of Dr Jekyll and Mr Hyde — Complete Study Guide',
+
+  // ──────────────────────────────────────────────
+  //  CHAPTERS (10)
+  // ──────────────────────────────────────────────
+  chapters: [
+    // ── CHAPTER 1 ───────────────────────────────
+    {
+      number: 1,
+      title: 'Story of the Door',
+      summary: `The novella opens with a description of Mr Gabriel John Utterson, a lawyer who is outwardly dull and austere but inwardly tolerant and loyal. He is walking with his kinsman Mr Richard Enfield, and their Sunday walks have become a cherished ritual. Their route takes them past a neglected building with a battered door that contrasts sharply with the well-kept street around it.
+
+Enfield tells Utterson a disturbing story connected to the door. Late one night, he witnessed a small, deformed man trampling a young girl who had been running across the street. The man showed no remorse — his face expressed "Satan's signature" — and only agreed to pay compensation when a crowd gathered and threatened him. He went through the battered door and returned with a cheque signed by a highly respectable person (later revealed to be Dr Jekyll). Enfield suspected blackmail but was disturbed by the man's appearance and manner. The man's name was Mr Hyde.
+
+Utterson is troubled by this story because he knows the name Hyde from Jekyll's will, which he holds. The two men agree never to discuss the matter again — a promise that reflects the Victorian code of discretion and the suppression of disturbing truths. The chapter establishes the novella's key narrative technique: indirect storytelling, where information is pieced together from multiple witnesses rather than revealed by an omniscient narrator. This creates a sense of mystery and investigation that mirrors the detective fiction of the period.
+
+The chapter also establishes the physical setting that will recur throughout the novella: the contrast between the respectable street and the sinister door. The door belongs to Jekyll's laboratory, accessed from the back — it literally represents the hidden, shameful side of a respectable facade. This spatial metaphor — the front and back of a building — mirrors the duality of Jekyll's character.`,
+      keyQuotes: [
+        {
+          quote: '"It was a man of a stolid countenance … Mr Utterson the lawyer was a man of a rugged countenance."',
+          analysis:
+            'Stevenson establishes Utterson as the novella\'s moral centre: dependable, rational, and restrained. His "rugged countenance" suggests honesty rather than beauty. As a lawyer, he represents order, reason, and the law — qualities that will be tested by the irrational horror of Hyde.',
+        },
+        {
+          quote: '"It wasn\'t like a man; it was like some damned Juggernaut."',
+          analysis:
+            'Enfield\'s description of Hyde trampling the girl uses a religious metaphor — the Juggernaut is a Hindu idol whose chariot was said to crush worshippers. The comparison suggests an unstoppable, inhuman force. The word "damned" carries both its colloquial meaning (emphatic curse) and its literal meaning (condemned by God), immediately associating Hyde with the demonic.',
+        },
+        {
+          quote: '"He gave me one look, so ugly that it brought out the sweat on me like running."',
+          analysis:
+            'Enfield\'s physical reaction to Hyde — involuntary sweating — suggests a visceral, instinctive revulsion that operates below the level of conscious thought. Hyde\'s ugliness is not merely aesthetic but moral; people sense his evil before they can articulate it. This recurring motif — the inability to describe what is wrong with Hyde — reflects the novella\'s engagement with the limits of rational understanding.',
+        },
+        {
+          quote: '"He is not easy to describe. There is something wrong with his appearance; something displeasing, something downright detestable."',
+          analysis:
+            'The inability to describe Hyde is one of the novella\'s most significant recurring features. Enfield, Utterson, and others all struggle to articulate what makes Hyde repulsive. This indescribability suggests that Hyde represents something that Victorian language and categories cannot accommodate — the primal, amoral self that exists beneath the surface of civilised behaviour.',
+        },
+        {
+          quote: '"No, sir, I make it a rule of mine: the more it looks like Queer Street, the less I ask."',
+          analysis:
+            'Enfield\'s policy of deliberate ignorance reflects the Victorian gentleman\'s code of discretion. "Queer Street" was Victorian slang for trouble or disgrace. The decision not to investigate suspicious circumstances — to maintain a facade of respectability by avoiding awkward questions — is precisely the kind of repression that Stevenson critiques throughout the novella.',
+        },
+      ],
+      analysis: `Chapter 1 establishes the novella's distinctive narrative method: the story is told indirectly, through multiple witnesses and documents, creating a sense of mystery and fragmentation that mirrors the divided nature of its central character. Utterson functions as a detective figure, and the reader is positioned alongside him, piecing together clues.
+
+The chapter also introduces the physical and moral geography of the novella. The respectable street and the sinister door represent the duality that runs through the entire text: respectability and shame, public and private, front and back. Victorian London itself becomes a character — a city of facades, where what is hidden behind closed doors may be very different from what is displayed on the street.`,
+    },
+
+    // ── CHAPTER 2 ───────────────────────────────
+    {
+      number: 2,
+      title: 'Search for Mr Hyde',
+      summary: `Utterson returns home troubled by Enfield's story and retrieves Dr Jekyll's will from his safe. The will stipulates that in the event of Jekyll's death or disappearance for more than three months, all his possessions should pass to Edward Hyde. The word "disappearance" disturbs Utterson particularly — it suggests that Jekyll has foreseen a scenario beyond normal death.
+
+Utterson visits Dr Lanyon, a mutual friend and fellow doctor, hoping for information about Hyde. Lanyon reveals that he and Jekyll have fallen out over what Lanyon calls Jekyll's "unscientific balderdash" — scientific experiments that Lanyon considers reckless and morally dangerous. Lanyon claims to know nothing about Hyde.
+
+That night, Utterson is haunted by a nightmare vision of Hyde — a faceless figure that stalks through a sleeping city and tramples children. The absence of a face in the dream is significant: it reflects the fact that Utterson has not yet seen Hyde and also symbolises the idea that evil can be faceless, hiding behind the appearances of respectability.
+
+Utterson decides to seek out Hyde and begins haunting the door in the side street. Eventually, he encounters Hyde and is struck by the same visceral revulsion that Enfield described. Hyde is small, pale, and gives "an impression of deformity without any nameable malformation." When Utterson asks to see Hyde's face, Hyde complies but then retreats quickly. Utterson is left with a profound sense of unease, describing the encounter as meeting "Satan's signature upon a face."
+
+Utterson then visits Jekyll's house through the front door — the respectable entrance — and speaks to Poole, Jekyll's butler. He learns that the servants have been instructed to obey Hyde and that Hyde has a key to the laboratory. Utterson becomes convinced that Hyde is blackmailing Jekyll and resolves to help his friend.`,
+      keyQuotes: [
+        {
+          quote: '"If he be Mr Hyde … I shall be Mr Seek."',
+          analysis:
+            'Utterson\'s pun on the game "hide and seek" introduces a motif of pursuit and concealment that runs throughout the novella. The pun is also structurally significant: the entire narrative is structured as a search for the truth about Hyde, with Utterson as the detective figure. The light tone of the pun contrasts with the darkness of what he is searching for.',
+        },
+        {
+          quote: '"Mr Hyde was pale and dwarfish, he gave an impression of deformity without any nameable malformation."',
+          analysis:
+            'Hyde\'s indescribable deformity is crucial to the novella\'s meaning. He is not ugly in any specific way that can be named or categorised; rather, his appearance provokes an instinctive revulsion that defies rational explanation. This suggests that what is wrong with Hyde exists at a level deeper than physical appearance — it is a moral or spiritual deformity that the body expresses without clearly revealing. The word "dwarfish" also suggests that Hyde is a reduced, diminished version of the full human being.',
+        },
+        {
+          quote: '"There is something more, if I could find a name for it. God bless me, the man seems hardly human!"',
+          analysis:
+            'Utterson\'s struggle to describe Hyde echoes Enfield\'s similar difficulty in Chapter 1. The phrase "hardly human" suggests that Hyde exists at the boundary between human and animal, between civilised and primal. The invocation of God ("God bless me") is both an exclamation of shock and an unconscious prayer for protection against something perceived as demonic.',
+        },
+        {
+          quote: '"I feel very strongly about putting questions; it partakes too much of the style of the day of judgement."',
+          analysis:
+            'Utterson\'s reluctance to ask questions reflects the Victorian gentleman\'s code of privacy and discretion. The biblical reference to "the day of judgement" elevates everyday discretion to a moral principle — questions are associated with divine judgement, something no mortal should presume to exercise. This attitude of non-interference enables Hyde\'s activities to continue unchecked.',
+        },
+        {
+          quote: '"The large handsome face of Dr Jekyll grew pale to the very lips, and there came a blackness about his eyes."',
+          analysis:
+            'Jekyll\'s physical reaction when Utterson mentions Hyde\'s name reveals the depth of his emotional entanglement. The pallor and the "blackness about his eyes" suggest both fear and guilt. The transformation of Jekyll\'s "large handsome face" anticipates the more dramatic physical transformation that will later be revealed.',
+        },
+      ],
+      analysis: `Chapter 2 deepens the mystery by introducing the will and its disturbing "disappearance" clause, and by showing Utterson's first direct encounter with Hyde. The chapter establishes the novella's engagement with the limits of perception and language — everyone who meets Hyde knows something is wrong, but no one can say exactly what. This failure of description is not a narrative weakness but a thematic strength: it suggests that the evil Hyde represents is too fundamental, too primordial, to be captured in civilised language.
+
+The chapter also develops the theme of Victorian masculine friendship. Utterson's determination to protect Jekyll is driven by loyalty and affection, but it is also constrained by the gentleman's code of discretion. He will not ask direct questions; he will not pry into private affairs. This code, while admirable in some respects, creates a culture of silence that allows dangerous secrets to fester.`,
+    },
+
+    // ── CHAPTER 3 ───────────────────────────────
+    {
+      number: 3,
+      title: 'Dr Jekyll Was Quite at Ease',
+      summary: `Two weeks after his encounter with Hyde, Utterson attends one of Jekyll's dinner parties. The gathering is small and intimate — just Jekyll, Utterson, and a few close friends. Jekyll is at his best: genial, warm, and sociable. His "large, well-made, smooth-faced man of fifty" appears healthy and happy, and there is no trace of the anxiety Utterson had seen in him before.
+
+After the other guests leave, Utterson raises the subject of Jekyll's will. Jekyll's mood changes instantly — he becomes uncomfortable and evasive. When Utterson mentions Hyde by name, Jekyll grows pale and asks Utterson to drop the subject. Jekyll insists that the situation with Hyde is a private matter and that he can be rid of Hyde whenever he chooses — a claim that will prove tragically ironic.
+
+Jekyll asks Utterson to promise that, if anything happens to him, Utterson will ensure Hyde receives his inheritance. Utterson reluctantly agrees, though he makes clear his distaste for Hyde. Jekyll thanks him with evident relief and says, "You do not understand my position … I am painfully situated." He refuses to explain further.
+
+The chapter is brief but crucial. It establishes the dramatic irony that pervades the rest of the novella: Utterson believes Jekyll is being blackmailed by Hyde, when in fact Jekyll is Hyde. Jekyll's assurance that he can "get rid of Mr Hyde" whenever he pleases reveals his dangerous overconfidence in his ability to control his other self — a hubris that will ultimately destroy him.`,
+      keyQuotes: [
+        {
+          quote: '"A large, well-made, smooth-faced man of fifty, with something of a slyish cast perhaps."',
+          analysis:
+            'The description of Jekyll emphasises respectability and physical comfort. "Large" and "well-made" suggest health and prosperity. But the qualifying phrase "with something of a slyish cast perhaps" introduces a note of doubt — the word "slyish" hints at concealment and cunning, while "perhaps" shows that even the narrator cannot be entirely sure. This subtle ambiguity foreshadows the revelation that Jekyll is hiding a terrible secret.',
+        },
+        {
+          quote: '"I do not care to hear more … This is a matter I thought we had agreed to drop."',
+          analysis:
+            'Jekyll\'s sharp refusal to discuss Hyde reflects the Victorian imperative to suppress uncomfortable truths. The phrase "agreed to drop" echoes the agreement between Utterson and Enfield in Chapter 1 — the entire social circle operates on a principle of mutual silence. Stevenson shows how this culture of discretion enables dangerous secrets to persist.',
+        },
+        {
+          quote: '"The moment I choose, I can be rid of Mr Hyde."',
+          analysis:
+            'Jekyll\'s confident assertion that he can control his relationship with Hyde is one of the novella\'s most important examples of dramatic irony. The reader will eventually learn that Jekyll has already lost control — that Hyde is becoming stronger and Jekyll weaker. This moment of hubris echoes the Faustian tradition: the overreacher who believes he can command forces beyond his control.',
+        },
+        {
+          quote: '"You do not understand my position … I am painfully situated."',
+          analysis:
+            'Jekyll\'s appeal for understanding without offering explanation captures the novella\'s central tension: the desire to be known and the need to remain hidden. The word "painfully" reveals genuine suffering, while "situated" suggests entrapment — Jekyll feels caught in a position from which he cannot escape. The gap between what Jekyll says and what he means is the gap between his public and private selves.',
+        },
+        {
+          quote: '"I only ask for justice; I only ask you to help him for my sake, when I am no longer here."',
+          analysis:
+            'Jekyll\'s plea for Utterson to protect Hyde "for my sake" is deeply ironic, given that Jekyll and Hyde are the same person. The phrase "when I am no longer here" foreshadows Jekyll\'s fear that Hyde will eventually consume him entirely. The word "justice" is loaded — Jekyll is asking for something he believes Hyde deserves, despite Utterson\'s moral objections.',
+        },
+      ],
+      analysis: `This brief chapter is a study in irony and concealment. The title itself — "Dr Jekyll Was Quite at Ease" — is ironic, given the terrible secret Jekyll is hiding. His ease is a performance, a mask of respectability that covers the turmoil within.
+
+The chapter also illustrates the power dynamics within Victorian male friendship. Utterson has genuine concerns about Jekyll's welfare, but the code of gentlemanly conduct prevents him from pressing too hard. Jekyll uses this code to shut down conversation, knowing that Utterson's sense of propriety will prevent further questioning. The culture of discretion that protects respectability also protects dangerous secrets.`,
+    },
+
+    // ── CHAPTER 4 ───────────────────────────────
+    {
+      number: 4,
+      title: 'The Carew Murder Case',
+      summary: `Nearly a year later, the novella takes a dramatic turn with the murder of Sir Danvers Carew, a distinguished Member of Parliament and one of Utterson's clients. The murder is witnessed by a maid who had been gazing out of her window, half-dreaming, on a foggy moonlit night.
+
+She saw an elderly gentleman — Carew — approach a small man on the street. The old man bowed and spoke courteously, apparently asking for directions. The small man (whom the maid later identifies as Hyde) responded with sudden, explosive violence: he clubbed Carew with a heavy cane, knocked him to the ground, and then trampled and beat him with "ape-like fury" until the body was mangled beyond recognition. The cane broke in half under the ferocity of the attack.
+
+The police find on Carew's body a letter addressed to Utterson, who identifies the victim and provides the police with Hyde's Soho address. They visit Hyde's rooms and find them ransacked — Hyde has fled. Half of the murder weapon (a cane Utterson had once given to Jekyll as a gift) is found in the fireplace.
+
+This chapter marks the novella's turning point. Hyde's violence has escalated from trampling a child to committing murder, showing that his evil nature is progressive and uncontrollable. The description of the attack is one of Stevenson's most powerful passages, with its combination of moonlit atmosphere and savage brutality. The fog that hangs over London throughout the chapter is both literal and symbolic — it represents the moral confusion and hidden guilt that pervade the city.
+
+The discovery that the murder weapon was a gift from Utterson to Jekyll begins to draw the threads of the mystery together, linking Hyde's violence directly to Jekyll's respectable world.`,
+      keyQuotes: [
+        {
+          quote: '"With ape-like fury, he was trampling his victim under foot and hailing down a storm of blows."',
+          analysis:
+            'The simile "ape-like fury" connects Hyde to animalism and evolutionary regression. In the context of Darwin\'s recently published theory of evolution, this comparison suggests that Hyde represents the primitive, pre-civilised human — the beast within. The word "trampling" echoes the trampling of the girl in Chapter 1, showing that Hyde\'s violence is escalating. "Hailing down a storm of blows" uses weather imagery to suggest an uncontrollable natural force.',
+        },
+        {
+          quote: '"Bones were audibly shattered and the body jumped upon the roadway."',
+          analysis:
+            'The graphic violence of this description is unusual for Victorian literature and deliberately shocking. The word "audibly" involves the reader\'s hearing, making the violence visceral and inescapable. "Jumped" — used for the dead body — is grotesquely inappropriate, suggesting the violence is so extreme that even a corpse is animated by it. Stevenson uses this graphic detail to make the reader feel Hyde\'s evil physically, not just intellectually.',
+        },
+        {
+          quote: '"A fog rolled over the city in the small hours … The dismal quarter of Soho seen under these changing glimpses … seemed, in the lawyer\'s eyes, like a district of some city in a nightmare."',
+          analysis:
+            'Stevenson uses pathetic fallacy to create an atmosphere of moral confusion and danger. The fog — a staple of Victorian Gothic fiction — represents the obscured truth and hidden crimes of the city. The comparison to a "nightmare" connects the landscape to the psychological terror of the story. Soho, as a district associated with vice and poverty, provides a fitting setting for Hyde\'s lair.',
+        },
+        {
+          quote: '"Mr Hyde had numbered few familiars … he had never been photographed."',
+          analysis:
+            'Hyde\'s lack of social connections and the absence of any photograph emphasise his elusiveness and his existence outside normal social structures. In an era when photography was becoming common, the absence of a photograph suggests that Hyde cannot be captured or fixed by the tools of civilisation. He exists in shadow, resistant to documentation and categorisation.',
+        },
+        {
+          quote: '"An ivory-faced and silvery-haired old woman opened the door … She had an evil face, smoothed by hypocrisy."',
+          analysis:
+            'The description of Hyde\'s landlady mirrors the novella\'s central theme: a surface of respectability concealing inner corruption. Her face is "smoothed by hypocrisy" — the physical appearance has been shaped by years of moral deception. This minor character reflects the wider society\'s habit of maintaining respectable facades.',
+        },
+      ],
+      analysis: `Chapter 4 represents the novella's dramatic crisis. The murder of Carew — a random, motiveless act of extreme violence against a defenceless old man — demonstrates that Hyde's evil is not just a philosophical concept but a real, deadly threat. The escalation from the trampling of the girl to the murder shows that Hyde's nature is progressive: left unchecked, it will grow more violent and more uncontrollable.
+
+The chapter also develops the novella's engagement with the city as a moral landscape. London's fog, gaslight, and labyrinthine streets create an atmosphere of concealment and danger. Soho — a real neighbourhood associated with vice — provides a fitting location for Hyde's rooms, contrasting with the elegant squares where Jekyll lives.`,
+    },
+
+    // ── CHAPTER 5 ───────────────────────────────
+    {
+      number: 5,
+      title: 'Incident of the Letter',
+      summary: `Utterson visits Jekyll, who is sitting alone in his cabinet (private study) above the laboratory, looking "deadly sick." Jekyll swears he is done with Hyde and will never see him again. He shows Utterson a letter supposedly from Hyde, promising to disappear. Jekyll asks Utterson whether he should show the letter to the police, and Utterson advises against it, fearing it would damage Jekyll's reputation.
+
+Utterson asks whether the letter was delivered by hand, and Poole later tells him that no letter was delivered — the only visitor that day came through the laboratory door. This implies that Jekyll wrote the letter himself, a realisation that deepens the mystery.
+
+That evening, Utterson's clerk Mr Guest — an expert in handwriting analysis — compares Hyde's letter with a sample of Jekyll's handwriting. Guest notes that the two hands are remarkably similar, differing only in the slope of the letters. Utterson is horrified by the implication: "Henry Jekyll forge for a murderer!" He locks the letter in his safe, and from this point on, his understanding of the case begins to shift.
+
+The chapter is important for several reasons. It shows Jekyll's growing desperation and his attempt to create a paper trail that separates him from Hyde. The handwriting comparison is a classic piece of detective fiction — a clue that points toward the truth without fully revealing it. Utterson's decision to suppress the evidence (not showing the letter to police, locking it in his safe) reflects the Victorian priority of protecting reputation over pursuing justice.`,
+      keyQuotes: [
+        {
+          quote: '"I have had a lesson — O God, Utterson, what a lesson I have had!"',
+          analysis:
+            'Jekyll\'s anguished exclamation suggests genuine remorse and terror. The invocation of God ("O God") and the emphatic repetition of "lesson" reveal the depth of his shock at what Hyde has done. The word "lesson" implies that Jekyll has learned something about himself — about the nature and consequences of releasing his darker impulses. However, the novella will show that this "lesson" comes too late.',
+        },
+        {
+          quote: '"I swear to God I will never set eyes on him again. I bind my honour to you that I am done with him in this world."',
+          analysis:
+            'Jekyll\'s oath is deeply ironic: he cannot be "done with" Hyde because Hyde is part of him. The phrase "set eyes on him" is also ironic — Jekyll sees Hyde every time he looks in a mirror. The solemn language ("swear to God," "bind my honour") reflects Jekyll\'s desperate desire to believe he can control his dual nature through willpower and social commitment.',
+        },
+        {
+          quote: '"The two hands are in many points identical; only differently sloped."',
+          analysis:
+            'Guest\'s handwriting analysis is the novella\'s most explicit clue that Jekyll and Hyde are the same person. Handwriting was considered an expression of character in the Victorian period, so the similarity of the hands points to a similarity of the persons. The difference in "slope" mirrors the difference in moral orientation — the same fundamental character, tilted in different directions.',
+        },
+        {
+          quote: '"Henry Jekyll forge for a murderer!" And his blood ran cold in his veins.',
+          analysis:
+            'Utterson\'s horrified conclusion — that Jekyll has forged a letter on behalf of a murderer — is both correct and incorrect. He is right that Jekyll wrote the letter; he is wrong about the reason. This moment of partial understanding is characteristic of the novella\'s narrative technique: clues are presented but their true meaning remains hidden until the final chapter.',
+        },
+        {
+          quote: '"He was sitting close to a warm fire, and yet he shivered."',
+          analysis:
+            'Jekyll\'s shivering beside a warm fire echoes the novella\'s recurring motif of cold and warmth. The fire cannot warm him because his coldness is internal — the horror of what he has done and what he is becoming. This detail also parallels the warmth/cold imagery in A Christmas Carol, where physical cold represents moral or emotional failing.',
+        },
+      ],
+      analysis: `Chapter 5 develops the novella's detective-fiction structure, with the handwriting comparison serving as a crucial clue. It also deepens the theme of concealment: Jekyll's attempt to create a false paper trail, Utterson's decision to suppress evidence, and Guest's discreet analysis all reflect a society where protecting reputation takes priority over revealing truth.
+
+The chapter marks a shift in Utterson's understanding. He begins the chapter believing Jekyll is Hyde's victim (blackmail); by the end, he suspects Jekyll is Hyde's accomplice (forgery). The truth — that they are the same person — remains beyond his imagination.`,
+    },
+
+    // ── CHAPTER 6 ───────────────────────────────
+    {
+      number: 6,
+      title: 'Remarkable Incident of Dr Lanyon',
+      summary: `Time passes. Hyde has disappeared, and Jekyll seems to return to his old self. He emerges from his seclusion, resumes social life, entertains friends, and performs charitable works. For two months, he appears happy and healthy — "at peace." This brief period of normalcy heightens the horror of what follows.
+
+Then, abruptly, Jekyll withdraws again. He refuses to see visitors and shuts himself in his cabinet. Utterson visits Dr Lanyon, hoping for information, but finds Lanyon transformed: he is deathly pale, visibly thinner, and clearly dying. Lanyon tells Utterson that he has had "a shock" from which he will never recover, and that he regards Jekyll as "dead" to him. He refuses to discuss Jekyll further, saying "I wish to see or hear no more of Dr Jekyll."
+
+Utterson writes to Jekyll, asking what has caused the rupture with Lanyon. Jekyll's reply is anguished and cryptic: he speaks of living "under a dark cloud" and of having brought "the punishment and danger" of his situation upon himself. He asks Utterson to respect his seclusion and not to doubt their friendship.
+
+Within weeks, Lanyon is dead. After his death, Utterson opens an envelope Lanyon left for him, only to find another sealed envelope inside, marked "not to be opened till the death or disappearance of Dr Henry Jekyll." The word "disappearance" echoes the will from Chapter 2, deepening the mystery. Utterson, true to his principles, does not open the inner envelope.
+
+The chapter marks the beginning of the novella's climax. The progressive deterioration of both Jekyll and Lanyon, the cryptic letters, and the recurrence of the word "disappearance" all create mounting tension. Lanyon's death — caused by the shock of witnessing Jekyll's transformation — is the first fatality directly caused by Jekyll's experiment (aside from Hyde's murder of Carew).`,
+      keyQuotes: [
+        {
+          quote: '"He had his death-warrant written legibly upon his face."',
+          analysis:
+            'Utterson\'s observation about Lanyon uses the language of law and documents ("death-warrant," "written," "legibly") to describe a medical condition. This legalistic metaphor connects Lanyon\'s death to the broader themes of judgement and consequence. The "death-warrant" has been written by the knowledge Lanyon has acquired — specifically, witnessing Jekyll\'s transformation. Knowledge, in this novella, can be literally fatal.',
+        },
+        {
+          quote: '"I have had a shock … and I shall never recover."',
+          analysis:
+            'Lanyon\'s confession is minimal and understated, in keeping with the Victorian masculine code of restraint. The word "shock" is vague enough to preserve secrecy while conveying the severity of the experience. The certainty of "never recover" transforms a medical term into a moral and existential statement — what Lanyon has witnessed has fundamentally destroyed his understanding of the world.',
+        },
+        {
+          quote: '"I wish to see or hear no more of Dr Jekyll … I am quite done with that person."',
+          analysis:
+            'Lanyon\'s repudiation of Jekyll uses the language of social severing — "quite done with that person" — which in Victorian society was an extreme gesture. The phrase reveals both disgust and fear. By referring to Jekyll as "that person" rather than by name, Lanyon distances himself from someone he now considers monstrous.',
+        },
+        {
+          quote: '"If I am the chief of sinners, I am the chief of sufferers also."',
+          analysis:
+            'Jekyll\'s self-characterisation as "the chief of sinners" echoes St Paul\'s description of himself in 1 Timothy 1:15. This biblical allusion positions Jekyll within a Christian framework of sin and suffering. The parallel structure ("chief of sinners … chief of sufferers") suggests that sin and suffering are inseparable — that transgression inevitably produces torment. Jekyll sees himself as both perpetrator and victim.',
+        },
+        {
+          quote: '"I sometimes think if we knew all, we should be more glad to get away."',
+          analysis:
+            'Jekyll\'s cryptic remark suggests that full knowledge of the world — or of human nature — would make life unbearable. This connects to the novella\'s broader theme about the dangers of knowledge: the pursuit of truth, whether scientific or personal, can lead to destruction. The phrase "get away" is a euphemism for death, reflecting the novella\'s persistent evasion and indirectness.',
+        },
+      ],
+      analysis: `Chapter 6 accelerates the novella's pace toward its climax. The brief period of normality at the chapter's start makes the subsequent deterioration more shocking. Lanyon's death represents the cost of knowing the truth — his "shock" at witnessing the transformation literally kills him. This makes the pursuit of knowledge itself a source of danger, aligning the novella with the Faustian tradition of the scholar who is destroyed by forbidden knowledge.
+
+The sealed envelopes — letters within letters, secrets within secrets — are a perfect metaphor for the novella's structure: layers of concealment that must be penetrated to reach the truth.`,
+    },
+
+    // ── CHAPTER 7 ───────────────────────────────
+    {
+      number: 7,
+      title: 'Incident at the Window',
+      summary: `This very short chapter describes another Sunday walk by Utterson and Enfield — mirroring the opening of the novella. They pass the same door and discuss the case briefly before seeing Jekyll sitting at an upstairs window of his house, looking like "some disconsolate prisoner."
+
+Utterson calls up to him and encourages him to come outside and walk with them. Jekyll says he would like to but cannot. For a brief moment, the three men converse pleasantly, and something like the old warmth returns to Jekyll's face. Then, suddenly, "the smile was struck out of his face and succeeded by an expression of such abject terror and despair, as froze the very blood of the two gentlemen below."
+
+Jekyll slams the window shut and disappears. Utterson and Enfield walk away in horrified silence, exchanging a single, meaningful look.
+
+The chapter is remarkable for its brevity and its restraint. Stevenson does not explain what caused Jekyll's sudden terror — the reader is left to infer that a transformation was beginning, that Hyde was about to emerge. The unexplained horror is far more effective than any explanation could be. The "expression of such abject terror and despair" is the most powerful description of Jekyll's internal struggle in the entire novella.`,
+      keyQuotes: [
+        {
+          quote: '"God forgive us, God forgive us." But Mr Enfield only nodded his head very seriously, and walked on once more in silence.',
+          analysis:
+            'Utterson\'s repeated prayer for forgiveness is striking because neither he nor Enfield has done anything wrong. The prayer suggests that simply witnessing something terrible — even without understanding it — creates a sense of shared guilt. The phrase also reflects a Victorian Christian worldview in which the existence of evil implicates all of humanity. Enfield\'s silent nod shows that some experiences are beyond words — a recurring theme in the novella.',
+        },
+        {
+          quote: '"The smile was struck out of his face and succeeded by an expression of such abject terror and despair."',
+          analysis:
+            'The violence of the verb "struck" — as if the smile were physically removed by a blow — suggests that the transformation is something that happens to Jekyll against his will. The progression from "smile" to "terror and despair" captures the central horror of the novella: the loss of control over one\'s own identity. "Abject" means utterly hopeless, suggesting that Jekyll has reached a point beyond rescue.',
+        },
+        {
+          quote: '"He sat in the window … taking the air with an infinite sadness of mien, like some disconsolate prisoner."',
+          analysis:
+            'The image of Jekyll as a prisoner at his own window is a powerful metaphor for his entrapment. He is imprisoned not by external walls but by his own dual nature — he cannot leave the house because he might transform at any moment. The word "disconsolate" means beyond comfort, suggesting that Jekyll\'s suffering has reached a point where no help is possible.',
+        },
+        {
+          quote: '"I am very low, Utterson … very low. It will not last long, thank God."',
+          analysis:
+            'Jekyll\'s words are ambiguous: "It will not last long" could mean his illness will pass, but it could also mean his life will not last long. The phrase "thank God" takes on a dark irony if Jekyll is contemplating his own death as a release. This ambiguity creates dramatic tension and foreshadows the novella\'s tragic conclusion.',
+        },
+      ],
+      analysis: `This short chapter is one of the most effective in the novella. Its power comes from what is not said and not shown. The reader never learns exactly what Jekyll sees or feels at the moment the smile leaves his face — the horror is left to the imagination, which makes it more, not less, terrifying.
+
+The chapter mirrors Chapter 1 in structure (a Sunday walk, the door) but with a crucial difference: where Chapter 1 dealt with secondhand information about a past event, Chapter 7 presents a direct, present-tense encounter with horror. The novella has moved from rumour and investigation to witnessed terror.`,
+    },
+
+    // ── CHAPTER 8 ───────────────────────────────
+    {
+      number: 8,
+      title: 'The Last Night',
+      summary: `This is the novella's longest and most dramatic chapter. Poole, Jekyll's butler, arrives at Utterson's house in a state of extreme agitation. He tells Utterson that something is wrong with his master — a voice from behind the locked laboratory door sounds different from Jekyll's, and Poole suspects that Jekyll has been murdered and that the person in the cabinet is Hyde.
+
+Utterson accompanies Poole back to Jekyll's house. The servants are huddled together in fear. Poole leads Utterson to the laboratory door, and they hear a voice from inside that is not Jekyll's. The person behind the door has been desperately seeking a particular chemical — sending out notes (in Jekyll's hand but with a different tone) to chemists all over London, begging for an ingredient that can no longer be found. The original chemical, Poole says, was impure, and it was that very impurity that made the transformation possible — a detail of terrible irony.
+
+Utterson and Poole decide to break down the door. They arm themselves and, after calling out a final warning, smash their way in. Inside, they find Hyde's body — small, dressed in Jekyll's clothes, which are far too large for him — lying on the floor, dead from poison. A crushed phial is in his hand. Jekyll is nowhere to be found.
+
+They search the laboratory and the cabinet. On the desk they find Jekyll's will — now altered to leave everything to Utterson instead of Hyde — a sealed envelope addressed to Utterson, and a large packet containing Jekyll's full confession. Utterson takes the documents home to read.
+
+The chapter is structured as a Gothic thriller, with every element — the servants' fear, the strange voice, the desperate chemical search, the breaking of the door — building toward the climactic revelation. The image of Hyde dead in Jekyll's overlarge clothes is one of the novella's most powerful visual symbols: the diminished, evil self wearing the outward trappings of the larger, respectable self.`,
+      keyQuotes: [
+        {
+          quote: '"That thing was not my master … my master" — here he looked round him and began to whisper — "is a tall, fine build of a man, and this was more of a dwarf."',
+          analysis:
+            'Poole\'s distinction between "my master" and "that thing" captures the unbridgeable gap between Jekyll and Hyde as perceived by others. The whisper — as if the truth is too dangerous to say aloud — reflects the atmosphere of fear. The size difference ("tall, fine build" versus "dwarf") reflects the novella\'s consistent association of Hyde with diminishment and regression.',
+        },
+        {
+          quote: '"Weeping like a woman or a lost soul."',
+          analysis:
+            'Poole\'s description of the sounds from behind the locked door is gendered in a way that reveals Victorian attitudes. Weeping "like a woman" implies that the figure has lost masculine self-control — it has regressed from the composed gentleman to something emotionally uncontrolled. "Lost soul" adds a religious dimension, suggesting damnation.',
+        },
+        {
+          quote: '"It was this night … the creature walked — in my master\'s clothes — crying … seeking for a drug."',
+          analysis:
+            'Poole\'s account of Hyde wearing Jekyll\'s clothes and desperately seeking the drug is one of the novella\'s most disturbing images. The word "creature" dehumanises Hyde, while the detail of the ill-fitting clothes makes the horror physical and visible. The desperation for the drug reveals that Hyde is now the dominant personality and that the chemical transformation can no longer be reliably achieved.',
+        },
+        {
+          quote: '"There lay the cabinet before their eyes in the quiet lamplight, a good fire glowing and chattering on the hearth … and there, in the middle of the floor, lay the body of a man sorely contorted and still twitching."',
+          analysis:
+            'The contrast between the cosy domesticity of the cabinet — lamplight, warm fire, tea things — and the corpse on the floor is deliberately jarring. Stevenson creates a scene where horror invades the most civilised, comfortable space. The body is "contorted" (twisted out of its natural shape, as Hyde\'s evil has twisted Jekyll) and "still twitching" (suggesting the transformation is not yet complete even in death).',
+        },
+        {
+          quote: '"They looked upon the body of a self-slayer."',
+          analysis:
+            'The archaic term "self-slayer" is more evocative than "suicide" — it emphasises the act of violence against oneself. In Victorian terms, suicide was both a crime and a sin, making this a deeply transgressive ending. But the phrase also has a double meaning: Hyde has literally slain the self — destroyed the identity of Jekyll. The duality that defined both characters has been resolved through mutual destruction.',
+        },
+      ],
+      analysis: `Chapter 8 is the novella's dramatic climax, bringing together the Gothic elements of horror fiction (the dark house, the terrified servants, the breaking of the door) with the detective elements of mystery fiction (the investigation, the clues, the discovery). The pacing is masterful: Stevenson builds tension through dialogue, sound effects (the voice behind the door, the footsteps), and the progressive revelation of disturbing details.
+
+The discovery of Hyde's body in Jekyll's clothes is the novella's most powerful image. It makes visible the truth that has been hidden throughout the story: that Hyde was always inside Jekyll, and that Jekyll's respectable exterior was always a costume worn by something smaller and darker.`,
+    },
+
+    // ── CHAPTER 9 ───────────────────────────────
+    {
+      number: 9,
+      title: 'Dr Lanyon\'s Narrative',
+      summary: `The penultimate chapter presents Dr Lanyon's account of the events that led to his death. It takes the form of a letter, shifting the narrative voice from Utterson's third-person perspective to Lanyon's first-person testimony.
+
+Lanyon describes receiving a registered letter from Jekyll, written in a tone of desperate urgency. Jekyll asks Lanyon to go to his cabinet, retrieve a specific drawer containing powders, a phial, and a notebook, and bring them to Lanyon's consulting room. A messenger will arrive at midnight to collect them.
+
+Lanyon follows the instructions, driven by curiosity and concern. At midnight, a small, repulsive figure arrives — Hyde. He is dressed in clothes far too large for him (Jekyll's clothes), and his manner alternates between desperate eagerness and wild anxiety. He mixes the chemicals from the drawer, drinks the resulting potion, and undergoes a horrifying transformation before Lanyon's eyes. Where Hyde had stood, Dr Henry Jekyll now stands.
+
+Lanyon never fully describes the transformation — its horror is conveyed through his reaction rather than through direct description. He says only that "what he told me in the next hour, I cannot bring my mind to set on paper." The experience destroys Lanyon: his rational, scientific worldview cannot accommodate what he has witnessed. He dies within weeks, unable to reconcile the evidence of his senses with his understanding of the world.
+
+This chapter is crucial because it provides the first explicit confirmation that Jekyll and Hyde are the same person. The revelation, delayed until the ninth of ten chapters, is delivered not through the protagonist's discovery but through a dead man's letter — a narrative choice that emphasises the cost of knowledge and the way truth in this novella is always mediated through documents, witnesses, and indirect testimony.`,
+      keyQuotes: [
+        {
+          quote: '"He sprang to it, and then paused, and laid his hand upon his heart: I could hear his teeth grate with the convulsive action of his jaws."',
+          analysis:
+            'Hyde\'s physical reaction to seeing the chemicals — the clutching of his heart, the grinding of his teeth — reveals both his desperation and his loss of physical control. The body betrays what the will tries to conceal. This moment captures the novella\'s recurring theme of the body as a site of uncontrollable impulses.',
+        },
+        {
+          quote: '"O God!" I screamed, and "O God!" again and again; for there before my eyes — pale and shaken, and half fainting, and groping before him with his hands, like a man restored from death — there stood Henry Jekyll!"',
+          analysis:
+            'Lanyon\'s repeated invocation of God is both a prayer and a scream of horror. The simile "like a man restored from death" inverts the Christian idea of resurrection — this is not a holy miracle but a horrifying perversion of natural law. The phrase "groping before him with his hands" suggests disorientation and blindness, as if Jekyll is newly born into a world he cannot yet see clearly.',
+        },
+        {
+          quote: '"My life is shaken to its roots; sleep has left me; the deadliest terror sits by me at all hours of the day and night."',
+          analysis:
+            'Lanyon\'s description of his post-traumatic state uses a series of escalating images: shaken roots (instability), sleeplessness (loss of rest), and personified terror sitting beside him (an inescapable companion). The phrase "deadliest terror" suggests that the fear itself is killing him — knowledge of the truth has become a fatal disease.',
+        },
+        {
+          quote: '"What he told me in the next hour, I cannot bring my mind to set on paper."',
+          analysis:
+            'Lanyon\'s refusal to transcribe Jekyll\'s confession is one of the novella\'s most significant silences. It suggests that some truths are too terrible to be written, too dangerous to be shared. This echoes the novella\'s broader engagement with the limits of language and the danger of knowledge. It also creates narrative tension — the reader must wait for Jekyll\'s own confession to learn the full truth.',
+        },
+        {
+          quote: '"Will you be wise? Will you be guided? Will you suffer me to take this glass in my hand and to go forth from your house without further parley?"',
+          analysis:
+            'Hyde\'s questions to Lanyon offer a choice: ignorance or knowledge. "Will you be wise?" ironically equates wisdom with not knowing — the wise choice would be to remain ignorant. "Parley" means negotiation or discussion, and Hyde\'s desire to leave "without further parley" shows his eagerness to avoid scrutiny. Lanyon chooses knowledge, and it destroys him.',
+        },
+      ],
+      analysis: `Chapter 9 provides the novella's first-person eyewitness account of the transformation and shifts the narrative mode from detective fiction to Gothic horror. Lanyon's testimony is powerful precisely because of what it does not say — the transformation itself is barely described, and Jekyll's explanation is entirely omitted. The horror lies in the gap between what Lanyon witnessed and what he can bring himself to articulate.
+
+Lanyon's death from the shock of knowledge raises profound questions about the relationship between science, truth, and morality. As a rational, empirical scientist, Lanyon's entire worldview is based on the assumption that nature follows knowable laws. Jekyll's transformation shatters this assumption, and Lanyon cannot survive the destruction of his fundamental beliefs.`,
+    },
+
+    // ── CHAPTER 10 ──────────────────────────────
+    {
+      number: 10,
+      title: 'Henry Jekyll\'s Full Statement of the Case',
+      summary: `The final chapter is Jekyll's own confession, written in the first person as a "full statement" addressed to Utterson. It is the longest chapter in the novella and provides the scientific, psychological, and moral explanation for the events the reader has witnessed.
+
+Jekyll describes himself as a man born with "a large appetite for pleasure" but also an intense desire for respectability. This tension between impulse and reputation led him to conceal his pleasures behind a facade of propriety, living a double life long before the chemical transformation. He came to understand that "man is not truly one, but truly two" — that every person contains both good and evil impulses, and that the social pressure to appear purely good forces the evil into hiding.
+
+As a scientist, Jekyll became obsessed with the idea of separating these two natures. He developed a chemical compound — a salt, a particular white powder — that, when dissolved in a tincture and drunk, would transform him into a physical embodiment of his evil side. The first transformation was agonising but exhilarating: he became smaller (because his evil side had been "less exercised and much less exhausted"), younger, and free from the constraints of conscience.
+
+He named this new self Edward Hyde and set up a separate identity for him: rooms in Soho, a cheque account, servants instructed to obey him. For a time, Jekyll enjoyed the freedom of living as Hyde — indulging in unspecified pleasures without risk to his reputation. But gradually, Hyde grew stronger and Jekyll grew weaker. The transformations began to occur involuntarily — Jekyll would fall asleep as himself and wake as Hyde. The chemical that once reliably reversed the transformation became less effective, requiring larger and larger doses.
+
+The murder of Carew shocked Jekyll into giving up Hyde, but it was too late. Hyde could not be permanently suppressed. The final crisis came when the last batch of the chemical salt failed to work — the original salt had contained an impurity that was essential to the transformation, and the new batches were pure. Without the impure salt, Jekyll could not maintain his own form. He was trapped as Hyde, desperately searching for the right chemical while writing his confession.
+
+Jekyll's statement ends with the knowledge that he is about to transform into Hyde for the last time, with no way to reverse it. He does not know whether Hyde will be caught and hanged, or will take his own life. "This, then, is the last time, short of a miracle, that Henry Jekyll can think his own thoughts or see his own face." The statement is a farewell.`,
+      keyQuotes: [
+        {
+          quote: '"Man is not truly one, but truly two."',
+          analysis:
+            'Jekyll\'s central thesis — that human nature is fundamentally dual — is the novella\'s philosophical foundation. The emphasis on "truly" challenges the comfortable assumption that people are unified, consistent beings. Jekyll goes further, speculating that future science will discover that man is not merely two but "a mere polity of multifarious, incongruous, and independent denizens." This remarkably prescient observation anticipates modern psychology\'s understanding of the mind as containing multiple, sometimes conflicting, drives and identities.',
+        },
+        {
+          quote: '"I learned to recognise the thorough and primitive duality of man."',
+          analysis:
+            'The adjective "primitive" connects the duality to something ancient, primal, and pre-civilised. It suggests that the dual nature is not a product of modern society but a fundamental feature of human existence. The word "thorough" emphasises that the duality is complete — it extends through every aspect of the person, not just surface behaviour. This duality cannot be resolved through willpower or social convention; it is structural.',
+        },
+        {
+          quote: '"I was slowly losing hold of my original and better self, and becoming slowly incorporated with my second and worse."',
+          analysis:
+            'Jekyll\'s description of the gradual takeover by Hyde uses the language of possession and consumption. "Losing hold" suggests that identity is something that must be actively maintained — it can slip away if not gripped firmly. "Incorporated" means literally "made into a body" — Hyde is not just a mental state but a physical reality that is consuming Jekyll\'s body. The repetition of "slowly" emphasises the gradual, insidious nature of the process.',
+        },
+        {
+          quote: '"He, I say — I cannot say, I."',
+          analysis:
+            'This extraordinary sentence captures the crisis of identity at the novella\'s heart. Jekyll cannot use the first person ("I") for Hyde, yet he also knows that Hyde is himself. The grammatical confusion — the inability to settle on a pronoun — reflects the psychological reality of a self that has been split and can no longer be coherently described. Language itself breaks down in the face of this duality.',
+        },
+        {
+          quote: '"With every day, and from both sides of my intelligence, I thus drew steadily nearer to that truth, by whose partial discovery I have been doomed to such a dreadful shipwreck: that man is not truly one, but truly two."',
+          analysis:
+            'The metaphor of "shipwreck" suggests that Jekyll\'s discovery has been catastrophic — it has destroyed his life as surely as a storm destroys a ship. The phrase "from both sides of my intelligence" acknowledges that both Jekyll and Hyde contributed to the understanding of duality. The word "doomed" introduces a sense of fate — once the discovery was made, its consequences were inevitable.',
+        },
+        {
+          quote: '"I was the first that could thus plod in the public eye with a load of genial respectability, and in a moment, like a schoolboy, strip off these lendings and spring headlong into the sea of liberty."',
+          analysis:
+            'Jekyll\'s description of his double life uses contrasting images of restraint and freedom. "Plod" suggests the tedium of respectability; "spring headlong" suggests the exhilaration of release. "Lendings" (borrowed clothes) echoes King Lear and suggests that respectability is a costume, not a natural state. The "sea of liberty" is seductive but dangerous — the image of diving headlong into a sea suggests recklessness and the risk of drowning.',
+        },
+        {
+          quote: '"The pleasures which I made haste to seek in my disguise were, as I have said, undignified; I would scarce use a harder term."',
+          analysis:
+            'Jekyll\'s evasiveness about the nature of his pleasures is deliberate and significant. The word "undignified" is remarkably mild for actions associated with the murderous Hyde. This understatement serves two purposes: it maintains the novella\'s reticence about the specific nature of Hyde\'s activities, and it reveals Jekyll\'s continued inability to face the full truth about himself. Even in his final confession, he minimises and euphemises.',
+        },
+        {
+          quote: '"I was suddenly aware that I had lost in stature."',
+          analysis:
+            'The involuntary transformation — Jekyll falling asleep and waking as Hyde — marks the moment when Jekyll loses control. "Lost in stature" is both literal (Hyde is smaller) and metaphorical (Jekyll has been diminished morally). The word "suddenly" emphasises the shock — this is no longer a deliberate, controlled experiment but an uncontrollable process.',
+        },
+        {
+          quote: '"This, then, is the last time, short of a miracle, that Henry Jekyll can think his own thoughts or see his own face."',
+          analysis:
+            'The novella\'s final line is a statement of absolute loss. "Think his own thoughts" and "see his own face" — the most basic forms of selfhood — are about to be taken from Jekyll permanently. The phrase "short of a miracle" acknowledges that only divine intervention could save him now, placing the conclusion in a religious framework. The use of the third person ("Henry Jekyll" rather than "I") suggests that Jekyll is already becoming someone else.',
+        },
+        {
+          quote: '"I bring the life of that unhappy Henry Jekyll to an end."',
+          analysis:
+            'The formal, almost legalistic language of this closing statement contrasts with the emotional horror of its content. Jekyll writes about his own death as if drafting a legal document — a final act of the controlled, professional persona that is about to be destroyed. The adjective "unhappy" is an understatement that carries enormous pathos.',
+        },
+      ],
+      analysis: `Chapter 10 is the novella's intellectual and emotional climax, providing the explanation that the preceding nine chapters have withheld. Jekyll's confession is remarkable for its combination of scientific detail, philosophical insight, and personal anguish. It transforms the novella from a detective story into a psychological study and a moral fable.
+
+The confession reveals that Jekyll's error was not the experiment itself but his belief that he could separate good from evil without consequences. He thought he could enjoy the pleasures of Hyde while maintaining the respectability of Jekyll — a fantasy of having it both ways that mirrors the broader Victorian fantasy of maintaining a perfect public image while pursuing private pleasures.
+
+The final irony — that the transformation depended on an unknown impurity in the original chemical, which cannot be replicated — suggests that Jekyll's experiment was never truly scientific. It was a lucky accident that he mistook for mastery, and when the luck ran out, so did his control. This makes the novella a cautionary tale about the limits of science and the danger of assuming that nature can be fully understood and controlled.`,
+    },
+  ],
+
+  // ──────────────────────────────────────────────
+  //  CHARACTERS
+  // ──────────────────────────────────────────────
+  characters: [
+    // ── DR JEKYLL ────────────────────────────────
+    {
+      name: 'Dr Henry Jekyll',
+      role: 'Protagonist — a respected physician and scientist',
+      arc: `Dr Jekyll is one of the most complex characters in Victorian literature — a man of genuine goodness who destroys himself through the desire to separate his good and evil natures. He is introduced indirectly in the first half of the novella: we see him through others' eyes as a "large, well-made, smooth-faced man of fifty" who is generous, sociable, and highly respected. He is a doctor, a scientist, and a philanthropist — the embodiment of upper-middle-class Victorian respectability.
+
+But Jekyll's confession in Chapter 10 reveals a very different inner reality. He describes himself as a man with "a large appetite for pleasure" who was also intensely committed to maintaining his reputation. This tension between desire and respectability led him to live a double life long before the chemical transformation — concealing his pleasures behind a facade of propriety. The transformation did not create his duality; it merely gave it physical form.
+
+Jekyll's fatal flaw is not evil but hubris. He believes he can use science to resolve the tension between his two natures — to satisfy his desires without compromising his reputation. This is a Faustian bargain: the pursuit of forbidden knowledge that promises power but delivers destruction. Like Faust, Jekyll discovers that the forces he has unleashed cannot be controlled.
+
+The tragedy of Jekyll is that he genuinely wants to be good. His philanthropy, his kindness, his concern for others — these are not mere performances but expressions of a real aspect of his character. But he also harbours impulses that his society forces him to suppress, and the suppression makes these impulses more dangerous, not less. When they finally emerge in the form of Hyde, they are concentrated, intensified, and uncontrollable.
+
+Jekyll's progressive loss of control over the transformation is the novella's most disturbing element. What began as a deliberate, scientific experiment becomes an involuntary, unpredictable process. Jekyll falls asleep and wakes as Hyde. He transforms in public. The chemical becomes less effective. The original impure salt runs out. Each stage represents a further loss of the control that Jekyll valued above all else. His final state — trapped as Hyde, unable to reverse the transformation, writing his confession against the clock — is a powerful image of the complete collapse of the rational, respectable self.`,
+      keyQuotes: [
+        {
+          quote: '"Man is not truly one, but truly two."',
+          analysis:
+            'Jekyll\'s central philosophical insight is the foundation of the entire novella. By asserting that every person contains both good and evil, Jekyll challenges the Victorian assumption that respectable people are straightforwardly good. The word "truly" — repeated for emphasis — insists on the reality of this duality against all comfortable illusions.',
+        },
+        {
+          quote: '"I learned to recognise the thorough and primitive duality of man."',
+          analysis:
+            'The word "primitive" suggests that duality is not a modern condition but an ancient, fundamental aspect of human nature. "Thorough" means complete — the duality penetrates every level of the personality. Jekyll\'s discovery is scientific in form but existential in content: he has uncovered a truth about what it means to be human.',
+        },
+        {
+          quote: '"I was slowly losing hold of my original and better self, and becoming slowly incorporated with my second and worse."',
+          analysis:
+            'This describes the gradual consumption of Jekyll by Hyde. The repetition of "slowly" emphasises the insidious nature of the process. "Incorporated" means literally embodied — Hyde is not just a psychological state but a physical reality that is replacing Jekyll\'s body.',
+        },
+        {
+          quote: '"He, I say — I cannot say, I."',
+          analysis:
+            'The grammatical breakdown — the inability to use first-person pronouns consistently — mirrors the psychological breakdown of a unified identity. Jekyll cannot say "I" for Hyde because that would mean accepting Hyde as himself; but he also cannot fully separate them. Language fails in the face of this contradiction.',
+        },
+        {
+          quote: '"I was the first that could thus plod in the public eye with a load of genial respectability, and in a moment, like a schoolboy, strip off these lendings and spring headlong into the sea of liberty."',
+          analysis:
+            'The contrast between "plod" (tedious respectability) and "spring headlong" (exhilarating freedom) captures the appeal of the transformation. "Lendings" means borrowed garments — respectability is something worn, not something inherent. The "sea of liberty" is both enticing and dangerous, suggesting the loss of boundaries and the risk of drowning in one\'s own desires.',
+        },
+        {
+          quote: '"I had voluntarily stripped myself of all those balancing instincts by which even the worst of us continues to walk with some degree of steadiness among temptations."',
+          analysis:
+            'Jekyll recognises that his experiment removed the moral restraints that keep even flawed people functioning. The metaphor of "balancing instincts" suggests that morality operates like physical balance — remove it, and the person falls. The word "voluntarily" emphasises that Jekyll chose this — he was not a victim but an agent of his own destruction.',
+        },
+        {
+          quote: '"The pleasures which I made haste to seek in my disguise were, as I have said, undignified; I would scarce use a harder term."',
+          analysis:
+            'Jekyll\'s evasiveness about Hyde\'s pleasures reveals his continued inability to face the full truth. Even in his final confession, he minimises and euphemises. "Undignified" is remarkably mild for the behaviour of a murderer. This persistent self-deception — this refusal to confront the darkness within — is itself a form of the duality the novella explores.',
+        },
+        {
+          quote: '"A large, well-made, smooth-faced man of fifty, with something of a slyish cast perhaps."',
+          analysis:
+            'The qualifying phrase "with something of a slyish cast perhaps" introduces doubt into an otherwise positive description. "Slyish" hints at concealment and cunning — qualities that the rest of the novella will confirm. The tentative "perhaps" suggests that even the narrator is uncertain about Jekyll\'s true nature.',
+        },
+        {
+          quote: '"The moment I choose, I can be rid of Mr Hyde."',
+          analysis:
+            'Jekyll\'s confident claim to Utterson is the novella\'s most significant example of dramatic irony. He cannot choose to be rid of Hyde because Hyde is himself. His belief in his own control — the scientist\'s assumption that he can master nature — is precisely what leads to his destruction.',
+        },
+        {
+          quote: '"If I am the chief of sinners, I am the chief of sufferers also."',
+          analysis:
+            'The biblical echo (St Paul, 1 Timothy 1:15) positions Jekyll within a Christian framework of sin and redemption. But unlike Paul, Jekyll cannot find redemption — his sin has taken physical form and cannot be renounced through faith alone. The parallel structure ("chief of sinners … chief of sufferers") insists that Jekyll is both perpetrator and victim.',
+        },
+        {
+          quote: '"This, then, is the last time, short of a miracle, that Henry Jekyll can think his own thoughts or see his own face."',
+          analysis:
+            'The novella\'s final line is a statement of absolute annihilation. Jekyll is about to lose the most fundamental aspects of selfhood: his own thoughts and his own face. The phrase "short of a miracle" acknowledges the hopelessness of his situation while leaving the faintest door open for divine intervention. The third-person self-reference ("Henry Jekyll" rather than "I") suggests that Jekyll is already beginning to lose himself.',
+        },
+        {
+          quote: '"I bring the life of that unhappy Henry Jekyll to an end."',
+          analysis:
+            'The legalistic formality of this sentence creates a devastating contrast with its emotional content. Jekyll writes about his own death as if closing a legal case. The adjective "unhappy" is an almost unbearable understatement. The use of "that" rather than "this" distances Jekyll from himself, as if he is writing about a stranger.',
+        },
+      ],
+    },
+
+    // ── MR HYDE ─────────────────────────────────
+    {
+      name: 'Mr Edward Hyde',
+      role: 'Jekyll\'s alter ego — the embodiment of his suppressed evil',
+      arc: `Edward Hyde is one of the most memorable villains in English literature — not because of what he does (the novella is notably reticent about his specific crimes) but because of what he represents. Hyde is the physical embodiment of Jekyll's suppressed evil impulses, given a separate body through chemical transformation. He is smaller than Jekyll (because, as Jekyll explains, "the evil side of my nature … was less robust and less developed"), younger (because Jekyll's evil has been "less exercised"), and described by every character who encounters him as inducing a profound, instinctive revulsion that defies rational explanation.
+
+Hyde's most distinctive feature is his indescribability. Every character who encounters him struggles to articulate what makes him so repulsive. Enfield says "there is something wrong with his appearance; something displeasing, something downright detestable." Utterson describes "an impression of deformity without any nameable malformation." This failure of language is thematically crucial: Hyde represents aspects of human nature that Victorian society — with its emphasis on categorisation, propriety, and rational explanation — cannot accommodate. He is the unspeakable, the unnameable, the thing that exists beneath the surface of civilised life.
+
+Hyde's violence escalates throughout the novella. He begins by trampling a girl (an act of cruelty), progresses to the murder of Sir Danvers Carew (an act of uncontrollable rage), and ends by taking his own life (an act of self-destruction). This escalation demonstrates that evil, once released from moral restraint, does not remain static but grows more extreme and more uncontrollable. Hyde is not merely an expression of Jekyll's dark side; he is that dark side intensified, concentrated, and freed from the tempering influence of conscience.
+
+Hyde's physical smallness is symbolically significant. As Jekyll explains, he is smaller because the evil in Jekyll was "less exercised" — it had been suppressed and denied rather than expressed and integrated. This suggests that repression does not eliminate evil but stunts it, keeping it in an undeveloped, primitive state. When Hyde is finally released, he behaves like a child or an animal — impulsive, violent, and incapable of empathy — because he has never been allowed to mature or be tempered by social interaction.
+
+Hyde's name is, of course, a pun: he is the hidden self, the aspect of Jekyll that must be concealed from public view. But the name also suggests an animal skin — a "hide" — connecting Hyde to the bestial, pre-civilised impulses that lurk beneath the veneer of human culture.`,
+      keyQuotes: [
+        {
+          quote: '"Mr Hyde was pale and dwarfish, he gave an impression of deformity without any nameable malformation."',
+          analysis:
+            'The central paradox of Hyde\'s appearance — deformed but without any specific deformity — reflects the novella\'s engagement with the limits of rational understanding. What is wrong with Hyde cannot be named because it exists at a level deeper than physical appearance. His "dwarfish" size suggests stunted development, while his pallor suggests something that lives in darkness.',
+        },
+        {
+          quote: '"It wasn\'t like a man; it was like some damned Juggernaut."',
+          analysis:
+            'Enfield\'s comparison of Hyde to a Juggernaut — an unstoppable force that crushes everything in its path — dehumanises Hyde and associates him with pagan religious violence. The word "damned" carries its full theological weight: Hyde is condemned, cursed, beyond redemption.',
+        },
+        {
+          quote: '"With ape-like fury, he was trampling his victim under foot."',
+          analysis:
+            'The simile "ape-like" connects Hyde to Darwinian evolutionary theory, suggesting that he represents a regression to a pre-human state. The word "fury" implies uncontrollable rage — Hyde does not choose violence; he is overwhelmed by it. "Trampling" dehumanises his victim, reducing a human being to something to be walked over.',
+        },
+        {
+          quote: '"Satan\'s signature upon a face."',
+          analysis:
+            'This phrase — used by both Enfield and Utterson — associates Hyde with the Christian devil. "Signature" implies that Hyde has been literally signed or marked by Satan, as if evil has inscribed itself on his physical features. This religious interpretation exists alongside the scientific explanation (the chemical), creating a deliberate ambiguity about the source of Hyde\'s evil.',
+        },
+        {
+          quote: '"He is not easy to describe. There is something wrong with his appearance; something displeasing, something downright detestable."',
+          analysis:
+            'The tricolon of negative adjectives — "displeasing," "something," "downright detestable" — escalates in intensity, showing how Hyde\'s effect on others builds from mild unease to visceral revulsion. The repeated "something" emphasises the vagueness of the impression — no one can pinpoint what is wrong.',
+        },
+        {
+          quote: '"I never saw a man I so disliked, and yet I scarce know why."',
+          analysis:
+            'The paradox of intense dislike without a rational cause is Hyde\'s defining effect on others. People react to Hyde instinctively, viscerally, below the level of conscious thought. This suggests that the recognition of evil is intuitive — the body knows what the mind cannot articulate.',
+        },
+        {
+          quote: '"God bless me, the man seems hardly human! Something troglodytic."',
+          analysis:
+            'The word "troglodytic" — meaning cave-dweller — connects Hyde to a pre-civilised, prehistoric state. It suggests that Hyde represents an evolutionary regression, a return to the primitive. The exclamation "God bless me" is both a prayer for protection and an expression of the shock that Hyde provokes in civilised observers.',
+        },
+        {
+          quote: '"That child of Hell had nothing human; nothing lived in him but fear and hatred."',
+          analysis:
+            'Jekyll\'s description of Hyde in his confession reduces his alter ego to two pure emotions: fear and hatred. The phrase "child of Hell" positions Hyde within a Christian moral framework as the offspring of damnation. "Nothing human" is the ultimate denial of shared identity — Jekyll insists that Hyde, though born from him, is not him.',
+        },
+        {
+          quote: '"I was suddenly aware that I had lost in stature."',
+          analysis:
+            'The involuntary transformation — waking as Hyde without having taken the drug — marks the point of no return. "Lost in stature" works on both literal and metaphorical levels: Hyde is physically shorter, but Jekyll has also been diminished morally and psychologically.',
+        },
+        {
+          quote: '"The powers of Hyde seemed to have grown with the sickliness of Jekyll."',
+          analysis:
+            'This observation reveals a zero-sum relationship between the two identities: as one grows stronger, the other weakens. Hyde feeds on Jekyll\'s decline, growing more powerful as Jekyll becomes more ill and desperate. The word "sickliness" suggests that respectability itself has become a disease.',
+        },
+        {
+          quote: '"Particularly small and particularly wicked-looking."',
+          analysis:
+            'Poole\'s simple description of Hyde reduces him to two essential qualities: smallness and wickedness. The repetition of "particularly" gives the observation an emphatic, almost comic quality. But the pairing of small and wicked suggests that evil is concentrated rather than diluted — smaller but more intense.',
+        },
+      ],
+    },
+
+    // ── UTTERSON ────────────────────────────────
+    {
+      name: 'Mr Gabriel John Utterson',
+      role: 'Narrator-figure — Jekyll\'s lawyer and friend',
+      arc: `Utterson is the novella's primary perspective character — the rational, reliable lens through which the reader experiences the mystery. He is a lawyer by profession and a gentleman by temperament: controlled, discreet, loyal, and fundamentally decent. His name — "Utterson" — suggests "utterance" or speaking, which is ironic for a character who is most notable for what he does not say, does not ask, and does not pursue.
+
+Utterson's defining quality is restraint. He "drank gin when he was alone, to mortify a taste for vintages" — he deliberately denies himself pleasure, substituting cheap gin for the fine wine he actually prefers. This self-denial is presented as a virtue but also as a form of the same repression that destroys Jekyll. Utterson controls his desires through discipline; Jekyll tries to control his through science. Both approaches fail, but Utterson's fails less catastrophically because his desires are more modest.
+
+As the novella's detective figure, Utterson investigates the mystery of Jekyll and Hyde, but his investigation is limited by the very qualities that make him a good Victorian gentleman. He does not pry, does not ask direct questions, does not pursue leads that might embarrass his friends. His motto — "I incline to Cain's heresy: I let my brother go to the devil in his own way" — reveals a philosophy of non-interference that, while tolerant, also enables dangerous secrets to fester.
+
+Utterson's ultimate failure is a failure of imagination. He suspects blackmail, he suspects forgery, but he never suspects the truth — that Jekyll and Hyde are the same person. This failure is not stupidity but the result of a worldview that cannot accommodate the supernatural or the irrational. Utterson is so firmly grounded in the rational, legal, material world that the idea of a chemical transformation is literally unthinkable for him.
+
+Despite his limitations, Utterson is the novella's moral anchor. His loyalty to Jekyll, his concern for the servants, his willingness to break down the laboratory door — these actions demonstrate genuine courage and friendship. He represents the best of Victorian masculinity: steady, reliable, and self-sacrificing, even if he cannot see beyond the boundaries of his own worldview.`,
+      keyQuotes: [
+        {
+          quote: '"Mr Utterson the lawyer was a man of a rugged countenance … lean, long, dusty, dreary, and yet somehow lovable."',
+          analysis:
+            'The description establishes Utterson as paradoxically attractive: he is physically unprepossessing ("lean, long, dusty, dreary") yet inspires affection ("somehow lovable"). The word "somehow" acknowledges the paradox without resolving it. Utterson\'s lovability, like Hyde\'s repulsiveness, defies rational explanation.',
+        },
+        {
+          quote: '"He was austere with himself; drank gin when he was alone, to mortify a taste for vintages."',
+          analysis:
+            'Utterson\'s self-imposed austerity mirrors Jekyll\'s self-imposed respectability — both men deny themselves pleasure. The word "mortify" means both "to discipline" and "to kill," suggesting that Utterson\'s restraint involves a kind of self-destruction. The detail about gin vs. vintages shows that Utterson has sophisticated desires that he deliberately suppresses.',
+        },
+        {
+          quote: '"If he be Mr Hyde … I shall be Mr Seek."',
+          analysis:
+            'Utterson\'s pun reveals both his determination to investigate and his fundamentally rational, game-like approach to the mystery. The reference to hide-and-seek frames the investigation as a puzzle to be solved rather than a horror to be confronted. This rational optimism will prove inadequate in the face of the supernatural.',
+        },
+        {
+          quote: '"I incline to Cain\'s heresy … I let my brother go to the devil in his own way."',
+          analysis:
+            'Utterson\'s reference to Cain — who asked God, "Am I my brother\'s keeper?" — reveals a philosophy of non-interference that reflects the Victorian gentleman\'s code of discretion. While this tolerance prevents moralising, it also prevents the kind of direct intervention that might have saved Jekyll. The word "heresy" acknowledges that this non-interference is morally questionable.',
+        },
+        {
+          quote: '"I feel very strongly about putting questions; it partakes too much of the style of the day of judgement."',
+          analysis:
+            'Utterson\'s reluctance to ask questions — equated with divine judgement — reveals how deeply the culture of discretion has shaped his worldview. Questions are seen as aggressive, presumptuous, almost sacrilegious. This attitude, while protecting individual privacy, also protects dangerous secrets.',
+        },
+        {
+          quote: '"If he be Mr Hyde, I shall be Mr Seek."',
+          analysis:
+            'The wordplay establishes the detective-story framework. Utterson positions himself as the rational investigator who will uncover the hidden truth. But the children\'s game reference also suggests that Utterson underestimates the seriousness of what he is pursuing.',
+        },
+        {
+          quote: '"God forgive us, God forgive us."',
+          analysis:
+            'Utterson\'s prayer after witnessing Jekyll\'s transformation at the window expresses the sense that simply seeing evil creates a kind of complicity. The repetition suggests genuine distress — this controlled, rational man has been shaken to his foundations.',
+        },
+        {
+          quote: '"O my poor old Harry Jekyll, if ever I read Satan\'s signature upon a face, it is on that of your new friend."',
+          analysis:
+            'Utterson\'s identification of "Satan\'s signature" on Hyde\'s face reveals the religious dimension of his worldview. Despite his rationalism, Utterson instinctively interprets Hyde in Christian terms — as demonic rather than merely criminal. The affectionate "my poor old Harry" shows genuine friendship and concern.',
+        },
+        {
+          quote: '"This Master Hyde, if he were studied … must have secrets of his own; black secrets."',
+          analysis:
+            'Utterson\'s intuition that Hyde has "black secrets" is correct but incomplete. The adjective "black" associates Hyde\'s secrets with darkness, sin, and death. The conditional "if he were studied" reveals Utterson\'s analytical mindset — he approaches even evil as something to be investigated and understood.',
+        },
+        {
+          quote: '"I shall say nothing against it. I believe you, Jekyll; I trust you fully."',
+          analysis:
+            'Utterson\'s declaration of trust — given despite his grave concerns — demonstrates the depth of his loyalty. But it also shows the limitations of a friendship built on the principle of not asking questions. Utterson trusts Jekyll precisely because he does not know the full truth.',
+        },
+      ],
+    },
+
+    // ── DR LANYON ────────────────────────────────
+    {
+      name: 'Dr Hastie Lanyon',
+      role: 'Jekyll\'s former friend — a conventional physician',
+      arc: `Dr Lanyon represents orthodox, conventional Victorian science — the empirical, rational approach that trusts only what can be observed, measured, and categorised. He is described as "a hearty, healthy, dapper, red-faced gentleman" — a man of robust physical and intellectual confidence who has no patience for speculation or mysticism.
+
+Lanyon's falling-out with Jekyll over what he calls "unscientific balderdash" is crucial to the novella's exploration of the boundaries of knowledge. Lanyon believes that science should operate within established limits; Jekyll believes that science should push those limits. Their disagreement reflects a real debate in Victorian intellectual life between conservative empiricism and more adventurous, speculative approaches to nature.
+
+Lanyon's death — caused by the shock of witnessing Jekyll's transformation — is the novella's most powerful statement about the danger of knowledge. Lanyon's entire worldview is based on the assumption that nature follows predictable, rational laws. When he sees Jekyll transform into Hyde before his eyes, this assumption is shattered, and with it, his ability to make sense of the world. He dies not from any physical injury but from an existential crisis — the destruction of his fundamental beliefs.
+
+Lanyon's death also functions as a warning about the inadequacy of pure rationalism. By refusing to engage with Jekyll's ideas, Lanyon left himself unprepared for the possibility that the world is stranger and more dangerous than his categories can accommodate. His death suggests that rigid adherence to conventional thinking can be as dangerous as the reckless experimentation he condemns.`,
+      keyQuotes: [
+        {
+          quote: '"A hearty, healthy, dapper, red-faced gentleman."',
+          analysis:
+            'Lanyon\'s description emphasises physical health and confidence — qualities that make his subsequent decline more shocking. "Hearty" and "healthy" suggest both physical robustness and emotional stability. The alliterative list creates a sense of vigour and energy that will be completely destroyed by his encounter with the truth.',
+        },
+        {
+          quote: '"He began to go wrong, wrong in mind."',
+          analysis:
+            'Lanyon\'s judgement on Jekyll uses the language of pathology — "wrong in mind" — to dismiss Jekyll\'s experiments. For Lanyon, pushing the boundaries of science is a form of mental illness. This conflation of intellectual adventure with madness reflects a conservative worldview that distrusts innovation.',
+        },
+        {
+          quote: '"I sometimes think if we knew all, we should be more glad to get away."',
+          analysis:
+            'Although this is Jekyll\'s line, it perfectly captures Lanyon\'s fate. Full knowledge — seeing the transformation — makes Lanyon eager to "get away" (die). The statement suggests that some truths are incompatible with continued living.',
+        },
+        {
+          quote: '"Such unscientific balderdash."',
+          analysis:
+            'Lanyon\'s dismissive phrase reveals his rigid attachment to conventional science. "Balderdash" means nonsense, and "unscientific" is the most damning adjective in Lanyon\'s vocabulary. His refusal to take Jekyll\'s work seriously leaves him unprepared for the reality of the transformation.',
+        },
+        {
+          quote: '"He had his death-warrant written legibly upon his face."',
+          analysis:
+            'Utterson\'s observation about Lanyon uses legal language to describe a medical condition. The "death-warrant" has been written by knowledge — specifically, the knowledge of Jekyll\'s transformation. In this novella, knowing too much is literally a death sentence.',
+        },
+        {
+          quote: '"I have had a shock … and I shall never recover."',
+          analysis:
+            'The understatement of "shock" for what was actually a world-shattering revelation reflects Lanyon\'s inability to articulate what he experienced. His rational vocabulary has no words for what he saw. "Never recover" is both a medical prognosis and a philosophical statement — his worldview has been permanently broken.',
+        },
+        {
+          quote: '"I wish to see or hear no more of Dr Jekyll … I am quite done with that person."',
+          analysis:
+            'Lanyon\'s repudiation of Jekyll uses the language of social severing. "That person" — rather than "him" or "Jekyll" — creates maximum distance. The finality of "quite done" suggests that Lanyon has judged Jekyll and found him guilty. But it also reveals Lanyon\'s inability to process what he has seen — rejection is his only available response.',
+        },
+        {
+          quote: '"O God!" I screamed, and "O God!" again and again.',
+          analysis:
+            'Lanyon\'s reaction to the transformation — repeated screaming — strips away his professional composure entirely. The repetition of "O God" suggests a mind that has lost its capacity for varied expression, reduced to a single prayer/exclamation. The controlled, confident physician has been reduced to primal terror.',
+        },
+        {
+          quote: '"My life is shaken to its roots; sleep has left me; the deadliest terror sits by me at all hours."',
+          analysis:
+            'Lanyon\'s post-traumatic state is described through a series of images: uprooted stability, lost sleep, and terror as a constant companion. The personification of terror "sitting by" him suggests that the horror has become a permanent presence — not a memory to be processed but a reality to be endured.',
+        },
+        {
+          quote: '"What he told me in the next hour, I cannot bring my mind to set on paper."',
+          analysis:
+            'Lanyon\'s refusal to write down Jekyll\'s explanation is the novella\'s most significant narrative gap. It suggests that some knowledge is too dangerous to transmit — that writing it down would spread the contamination. Lanyon protects future readers from the truth that destroyed him.',
+        },
+      ],
+    },
+
+    // ── ENFIELD ─────────────────────────────────
+    {
+      name: 'Mr Richard Enfield',
+      role: 'Utterson\'s kinsman — a man about town',
+      arc: `Enfield serves as the novella's initial witness — the first character to encounter Hyde and to report his disturbing effect. He is described as a "well-known man about town," suggesting a sociable, worldly figure who moves in fashionable circles. His presence on the street late at night (when he witnesses Hyde trampling the girl) hints at a lifestyle that, while not disreputable, involves pleasures that are not discussed in polite society.
+
+Enfield's most important function is as a narrator of the trampling scene in Chapter 1. His vivid, disturbing account establishes Hyde's character before Hyde himself appears, creating anticipation and dread. Enfield's inability to describe what makes Hyde so repulsive — "I can't specify the point … He must be deformed somewhere" — establishes the motif of indescribability that recurs throughout the novella.
+
+Enfield also represents the Victorian code of discretion. His maxim — "the more it looks like Queer Street, the less I ask" — articulates a philosophy of deliberate ignorance that prioritises social harmony over truth. This code protects reputations but also enables dangerous secrets to persist.
+
+In the novella's structure, Enfield bookends the narrative: he appears in Chapter 1 and returns in Chapter 7 (the window scene), where he and Utterson witness Jekyll's agonised expression. Between these two appearances, he is largely absent, his role as investigator having been taken over by Utterson. His function is to introduce the mystery and to represent the perspective of ordinary, respectable society confronted with something it cannot explain.`,
+      keyQuotes: [
+        {
+          quote: '"It wasn\'t like a man; it was like some damned Juggernaut."',
+          analysis:
+            'Enfield\'s comparison of Hyde to an unstoppable force establishes the theme of uncontrollable power that runs through the novella. The dehumanising simile — "not like a man" — immediately separates Hyde from normal humanity.',
+        },
+        {
+          quote: '"No, sir, I make it a rule of mine: the more it looks like Queer Street, the less I ask."',
+          analysis:
+            'Enfield\'s deliberate policy of not investigating suspicious circumstances reflects the Victorian gentleman\'s code. This non-interference is presented as wisdom, but the novella shows that it enables Hyde\'s crimes to continue unchecked.',
+        },
+        {
+          quote: '"I gave a view halloa, took to my heels, collared the gentleman."',
+          analysis:
+            'The hunting language — "view halloa" (a hunting cry), "took to my heels," "collared" — positions Enfield as a pursuer of prey. This language foreshadows the novella\'s broader theme of pursuit and concealment.',
+        },
+        {
+          quote: '"There is something wrong with his appearance; something displeasing, something downright detestable."',
+          analysis:
+            'The escalating tricolon — from "wrong" to "displeasing" to "detestable" — captures the intensifying effect of Hyde\'s presence. The vagueness ("something") is as important as the intensity — Enfield cannot identify what is wrong, only that it is there.',
+        },
+        {
+          quote: '"He gave me one look, so ugly that it brought out the sweat on me like running."',
+          analysis:
+            'Hyde\'s ugliness produces an involuntary physical reaction — sweating — that bypasses conscious thought. The simile "like running" suggests that Enfield\'s body is responding as if to physical exertion or danger, even though he is standing still. Hyde triggers the fight-or-flight response.',
+        },
+        {
+          quote: '"I had taken a loathing to my gentleman at first sight."',
+          analysis:
+            'The instantaneous, irrational nature of Enfield\'s revulsion is significant. He does not dislike Hyde after getting to know him; he loathes him on sight. This suggests that the recognition of evil is instinctive, operating at a level below rational analysis.',
+        },
+        {
+          quote: '"He was perfectly cool and made no resistance, but gave me one look, so ugly that it brought out the sweat on me."',
+          analysis:
+            'The contrast between Hyde\'s calmness and the extreme reaction he provokes in others is unsettling. Hyde is "perfectly cool" — in control — while those around him are sweating, trembling, and nauseated. This power imbalance suggests that Hyde\'s evil gives him a kind of dominance over normal people.',
+        },
+        {
+          quote: '"We told the man we could and would make such a scandal out of this, as should make his name stink from one end of London to the other."',
+          analysis:
+            'The threat of social scandal — damaging someone\'s reputation — is the most powerful weapon in the Victorian gentleman\'s arsenal. The violence of the language ("stink") reveals the ferocity beneath the polite surface. Reputation is everything in this society, and the threat to destroy it is treated as more serious than physical violence.',
+        },
+        {
+          quote: '"The two men put the money away."',
+          analysis:
+            'This seemingly minor detail about Utterson and Enfield agreeing not to spend or discuss the money further is significant. It shows the Victorian gentleman\'s instinct to contain and suppress anything that might lead to scandal. The money — evidence of a crime — is literally put away, hidden from view.',
+        },
+        {
+          quote: '"Let us make a bargain never to refer to this again."',
+          analysis:
+            'Enfield\'s proposal to suppress discussion of the incident exemplifies the novella\'s critique of Victorian discretion. The word "bargain" turns silence into a contractual obligation between gentlemen. This agreement to not speak mirrors the broader social contract that allows Hyde\'s crimes to continue unchecked.',
+        },
+      ],
+    },
+  ],
+
+  // ──────────────────────────────────────────────
+  //  THEMES
+  // ──────────────────────────────────────────────
+  themes: [
+    {
+      name: 'Duality of Human Nature',
+      analysis: `The duality of human nature is the central theme of the novella and its most enduring contribution to cultural consciousness. Jekyll's famous statement — "man is not truly one, but truly two" — articulates an understanding of human psychology that was radical in 1886 but has since become widely accepted: that every person contains contradictory impulses, desires, and identities, and that the unified "self" presented to the world is a construction rather than a natural fact.
+
+Stevenson explores duality at every level of the text. The most obvious duality is the physical transformation of Jekyll into Hyde — one body housing two identities. But the theme extends far beyond this central conceit. London itself is dual: the respectable streets and the sinister back alleys coexist, often separated by a single wall. The time of day is dual: the novella takes place largely at night, when the rules of daytime society are suspended and hidden activities emerge. Even the narrative structure is dual: the story is told through multiple perspectives and documents, each revealing only part of the truth.
+
+Jekyll's experiment does not create his duality — it merely gives it physical form. He confesses that he led a double life long before the transformation: "many a man would have even blazoned such irregularities as I was guilty of; but from the high views that I had set before me, I regarded and hid them with an almost morbid sense of shame." The transformation is not the cause of his duality but a response to it — an attempt to resolve the tension between his respectable public self and his pleasure-seeking private self.
+
+Stevenson's treatment of duality is profoundly pessimistic. Jekyll's attempt to separate his two natures does not resolve the tension but intensifies it. Instead of achieving the peace of a unified good self, he creates a separate evil self that grows progressively more powerful and uncontrollable. The moral of the novella is not that people should suppress their dark side (this is what Jekyll was already doing, and it made things worse) but that the dark side cannot be separated from the light — that human nature is irreducibly complex and must be accepted as a whole.
+
+The novella also explores the duality of Victorian society itself. The emphasis on respectability, propriety, and reputation creates a culture of facades, where public behaviour may bear little resemblance to private reality. Jekyll is not the only character who maintains a double life — the entire society operates on the principle of concealing anything that might damage reputation. Stevenson suggests that this culture of repression does not eliminate evil but drives it underground, where it becomes more concentrated and more dangerous.`,
+      keyQuotes: [
+        '"Man is not truly one, but truly two."',
+        '"I learned to recognise the thorough and primitive duality of man."',
+        '"He, I say — I cannot say, I."',
+        '"I was slowly losing hold of my original and better self."',
+        '"All human beings … are commingled out of good and evil."',
+      ],
+    },
+    {
+      name: 'Reputation, Secrecy, and Hypocrisy',
+      analysis: `The obsession with reputation is the social force that drives the entire plot of Jekyll and Hyde. Every major character in the novella is preoccupied with maintaining a respectable public image, and this preoccupation shapes their behaviour in ways that are both admirable and destructive.
+
+Jekyll's experiment is motivated not by a desire for evil but by a desire to protect his reputation while satisfying his "imperious desire" for pleasure. He wants the best of both worlds: the respect that comes from being a distinguished physician and philanthropist, and the freedom that comes from indulging in "undignified" pleasures. The transformation allows him — temporarily — to have both, creating a separate identity that can pursue pleasure without risking Jekyll's good name.
+
+Utterson's investigation of Hyde is constrained by the same concern for reputation. He suspects blackmail, forgery, and worse, but he consistently chooses to suppress evidence rather than expose it. His decision not to show Hyde's letter to the police, his reluctance to ask direct questions, his willingness to accept Jekyll's evasions — all stem from a desire to protect his friend's reputation. Utterson is not dishonest or corrupt; he is simply operating within a social code that values discretion and reputation above all else.
+
+The novella's narrative structure itself reflects this culture of secrecy. Information is withheld, partial, and mediated through multiple layers of testimony and documentation. The truth about Jekyll and Hyde is not revealed through investigation but through posthumous letters — it can only be spoken after the participants are dead. This structural reticence mirrors the characters' personal reticence: in this world, the most important truths are the ones that cannot be spoken aloud.
+
+Stevenson's critique is sharp but nuanced. He does not simply condemn Victorian hypocrisy; he shows how the pressure to be respectable creates the conditions for its own undoing. Jekyll's double life is not a failure of character but a logical consequence of a society that demands impossible standards of behaviour. When the gap between public expectation and private reality becomes too great, the result is not merely personal suffering but potentially monstrous transformation.
+
+The novella also explores the hypocrisy of the servants, the lawyers, and the social circle that surrounds Jekyll. Everyone senses that something is wrong, but no one speaks. The culture of "not asking questions" — epitomised by Enfield's maxim about "Queer Street" — creates a conspiracy of silence that allows Hyde to operate with impunity. Stevenson suggests that Victorian respectability is maintained not by genuine virtue but by mutual agreement to look the other way.`,
+      keyQuotes: [
+        '"No, sir, I make it a rule of mine: the more it looks like Queer Street, the less I ask."',
+        '"The pleasures which I made haste to seek in my disguise were, as I have said, undignified."',
+        '"I feel very strongly about putting questions; it partakes too much of the style of the day of judgement."',
+        '"I concealed my pleasures … with an almost morbid sense of shame."',
+        '"Let us make a bargain never to refer to this again."',
+      ],
+    },
+    {
+      name: 'Science, Knowledge, and the Limits of Reason',
+      analysis: `Jekyll and Hyde is profoundly engaged with the role of science in Victorian society and the dangers of pursuing knowledge without moral restraint. The novella was published in 1886, a period of rapid scientific advancement that produced both excitement and anxiety. Darwin's theory of evolution, published in 1859, had fundamentally challenged religious accounts of human origins; advances in chemistry, medicine, and psychology were revealing a natural world far stranger and more complex than previously imagined. Stevenson's novella channels both the excitement and the anxiety of this scientific revolution.
+
+Jekyll is a scientist who pushes the boundaries of his field beyond what his colleagues consider acceptable. Lanyon dismisses his work as "unscientific balderdash" — a judgement that reflects the conservative, empirical approach to science that dominated the Victorian establishment. Lanyon believes that science should operate within known limits; Jekyll believes that science should expand those limits, even at the risk of moral transgression. Their disagreement mirrors a real debate in Victorian intellectual life between cautious empiricism and more adventurous, speculative approaches.
+
+Jekyll's experiment is dangerous not because the science is wrong but because it lacks moral direction. His transformation works — he does successfully separate his dual nature into two physical forms. But he has not considered the consequences of this separation, or the possibility that he might lose control of the process. His hubris — his belief that he can master nature through intellect alone — is a classic example of the Faustian overreacher, the scientist who grasps at forbidden knowledge and is destroyed by what he discovers.
+
+The final irony — that the transformation depended on an unknown impurity in the original chemical salt — is a devastating critique of scientific certainty. Jekyll thought he understood his own experiment, but the crucial ingredient was an accident, an impurity that he could neither identify nor replicate. This reveals the limits of scientific knowledge: even the most careful scientist is subject to forces they cannot perceive or control.
+
+Lanyon's death from the shock of witnessing the transformation is another commentary on the dangers of knowledge. Lanyon's entire worldview — rational, empirical, materialist — is destroyed by what he sees. He cannot accommodate the evidence of his own senses within his existing framework of understanding, and the contradiction kills him. Stevenson suggests that rigid adherence to any single worldview — whether scientific or religious — leaves one vulnerable to realities that fall outside its boundaries.
+
+The novella also engages with the emerging field of psychology. Jekyll's confession reads like a psychological case study, describing the internal conflict between competing drives and the failure of willpower to resolve them. The idea that the mind contains hidden, irrational impulses that can overwhelm the rational self anticipates Freud's theories of the unconscious by over a decade.`,
+      keyQuotes: [
+        '"Such unscientific balderdash."',
+        '"Man is not truly one, but truly two."',
+        '"I had voluntarily stripped myself of all those balancing instincts."',
+        '"With every day … I thus drew steadily nearer to that truth, by whose partial discovery I have been doomed to such a dreadful shipwreck."',
+        '"The drug had no discriminating action; it was neither diabolical nor divine."',
+      ],
+    },
+    {
+      name: 'Victorian Repression and Its Consequences',
+      analysis: `The theme of repression runs through every aspect of the novella — its plot, its characters, its setting, its narrative structure, and even its language. Stevenson presents Victorian society as a world of enforced silence, concealed desires, and suppressed truths, and shows how this culture of repression produces the very monsters it claims to prevent.
+
+Jekyll's transformation is the most dramatic example. His "imperious desire" for pleasure — never specified, always euphemised — has been suppressed for his entire adult life under the pressure of maintaining a respectable reputation. The chemical transformation does not create new desires; it releases desires that have been building pressure for decades. Hyde's violence is not random but is the explosive consequence of prolonged suppression. Like a dam bursting, the force of the release is proportional to the time it was contained.
+
+The novella's language itself is repressive. Characters consistently fail to say what they mean, using euphemism, understatement, and evasion to avoid confronting uncomfortable truths. Hyde's crimes are described as "undignified" pleasures; Lanyon cannot "bring his mind to set on paper" what he witnessed; Utterson feels that asking questions "partakes too much of the style of the day of judgement." This persistent indirection creates an atmosphere of suffocating discretion in which the most important things are the things that cannot be said.
+
+The city of London functions as a physical manifestation of repression. Its fog obscures, its alleyways conceal, and its buildings present respectable facades that hide squalid interiors. The contrast between the front of Jekyll's house (elegant, well-maintained) and the back door leading to his laboratory (battered, sinister) is a perfect spatial metaphor for the relationship between public respectability and private desire.
+
+The all-male world of the novella is itself a product of repression. Women are almost entirely absent — there are no wives, no daughters, no female friends. The male characters exist in a homosocial world of dinners, walks, and professional consultations, from which all female presence and all sexual desire (heterosexual or otherwise) has been excluded. This absence is itself a form of repression, and many critics have read the novella as an exploration of the consequences of suppressing male desire — whether sexual, emotional, or creative.
+
+Stevenson's critique of repression does not suggest that desires should be freely indulged. Hyde — the unrestrained self — is monstrous. Rather, the novella argues for the integration of desire and conscience, suggesting that the attempt to split them apart (as Jekyll does) is both impossible and destructive. The moral is not "express your desires" but "acknowledge that you have them."`,
+      keyQuotes: [
+        '"I concealed my pleasures … I regarded and hid them with an almost morbid sense of shame."',
+        '"I had voluntarily stripped myself of all those balancing instincts."',
+        '"He drank gin when he was alone, to mortify a taste for vintages."',
+        '"The more it looks like Queer Street, the less I ask."',
+        '"I feel very strongly about putting questions."',
+      ],
+    },
+    {
+      name: 'Good versus Evil',
+      analysis: `On the surface, Jekyll and Hyde appears to present a straightforward opposition between good and evil: Jekyll is good, Hyde is evil, and the tragedy arises from the inability to keep them separate. But Stevenson's treatment of this theme is far more complex and disturbing than this simple dualism suggests.
+
+First, Jekyll is not purely good. He confesses to a "large appetite for pleasure" and to leading a double life long before the transformation. His philanthropy and respectability are genuine but they coexist with desires he considers shameful. Jekyll's goodness is real but incomplete — it is maintained by suppressing rather than overcoming his darker impulses.
+
+Second, Hyde is not purely evil in a conventional sense. He is described as having "nothing human" and as being composed entirely of "fear and hatred," but his specific crimes are left vague. The trampling of the girl is cruel; the murder of Carew is savage; but what are the "undignified pleasures" that Hyde pursues? Stevenson deliberately withholds this information, leaving the reader to imagine the worst. Hyde's evil is more about the absence of moral restraint than the presence of specific wicked intentions. He is a creature of pure impulse — whatever he wants, he does, without consideration for others.
+
+Third, the chemical that enables the transformation is itself morally neutral. As Jekyll explains, "the drug had no discriminating action; it was neither diabolical nor divine." It simply separated what was already mixed together. This means that Hyde was always inside Jekyll — the evil was not created by the drug but released by it. The implication is deeply unsettling: every person contains the potential for Hyde-like behaviour, held in check only by the "balancing instincts" of conscience and social training.
+
+Stevenson also challenges the idea that good and evil can be clearly separated. Jekyll's attempt to isolate his evil in a separate body fails catastrophically — the two selves cannot be permanently divided, and the evil self grows stronger while the good self weakens. This suggests that good and evil are not opposites but aspects of a single, complex whole. Separating them does not purify the good but empowers the evil, because evil freed from conscience has no brake.
+
+The novella's conclusion is deeply pessimistic. Jekyll does not triumph over Hyde through moral strength or religious faith; he is consumed by Hyde and dies. The evil within him is not defeated but merely contained by death. Stevenson offers no redemption, no salvation, no happy ending — only the grim recognition that the battle between good and evil is fought within every person, and that the outcome is never certain.`,
+      keyQuotes: [
+        '"All human beings … are commingled out of good and evil."',
+        '"The drug had no discriminating action; it was neither diabolical nor divine."',
+        '"Edward Hyde, alone in the ranks of mankind, was pure evil."',
+        '"That child of Hell had nothing human; nothing lived in him but fear and hatred."',
+        '"I had voluntarily stripped myself of all those balancing instincts by which even the worst of us continues to walk with some degree of steadiness among temptations."',
+      ],
+    },
+    {
+      name: 'The Gothic and Urban Horror',
+      analysis: `Jekyll and Hyde belongs firmly within the Gothic literary tradition, drawing on its conventions while adapting them for a modern, urban setting. Traditional Gothic fiction — Walpole's Castle of Otranto, Shelley's Frankenstein, Stoker's Dracula — is typically set in remote, exotic locations: castles, monasteries, wild landscapes, foreign countries. Stevenson's innovation was to bring the Gothic into the heart of London, showing that horror does not require exotic settings but can emerge from the most familiar, civilised surroundings.
+
+The novella's London is a city of duality — respectable by day, sinister by night. Fog rolls through the streets, obscuring vision and creating an atmosphere of uncertainty and concealment. Gaslight creates pools of illumination surrounded by darkness, suggesting that knowledge is partial and danger lurks just beyond the edge of perception. The city is labyrinthine, full of back alleys, side streets, and hidden doors that connect respectable spaces to disreputable ones.
+
+Stevenson uses the Gothic convention of the double — the doppelganger — as the novella's central device. The doppelganger tradition, which runs through German Romantic literature and English Gothic fiction, presents the double as a manifestation of the self's hidden, usually evil, aspects. Jekyll and Hyde is the most famous literary exploration of this theme, and its influence on subsequent fiction, film, and psychology has been immense.
+
+The novella also draws on the Gothic tradition of the Faustian overreacher — the scientist or scholar who transgresses the boundaries of acceptable knowledge and is destroyed by what he discovers. Jekyll, like Faust, makes a bargain that promises freedom but delivers damnation. Like Frankenstein, he creates something he cannot control. Like both, he discovers that the pursuit of forbidden knowledge carries an inevitable, terrible price.
+
+The urban setting allows Stevenson to explore the Gothic theme of the familiar made strange. The most terrifying moments in the novella occur not in exotic locations but in ordinary, everyday settings: a London street, a lawyer's office, a doctor's consulting room. This domestication of horror makes it more unsettling, because it suggests that evil is not "out there" in some remote location but "in here," embedded in the fabric of normal, respectable life.
+
+The novella's fragmented narrative structure — multiple narrators, documents within documents, letters within letters — is itself a Gothic device, creating a sense of layers and concealment. The truth is buried beneath layers of testimony, just as Hyde is buried beneath the facade of Jekyll's respectability. The reader, like Utterson, must dig through these layers to reach the horror at the core.`,
+      keyQuotes: [
+        '"A fog rolled over the city in the small hours … like a district of some city in a nightmare."',
+        '"The door, which was equipped with neither bell nor knocker, was blistered and distained."',
+        '"The dismal quarter of Soho seen under these changing glimpses."',
+        '"The Phantom slowly, gravely, silently approached." (cf. A Christmas Carol)',
+        '"There lay the cabinet before their eyes in the quiet lamplight … and there, in the middle of the floor, lay the body."',
+      ],
+    },
+  ],
+
+  // ──────────────────────────────────────────────
+  //  KEY QUOTES (25+, each with 150+ word analysis)
+  // ──────────────────────────────────────────────
+  keyQuotes: [
+    {
+      quote: '"Man is not truly one, but truly two."',
+      speaker: 'Jekyll',
+      chapter: 10,
+      analysis: `This is the philosophical thesis of the entire novella — the statement around which everything else revolves. Jekyll's assertion challenges the comfortable Victorian assumption that a gentleman is exactly what he appears to be: a unified, consistent, morally coherent individual. By insisting that every person contains "truly two" natures, Jekyll exposes the fiction of the unified self and suggests that identity is always divided, always in conflict. The word "truly" is repeated for emphasis, insisting on the reality of this duality against all comfortable illusions. Jekyll goes even further, speculating that man may contain not just two but many selves — "a mere polity of multifarious, incongruous, and independent denizens." This anticipates modern psychological understandings of the mind as containing multiple, sometimes conflicting, drives and identities. The statement is both a scientific hypothesis and a confession: Jekyll is explaining what he has discovered about himself.`,
+    },
+    {
+      quote: '"It wasn\'t like a man; it was like some damned Juggernaut."',
+      speaker: 'Enfield',
+      chapter: 1,
+      analysis: `Enfield's description of Hyde trampling the girl is the novella's first extended characterisation of evil. The comparison to a Juggernaut — originally a Hindu festival chariot under whose wheels devotees were said to throw themselves — suggests an unstoppable, inhuman force that crushes everything in its path. The word "damned" carries both its colloquial meaning (an emphatic curse) and its literal theological meaning (condemned to hell), immediately placing Hyde within a framework of Christian moral judgement. The key phrase is "not like a man" — Hyde is dehumanised from his first appearance, associated with forces that exceed human categories. This dehumanisation is both a description of Hyde's nature and a reflection of the Victorian tendency to project evil onto a monstrous "other" rather than recognising it within the self.`,
+    },
+    {
+      quote: '"He gave an impression of deformity without any nameable malformation."',
+      speaker: 'Narrator (Utterson\'s perspective)',
+      chapter: 2,
+      analysis: `This paradox is central to the novella's meaning. Hyde is deformed — everyone who encounters him senses it immediately — but the deformity cannot be specified or located. It is not a missing limb, a facial scar, or any identifiable physical abnormality. Rather, it is an impression, a feeling, an intuition that something is fundamentally wrong. This indescribability is thematically crucial: Hyde represents aspects of human nature that Victorian language and categories cannot accommodate — the primitive, the irrational, the amoral. The failure of description is not a narrative weakness but a deliberate artistic choice: Stevenson shows that the most disturbing forms of evil are those that cannot be pinned down, categorised, or rationally explained. The word "nameable" is particularly significant — what cannot be named cannot be controlled, and Hyde, throughout the novella, resists all attempts at categorisation and control.`,
+    },
+    {
+      quote: '"If he be Mr Hyde, I shall be Mr Seek."',
+      speaker: 'Utterson',
+      chapter: 2,
+      analysis: `Utterson's pun establishes the novella's detective-fiction framework and reveals his characteristic approach to the mystery: rational, game-like, and fundamentally optimistic. The reference to the children's game "hide and seek" frames the investigation as a puzzle to be solved — a problem with a solution that can be found through persistence and reason. But the pun also contains an irony that Utterson does not perceive: in hide and seek, the seeker eventually finds the hider, but what Utterson will find is not what he expects. He is looking for a blackmailer or a criminal, when the truth is something far more disturbing — that the man he is seeking is the same as the man he is trying to protect. The lightness of the pun contrasts sharply with the darkness of the mystery, creating a sense of dramatic irony that runs throughout the novella.`,
+    },
+    {
+      quote: '"Satan\'s signature upon a face."',
+      speaker: 'Utterson',
+      chapter: 2,
+      analysis: `This phrase is one of the novella's most resonant descriptions of Hyde. "Satan's signature" implies that Hyde has been literally marked or signed by the devil — that his face bears the physical imprint of evil. The word "signature" suggests something deliberate and identifiable, yet paradoxically, no one can describe exactly what makes Hyde's face so repulsive. This creates a tension between the religious certainty of the phrase (evil is recognisable because it bears the devil's mark) and the novella's consistent demonstration that evil resists description and categorisation. The phrase also places the novella within a Christian moral framework, associating Hyde's evil with Satan and therefore with the supernatural. This religious interpretation coexists uneasily with the scientific explanation provided in Chapter 10, creating a deliberate ambiguity about the nature and origin of evil.`,
+    },
+    {
+      quote: '"I learned to recognise the thorough and primitive duality of man."',
+      speaker: 'Jekyll',
+      chapter: 10,
+      analysis: `Jekyll's description of his discovery uses two key adjectives: "thorough" and "primitive." "Thorough" means complete and total — the duality is not a surface phenomenon but extends through every level of the personality. It cannot be resolved by willpower, education, or social convention because it is structural, built into the very fabric of human nature. "Primitive" means ancient, primal, and pre-civilised — the duality is not a product of modern society but an original feature of the human condition. These two adjectives together suggest that the duality is both universal (all people, all times) and inescapable (not a problem to be solved but a reality to be acknowledged). The word "recognise" implies that the duality was always there; Jekyll's achievement was not creating it but seeing it. This distinction is crucial — Jekyll did not cause his own evil; he discovered it.`,
+    },
+    {
+      quote: '"He, I say — I cannot say, I."',
+      speaker: 'Jekyll',
+      chapter: 10,
+      analysis: `This sentence is perhaps the most psychologically acute moment in the novella. Jekyll is trying to write about Hyde and finds that he cannot use the first-person pronoun "I" — because to say "I" for Hyde would be to admit that Hyde is himself. Yet he also cannot fully use the third person ("he"), because some part of him knows that he and Hyde are one. The result is a grammatical breakdown: "He, I say — I cannot say, I." The punctuation — the dash, the comma, the full stop — traces the movement of a mind struggling to articulate something that defies its categories. This failure of grammar reflects a failure of identity: Jekyll can no longer coherently describe who he is because "who he is" has become a contradiction. The sentence enacts the very duality it describes, splitting between first and third person as Jekyll is split between his two selves.`,
+    },
+    {
+      quote: '"I was slowly losing hold of my original and better self, and becoming slowly incorporated with my second and worse."',
+      speaker: 'Jekyll',
+      chapter: 10,
+      analysis: `This sentence describes the gradual, terrifying process of Hyde's takeover. The key word is "slowly" — repeated twice for emphasis — which emphasises that the process is insidious rather than dramatic. Jekyll does not lose himself in a single catastrophic moment; he loses himself imperceptibly, over days and weeks, as Hyde grows stronger and he grows weaker. "Losing hold" suggests that identity is something that must be actively maintained — it can slip away if not gripped firmly. The metaphor implies that the self is not a fixed, stable entity but something precarious that requires constant effort to sustain. "Incorporated" is a particularly rich word: it means literally "made into a body" — Hyde is not just a psychological state but a physical reality that is absorbing Jekyll's body. The progression from "losing hold" to "incorporated" traces a movement from psychological loosening to physical consumption.`,
+    },
+    {
+      quote: '"With ape-like fury, he was trampling his victim under foot and hailing down a storm of blows."',
+      speaker: 'Narrator (maid\'s testimony)',
+      chapter: 4,
+      analysis: `The murder of Sir Danvers Carew is described with a violence that is unusual for Victorian literature and deliberately shocking. The simile "ape-like fury" connects Hyde to animalism and Darwinian theory, suggesting evolutionary regression — a return to the pre-human, the bestial, the uncivilised. "Trampling" echoes the girl-trampling scene in Chapter 1, showing escalation: what began as cruelty has become murder. "Hailing down a storm of blows" uses weather imagery to suggest uncontrollable natural force — Hyde's violence is not calculated but elemental, like a storm that cannot be reasoned with or stopped. The combination of animal imagery and weather imagery suggests that Hyde represents natural forces — instinct, appetite, rage — that civilisation can contain but never eliminate. The maid's perspective — she watches from a window, "half-dreaming" — adds a dreamlike quality that makes the violence seem both real and surreal.`,
+    },
+    {
+      quote: '"The pleasures which I made haste to seek in my disguise were, as I have said, undignified; I would scarce use a harder term."',
+      speaker: 'Jekyll',
+      chapter: 10,
+      analysis: `Jekyll's evasiveness about the nature of Hyde's pleasures is one of the novella's most discussed features. The word "undignified" is remarkably mild for the activities of a man who has committed murder. This understatement serves several purposes. First, it maintains the novella's characteristic reticence — Stevenson, like his characters, avoids naming the unnameable. Second, it reveals Jekyll's continued inability to confront the full truth about himself — even in his final confession, he minimises and euphemises, using the gentlest available word. Third, the vagueness invites the reader to imagine the worst, making Hyde's pleasures more disturbing than any explicit description could be. The phrase "I would scarce use a harder term" is a masterpiece of Victorian understatement — it simultaneously acknowledges that a "harder term" is warranted and refuses to use one, embodying in a single sentence the culture of repression that the novella critiques.`,
+    },
+    {
+      quote: '"I was the first that could plod in the public eye with a load of genial respectability, and in a moment, like a schoolboy, strip off these lendings and spring headlong into the sea of liberty."',
+      speaker: 'Jekyll',
+      chapter: 10,
+      analysis: `This passage captures the exhilaration of Jekyll's early transformations with remarkable vividness. "Plod" suggests the tedium and heaviness of respectability — it is slow, laborious, and joyless. "Genial respectability" is presented as a "load" — a burden to be carried, not a pleasure to be enjoyed. "Strip off these lendings" echoes King Lear's famous command to strip away the trappings of civilisation and confront "unaccommodated man." The word "lendings" means borrowed clothing, suggesting that respectability is not natural to Jekyll but something he wears like a costume. "Spring headlong into the sea of liberty" is seductive and dangerous: "headlong" suggests recklessness, while "the sea" suggests vastness, freedom, but also the possibility of drowning. The overall effect is to make the reader understand why Jekyll found the transformation irresistible — the contrast between "plod" and "spring" captures a desire for freedom that is entirely human and entirely sympathetic.`,
+    },
+    {
+      quote: '"All human beings, as we meet them, are commingled out of good and evil."',
+      speaker: 'Jekyll',
+      chapter: 10,
+      analysis: `This statement extends Jekyll's thesis about duality from the individual to the universal. The word "commingled" means mixed together so thoroughly that the components cannot be separated — like colours mixed into paint, rather than placed side by side. This is precisely what Jekyll tried to do with his experiment — separate the commingled — and the novella shows why this is impossible. The phrase "as we meet them" adds a social dimension: every person we encounter in daily life is a mixture of good and evil, whatever they may appear on the surface. This challenges the Victorian tendency to categorise people as simply "good" or "bad" and suggests a more complex, more compassionate understanding of human nature. The universality of "all human beings" makes the statement inescapable — no one is exempt from this duality, not even the most respectable doctor or the most upright lawyer.`,
+    },
+    {
+      quote: '"The drug had no discriminating action; it was neither diabolical nor divine."',
+      speaker: 'Jekyll',
+      chapter: 10,
+      analysis: `Jekyll's clarification about the nature of his chemical compound is philosophically crucial. The drug does not create evil — it merely separates what was already mixed. It has "no discriminating action," meaning it does not choose between good and evil but affects both equally. The phrase "neither diabolical nor divine" insists on the moral neutrality of science itself — a chemical is not good or evil; it is a tool whose moral significance depends entirely on how it is used. This is a sophisticated argument about the relationship between science and morality: science can reveal truths about human nature, but it cannot judge them. The moral responsibility lies not with the drug but with the person who uses it. Jekyll's crime is not creating the drug but using it without sufficient moral wisdom — without understanding that separating good from evil would not purify the good but empower the evil.`,
+    },
+    {
+      quote: '"God bless me, the man seems hardly human! Something troglodytic."',
+      speaker: 'Utterson',
+      chapter: 2,
+      analysis: `Utterson's reaction to Hyde combines religious language with evolutionary theory in a way that captures the intellectual tensions of the Victorian era. "God bless me" is a prayer for protection, reflecting the instinctive Christian response to encountering perceived evil. "Hardly human" places Hyde at the boundary between human and non-human, suggesting that his evil has made him something less — or other — than a person. "Troglodytic" means cave-dwelling, connecting Hyde to prehistoric, pre-civilised humans. In the context of Darwin's recently published theory of evolution, this word carries enormous weight: it suggests that Hyde represents an evolutionary regression, a return to an earlier, more primitive state of human development. The juxtaposition of "God" and "troglodytic" — religion and science, the divine and the prehistoric — reflects the broader cultural tension between faith and reason that the novella explores.`,
+    },
+    {
+      quote: '"O God!" I screamed, and "O God!" again and again; for there before my eyes — pale and shaken, and half fainting, and groping before him with his hands, like a man restored from death — there stood Henry Jekyll!"',
+      speaker: 'Lanyon',
+      chapter: 9,
+      analysis: `Lanyon's account of witnessing the transformation is the novella's most emotionally intense moment. The repeated screaming of "O God!" — three times in a single sentence — represents the complete collapse of Lanyon's rational composure. The man who dismissed Jekyll's work as "unscientific balderdash" is reduced to incoherent religious exclamation. The description of Jekyll emerging from Hyde is structured as a series of participles — "pale and shaken, and half fainting, and groping" — that create a sense of prolonged, unbearable horror. The simile "like a man restored from death" inverts the Christian miracle of resurrection: this is not a holy restoration but a grotesque, unnatural return. The final two words — "Henry Jekyll!" — the name delivered with an exclamation mark — are devastating because they confirm what the reader may have suspected but hoped was not true. The name becomes the revelation.`,
+    },
+    {
+      quote: '"What he told me in the next hour, I cannot bring my mind to set on paper."',
+      speaker: 'Lanyon',
+      chapter: 9,
+      analysis: `Lanyon's refusal to transcribe Jekyll's explanation is the novella's most significant silence — a deliberate narrative gap that speaks louder than any description could. The phrase "cannot bring my mind" suggests not a choice but an inability — Lanyon's mind literally refuses to engage with the information. This is more than discretion; it is a psychological defence mechanism, a refusal to process trauma. The phrase "set on paper" is interesting: it implies that writing down the truth would somehow make it more real, more permanent, and more dangerous. In a novella that explores the power of documents — wills, letters, confessions — the refusal to create another document suggests that some knowledge is too dangerous to record. Lanyon protects future readers from the truth that destroyed him, creating a paradox: the most important information in the story is the information that is withheld.`,
+    },
+    {
+      quote: '"I had voluntarily stripped myself of all those balancing instincts by which even the worst of us continues to walk with some degree of steadiness among temptations."',
+      speaker: 'Jekyll',
+      chapter: 10,
+      analysis: `This is Jekyll's most lucid analysis of his own error. The key word is "balancing" — conscience and moral sense are not presented as forces that eliminate evil impulses but as forces that balance them, maintaining a "degree of steadiness" that allows people to navigate temptation without falling. By removing these balancing instincts through his chemical transformation, Jekyll has not purified himself but destabilised himself, creating a version of himself that has no counterweight to its worst impulses. The phrase "even the worst of us" is significant: it suggests that no one is purely evil, that even the most morally compromised person retains some capacity for balance. Hyde, by contrast, has none — he is the "worst" without the balancing instincts that make normal life possible. The word "voluntarily" emphasises Jekyll's responsibility: this was not an accident but a choice, a deliberate act of self-destruction disguised as scientific experiment.`,
+    },
+    {
+      quote: '"This, then, is the last time, short of a miracle, that Henry Jekyll can think his own thoughts or see his own face."',
+      speaker: 'Jekyll',
+      chapter: 10,
+      analysis: `The novella's final line is a statement of absolute loss. Jekyll is about to lose the most basic attributes of selfhood: his own thoughts and his own face. "Think his own thoughts" implies that Hyde has different thoughts — a different consciousness, a different inner life — which will replace Jekyll's entirely. "See his own face" suggests that Jekyll will never again look in a mirror and see himself, an image of total alienation from one's own identity. The phrase "short of a miracle" acknowledges that only divine intervention could save Jekyll now, placing the conclusion within a religious framework. The use of the third person — "Henry Jekyll" rather than "I" — is devastatingly significant: Jekyll is already beginning to lose himself, already speaking about himself as if about a stranger. The sentence is both a farewell and a death sentence, delivered with the formal precision of a man who has accepted his fate.`,
+    },
+    {
+      quote: '"The smile was struck out of his face and succeeded by an expression of such abject terror and despair."',
+      speaker: 'Narrator',
+      chapter: 7,
+      analysis: `This description of Jekyll's sudden transformation at the window is one of the novella's most powerful moments, precisely because of what it does not explain. The verb "struck" implies violence — the smile is not gradually replaced but violently removed, as if by a blow. "Abject" means utterly hopeless, beyond comfort or rescue. "Terror and despair" are complementary emotions: terror at what is happening, despair at the inability to stop it. The scene is witnessed by Utterson and Enfield from below, which gives it the quality of a tableau — a frozen image of horror framed by a window. The window functions like a stage, displaying a private moment of agony for public viewing. The fact that neither Utterson nor Enfield speaks about what they have seen — they walk away "in silence" — reflects the culture of repression that the novella critiques: even in the face of visible horror, the code of discretion holds.`,
+    },
+    {
+      quote: '"I concealed my pleasures; and when I reached the years of reflection, and began to look round me and take stock of my progress and position in the world, I stood already committed to a profound duplicity of life."',
+      speaker: 'Jekyll',
+      chapter: 10,
+      analysis: `Jekyll's confession of lifelong duplicity is crucial because it establishes that his duality existed long before the chemical transformation. The word "concealed" is the first of many verbs of hiding and suppression. "Reached the years of reflection" suggests a moment of self-awareness — perhaps in his thirties or forties — when Jekyll looked at his life and realised how thoroughly divided it had become. "Committed" is a legal term, suggesting that Jekyll sees his double life as a binding obligation, a state from which he cannot withdraw. "Profound duplicity" is remarkable: "duplicity" means both doubleness and deception, collapsing the distinction between being dual and being dishonest. Stevenson suggests that in a society that demands perfect respectability, every imperfect person is necessarily a liar. The passage anticipates the central insight of the novella: that the chemical transformation did not create Jekyll's duality but gave it physical form.`,
+    },
+    {
+      quote: '"Quiet. Very quiet. The noisy little Cratchits were as still as statues." — This is from A Christmas Carol, but compare: "They looked upon the body of a self-slayer."',
+      speaker: 'Narrator',
+      chapter: 8,
+      analysis: `The archaic term "self-slayer" is more evocative than the clinical "suicide." It emphasises the act of violence against the self — Hyde has literally slain himself, but in doing so, he has also slain Jekyll. The phrase carries both its surface meaning (Hyde took poison) and a deeper resonance (the self has been destroyed). In Victorian terms, suicide was both a crime and a mortal sin, making this ending deeply transgressive. But the novella complicates our response: is this suicide a final act of evil (Hyde destroying his host) or a final act of good (Jekyll preventing Hyde from doing further harm)? The ambiguity is unresolvable because the two identities are inseparable. The passive construction — "they looked upon" — positions Utterson and Poole as witnesses to a spectacle they cannot fully understand, emphasising the gap between what can be observed and what can be known.`,
+    },
+    {
+      quote: '"Such unscientific balderdash."',
+      speaker: 'Lanyon',
+      chapter: 2,
+      analysis: `Lanyon's dismissal of Jekyll's research in just three words encapsulates the conservative Victorian scientific establishment's resistance to unconventional thinking. "Unscientific" is Lanyon's most damning adjective — for a man who defines himself through science, to call something "unscientific" is to deny its legitimacy entirely. "Balderdash" means nonsense, adding emotional contempt to intellectual dismissal. The brevity and finality of the phrase show Lanyon's absolute certainty that he is right and Jekyll is wrong — a certainty that will be shattered when he witnesses the transformation with his own eyes. Lanyon's confidence in the limits of science is precisely what makes the transformation so destructive to him: when the impossible happens, his entire worldview collapses. The phrase thus functions as dramatic irony — the reader eventually learns that Lanyon's "unscientific balderdash" was, in fact, the most important scientific discovery of the age.`,
+    },
+    {
+      quote: '"No, sir, I make it a rule of mine: the more it looks like Queer Street, the less I ask."',
+      speaker: 'Enfield',
+      chapter: 1,
+      analysis: `Enfield's maxim articulates the code of Victorian gentlemanly discretion that pervades the novella. "Queer Street" was Victorian slang for suspicious or disreputable circumstances. Enfield's "rule" is to deliberately avoid investigating anything that might lead to uncomfortable revelations. This is not cowardice but a social principle: the gentleman protects both his own reputation and others' by refusing to acknowledge what lies beneath the surface of respectable life. The phrase is structurally important because it establishes the theme of willing ignorance that runs through the entire novella. Every character practises some form of Enfield's rule: Utterson does not press Jekyll for explanations; Jekyll conceals his double life; the servants obey without questioning. This collective decision not to look too closely creates the conditions for Hyde's existence — he thrives in the spaces that respectability refuses to examine.`,
+    },
+    {
+      quote: '"I bring the life of that unhappy Henry Jekyll to an end."',
+      speaker: 'Jekyll',
+      chapter: 10,
+      analysis: `The formal, almost legalistic language of this sentence creates a stark contrast with its devastating content. Jekyll writes about his own death as if closing a legal case or signing off on a professional report — a final performance of the controlled, authoritative persona that is about to be permanently erased. The word "unhappy" is an almost unbearable understatement for a man who has lost control of his own body and mind, committed murder (through his alter ego), destroyed his friendships, and driven his colleague to death. The use of the demonstrative "that" rather than "this" creates distance — Jekyll writes about himself in the third person, as if he is already someone else, already beginning to lose the identity he is describing. The sentence also echoes a legal execution: "I bring the life … to an end" has the cadence of a death sentence being pronounced. Jekyll is simultaneously the judge, the condemned, and the executioner.`,
+    },
+    {
+      quote: '"Edward Hyde, alone in the ranks of mankind, was pure evil."',
+      speaker: 'Jekyll',
+      chapter: 10,
+      analysis: `Jekyll's description of Hyde as "pure evil" is a claim of extraordinary scope. "Alone in the ranks of mankind" sets Hyde apart from every other human being — he is unique, unprecedented, without parallel. "Pure" means unmixed, undiluted — Hyde is evil without any admixture of good, conscience, or moral sense. This is what makes him different from everyone else: most people, as Jekyll has noted, are "commingled out of good and evil." Hyde is the product of chemical separation — the evil extracted from the mixture and given independent existence. But there is a troubling implication: if Hyde is "pure evil," then the Jekyll who remains after the separation should be "pure good." Yet he is not — Jekyll acknowledges that he still feels the pull of temptation. This suggests that the separation was never truly complete, or that good cannot exist in pure form any more than evil can. The claim of "pure evil" may be Jekyll's final act of self-deception — an attempt to distance himself from the monster he created.`,
+    },
+    {
+      quote: '"There lay the cabinet before their eyes in the quiet lamplight, a good fire glowing and chattering on the hearth … and there, in the middle of the floor, lay the body of a man sorely contorted."',
+      speaker: 'Narrator',
+      chapter: 8,
+      analysis: `The contrast between domestic comfort and violent death in this passage is one of Stevenson's most effective techniques. The cabinet is described in terms of warmth and order: "quiet lamplight," "a good fire glowing and chattering" — the sounds and sights of a comfortable, civilised home. Into this peaceful scene, the corpse intrudes with shocking violence: "sorely contorted," suggesting a body twisted by agony. The juxtaposition forces the reader to confront the novella's central argument: that evil does not inhabit exotic, distant locations but can emerge in the most civilised, comfortable settings. The "chattering" fire — giving it almost human speech — creates an eerie effect, as if the room itself is trying to maintain normalcy in the face of the horror on the floor. The passage embodies the Gothic tradition of the uncanny: the familiar made strange, the homely made terrifying.`,
+    },
+  ],
+
+  // ──────────────────────────────────────────────
+  //  ESSAY PLANS
+  // ──────────────────────────────────────────────
+  essayPlans: [
+    {
+      question:
+        'How does Stevenson present the theme of duality in Jekyll and Hyde?',
+      introduction:
+        'Introduce the novella as an exploration of the divided self, written in the context of Victorian repression. State that Stevenson presents duality through character, setting, narrative structure, and language, arguing that human nature is irreducibly complex and cannot be divided into neat categories of good and evil.',
+      paragraphs: [
+        {
+          topic: 'Jekyll and Hyde as physical embodiments of duality',
+          points: [
+            'Analyse Jekyll\'s confession: "man is not truly one, but truly two."',
+            'Discuss how Hyde represents the suppressed, "primitive" side of Jekyll.',
+            'Analyse Hyde\'s physical smallness — the evil was "less exercised and much less exhausted."',
+            'Link to context: Darwin\'s theory of evolution and the fear of regression.',
+          ],
+          keyQuotes: [
+            '"Man is not truly one, but truly two."',
+            '"I learned to recognise the thorough and primitive duality of man."',
+          ],
+        },
+        {
+          topic: 'The duality of London — setting as metaphor',
+          points: [
+            'Analyse the contrast between the front and back of Jekyll\'s house.',
+            'Discuss the fog, gaslight, and nocturnal setting as creating moral ambiguity.',
+            'Link the respectable street and the sinister door to the theme of facades.',
+          ],
+          keyQuotes: [
+            '"A fog rolled over the city … like a district of some city in a nightmare."',
+            '"The door, which was equipped with neither bell nor knocker, was blistered and distained."',
+          ],
+        },
+        {
+          topic: 'Narrative structure as duality — multiple perspectives',
+          points: [
+            'Analyse the fragmented narrative: Utterson, Enfield, Lanyon, Jekyll.',
+            'Discuss how withholding the truth until Chapter 10 mirrors the concealment of duality.',
+            'Analyse the letters and documents as layers of concealment.',
+          ],
+          keyQuotes: [
+            '"He, I say — I cannot say, I."',
+            '"What he told me in the next hour, I cannot bring my mind to set on paper."',
+          ],
+        },
+        {
+          topic: 'The duality of Victorian society — repression and hypocrisy',
+          points: [
+            'Analyse how the culture of discretion enables Hyde\'s existence.',
+            'Discuss Utterson\'s "Cain\'s heresy" — non-interference as complicity.',
+            'Argue that Stevenson critiques a society that demands impossible standards of behaviour.',
+          ],
+          keyQuotes: [
+            '"The more it looks like Queer Street, the less I ask."',
+            '"I concealed my pleasures … with an almost morbid sense of shame."',
+          ],
+        },
+        {
+          topic: 'The impossibility of resolving duality',
+          points: [
+            'Analyse Jekyll\'s failure to separate good from evil permanently.',
+            'Discuss how Hyde grows stronger while Jekyll grows weaker.',
+            'Argue that the novella\'s pessimistic conclusion suggests duality must be accepted, not resolved.',
+          ],
+          keyQuotes: [
+            '"I was slowly losing hold of my original and better self."',
+            '"I bring the life of that unhappy Henry Jekyll to an end."',
+          ],
+        },
+      ],
+      conclusion:
+        'Summarise how Stevenson presents duality at every level of the text — character, setting, structure, language. Argue that the novella\'s enduring power comes from its insistence that duality is not a problem to be solved but a condition to be acknowledged.',
+    },
+    {
+      question:
+        'How does Stevenson present Hyde as a frightening outsider?',
+      introduction:
+        'Introduce Hyde as a figure who inspires universal revulsion despite defying precise description. State that Stevenson makes Hyde frightening through his indescribability, his association with animalism and the demonic, his escalating violence, and his violation of the boundaries between human and non-human.',
+      paragraphs: [
+        {
+          topic: 'Hyde\'s indescribability — the horror of the unnamed',
+          points: [
+            'Analyse how every character struggles to describe Hyde.',
+            'Discuss "an impression of deformity without any nameable malformation."',
+            'Argue that the failure of language makes Hyde more frightening, not less.',
+          ],
+          keyQuotes: [
+            '"He gave an impression of deformity without any nameable malformation."',
+            '"There is something wrong with his appearance; something displeasing, something downright detestable."',
+          ],
+        },
+        {
+          topic: 'Hyde as animal and devil — evolutionary regression',
+          points: [
+            'Analyse "ape-like fury" and "troglodytic" as Darwinian references.',
+            'Discuss "Satan\'s signature upon a face" as a religious interpretation.',
+            'Link to context: Victorian anxiety about evolution and the "beast within."',
+          ],
+          keyQuotes: [
+            '"With ape-like fury, he was trampling his victim under foot."',
+            '"God bless me, the man seems hardly human! Something troglodytic."',
+          ],
+        },
+        {
+          topic: 'Hyde\'s escalating violence',
+          points: [
+            'Trace the progression: trampling the girl to murdering Carew.',
+            'Analyse the graphic detail of the Carew murder.',
+            'Argue that Hyde\'s violence is progressive and uncontrollable.',
+          ],
+          keyQuotes: [
+            '"It wasn\'t like a man; it was like some damned Juggernaut."',
+            '"Bones were audibly shattered and the body jumped upon the roadway."',
+          ],
+        },
+        {
+          topic: 'Hyde as a violation of boundaries',
+          points: [
+            'Discuss Hyde\'s smallness — "dwarfish" — as stunted development.',
+            'Analyse Hyde as existing between categories: human/animal, natural/supernatural.',
+            'Discuss the visceral, physical reactions he provokes — sweating, nausea, horror.',
+          ],
+          keyQuotes: [
+            '"He gave me one look, so ugly that it brought out the sweat on me like running."',
+            '"I never saw a man I so disliked, and yet I scarce know why."',
+          ],
+        },
+      ],
+      conclusion:
+        'Summarise how Stevenson creates a villain who is frightening precisely because he cannot be categorised or explained. Link to the novella\'s broader theme: Hyde represents what Victorian society most fears — the irrational, the primitive, the uncontrollable — not because it comes from outside but because it comes from within.',
+    },
+    {
+      question:
+        'How does Stevenson explore the theme of secrecy in Jekyll and Hyde?',
+      introduction:
+        'Introduce the novella as a study of concealment at every level: personal, social, and narrative. State that Stevenson shows how Victorian culture\'s obsession with reputation creates a world of dangerous secrets, where the things that are hidden are more powerful than the things that are seen.',
+      paragraphs: [
+        {
+          topic: 'Jekyll\'s secret life — concealment as self-destruction',
+          points: [
+            'Analyse Jekyll\'s confession of lifelong duplicity.',
+            'Discuss the chemical transformation as giving physical form to concealment.',
+            'Argue that the effort of maintaining the secret weakens Jekyll and empowers Hyde.',
+          ],
+          keyQuotes: [
+            '"I concealed my pleasures … with an almost morbid sense of shame."',
+            '"I stood already committed to a profound duplicity of life."',
+          ],
+        },
+        {
+          topic: 'The gentleman\'s code — secrecy as social contract',
+          points: [
+            'Analyse Enfield\'s maxim: "the more it looks like Queer Street, the less I ask."',
+            'Discuss Utterson\'s reluctance to pursue uncomfortable truths.',
+            'Argue that the culture of discretion enables Hyde\'s crimes.',
+          ],
+          keyQuotes: [
+            '"No, sir, I make it a rule of mine: the more it looks like Queer Street, the less I ask."',
+            '"I feel very strongly about putting questions."',
+          ],
+        },
+        {
+          topic: 'The narrative structure as a system of secrets',
+          points: [
+            'Analyse the withholding of truth until the final two chapters.',
+            'Discuss the sealed letters, the locked doors, the hidden rooms.',
+            'Argue that the novella makes the reader complicit in the act of uncovering secrets.',
+          ],
+          keyQuotes: [
+            '"Not to be opened till the death or disappearance of Dr Henry Jekyll."',
+            '"What he told me in the next hour, I cannot bring my mind to set on paper."',
+          ],
+        },
+        {
+          topic: 'The physical spaces of secrecy — doors, windows, laboratories',
+          points: [
+            'Analyse the battered door as a symbol of hidden shame.',
+            'Discuss the laboratory as a space of transgression, separate from the house.',
+            'Analyse the window scene — the moment when the private becomes visible.',
+          ],
+          keyQuotes: [
+            '"The door, which was equipped with neither bell nor knocker, was blistered and distained."',
+            '"The smile was struck out of his face."',
+          ],
+        },
+      ],
+      conclusion:
+        'Summarise how Stevenson shows that secrecy is both the cause and the consequence of duality. The culture that demands perfection creates the need for concealment; the concealment creates the conditions for monstrosity. The novella suggests that a healthier society would allow for imperfection rather than demanding that it be hidden.',
+    },
+    {
+      question:
+        'How does Stevenson use the character of Utterson to explore the novella\'s themes?',
+      introduction:
+        'Introduce Utterson as the novella\'s narrative lens — a rational, reliable, but fundamentally limited character whose investigation of the Jekyll/Hyde mystery drives the plot. State that Stevenson uses Utterson to explore themes of discretion, the limits of reason, loyalty, and the Victorian gentleman\'s code.',
+      paragraphs: [
+        {
+          topic: 'Utterson as the rational detective',
+          points: [
+            'Analyse "If he be Mr Hyde, I shall be Mr Seek" as establishing the detective framework.',
+            'Discuss Utterson\'s methodical investigation and its ultimate failure.',
+            'Argue that Utterson represents the limits of reason in the face of the irrational.',
+          ],
+          keyQuotes: [
+            '"If he be Mr Hyde … I shall be Mr Seek."',
+            '"This Master Hyde, if he were studied … must have secrets of his own; black secrets."',
+          ],
+        },
+        {
+          topic: 'Utterson as a repressed character',
+          points: [
+            'Analyse "He drank gin when he was alone, to mortify a taste for vintages."',
+            'Discuss Utterson as a milder version of Jekyll — both men suppress desire.',
+            'Argue that Utterson survives because his desires are more modest, not because his character is fundamentally different.',
+          ],
+          keyQuotes: [
+            '"He was austere with himself; drank gin when he was alone, to mortify a taste for vintages."',
+            '"Lean, long, dusty, dreary, and yet somehow lovable."',
+          ],
+        },
+        {
+          topic: 'Utterson and the code of discretion',
+          points: [
+            'Analyse his reluctance to ask questions ("the style of the day of judgement").',
+            'Discuss how his discretion protects Jekyll but also enables Hyde.',
+            'Argue that Utterson represents the best and worst of the Victorian gentleman.',
+          ],
+          keyQuotes: [
+            '"I feel very strongly about putting questions."',
+            '"I incline to Cain\'s heresy … I let my brother go to the devil in his own way."',
+          ],
+        },
+        {
+          topic: 'Utterson\'s loyalty and its limits',
+          points: [
+            'Analyse his determination to protect Jekyll — breaking down the door.',
+            'Discuss his failure to imagine the truth — Jekyll and Hyde as one person.',
+            'Argue that Utterson\'s imagination is limited by his rationalism.',
+          ],
+          keyQuotes: [
+            '"O my poor old Harry Jekyll."',
+            '"God forgive us, God forgive us."',
+          ],
+        },
+      ],
+      conclusion:
+        'Summarise how Stevenson uses Utterson as both the reader\'s guide and a representative of the Victorian worldview that the novella critiques. Utterson is sympathetic but limited — his virtues (loyalty, discretion, rationality) are also his weaknesses (complicity, evasion, failure of imagination). Through Utterson, Stevenson shows that the "good" Victorian gentleman is as much a product of repression as the "evil" Hyde.',
+    },
+  ],
+
+  // ──────────────────────────────────────────────
+  //  CONTEXT
+  // ──────────────────────────────────────────────
+  context: {
+    victorianSociety: `Robert Louis Stevenson published The Strange Case of Dr Jekyll and Mr Hyde in January 1886, during the height of the Victorian era. Victorian society was characterised by rigid social hierarchies, strict moral codes, and an intense preoccupation with respectability and reputation. The upper and middle classes were expected to maintain a public image of propriety, restraint, and moral rectitude — any deviation from these standards could result in social ostracism and professional ruin. This emphasis on outward respectability created a culture of concealment, where private behaviour might differ dramatically from public appearance. Stevenson's novella is a direct exploration of this gap between public and private, and the psychological toll it exacts on those who must maintain the facade.`,
+
+    victorianRepression: `The concept of repression — the suppression of natural desires and impulses in order to conform to social expectations — is central to understanding Jekyll and Hyde. Victorian society demanded a level of moral purity that was virtually impossible to achieve in practice. Sexual desire, anger, selfishness, and other "base" impulses were expected to be entirely suppressed, at least in public. This created enormous psychological pressure, particularly on men of the professional classes who were expected to embody perfect respectability. The consequences of this repression are the subject of the novella: Jekyll's suppressed desires do not disappear but accumulate force, eventually erupting in the form of Hyde. Stevenson suggests that the Victorian insistence on impossible standards of behaviour does not create genuine virtue but instead creates monsters — hidden, dangerous selves that grow more powerful the longer they are denied.`,
+
+    darwinAndEvolution: `Charles Darwin's On the Origin of Species (1859) and The Descent of Man (1871) had a profound impact on Victorian intellectual life. Darwin's theory of evolution by natural selection suggested that humans were not divinely created beings but evolved animals, sharing common ancestors with apes and other primates. This had deeply disturbing implications for Victorian society: if humans were animals, then the "bestial" impulses that civilisation tried to suppress were not aberrations but fundamental aspects of human nature. Stevenson draws on these anxieties throughout the novella. Hyde is repeatedly described in animal terms — "ape-like fury," "troglodytic," "hardly human" — suggesting that he represents an evolutionary regression, a return to the pre-civilised, animal self that lurks beneath the veneer of culture. The fear of regression — the idea that civilisation might be a thin, fragile layer over a savage core — haunts the novella and gives Hyde his deepest symbolic resonance.`,
+
+    scienceVsReligion: `The late Victorian period saw an intensifying conflict between science and religion. Darwin's theory challenged the biblical account of creation; geological discoveries suggested that the Earth was millions, not thousands, of years old; advances in psychology began to offer naturalistic explanations for phenomena previously attributed to the soul or to divine intervention. Jekyll and Hyde engages with this conflict directly. Jekyll's experiment is scientific — based on chemical compounds and rational observation — but the results are described in religious terms: "Satan's signature," "child of Hell," "God forgive us." The novella exists at the intersection of these two interpretive frameworks, refusing to commit fully to either. Is Hyde a scientific phenomenon or a spiritual one? Is the duality of human nature a biological fact or a theological problem? Stevenson leaves these questions open, reflecting the uncertainty of an era in which the old certainties of faith were being challenged by the new certainties of science.`,
+
+    gothicGenre: `Jekyll and Hyde belongs to the Gothic literary tradition, which began with Horace Walpole's The Castle of Otranto (1764) and includes works by Ann Radcliffe, Mary Shelley, Bram Stoker, and Edgar Allan Poe. Gothic fiction characteristically explores the dark side of human experience — fear, madness, transgression, the supernatural — and often uses architecture (castles, ruins, labyrinthine buildings) as a metaphor for the human mind. Stevenson's innovation was to bring the Gothic into a modern, urban setting. His London — with its fog, gaslight, back alleys, and locked doors — replaces the traditional Gothic castle but serves the same symbolic function: a space of concealment, danger, and hidden horror. The novella also draws on the Gothic tradition of the doppelganger (double), the Faustian overreacher, and the unreliable narrative — all conventions that Stevenson adapts and modernises. Jekyll and Hyde is often considered one of the last great Victorian Gothic novels, bridging the gap between the classic Gothic of the early nineteenth century and the psychological horror fiction of the twentieth.`,
+
+    stevensonBiography: `Robert Louis Stevenson (1850-1894) was a Scottish novelist, poet, and essayist who struggled throughout his life with chronic illness (tuberculosis) and with the tension between his creative temperament and the expectations of his respectable Edinburgh upbringing. His father was a devout Presbyterian who expected his son to follow a conventional path, while Stevenson was drawn to art, bohemian life, and intellectual rebellion. This personal experience of living between respectability and desire informs the novella's central theme. Stevenson reportedly conceived the story in a dream — a nightmare about a man who transforms into a monster — and wrote the first draft in three days. His wife, Fanny, criticised the draft for being too much of a "story" and not enough of an "allegory," and Stevenson burned the manuscript and rewrote it. The published version was an immediate sensation, selling 40,000 copies in six months and establishing Stevenson as one of the leading writers of his generation.`,
+
+    edinburghInfluence: `Edinburgh, where Stevenson grew up, was itself a city of duality. The Old Town — with its narrow, winding closes (alleyways), its overcrowded tenements, and its associations with crime and poverty — sat directly beside the New Town, a model of Georgian elegance with its wide streets, grand terraces, and refined society. The physical proximity of these two worlds — respectable and disreputable, wealthy and poor, light and dark — provided Stevenson with a ready-made metaphor for the duality he would explore in Jekyll and Hyde. Edinburgh also had a rich history of famous doubles: Deacon Brodie, an eighteenth-century Edinburgh citizen who was a respectable cabinet-maker by day and a burglar by night, was a figure Stevenson knew well (he co-wrote a play about Brodie in 1880). The Burke and Hare murders of 1828 — in which two Edinburgh men killed victims and sold their bodies to a medical school for anatomical research — combined themes of science, respectability, and hidden horror that would later inform the novella.`,
+
+    psychologyAndFreud: `Although Sigmund Freud's major works were published after Jekyll and Hyde (The Interpretation of Dreams in 1900, Beyond the Pleasure Principle in 1920), the novella remarkably anticipates many of Freud's key ideas. Jekyll's description of his dual nature — a "primitive" self concealed beneath a civilised exterior — parallels Freud's later model of the id (primitive instincts), the ego (the rational self), and the superego (the moral conscience). Hyde can be read as Jekyll's id — pure instinct, freed from the restraining influence of conscience and social training. Jekyll's confession that he "concealed his pleasures" and led a double life because of social pressure anticipates Freud's theory of repression — the idea that desires pushed into the unconscious do not disappear but continue to exert pressure, potentially erupting in destructive ways. The novella thus stands at a fascinating intersection between Victorian morality and modern psychology, using the language of Gothic horror to explore ideas that would later be articulated in the language of psychoanalysis.`,
+
+    victorianLondon: `The London of Jekyll and Hyde is not the London of reality but a literary construction — a city of fog, gaslight, and sinister back streets that owes as much to Gothic convention as to geographical accuracy. Stevenson, a Scotsman, did not know London intimately, but he created a version of the city that has become one of literature's most influential urban landscapes. His London is a city of contrasts and concealment: respectable squares adjoined by squalid alleys, well-lit main streets giving way to dark side streets, elegant front doors hiding sinister back entrances. The fog — a real feature of Victorian London, caused by the burning of coal — serves as both a literal and a metaphorical device, obscuring vision, creating uncertainty, and suggesting the moral confusion of a society that refuses to see what is hidden in plain sight. Gaslight — the primary form of street lighting in the 1880s — creates pools of illumination surrounded by darkness, suggesting that knowledge is partial and that danger lurks just beyond the edge of perception.`,
+
+    narrativeStructure: `The novella's narrative structure is deliberately fragmented and indirect. Rather than telling the story from a single perspective or in chronological order, Stevenson assembles it from multiple sources: Utterson's observations, Enfield's anecdote, Lanyon's letter, Jekyll's confession, and various other documents and testimonies. This fragmented structure has several effects. First, it creates suspense: the truth about Jekyll and Hyde is withheld until the final two chapters, forcing the reader to piece together clues alongside Utterson. Second, it mirrors the theme of concealment: just as Jekyll hides his true nature behind a facade of respectability, the narrative hides its true meaning behind layers of testimony and documentation. Third, it raises questions about the reliability of knowledge: each narrator has a limited perspective and personal biases, and the "truth" that emerges from their combined accounts is still incomplete and ambiguous. The structure thus enacts the novella's central argument: that reality is always more complex than any single perspective can capture, and that the most important truths are often the hardest to see.`,
+  },
+
+  // ──────────────────────────────────────────────
+  //  ADDITIONAL CHARACTERS
+  // ──────────────────────────────────────────────
+  additionalCharacters: [
+    {
+      name: 'Poole',
+      role: 'Jekyll\'s loyal butler',
+      arc: `Poole represents the servant class that forms the invisible backbone of Victorian domestic life. He is loyal, observant, and deeply concerned about his master, but his position in the social hierarchy limits his ability to act. It is Poole who first suspects that something terrible has happened to Jekyll — he recognises that the voice behind the locked laboratory door is not his master's — but he can only act by seeking Utterson's help, because a servant cannot take decisive action without a gentleman's authority.
+
+Poole's courage in Chapter 8 — helping to break down the laboratory door — is significant because it requires him to overstep the boundaries of his role. Servants were expected to be obedient, discreet, and unquestioning; by raising the alarm and participating in the break-in, Poole is violating these expectations out of genuine love for his master. His actions demonstrate that loyalty to a person can override loyalty to a social code.
+
+Poole's observations — the changed voice, the desperate notes to chemists, the figure in Jekyll's clothes that was "not my master" — provide some of the novella's most unsettling details. His perspective as a servant gives him access to the domestic, private side of Jekyll's life that Utterson's professional relationship cannot reach. Through Poole, Stevenson shows that the people closest to a secret are often those with the least social power to reveal it.`,
+      keyQuotes: [
+        {
+          quote: '"That thing was not my master … my master is a tall, fine build of a man, and this was more of a dwarf."',
+          analysis:
+            'Poole\'s distinction between "my master" and "that thing" reveals how completely Hyde\'s appearance violates Poole\'s sense of normality. The dehumanising "thing" — used for a figure in human clothes — captures the uncanny quality of encountering something that looks like a person but is fundamentally wrong.',
+        },
+        {
+          quote: '"I\'ve been afraid for about a week … and I can bear it no more."',
+          analysis:
+            'Poole\'s confession of fear is remarkable for a Victorian male servant, who was expected to maintain composure at all times. The phrase "bear it no more" echoes the language of emotional extremity, suggesting that what Poole has witnessed has pushed him beyond the limits of endurance.',
+        },
+        {
+          quote: '"Weeping like a woman or a lost soul."',
+          analysis:
+            'Poole\'s description of the sounds from behind the locked door uses gendered language: weeping "like a woman" implies the loss of masculine self-control. "Lost soul" adds a religious dimension, suggesting eternal damnation. Together, the comparisons suggest that whatever is behind the door has lost both its social identity (masculinity) and its spiritual identity (salvation).',
+        },
+        {
+          quote: '"It came out like a rat and ran to the cabinet."',
+          analysis:
+            'Poole\'s comparison of Hyde to a rat — a creature associated with disease, darkness, and the underground — dehumanises Hyde and associates him with the hidden, filthy underside of civilised life. The verb "ran" suggests panic and furtiveness. The image of Hyde scurrying through Jekyll\'s house like a vermin captures the way his evil has infiltrated and corrupted a respectable domestic space.',
+        },
+      ],
+    },
+    {
+      name: 'Sir Danvers Carew',
+      role: 'A murdered Member of Parliament',
+      arc: `Sir Danvers Carew appears only briefly — as the victim of Hyde's most violent crime — but his character and the circumstances of his murder are thematically significant. He is described as "an aged beautiful gentleman with white hair," who approaches Hyde on the street with evident courtesy, "bowing and accosting the other with a very pretty manner of politeness." Carew represents the best of Victorian gentlemanly conduct: he is civil, courteous, and well-intentioned.
+
+Hyde's murder of Carew is shocking precisely because it is motiveless. Carew is not threatening Hyde; he is merely asking for directions or making polite conversation. Hyde's response — "ape-like fury," a storm of blows that shatters bones and breaks the murder weapon — is wildly disproportionate to any possible provocation. This disproportion is the point: Hyde's evil is not rational or strategic; it is pure destructive impulse, triggered by nothing more than the proximity of a vulnerable person.
+
+Carew's status as a Member of Parliament — a representative of the establishment, of law and order, of civilised governance — makes his murder symbolically significant. Hyde is not just killing a man; he is attacking the very institutions of Victorian respectability. The destruction of Carew's body — "mangled" beyond recognition — mirrors Hyde's destruction of the social order that Carew represents.`,
+      keyQuotes: [
+        {
+          quote: '"An aged beautiful gentleman with white hair."',
+          analysis:
+            'The description of Carew emphasises age, beauty, and gentleness — qualities that make his murder more shocking by contrast. "Beautiful" applied to an elderly man suggests inner as well as outer beauty. The white hair signifies both age and innocence, making the attack feel like an assault on purity itself.',
+        },
+        {
+          quote: '"He broke out in a great flame of anger, stamping with his foot, brandishing the cane, and carrying on … like a madman."',
+          analysis:
+            'The maid\'s description of Hyde\'s fury uses fire imagery ("flame of anger") and madness ("like a madman") to suggest uncontrollable, inhuman rage. The word "brandishing" — waving a weapon threateningly — associates Hyde with primitive violence. The fire imagery contrasts with the fog and cold that usually surround Hyde, suggesting an eruption of destructive energy from within.',
+        },
+      ],
+    },
+  ],
+
+  // ──────────────────────────────────────────────
+  //  LITERARY TECHNIQUES
+  // ──────────────────────────────────────────────
+  literaryTechniques: [
+    {
+      technique: 'Pathetic Fallacy and Setting',
+      explanation: `Stevenson uses weather and urban landscape to create atmosphere and reflect moral states. Fog, darkness, and cold dominate the novella, representing the obscured truth and hidden evil of Victorian society. The fog is both literal (Victorian London was genuinely foggy) and symbolic (truth is concealed, perception is limited). Gaslight creates isolated pools of visibility surrounded by darkness, suggesting that understanding is always partial. Rain, wind, and nighttime settings create an atmosphere of menace and instability that mirrors the psychological horror of the story.`,
+      examples: [
+        '"A fog rolled over the city in the small hours … like a district of some city in a nightmare."',
+        '"The dismal quarter of Soho seen under these changing glimpses, with its muddy ways, and slatternly passengers."',
+        '"A great chocolate-coloured pall lowered over heaven."',
+        '"A haggard shaft of daylight would glance in between the swirling wreaths."',
+      ],
+    },
+    {
+      technique: 'The Unreliable and Limited Narrator',
+      explanation: `The novella is told primarily through Utterson's perspective, but Utterson's understanding is limited by his rationalism and his adherence to the code of Victorian discretion. He consistently misinterprets what he sees: he assumes blackmail when the truth is transformation; he suspects forgery when the truth is duality. The reader is trapped within Utterson's limited perspective for most of the novella, sharing his confusion and his mounting unease without having access to the truth. This limited narration creates suspense and mirrors the theme of concealment — just as Jekyll hides behind a facade, the narrative hides behind Utterson's incomplete understanding.`,
+      examples: [
+        'Utterson assumes Hyde is blackmailing Jekyll — he cannot imagine the truth.',
+        '"Henry Jekyll forge for a murderer!" — a conclusion that is both right and wrong.',
+        'Utterson\'s nightmare of a faceless figure — he cannot imagine Hyde because he has never seen him.',
+      ],
+    },
+    {
+      technique: 'Documents and Letters as Narrative Devices',
+      explanation: `The novella's truth is revealed not through direct narration but through documents: Jekyll's will, Hyde's letter, Lanyon's letter, and Jekyll's full statement. This creates a sense of layers — documents within documents, sealed envelopes within sealed envelopes — that mirrors the theme of hidden identity. The documents also serve as a formal, controlled medium for truths that cannot be spoken aloud. In a society that values discretion, the written word (especially the posthumous letter) provides a way to reveal secrets without the social awkwardness of face-to-face confession.`,
+      examples: [
+        'Jekyll\'s will — with its disturbing "disappearance" clause.',
+        'The sealed envelope from Lanyon: "not to be opened till the death or disappearance of Dr Henry Jekyll."',
+        'Jekyll\'s full statement — a confession written against the clock.',
+        'Hyde\'s letter — actually written by Jekyll, as the handwriting comparison reveals.',
+      ],
+    },
+    {
+      technique: 'Symbolism of Doors and Thresholds',
+      explanation: `Doors are one of the novella's most important recurring symbols. The battered back door to Jekyll's laboratory — contrasting with the elegant front door of his house — represents the duality of his character: respectability at the front, transgression at the back. The locked laboratory door in Chapter 8 becomes a barrier between the known and the unknown, the civilised and the monstrous. Doors in the novella are sites of transition, where characters pass from one world to another. Hyde enters and exits through back doors and side entrances, avoiding the main thoroughfares of respectable life. The breaking down of the door in Chapter 8 symbolises the destruction of the barriers between Jekyll's public and private selves.`,
+      examples: [
+        '"The door, which was equipped with neither bell nor knocker, was blistered and distained."',
+        'Hyde enters through the back door; Jekyll is visited through the front.',
+        'The locked laboratory door — hiding the truth until it is broken down.',
+        'Utterson stands at doors, knocks on doors, waits by doors — always on the threshold of understanding.',
+      ],
+    },
+    {
+      technique: 'The Indescribable — Failure of Language',
+      explanation: `One of the novella's most distinctive features is the consistent failure of characters to describe Hyde. Everyone who encounters him feels intense revulsion but cannot explain its source. This failure of description is not a weakness but a deliberate artistic choice. It suggests that Hyde represents something that exists beyond the reach of civilised language — the primitive, the irrational, the amoral. Victorian society prided itself on its power to categorise, classify, and explain the natural world; Hyde resists all such categorisation, demonstrating the limits of rational understanding.`,
+      examples: [
+        '"He is not easy to describe."',
+        '"An impression of deformity without any nameable malformation."',
+        '"I never saw a man I so disliked, and yet I scarce know why."',
+        '"There is something more, if I could find a name for it."',
+        '"He must be deformed somewhere; he gives a strong feeling of deformity."',
+      ],
+    },
+    {
+      technique: 'Foreshadowing and Dramatic Irony',
+      explanation: `Stevenson plants clues throughout the novella that, on re-reading, point toward the truth about Jekyll and Hyde. The handwriting comparison, the will's "disappearance" clause, Jekyll's insistence that he can "be rid of Mr Hyde" whenever he chooses — all of these are instances of dramatic irony, where the reader (on re-reading) knows more than the characters. This technique creates a dual reading experience: the first reading is a mystery; the second reading is a tragedy, as the reader watches characters unknowingly move toward a catastrophe that could have been prevented.`,
+      examples: [
+        'Jekyll\'s will leaving everything to Hyde — not blackmail but self-provision.',
+        '"The moment I choose, I can be rid of Mr Hyde" — tragic overconfidence.',
+        'The handwriting comparison — "the two hands are in many points identical."',
+        'Lanyon\'s "death-warrant written legibly upon his face" — killed by knowledge.',
+      ],
+    },
+    {
+      technique: 'The Doppelganger Tradition',
+      explanation: `Jekyll and Hyde belongs to the literary tradition of the doppelganger — the double or shadow self — which runs through Romantic and Gothic literature. The doppelganger typically represents the hidden, repressed, or evil aspects of a character's personality, given separate, visible form. Precedents include E.T.A. Hoffmann's "The Sandman," Edgar Allan Poe's "William Wilson," Dostoevsky's "The Double," and Oscar Wilde's later "The Picture of Dorian Gray." Stevenson's contribution to this tradition is to ground the doppelganger in a scientific rather than purely supernatural framework — Hyde is created through chemistry, not magic — while maintaining the psychological and moral resonance of the tradition.`,
+      examples: [
+        'Jekyll and Hyde as two halves of a single personality.',
+        'The mirror as a recurring motif — Jekyll sees Hyde\'s face when he looks at himself.',
+        'The overlarge clothes — Hyde wearing Jekyll\'s identity as a costume.',
+        'The shared handwriting — the same hand, tilted differently.',
+      ],
+    },
+  ],
+
+  // ──────────────────────────────────────────────
+  //  ADDITIONAL KEY QUOTES
+  // ──────────────────────────────────────────────
+  additionalKeyQuotes: [
+    {
+      quote: '"I was born in the year 18— to a large fortune, endowed besides with excellent parts, inclined by nature to industry, fond of the respect of the wise and good among my fellow-men."',
+      speaker: 'Jekyll',
+      chapter: 10,
+      analysis: `The opening of Jekyll's confession establishes him as the epitome of the successful Victorian gentleman: wealthy, talented, industrious, and respected. The blank in "18—" is a literary convention that creates the illusion of factual reportage while maintaining anonymity — as if Jekyll's case study could apply to any gentleman of the period. The qualities he lists — fortune, "excellent parts" (talents), industry, and social respect — represent the Victorian ideal of masculine success. But the very completeness of this ideal is what creates the problem: the pressure to be perfect in all these categories leaves no room for human imperfection, forcing Jekyll to hide any aspect of himself that does not conform. The passage thus establishes the social conditions that will produce the catastrophe: a society that demands perfection creates the need for concealment, and concealment creates the conditions for monstrosity.`,
+    },
+    {
+      quote: '"Many a man would have even blazoned such irregularities as I was guilty of; but from the high views that I had set before me, I regarded and hid them with an almost morbid sense of shame."',
+      speaker: 'Jekyll',
+      chapter: 10,
+      analysis: `This crucial passage reveals that Jekyll's "irregularities" — whatever they are — were not particularly unusual. "Many a man would have even blazoned" (publicly displayed) them without shame. It was Jekyll's impossibly high standards — "the high views that I had set before me" — that turned ordinary human imperfections into shameful secrets. The word "morbid" is significant: it means both "unhealthy" and "relating to death," suggesting that Jekyll's shame is itself a disease, a pathological relationship with his own nature that will ultimately prove fatal. The passage is a devastating critique of Victorian perfectionism: the demand for moral purity does not make people better; it makes them sick. Jekyll's "irregularities" only become dangerous because they are hidden, and they are hidden only because society demands an impossible standard of respectability.`,
+    },
+    {
+      quote: '"A mere polity of multifarious, incongruous, and independent denizens."',
+      speaker: 'Jekyll',
+      chapter: 10,
+      analysis: `Jekyll speculates that the human personality may contain not just two selves but many — "a mere polity of multifarious, incongruous, and independent denizens." This remarkably modern insight anticipates twentieth-century psychological theories of multiple selves and the decentred subject. "Polity" means a political community, suggesting that the self is not a unified entity but a collection of competing interests, like a state containing many citizens. "Multifarious" means varied and numerous; "incongruous" means incompatible; "independent" means not under any single authority. Together, these adjectives paint a picture of the self as chaotic, contradictory, and ungovernable — a radical departure from the Victorian ideal of the unified, rational individual. This passage is often cited as evidence that Stevenson anticipated Freudian psychology, with its model of the psyche as a battleground between competing drives.`,
+    },
+    {
+      quote: '"It was on the moral side, and in my own person, that I learned to recognise the thorough and primitive duality of man."',
+      speaker: 'Jekyll',
+      chapter: 10,
+      analysis: `The phrase "on the moral side" specifies that Jekyll's discovery concerns not biology or chemistry but morality — the inner conflict between right and wrong. "In my own person" emphasises that this is not an abstract theory but a lived experience; Jekyll has discovered duality by examining himself. The combination of "thorough" (complete, extending through every part) and "primitive" (ancient, fundamental) suggests that duality is both universal and inescapable. It is not a modern condition caused by Victorian society but an original feature of human nature that Victorian society merely exacerbates. The sentence structure — a single, elegantly balanced clause — creates an effect of calm, rational authority, as if Jekyll is delivering a scientific paper. This measured tone contrasts sharply with the horror of what the discovery has produced, creating a tension between intellectual understanding and emotional reality.`,
+    },
+    {
+      quote: '"Between those two, I now felt I had to choose."',
+      speaker: 'Jekyll',
+      chapter: 10,
+      analysis: `Jekyll describes the moment when he felt forced to choose between his two lives — the respectable physician and the pleasure-seeking double. The word "felt" is important: it implies that the necessity of choice was subjective, a product of his own psychology rather than an objective requirement. Other men, as he has noted, would have "blazoned" their irregularities without shame. Jekyll's inability to integrate his two selves — to accept himself as a complex, imperfect whole — is the source of his tragedy. The phrase "I had to choose" echoes the language of moral philosophy and religious conversion — the moment of decision between two paths. But Jekyll's choice is not between good and evil; it is between two kinds of concealment. He does not choose to be good; he chooses to separate his good and evil selves so that each can exist without knowledge of the other. This is not moral growth but moral evasion, and it leads directly to catastrophe.`,
+    },
+    {
+      quote: '"There comes an end to all things; the most capacious measure is filled at last; and this brief condescension to my evil finally destroyed the balance of my soul."',
+      speaker: 'Jekyll',
+      chapter: 10,
+      analysis: `Jekyll describes the tipping point — the moment when his "condescension to evil" (allowing himself to be Hyde) went too far and permanently damaged his moral equilibrium. The metaphor of a "capacious measure" being "filled at last" suggests a container that can hold a great deal but eventually overflows. Each transformation added another drop; the murder of Carew filled the measure beyond its capacity. The word "balance" echoes the earlier phrase about "balancing instincts" — the moral equilibrium that keeps ordinary people steady. Jekyll has destroyed this balance by repeatedly indulging his worst impulses, and once destroyed, it cannot be restored. The word "condescension" — meaning to lower oneself, to stoop — reveals Jekyll's persistent self-deception: he still sees his evil as something below him, something he condescends to rather than something that is genuinely part of him.`,
+    },
+    {
+      quote: '"I must have stared upon it for near half a minute, sunk as I was in the mere stupidity of wonder, before terror woke up in my breast as sudden and startling as the crash of cymbals."',
+      speaker: 'Jekyll',
+      chapter: 10,
+      analysis: `Jekyll describes the moment he wakes in bed and sees Hyde's hand — not his own — resting on the bedsheet. The sequence of emotions — stupidity, wonder, terror — traces the process of realising something impossible. "Stupidity of wonder" captures the blankness that precedes understanding: the mind encounters something it cannot process and simply stares. The simile "as sudden and startling as the crash of cymbals" translates the emotional shock into a sound image — sudden, loud, impossible to ignore. The cymbal crash is also a musical metaphor, appropriate for a novella that shares its literary world with Dickens's musical "staves." This is the moment when Jekyll loses control permanently — the transformation has occurred without the drug, without his consent, during sleep. The horror is not just that Hyde has appeared but that Jekyll's will, his conscious choice, has been bypassed entirely.`,
+    },
+    {
+      quote: '"I do not suppose that, when a drunkard reasons with himself upon his vice, he is once out of five hundred times affected by the dangers that he runs through his brutish, physical insensibility."',
+      speaker: 'Jekyll',
+      chapter: 10,
+      analysis: `Jekyll compares his addiction to Hyde with alcoholism — a comparison that was both culturally resonant and personally relevant in Victorian Britain, where the temperance movement was a major social force. The comparison acknowledges that Jekyll's relationship with Hyde has become compulsive: like an alcoholic, he knows the dangers but cannot stop. The phrase "once out of five hundred times" — meaning almost never — captures the addict's inability to be moved by rational argument. "Brutish, physical insensibility" describes the state of being so consumed by the addiction that one cannot feel the damage it is causing. This passage is important because it reframes Jekyll's tragedy from a moral failing to a medical condition — he is not simply weak-willed but addicted, trapped in a cycle of compulsion and regret that he cannot break through willpower alone.`,
+    },
+    {
+      quote: '"The door was very strong, the lock excellent."',
+      speaker: 'Narrator',
+      chapter: 8,
+      analysis: `This seemingly simple description of the laboratory door gains enormous symbolic weight in context. The door separates the known from the unknown, the safe from the dangerous, the civilised from the monstrous. Its strength and the quality of its lock represent the barriers that Victorian society erects to keep its secrets contained. When Utterson and Poole break down this door, they are symbolically destroying the barriers between public and private, between the respectable facade and the hidden horror. The fact that the door is "very strong" and the lock "excellent" suggests that considerable force was required to maintain the separation — and that considerable force is required to breach it. The door is both Jekyll's protection (keeping the world from seeing his secret) and his prison (keeping him trapped with Hyde).`,
+    },
+  ],
+
+  // ──────────────────────────────────────────────
+  //  ADDITIONAL ESSAY PLANS
+  // ──────────────────────────────────────────────
+  additionalEssayPlans: [
+    {
+      question:
+        'How does Stevenson present the character of Dr Jekyll in the novella?',
+      introduction:
+        'Introduce Jekyll as a complex character who is both sympathetic and culpable — a man driven to self-destruction by the tension between his desires and his society\'s demands. State that Stevenson presents Jekyll through indirect characterisation, dramatic irony, and his own anguished confession.',
+      paragraphs: [
+        {
+          topic: 'Jekyll as the ideal Victorian gentleman',
+          points: [
+            'Analyse the physical description: "large, well-made, smooth-faced."',
+            'Discuss his profession (doctor), his philanthropy, and his social standing.',
+            'Argue that Jekyll embodies everything Victorian society values — and that this is precisely the problem.',
+          ],
+          keyQuotes: [
+            '"A large, well-made, smooth-faced man of fifty, with something of a slyish cast perhaps."',
+            '"I was born … to a large fortune, endowed besides with excellent parts."',
+          ],
+        },
+        {
+          topic: 'Jekyll as a man of hidden desires',
+          points: [
+            'Analyse his confession of "a large appetite for pleasure."',
+            'Discuss his "profound duplicity of life" — a double life before the transformation.',
+            'Link to context: the pressure of Victorian respectability and the culture of concealment.',
+          ],
+          keyQuotes: [
+            '"I concealed my pleasures … with an almost morbid sense of shame."',
+            '"Many a man would have even blazoned such irregularities."',
+          ],
+        },
+        {
+          topic: 'Jekyll as a Faustian overreacher',
+          points: [
+            'Analyse his scientific ambition: the desire to separate good from evil.',
+            'Discuss his hubris: "The moment I choose, I can be rid of Mr Hyde."',
+            'Argue that Jekyll\'s tragedy is not evil but overconfidence — he thinks he can control nature.',
+          ],
+          keyQuotes: [
+            '"The moment I choose, I can be rid of Mr Hyde."',
+            '"I had voluntarily stripped myself of all those balancing instincts."',
+          ],
+        },
+        {
+          topic: 'Jekyll\'s loss of control',
+          points: [
+            'Trace the progression: voluntary transformation to involuntary transformation.',
+            'Analyse the waking-as-Hyde scene as the point of no return.',
+            'Discuss the running out of the chemical as a metaphor for the limits of science.',
+          ],
+          keyQuotes: [
+            '"I was slowly losing hold of my original and better self."',
+            '"I was suddenly aware that I had lost in stature."',
+          ],
+        },
+        {
+          topic: 'Jekyll\'s final statement — the divided self',
+          points: [
+            'Analyse "He, I say — I cannot say, I" as the crisis of identity.',
+            'Discuss the final line as a statement of absolute loss.',
+            'Argue that Jekyll is both perpetrator and victim, and that this ambiguity is the point.',
+          ],
+          keyQuotes: [
+            '"He, I say — I cannot say, I."',
+            '"This, then, is the last time … that Henry Jekyll can think his own thoughts."',
+          ],
+        },
+      ],
+      conclusion:
+        'Summarise how Stevenson presents Jekyll as a tragic figure — destroyed not by evil but by the impossible demand for perfection. Link to the novella\'s broader argument: that a society which refuses to acknowledge human imperfection creates the conditions for monstrosity.',
+    },
+    {
+      question:
+        'How does Stevenson create a sense of tension and suspense in the novella?',
+      introduction:
+        'Introduce the novella as a masterclass in suspense, combining Gothic atmosphere, detective-fiction structure, and psychological horror. State that Stevenson creates tension through setting, narrative structure, withholding of information, and the progressive revelation of horror.',
+      paragraphs: [
+        {
+          topic: 'Setting — fog, darkness, and the sinister city',
+          points: [
+            'Analyse the use of pathetic fallacy: fog, darkness, moonlight, gaslight.',
+            'Discuss London as a labyrinthine, threatening space.',
+            'Argue that the setting creates a constant atmosphere of unease.',
+          ],
+          keyQuotes: [
+            '"A fog rolled over the city … like a district of some city in a nightmare."',
+            '"The dismal quarter of Soho."',
+          ],
+        },
+        {
+          topic: 'Narrative structure — withholding the truth',
+          points: [
+            'Analyse how the truth is delayed until the final two chapters.',
+            'Discuss the sealed letters and locked doors as structural devices.',
+            'Argue that the fragmented narrative forces the reader to investigate alongside Utterson.',
+          ],
+          keyQuotes: [
+            '"Not to be opened till the death or disappearance of Dr Henry Jekyll."',
+            '"What he told me in the next hour, I cannot bring my mind to set on paper."',
+          ],
+        },
+        {
+          topic: 'The indescribable — horror beyond words',
+          points: [
+            'Analyse the failure to describe Hyde as a source of tension.',
+            'Discuss how the unknown is more frightening than the known.',
+            'Link to the Gothic tradition of the unspeakable.',
+          ],
+          keyQuotes: [
+            '"An impression of deformity without any nameable malformation."',
+            '"There is something wrong with his appearance."',
+          ],
+        },
+        {
+          topic: 'Escalating violence',
+          points: [
+            'Trace the escalation from the trampling to the murder.',
+            'Analyse the graphic detail of the Carew murder as a shock tactic.',
+            'Discuss the involuntary transformations as a progressive loss of control.',
+          ],
+          keyQuotes: [
+            '"It wasn\'t like a man; it was like some damned Juggernaut."',
+            '"With ape-like fury, he was trampling his victim under foot."',
+          ],
+        },
+        {
+          topic: 'Chapter 8 — the climactic horror',
+          points: [
+            'Analyse the servants\' fear, the strange voice, the breaking of the door.',
+            'Discuss the discovery of Hyde\'s body in Jekyll\'s clothes.',
+            'Argue that the chapter combines detective-fiction and Gothic-horror techniques for maximum impact.',
+          ],
+          keyQuotes: [
+            '"Weeping like a woman or a lost soul."',
+            '"There lay the cabinet before their eyes in the quiet lamplight … and there, in the middle of the floor, lay the body."',
+          ],
+        },
+      ],
+      conclusion:
+        'Summarise how Stevenson uses multiple techniques — setting, structure, language, and pacing — to create a novella that is both intellectually complex and viscerally terrifying. Link to the genre: the "strange case" is a mystery, a Gothic horror, and a psychological study, and each genre contributes its own form of tension.',
+    },
+  ],
+
+  // ──────────────────────────────────────────────
+  //  EXAM TIPS
+  // ──────────────────────────────────────────────
+  examTips: [
+    {
+      tip: 'Always link quotes to Stevenson\'s purpose',
+      explanation:
+        'GCSE examiners want to see that you understand Stevenson was exploring ideas about Victorian society, not just telling a scary story. Every quote you analyse should be connected to Stevenson\'s wider purpose: to critique Victorian repression, to explore the duality of human nature, to question the limits of science, or to show the consequences of maintaining impossible standards of respectability. Use phrases like "Stevenson uses this to suggest…" or "Stevenson\'s purpose here is to challenge…"',
+    },
+    {
+      tip: 'Engage with the novella\'s ambiguity',
+      explanation:
+        'Jekyll and Hyde deliberately resists simple interpretation. Is Hyde a scientific creation or a demonic one? Is Jekyll a victim of society or of his own choices? Are the "undignified pleasures" sexual, violent, or something else? Engaging with these ambiguities shows sophisticated reading. Use phrases like "This could be interpreted as…" or "Stevenson deliberately leaves this ambiguous, perhaps suggesting…"',
+    },
+    {
+      tip: 'Use contextual knowledge to illuminate the text',
+      explanation:
+        'Context should be woven into your analysis, not bolted on as a separate paragraph. When discussing Hyde\'s "ape-like fury," mention Darwin. When discussing the culture of discretion, mention Victorian social codes. When discussing the experiment, mention the Faustian tradition and the Victorian anxiety about science. Context that illuminates a specific textual detail is far more effective than context that floats in isolation.',
+    },
+    {
+      tip: 'Analyse the effect of what is NOT said',
+      explanation:
+        'One of the most distinctive features of the novella is its reticence — the things that are not described, not explained, not named. Hyde\'s indescribability, Lanyon\'s refusal to write down what he witnessed, Jekyll\'s euphemistic "undignified pleasures" — all of these silences are meaningful. Analysing what is absent or unstated shows the examiner a sophisticated understanding of how the text works.',
+    },
+    {
+      tip: 'Compare different perspectives on the same events',
+      explanation:
+        'The novella tells its story from multiple perspectives — Utterson, Enfield, Lanyon, Jekyll — each of whom has a different understanding of events. Comparing these perspectives shows structural awareness. For example: Utterson sees Hyde as a blackmailer; Lanyon sees him as a scientific abomination; Jekyll sees him as part of himself. These different interpretations reflect the novella\'s theme of fragmented understanding.',
+    },
+    {
+      tip: 'Remember the novella form',
+      explanation:
+        'Jekyll and Hyde is a novella, not a novel. It is short, compressed, and tightly structured. Every scene, every detail, every character serves a specific purpose. Referencing the form shows awareness of craft. For example: "Stevenson\'s use of the novella form creates a claustrophobic intensity — the compressed narrative mirrors Jekyll\'s sense of entrapment."',
+    },
+    {
+      tip: 'Use subject terminology accurately',
+      explanation:
+        'GCSE mark schemes reward the use of literary terminology: metaphor, simile, pathetic fallacy, personification, dramatic irony, foreshadowing, symbolism, allegory, doppelganger, Gothic, epistolary (letter-based narrative), omniscient narrator, limited narrator, motif, imagery, tricolon. Use these terms precisely and in context — do not just list them.',
+    },
+    {
+      tip: 'Structure your essay clearly',
+      explanation:
+        'Use a clear introduction (state your argument), 4-5 analytical paragraphs (each focused on a single point, with close language analysis), and a conclusion (summarise and connect to Stevenson\'s wider purpose). Each paragraph should follow the pattern: point, evidence (quote), analysis of language, link to context/theme/purpose. This structure ensures clarity and demonstrates the skills examiners are looking for.',
+    },
+  ],
+
+  // ──────────────────────────────────────────────
+  //  QUOTE BANKS BY THEME
+  // ──────────────────────────────────────────────
+  quoteBanks: {
+    duality: [
+      {
+        quote: '"Man is not truly one, but truly two."',
+        analysis: 'The novella\'s thesis statement, challenging the comfortable assumption of a unified self. The repetition of "truly" insists on the reality of this duality against all comfortable illusions.',
+      },
+      {
+        quote: '"I learned to recognise the thorough and primitive duality of man."',
+        analysis: '"Thorough" means complete; "primitive" means ancient and fundamental. The duality is not a modern condition but an original feature of human nature.',
+      },
+      {
+        quote: '"He, I say — I cannot say, I."',
+        analysis: 'The grammatical breakdown mirrors the psychological breakdown of a unified identity. Language itself fails in the face of duality.',
+      },
+      {
+        quote: '"All human beings, as we meet them, are commingled out of good and evil."',
+        analysis: '"Commingled" means mixed so thoroughly that the components cannot be separated. This challenges the idea that good and evil can be neatly divided.',
+      },
+      {
+        quote: '"I stood already committed to a profound duplicity of life."',
+        analysis: '"Duplicity" means both doubleness and deception, collapsing the distinction between being dual and being dishonest.',
+      },
+      {
+        quote: '"Between those two, I now felt I had to choose."',
+        analysis: 'Jekyll\'s feeling of having to choose between his two selves reflects the impossible demands of Victorian society. The tragedy is that the "choice" is itself a form of self-destruction.',
+      },
+      {
+        quote: '"A mere polity of multifarious, incongruous, and independent denizens."',
+        analysis: 'Jekyll speculates that the self may contain not two but many selves — a remarkably modern insight that anticipates twentieth-century psychology.',
+      },
+    ],
+    secrecyAndReputation: [
+      {
+        quote: '"No, sir, I make it a rule of mine: the more it looks like Queer Street, the less I ask."',
+        analysis: 'Enfield\'s code of deliberate ignorance reflects the Victorian gentleman\'s prioritisation of social harmony over truth.',
+      },
+      {
+        quote: '"I feel very strongly about putting questions; it partakes too much of the style of the day of judgement."',
+        analysis: 'Utterson equates asking questions with divine judgement — an extraordinary elevation of social discretion to a moral principle.',
+      },
+      {
+        quote: '"I concealed my pleasures; and when I reached the years of reflection … I stood already committed to a profound duplicity of life."',
+        analysis: 'Jekyll confesses to a lifelong pattern of concealment, driven by the "high views" he had set for himself. The concealment is not strategic but pathological.',
+      },
+      {
+        quote: '"Let us make a bargain never to refer to this again."',
+        analysis: 'Enfield\'s proposal to suppress discussion turns silence into a contractual obligation between gentlemen.',
+      },
+      {
+        quote: '"I incline to Cain\'s heresy … I let my brother go to the devil in his own way."',
+        analysis: 'Utterson\'s biblical reference reveals a philosophy of non-interference that, while tolerant, also enables dangerous secrets to persist.',
+      },
+      {
+        quote: '"We told the man we could and would make such a scandal out of this, as should make his name stink from one end of London to the other."',
+        analysis: 'The threat of reputation damage is the most powerful weapon in Victorian society — more feared than physical violence.',
+      },
+      {
+        quote: '"I would say nothing of this paper. If your master has fled or is dead, we may at least save his credit."',
+        analysis: 'Even after breaking down the door and finding a dead body, Utterson\'s first instinct is to protect Jekyll\'s reputation. The reflexive prioritisation of "credit" (reputation) over truth is deeply ingrained.',
+      },
+    ],
+    scienceAndTransgression: [
+      {
+        quote: '"Such unscientific balderdash."',
+        analysis: 'Lanyon\'s dismissal of Jekyll\'s work reveals the rigid boundary between conventional and speculative science in the Victorian period.',
+      },
+      {
+        quote: '"The drug had no discriminating action; it was neither diabolical nor divine."',
+        analysis: 'Jekyll insists on the moral neutrality of science — the chemical is a tool, not a moral agent. Responsibility lies with the user.',
+      },
+      {
+        quote: '"I had voluntarily stripped myself of all those balancing instincts by which even the worst of us continues to walk with some degree of steadiness among temptations."',
+        analysis: 'Jekyll recognises that his experiment removed the moral restraints that keep even flawed people functioning. Morality operates like physical balance; remove it and the person falls.',
+      },
+      {
+        quote: '"With every day … I thus drew steadily nearer to that truth, by whose partial discovery I have been doomed to such a dreadful shipwreck."',
+        analysis: 'The "shipwreck" metaphor suggests that knowledge itself can be destructive. The word "doomed" introduces fate — once the discovery was made, the consequences were inevitable.',
+      },
+      {
+        quote: '"He began to go wrong, wrong in mind."',
+        analysis: 'Lanyon conflates intellectual adventure with mental illness, reflecting a conservative worldview that distrusts innovation.',
+      },
+      {
+        quote: '"My provision of the salt, which had never been renewed since the date of the first experiment, began to run low."',
+        analysis: 'The running out of the chemical — dependent on an unknown impurity — reveals the limits of Jekyll\'s scientific understanding. His experiment was never fully scientific; it was a lucky accident he mistook for mastery.',
+      },
+    ],
+    violence: [
+      {
+        quote: '"It wasn\'t like a man; it was like some damned Juggernaut."',
+        analysis: 'Hyde is dehumanised and associated with an unstoppable, crushing force. The word "damned" carries both colloquial and theological weight.',
+      },
+      {
+        quote: '"With ape-like fury, he was trampling his victim under foot and hailing down a storm of blows."',
+        analysis: 'The simile "ape-like" suggests evolutionary regression. The weather imagery ("storm of blows") makes Hyde\'s violence seem elemental and uncontrollable.',
+      },
+      {
+        quote: '"Bones were audibly shattered and the body jumped upon the roadway."',
+        analysis: 'The graphic violence is deliberately shocking. "Audibly" involves the reader\'s hearing; "jumped" — for a dead body — is grotesquely inappropriate.',
+      },
+      {
+        quote: '"The stick with which the deed had been done … had broken in the middle under the stress of this insensate cruelty."',
+        analysis: 'The breaking of the murder weapon under the force of the blows emphasises the extreme violence. "Insensate" means without sensation or reason — the violence is mindless, automatic, mechanical.',
+      },
+      {
+        quote: '"He broke out in a great flame of anger, stamping with his foot, brandishing the cane, and carrying on … like a madman."',
+        analysis: 'The maid\'s description uses fire imagery ("flame of anger") to suggest uncontrollable, explosive rage. "Like a madman" positions Hyde outside the bounds of reason.',
+      },
+    ],
+    appearance: [
+      {
+        quote: '"He is not easy to describe. There is something wrong with his appearance; something displeasing, something downright detestable."',
+        analysis: 'The tricolon of negative adjectives escalates from mild ("displeasing") to extreme ("detestable"). The repeated "something" emphasises the vagueness of the impression — no one can articulate what is wrong.',
+      },
+      {
+        quote: '"Mr Hyde was pale and dwarfish, he gave an impression of deformity without any nameable malformation."',
+        analysis: 'The central paradox: deformed but without identifiable deformity. Hyde resists the Victorian compulsion to categorise and classify.',
+      },
+      {
+        quote: '"I never saw a man I so disliked, and yet I scarce know why."',
+        analysis: 'The paradox of intense dislike without rational cause suggests that the recognition of evil is instinctive, operating below conscious thought.',
+      },
+      {
+        quote: '"God bless me, the man seems hardly human! Something troglodytic."',
+        analysis: '"Troglodytic" (cave-dwelling) connects Hyde to prehistoric, pre-civilised humanity. The exclamation "God bless me" is both shock and prayer.',
+      },
+      {
+        quote: '"Satan\'s signature upon a face."',
+        analysis: 'The phrase associates Hyde with the Christian devil, suggesting his evil is legible to those who can read it — even though no one can describe what they read.',
+      },
+      {
+        quote: '"Particularly small and particularly wicked-looking."',
+        analysis: 'Poole\'s simple description reduces Hyde to two essential qualities. The pairing suggests that evil is concentrated rather than diluted — smaller but more intense.',
+      },
+      {
+        quote: '"That child of Hell had nothing human; nothing lived in him but fear and hatred."',
+        analysis: 'Jekyll\'s final description of Hyde reduces his alter ego to two pure emotions. The phrase "child of Hell" positions Hyde within a Christian moral framework as the offspring of damnation.',
+      },
+    ],
+  },
+
+  // ──────────────────────────────────────────────
+  //  GRADE 9 MODEL PARAGRAPHS
+  // ──────────────────────────────────────────────
+  modelParagraphs: [
+    {
+      question: 'How does Stevenson present Hyde as a frightening character?',
+      paragraph: `Stevenson creates Hyde's terror primarily through the failure of language — the consistent inability of characters to describe what makes Hyde so repulsive. When Utterson encounters Hyde in Chapter 2, the narrator tells us he "gave an impression of deformity without any nameable malformation." This paradox — deformed but without identifiable deformity — is one of the novella's most disturbing effects. The word "impression" suggests something felt rather than seen, sensed rather than understood. "Nameable" is particularly significant: in Victorian culture, which prided itself on its power to classify, categorise, and name every phenomenon in the natural world, something that cannot be named is something that cannot be controlled. Hyde exists outside the reach of civilised language and civilised understanding, and it is precisely this ungraspable quality that makes him so terrifying. Stevenson's purpose here is to suggest that the evil Hyde represents is not an external, identifiable threat — like a criminal or an enemy — but an internal, indefinable one: the primitive, amoral self that lurks beneath the surface of every civilised person. If Hyde could be described, he could be understood and perhaps controlled; his indescribability suggests that what he represents can never be fully mastered. This connects to the novella's broader engagement with Darwinian anxiety: if humans are evolved animals, then the animal within can never be fully suppressed — only hidden, like Hyde himself, behind a facade of respectability.`,
+    },
+    {
+      question: 'How does Stevenson explore the theme of secrecy in Jekyll and Hyde?',
+      paragraph: `Stevenson presents secrecy not as an individual failing but as a structural feature of Victorian society — a collective agreement to look away from uncomfortable truths that enables monstrous behaviour to flourish. This is encapsulated in Enfield's maxim in Chapter 1: "No, sir, I make it a rule of mine: the more it looks like Queer Street, the less I ask." "Queer Street" was Victorian slang for suspicious or disreputable circumstances, and Enfield's "rule" is to deliberately avoid investigating them. This is not cowardice or laziness; it is a social principle — the gentleman protects both his own reputation and others' by refusing to acknowledge what lies beneath the surface. Stevenson makes clear that this principle is widely shared: Utterson "feel[s] very strongly about putting questions," comparing them to "the day of judgement"; Jekyll refuses to discuss Hyde; the servants obey without questioning. The result is a conspiracy of silence in which every member of the social circle agrees not to see what is plainly visible. Stevenson's purpose is to show that the Victorian culture of discretion — admirable in its intention to protect privacy — has a catastrophic unintended consequence: it creates the conditions for Hyde's existence. Hyde thrives in the spaces that respectability refuses to examine. The locked door, the back alley, the late-night walk, the sealed envelope — all of these are sites of concealment that the code of Victorian gentlemanly conduct forbids anyone to investigate. Stevenson suggests that a society built on secrecy is inevitably a society that harbours monsters.`,
+    },
+    {
+      question: 'How does Stevenson present the relationship between Jekyll and Hyde?',
+      paragraph: `Stevenson presents the relationship between Jekyll and Hyde not as a simple opposition between good and evil but as a complex, evolving dynamic in which the boundary between the two selves progressively dissolves. In Jekyll's confession in Chapter 10, he describes his initial experience of Hyde as a "solution of the bonds of obligation" — a liberating release from the constraints of respectability. The word "solution" has a double meaning: it refers to both a liquid mixture (appropriate for a chemical experiment) and a resolution to a problem. Jekyll experiences Hyde as an answer to the intolerable tension of his double life. But the relationship shifts dramatically as Hyde grows stronger. Jekyll writes: "I was slowly losing hold of my original and better self, and becoming slowly incorporated with my second and worse." The repetition of "slowly" emphasises the insidious nature of the process — this is not a sudden catastrophe but a gradual, almost imperceptible erosion. "Losing hold" suggests that maintaining one's identity requires active effort; "incorporated" means literally "made into a body" — Hyde is not just a psychological state but a physical reality that is consuming Jekyll's body. The word "incorporated" suggests that Hyde is absorbing Jekyll, not merely replacing him. Stevenson's purpose is to show that the attempt to separate good from evil does not purify the good but empowers the evil. The more Jekyll indulges Hyde, the stronger Hyde becomes and the weaker Jekyll grows, until the relationship becomes parasitic: Hyde feeds on Jekyll's decline. This serves as a warning about the consequences of repression — by trying to isolate and contain his darker impulses, Jekyll has made them more concentrated, more powerful, and ultimately uncontrollable.`,
+    },
+    {
+      question: 'How does Stevenson use setting to create atmosphere in the novella?',
+      paragraph: `Stevenson uses London as a landscape of moral ambiguity, creating an atmosphere of concealment and dread through the systematic use of fog, darkness, and architectural duality. The most sustained example is in Chapter 4, where the police visit Hyde's rooms in Soho: "A fog rolled over the city in the small hours … The dismal quarter of Soho seen under these changing glimpses, with its muddy ways, and slatternly passengers … seemed, in the lawyer's eyes, like a district of some city in a nightmare." The fog — both a literal feature of Victorian London and a powerful metaphor — obscures vision and creates uncertainty, suggesting that truth is hidden and perception is unreliable. The phrase "changing glimpses" implies that the city is not fixed but shifting, revealing and concealing by turns. The simile "like a district of some city in a nightmare" transforms urban London into a psychological landscape — the setting is not merely a backdrop but an expression of the characters' mental states. The word "nightmare" explicitly connects the external world to the internal world of fear and repression. Stevenson's purpose is to show that the Gothic horror traditionally located in remote castles and wild landscapes can be found in the heart of civilised London — that the fog, the darkness, and the back alleys are not merely atmospheric details but physical manifestations of the secrets and repressions that the city harbours. The novella's London is a city that conceals as much as it reveals, and the setting itself becomes a metaphor for the divided, secretive nature of the characters who inhabit it.`,
+    },
+  ],
+
+  // ──────────────────────────────────────────────
+  //  COMPARATIVE CONNECTIONS
+  // ──────────────────────────────────────────────
+  comparativeConnections: [
+    {
+      text: 'A Christmas Carol (Charles Dickens)',
+      connections: [
+        'Both are Victorian novellas that use the supernatural to explore moral questions.',
+        'Both feature protagonists who undergo dramatic transformations — but Scrooge is redeemed while Jekyll is destroyed.',
+        'Both critique Victorian society — Dickens focuses on poverty; Stevenson focuses on repression.',
+        'Both use fog, darkness, and cold as symbols of moral corruption.',
+        'The three Spirits parallel the three narrative revelations (Chapters 1-8, Chapter 9, Chapter 10) as structures that reveal hidden truths.',
+      ],
+    },
+    {
+      text: 'Macbeth (William Shakespeare)',
+      connections: [
+        'Both explore the consequences of ambition and transgression.',
+        'Both feature protagonists who are destroyed by forces they believed they could control.',
+        'Both use darkness and the supernatural to create atmosphere.',
+        'Jekyll\'s "ape-like" Hyde connects to Macbeth\'s descent into bestial violence.',
+        'Both explore the theme of appearance vs. reality: "Fair is foul, and foul is fair."',
+      ],
+    },
+    {
+      text: 'Frankenstein (Mary Shelley)',
+      connections: [
+        'Both feature scientists who create something they cannot control.',
+        'Both explore the Faustian theme of forbidden knowledge.',
+        'Both ask whether science without moral direction is dangerous.',
+        'Both use the frame narrative and epistolary (letter-based) structure.',
+        'Both feature creators who are ultimately destroyed by their creations.',
+      ],
+    },
+    {
+      text: 'The Picture of Dorian Gray (Oscar Wilde)',
+      connections: [
+        'Both explore the duality of the Victorian self — public appearance vs. private reality.',
+        'Both feature a protagonist whose evil takes physical form (Hyde / the portrait).',
+        'Both are set in a world of upper-class Victorian respectability.',
+        'Both were published in the late Victorian period (1886 / 1890) and engage with anxieties about degeneracy and moral decline.',
+        'Both end with the destruction of the dual self.',
+      ],
+    },
+    {
+      text: 'An Inspector Calls (J.B. Priestley)',
+      connections: [
+        'Both critique the hypocrisy of respectable society.',
+        'Both use an investigative structure to reveal hidden truths.',
+        'Both feature authority figures (Utterson / the Inspector) who probe beneath the surface of respectability.',
+        'Both argue that maintaining a respectable facade while ignoring suffering is morally destructive.',
+      ],
+    },
+  ],
+
+  // ──────────────────────────────────────────────
+  //  REVISION ACTIVITIES
+  // ──────────────────────────────────────────────
+  revisionActivities: [
+    {
+      activity: 'Character perspective writing',
+      instructions: 'Write a diary entry from the perspective of Utterson after the events of Chapter 2 (his first encounter with Hyde). What does he think, feel, and suspect? This helps you understand the limited perspective through which the story is told.',
+    },
+    {
+      activity: 'Timeline of key events',
+      instructions: 'Create a chronological timeline of events in the novella, noting that the narrative order is different from the chronological order. The novella tells the story out of order — understanding the sequence helps you appreciate the detective-fiction structure.',
+    },
+    {
+      activity: 'Quote categorisation',
+      instructions: 'Sort key quotes into categories: duality, secrecy, science, violence, appearance, setting. Note that many quotes belong to multiple categories. This helps you see how themes interconnect.',
+    },
+    {
+      activity: 'Setting sketches',
+      instructions: 'Draw or describe the key settings: Jekyll\'s front door vs. the back door, Hyde\'s Soho rooms, Jekyll\'s cabinet, the foggy London streets. Note how each setting reflects the themes of duality, concealment, and respectability.',
+    },
+    {
+      activity: 'Transformation tracker',
+      instructions: 'Create a chart tracking the changes in the Jekyll-Hyde relationship across the novella: who is in control, how the transformations occur (voluntary vs. involuntary), what triggers them, and how the balance of power shifts.',
+    },
+    {
+      activity: 'Language analysis practice',
+      instructions: 'Choose five key quotes and practise analysing them in timed conditions (3 minutes each). Focus on: what techniques are used (simile, metaphor, pathetic fallacy), what the effect on the reader is, and how the quote connects to Stevenson\'s wider purpose.',
+    },
+    {
+      activity: 'Narrative structure mapping',
+      instructions: 'Map the novella\'s structure, noting: who narrates each chapter, what form the narration takes (third person, letter, confession), and what information is revealed. This helps you understand the deliberate withholding of truth that creates the novella\'s suspense.',
+    },
+    {
+      activity: 'Practise exam paragraphs',
+      instructions: 'Using the essay plans provided, write one paragraph from each plan under timed conditions (8 minutes per paragraph). Focus on: making a clear point, embedding a quote, analysing language closely, and linking to context or Stevenson\'s purpose.',
+    },
+  ],
+
+  // ──────────────────────────────────────────────
+  //  FREQUENTLY EXAMINED EXTRACTS
+  // ──────────────────────────────────────────────
+  frequentlyExaminedExtracts: [
+    {
+      extract: 'Enfield\'s account of the trampling (Chapter 1)',
+      whyExamined: 'Establishes Hyde\'s character through his first violent act; introduces the motif of indescribability.',
+      whatToAnalyse: 'Juggernaut simile, dehumanising language, the failure to describe Hyde, the threat of scandal as a social weapon, Victorian discretion.',
+      likelyQuestions: [
+        'How does Stevenson present Hyde as a frightening outsider?',
+        'How does Stevenson create a sense of unease in the opening chapter?',
+      ],
+    },
+    {
+      extract: 'Utterson\'s encounter with Hyde (Chapter 2)',
+      whyExamined: 'First direct encounter between Utterson and Hyde; develops the indescribability motif.',
+      whatToAnalyse: '"Impression of deformity without any nameable malformation," "Satan\'s signature upon a face," "troglodytic," the pun on "Hide/Seek."',
+      likelyQuestions: [
+        'How does Stevenson present Hyde?',
+        'How does Stevenson use Utterson to explore the novella\'s themes?',
+      ],
+    },
+    {
+      extract: 'The Carew murder (Chapter 4)',
+      whyExamined: 'The novella\'s most violent scene; escalation of Hyde\'s behaviour.',
+      whatToAnalyse: '"Ape-like fury," graphic violence, the maid\'s witness perspective, Soho setting, fog as pathetic fallacy.',
+      likelyQuestions: [
+        'How does Stevenson present violence in the novella?',
+        'How does Stevenson use setting to create atmosphere?',
+      ],
+    },
+    {
+      extract: 'The window scene (Chapter 7)',
+      whyExamined: 'A powerful scene of unexplained horror; Jekyll\'s transformation glimpsed.',
+      whatToAnalyse: 'The smile "struck out" of Jekyll\'s face, "abject terror and despair," Utterson and Enfield\'s silent response, what is NOT said.',
+      likelyQuestions: [
+        'How does Stevenson create tension and suspense?',
+        'How does Stevenson present Jekyll\'s internal struggle?',
+      ],
+    },
+    {
+      extract: 'Breaking down the door (Chapter 8)',
+      whyExamined: 'The dramatic climax; Gothic thriller conventions.',
+      whatToAnalyse: 'Poole\'s testimony, the servants\' fear, the breaking of the door as symbolic act, Hyde\'s body in Jekyll\'s clothes, "self-slayer."',
+      likelyQuestions: [
+        'How does Stevenson create a sense of horror in Chapter 8?',
+        'How does Stevenson use the servants to build tension?',
+      ],
+    },
+    {
+      extract: 'Lanyon witnesses the transformation (Chapter 9)',
+      whyExamined: 'The first explicit revelation that Jekyll and Hyde are one; the cost of knowledge.',
+      whatToAnalyse: 'Lanyon\'s repeated "O God!", the transformation described through reaction not description, "like a man restored from death," Lanyon\'s subsequent death.',
+      likelyQuestions: [
+        'How does Stevenson present the dangers of knowledge?',
+        'How does Stevenson use Lanyon to explore the novella\'s themes?',
+      ],
+    },
+    {
+      extract: 'Jekyll\'s confession (Chapter 10, opening section)',
+      whyExamined: 'Jekyll\'s explanation of his dual nature; the novella\'s philosophical core.',
+      whatToAnalyse: '"Man is not truly one, but truly two," "thorough and primitive duality," "concealed my pleasures," the Faustian ambition to separate good from evil.',
+      likelyQuestions: [
+        'How does Stevenson present the theme of duality?',
+        'How does Stevenson present Jekyll as a complex character?',
+      ],
+    },
+    {
+      extract: 'Jekyll\'s confession (Chapter 10, final section)',
+      whyExamined: 'Jekyll\'s loss of control; the novella\'s tragic conclusion.',
+      whatToAnalyse: '"Slowly losing hold of my original and better self," involuntary transformations, the running out of the salt, "He, I say — I cannot say, I," the final line.',
+      likelyQuestions: [
+        'How does Stevenson present the consequences of Jekyll\'s experiment?',
+        'How does Stevenson create a sense of tragedy at the end of the novella?',
+      ],
+    },
+  ],
+
+  // ──────────────────────────────────────────────
+  //  KEY VOCABULARY
+  // ──────────────────────────────────────────────
+  keyVocabulary: [
+    {
+      term: 'Duality',
+      definition: 'The state of having two parts, aspects, or natures — the central concept of the novella.',
+    },
+    {
+      term: 'Doppelganger',
+      definition: 'A double or shadow self; a literary convention in which a character\'s hidden nature takes separate, visible form.',
+    },
+    {
+      term: 'Repression',
+      definition: 'The suppression of natural desires and impulses in order to conform to social expectations.',
+    },
+    {
+      term: 'Atavism',
+      definition: 'The reversion to an earlier, more primitive type. Hyde\'s "ape-like" qualities suggest atavistic regression.',
+    },
+    {
+      term: 'Physiognomy',
+      definition: 'The Victorian pseudo-science of reading character from facial features. Hyde\'s appearance is "read" by other characters as evil.',
+    },
+    {
+      term: 'Gothic',
+      definition: 'A literary genre characterised by horror, the supernatural, darkness, and psychological terror.',
+    },
+    {
+      term: 'Faustian',
+      definition: 'Relating to the legend of Faust, who sold his soul for knowledge and power. Jekyll\'s experiment is a Faustian bargain.',
+    },
+    {
+      term: 'Epistolary',
+      definition: 'A narrative told through letters and documents. The final two chapters of Jekyll and Hyde use this technique.',
+    },
+    {
+      term: 'Allegory',
+      definition: 'A story in which characters and events represent abstract ideas or moral qualities.',
+    },
+    {
+      term: 'Pathetic fallacy',
+      definition: 'The use of weather and landscape to reflect the emotional or moral state of characters.',
+    },
+    {
+      term: 'Dramatic irony',
+      definition: 'When the reader (or audience) knows something that a character does not — creating tension or irony.',
+    },
+    {
+      term: 'Hubris',
+      definition: 'Excessive pride or self-confidence, especially in a character who believes they can control nature or fate.',
+    },
+    {
+      term: 'Memento mori',
+      definition: 'A reminder of death, used as a moral device to encourage virtuous living.',
+    },
+    {
+      term: 'Novella',
+      definition: 'A prose fiction longer than a short story but shorter than a novel — the form of both Jekyll and Hyde and A Christmas Carol.',
+    },
+  ],
+
+  // ──────────────────────────────────────────────
+  //  EXTENDED CHAPTER-BY-CHAPTER QUOTE ANALYSIS
+  // ──────────────────────────────────────────────
+  chapterQuoteAnalysis: {
+    chapter1: [
+      {
+        quote: '"Mr Utterson the lawyer was a man of a rugged countenance that was never lighted by a smile; cold, scanty and embarrassed in discourse; backward in sentiment; lean, long, dusty, dreary and yet somehow lovable."',
+        analysis: `The opening description of Utterson is a masterpiece of compressed characterisation. The list of negative qualities — "cold, scanty, embarrassed, backward, lean, long, dusty, dreary" — creates an overwhelming impression of austerity and dullness. The paradox "and yet somehow lovable" introduces a note of warmth that contradicts everything that precedes it. The word "somehow" acknowledges the contradiction without resolving it — Utterson's lovability, like Hyde's repulsiveness, defies rational explanation. The phrase "never lighted by a smile" uses a metaphor of darkness: Utterson's face is unilluminated, suggesting that he keeps his inner warmth hidden beneath a cold exterior. This connects him to the novella's central theme of concealment — Utterson, like Jekyll, presents one face to the world while hiding another.`,
+      },
+      {
+        quote: '"I incline to Cain\'s heresy … I let my brother go to the devil in his own way."',
+        analysis: `Utterson's reference to Cain — who, after murdering Abel, asked God "Am I my brother's keeper?" — is remarkably self-aware. He recognises that his tolerance is a form of moral laziness, calling it a "heresy" (a false belief). But he embraces it nonetheless, preferring non-interference to the social awkwardness of confrontation. The phrase "go to the devil in his own way" is darkly ironic in the context of the novella: Jekyll is literally going to the devil, and Utterson's non-interference enables it. Stevenson uses this early detail to establish that even the most admirable characters in the novella are complicit in the culture of silence that allows Hyde to flourish.`,
+      },
+      {
+        quote: '"I was coming home from some place at the end of the world, about three o\'clock of a black winter morning."',
+        analysis: `Enfield's account of his late-night walk — coming home "from some place at the end of the world" at three in the morning — hints at activities that are not discussed in polite society. The vagueness of "some place" is itself a form of the discretion that characterises the novella's world. The "black winter morning" creates an atmosphere of cold, darkness, and danger. The detail of three o'clock places the scene in the deepest part of the night, when the rules of daytime society are suspended and hidden activities emerge. Stevenson uses the time and setting to suggest that London has a secret life that exists only in the small hours.`,
+      },
+      {
+        quote: '"For the man trampled calmly over the child\'s body and left her screaming on the ground."',
+        analysis: `The word "calmly" is the most disturbing element of this description. We might expect violence to be accompanied by rage or passion, but Hyde tramples the girl "calmly" — with complete composure and indifference. This calm suggests that Hyde is not overcome by emotion but is simply indifferent to the suffering of others. The absence of emotion is more frightening than its presence because it implies a fundamental absence of humanity. The word "trampled" reduces the child to something underfoot, an obstacle rather than a person. The contrast between Hyde's calm and the girl's screaming creates a stark image of cruelty: one figure perfectly composed, the other in agony.`,
+      },
+      {
+        quote: '"We scraped up … a hundred pounds for the child\'s family."',
+        analysis: `The payment of compensation — a hundred pounds — is presented as a substitute for justice. Hyde cannot be prosecuted (the trampling is not clearly criminal) and cannot be shamed (he has no reputation to protect), so money becomes the only available remedy. The verb "scraped up" suggests that even this inadequate response required effort and negotiation. The scene establishes a pattern that runs through the novella: money is used to smooth over moral transgressions, to silence victims, and to maintain the appearance of respectability. This is one of the ways in which Victorian society's emphasis on reputation actually protects the guilty.`,
+      },
+    ],
+    chapter4: [
+      {
+        quote: '"A maid servant living alone in a house not far from the river, had gone upstairs to bed about eleven."',
+        analysis: `The domestic setting — a maid servant in her bedroom, going to bed at a normal hour — creates a sharp contrast with the violence that follows. Stevenson places an ordinary, sympathetic witness in a comfortable, mundane setting and then has her watch a murder from her window. The technique is deeply unsettling because it brings the horror into a domestic space — the maid's bedroom, which should be a place of safety and rest, becomes a viewing gallery for an act of extreme violence. The detail "living alone" adds vulnerability — she has no one to turn to, no one to share the horror with.`,
+      },
+      {
+        quote: '"The moon shone on his face as he spoke, and the girl was pleased to watch it, it seemed to breathe such an innocent and old-world kindness of disposition."',
+        analysis: `The description of Sir Danvers Carew before his murder emphasises innocence and kindness — qualities that make his death more shocking by contrast. The moonlight on his face creates an almost sacred image, and the phrase "old-world kindness" suggests a gentility that belongs to a more innocent age. The maid is "pleased to watch" — the scene is initially pleasant, almost romantic. Stevenson uses this moment of calm and beauty to heighten the horror of what follows: the explosion of "ape-like fury" that shatters the peaceful scene.`,
+      },
+      {
+        quote: '"And next moment, with ape-like fury, he was trampling his victim under foot and hailing down a storm of blows, under which the bones were audibly shattered and the body jumped upon the roadway."',
+        analysis: `This sentence — the novella's most graphically violent — uses three techniques simultaneously. First, the simile "ape-like fury" connects Hyde to evolutionary regression, suggesting that his violence is pre-human, bestial. Second, the weather metaphor "hailing down a storm of blows" makes his violence seem elemental and uncontrollable, like a force of nature. Third, the graphic details — "bones were audibly shattered," "the body jumped" — appeal to the reader's senses of hearing and sight, making the violence visceral and inescapable. The word "audibly" is particularly effective: it forces the reader to imagine hearing bones break, not just seeing the attack. The verb "jumped" — applied to a dead body — is grotesque, suggesting that the force of the blows is so extreme that even death does not bring stillness.`,
+      },
+      {
+        quote: '"And still the girl had no word of the matter … until a creeping chill came over her."',
+        analysis: `The maid's delayed reaction — she faints after the murder, not during it — is psychologically realistic. The "creeping chill" that overcomes her suggests a gradual realisation of horror rather than an immediate shock. Stevenson shows that extreme violence does not always produce an immediate reaction; sometimes the full impact takes time to register. The word "creeping" — slow, insidious, unstoppable — mirrors the way Hyde himself moves through the novella: gradually, stealthily, until he has consumed everything.`,
+      },
+    ],
+    chapter8: [
+      {
+        quote: '"God grant there be nothing wrong." — "Amen, Poole," said the lawyer.',
+        analysis: `The exchange of prayers between Poole and Utterson before they break down the door is a rare moment of open emotion between two men who normally communicate in the restrained, formal register of the Victorian gentleman. The fact that they resort to prayer suggests that they have reached the limits of rational understanding — what they are about to confront is beyond the reach of reason and law. The religious language also prepares the reader for a revelation that will have moral and spiritual, not merely physical, significance.`,
+      },
+      {
+        quote: '"Down with the door, Poole!"',
+        analysis: `Utterson's command to destroy the door is a moment of decisive action from a character who has spent the entire novella exercising caution, restraint, and discretion. The imperative "Down!" has a violence that is uncharacteristic of Utterson and shows how extreme the situation has become. The breaking of the door symbolises the destruction of the barriers between public and private, between the respectable facade and the hidden horror. It is also the moment when investigation gives way to confrontation — Utterson is no longer trying to understand the mystery but to end it.`,
+      },
+      {
+        quote: '"Right in the midst there lay the body of a man sorely contorted and still twitching. They drew near on tiptoe, turned it on its back and beheld the face of Edward Hyde."',
+        analysis: `The discovery of Hyde's body is described with a clinical precision that contrasts with its horror. "Sorely contorted" suggests a body twisted by violent spasms — possibly the agony of the poison, or possibly the incomplete process of transformation. "Still twitching" adds a grotesque detail of continuing movement, as if the body has not yet fully accepted death. The phrase "drew near on tiptoe" captures the mixture of fear and curiosity that drives both the characters and the reader. "Beheld the face of Edward Hyde" uses the formal, almost biblical verb "beheld" to give the moment a quality of revelation — this is not merely seeing but witnessing something significant.`,
+      },
+      {
+        quote: '"Much of his clothes were far too large for him, of a rich and sober fabric but extraordinarily ill-fitting."',
+        analysis: `Hyde's body in Jekyll's overlarge clothes is one of the novella's most powerful visual images. The clothes — "rich and sober fabric" — represent Jekyll's respectability, his social standing, his professional identity. But they do not fit Hyde, who is smaller, darker, and more primitive. The image makes literal what the novella has been exploring metaphorically: that Jekyll's respectable exterior was always a costume, a garment worn over a smaller, darker self. The fact that the clothes are "extraordinarily ill-fitting" — not just loose but grotesquely wrong — suggests that the pretence of respectability was never convincing, never truly natural. The discrepancy between the clothes and the body is the discrepancy between appearance and reality, between the public self and the private self, between the Victorian ideal and the hidden truth.`,
+      },
+      {
+        quote: '"Utterson stared at him with horror."',
+        analysis: `This brief sentence captures the moment when Utterson's rational, controlled worldview begins to collapse. Throughout the novella, Utterson has been the voice of reason, caution, and restraint. His "horror" here is significant because it suggests that he is beginning to suspect a truth his rational mind cannot accommodate. The verb "stared" implies fixity — he cannot look away from what he is seeing, even though it horrifies him. This is the beginning of the end for Utterson's comfortable worldview: the evidence before his eyes will force him to confront a reality that his reason cannot explain.`,
+      },
+    ],
+    chapter10: [
+      {
+        quote: '"I was born in the year 18— to a large fortune."',
+        analysis: `The opening of Jekyll's confession mimics the conventions of autobiography and case study. The blank "18—" is a literary convention that suggests factual reportage while maintaining anonymity. The mention of "a large fortune" immediately establishes Jekyll's social privilege — he has the resources to pursue his experiment, the position to maintain respectability, and the independence to live as he chooses. Stevenson shows that Jekyll's tragedy is not the result of poverty or deprivation but of privilege: it is precisely because he has everything that the gap between his desires and his social position feels intolerable.`,
+      },
+      {
+        quote: '"And indeed the worst of my faults was a certain impatient gaiety of disposition."',
+        analysis: `Jekyll's description of his "worst fault" as "impatient gaiety" is remarkably mild. "Gaiety" means cheerfulness or pleasure-seeking — hardly a terrible vice. "Impatient" suggests eagerness rather than wickedness. Yet in the context of Victorian society, even this mild deviation from perfect sobriety was enough to cause Jekyll "an almost morbid sense of shame." Stevenson uses this detail to show how pathologically restrictive Victorian moral standards were: a man who simply wanted to enjoy life felt compelled to hide his enjoyment as if it were a crime.`,
+      },
+      {
+        quote: '"Hence it came about that I concealed my pleasures; and that when I reached the years of reflection, and began to look round me and take stock of my progress and position in the world, I stood already committed to a profound duplicity of life."',
+        analysis: `This is one of the novella's most crucial passages because it establishes that Jekyll's double life predated the chemical transformation. The concealment of pleasure, the taking stock of "progress and position," and the commitment to "profound duplicity" — all of this happened before any experiment. Stevenson shows that the duality was always there; the transformation merely gave it physical form. The word "committed" is legally and morally loaded — Jekyll uses it as if describing a crime he cannot undo. "Profound duplicity" means deep-rooted doubleness, but "duplicity" also means dishonesty, collapsing the distinction between being dual and being deceitful.`,
+      },
+      {
+        quote: '"I saw that, of the two natures that contended in the field of my consciousness, if I could rightly be said to be either, it was only because I was radically both."',
+        analysis: `This extraordinarily complex sentence captures the paradox at the novella's heart. Jekyll cannot identify with either his good or his evil nature alone; he is "radically both" — fundamentally, irreducibly, at the root of his being, a combination of the two. The phrase "contended in the field of my consciousness" uses military language — a battlefield — suggesting that the two natures are at war within him. But the word "radically" (meaning at the root) insists that this war is not a dysfunction but a fundamental feature of his nature. The sentence is grammatically difficult — full of qualifications and subordinate clauses — mirroring the intellectual difficulty of the concept it expresses.`,
+      },
+      {
+        quote: '"The movement was thus wholly toward the worse."',
+        analysis: `Jekyll's simple, devastating summary of the experiment's trajectory. Despite his initial hope that separating good from evil would purify both, the actual result was that the evil side grew stronger while the good side grew weaker. "Wholly" means completely — there is no positive dimension to the experiment's outcome. "Toward the worse" implies a continuous, irreversible decline. This sentence functions as a thesis statement for the novella's pessimistic vision: the attempt to separate good from evil does not purify the good but empowers the evil.`,
+      },
+      {
+        quote: '"Yes, I preferred the elderly and discontented doctor, surrounded by friends and cherishing honest hopes; and bade a resolute farewell to the liberty, the comparative youth, the light step, leaping impulses and secret pleasures, that I had enjoyed in the disguise of Hyde."',
+        analysis: `Jekyll's attempt to give up Hyde is described in terms of a lover's farewell. The list of what he is renouncing — "liberty," "comparative youth," "light step," "leaping impulses," "secret pleasures" — is seductive, even beautiful. Stevenson makes the reader feel the appeal of Hyde, understanding why Jekyll found the transformation so irresistible. The contrast between the "elderly and discontented doctor" and the youthful, free Hyde captures the central temptation: who would not prefer liberty to respectability, youth to age, pleasure to duty? Jekyll's choice of respectability is presented not as a triumph of virtue but as a reluctant sacrifice, which explains why it will ultimately fail — he is choosing what he ought to prefer, not what he actually prefers.`,
+      },
+      {
+        quote: '"I began to be tortured with throes and longings, as of Hyde struggling after freedom; and at last, in an hour of moral weakness, I once again compounded and swallowed the transforming draught."',
+        analysis: `Jekyll describes his relapse in the language of addiction: "tortured," "throes," "longings," "struggling after freedom," "moral weakness." The body rebels against the mind's decision, demanding the release that Hyde provides. "Throes" suggests convulsive, agonising physical sensations — the desire for Hyde is not merely psychological but physiological. The phrase "moral weakness" is Jekyll's own judgement on his relapse, but Stevenson implies that it is also a structural inevitability: the suppressed desire has been building pressure for too long, and no amount of willpower can contain it permanently. "Once again compounded and swallowed" — the matter-of-fact verbs of chemical preparation contrast with the emotional turmoil they describe, showing how routine the transformation has become.`,
+      },
+    ],
+  },
+
+  // ──────────────────────────────────────────────
+  //  ADDITIONAL ESSAY PLANS
+  // ──────────────────────────────────────────────
+  furtherEssayPlans: [
+    {
+      question:
+        'How does Stevenson present London as a setting in Jekyll and Hyde?',
+      introduction:
+        'Introduce London as more than a backdrop — it is a character in its own right, reflecting and enabling the novella\'s central themes of duality, concealment, and moral ambiguity. State that Stevenson uses fog, darkness, architectural contrast, and the distinction between public and private spaces to create a city that mirrors the divided self.',
+      paragraphs: [
+        {
+          topic: 'London as a city of duality — front doors and back doors',
+          points: [
+            'Analyse the contrast between Jekyll\'s elegant front door and the battered back door.',
+            'Discuss the door as a symbol: the front represents respectability, the back represents transgression.',
+            'Link to the novella\'s central theme: the respectable facade hiding a sinister interior.',
+          ],
+          keyQuotes: [
+            '"The door, which was equipped with neither bell nor knocker, was blistered and distained."',
+            '"Two doors from one corner … the line was broken by the entry of a court."',
+          ],
+        },
+        {
+          topic: 'Fog and darkness as moral atmosphere',
+          points: [
+            'Analyse the fog as both literal (Victorian London) and symbolic (obscured truth).',
+            'Discuss gaslight as creating partial visibility: what is illuminated and what remains hidden.',
+            'Link to context: the real London fog and its associations with crime and concealment.',
+          ],
+          keyQuotes: [
+            '"A fog rolled over the city … like a district of some city in a nightmare."',
+            '"A great chocolate-coloured pall lowered over heaven."',
+          ],
+        },
+        {
+          topic: 'Soho as a space of vice and poverty',
+          points: [
+            'Analyse the description of Hyde\'s Soho rooms as a reflection of his character.',
+            'Discuss the contrast between wealthy Cavendish Square (Jekyll) and disreputable Soho (Hyde).',
+            'Link to the geography of Victorian London: how social class was mapped onto physical space.',
+          ],
+          keyQuotes: [
+            '"The dismal quarter of Soho … with its muddy ways, and slatternly passengers."',
+            '"The rooms bore every mark of having been recently and hurriedly ransacked."',
+          ],
+        },
+        {
+          topic: 'London at night — the suspension of daytime rules',
+          points: [
+            'Analyse how the novella\'s key events occur at night.',
+            'Discuss night as a time when social rules are suspended and hidden selves emerge.',
+            'Link to the Gothic tradition of nocturnal settings.',
+          ],
+          keyQuotes: [
+            '"About three o\'clock of a black winter morning."',
+            '"Nearly eleven … a lovely night … The steps drew swiftly nearer."',
+          ],
+        },
+      ],
+      conclusion:
+        'Summarise how Stevenson uses London as a physical embodiment of the novella\'s themes. The city\'s duality — front and back, day and night, respectable and disreputable — mirrors the duality of its inhabitants. London is not merely where the story happens but what the story is about.',
+    },
+    {
+      question:
+        'How does Stevenson present the theme of violence in Jekyll and Hyde?',
+      introduction:
+        'Introduce violence as a central concern of the novella — not merely as a plot device but as a thematic exploration of the destructive potential within every civilised person. State that Stevenson presents violence as escalating, animalistic, and fundamentally irrational.',
+      paragraphs: [
+        {
+          topic: 'The trampling of the girl — cruelty without conscience',
+          points: [
+            'Analyse the word "calmly" — the absence of emotion is more disturbing than its presence.',
+            'Discuss the Juggernaut simile — an unstoppable, inhuman force.',
+            'Argue that this first act of violence establishes Hyde\'s essential quality: indifference to suffering.',
+          ],
+          keyQuotes: [
+            '"It wasn\'t like a man; it was like some damned Juggernaut."',
+            '"The man trampled calmly over the child\'s body."',
+          ],
+        },
+        {
+          topic: 'The Carew murder — explosive, motiveless rage',
+          points: [
+            'Analyse the escalation from the trampling to the murder — violence becomes more extreme.',
+            'Discuss "ape-like fury" as connecting violence to evolutionary regression.',
+            'Analyse the graphic details — "bones were audibly shattered" — as deliberate shock tactics.',
+          ],
+          keyQuotes: [
+            '"With ape-like fury, he was trampling his victim under foot."',
+            '"Bones were audibly shattered and the body jumped upon the roadway."',
+          ],
+        },
+        {
+          topic: 'Violence against the self — Jekyll\'s self-destruction',
+          points: [
+            'Analyse Hyde\'s suicide as an act of violence against both selves.',
+            'Discuss the "self-slayer" as both a literal and metaphorical description.',
+            'Argue that the novella\'s final violence is directed inward, not outward.',
+          ],
+          keyQuotes: [
+            '"They looked upon the body of a self-slayer."',
+            '"I bring the life of that unhappy Henry Jekyll to an end."',
+          ],
+        },
+        {
+          topic: 'The violence of repression — society\'s role',
+          points: [
+            'Argue that Hyde\'s violence is the product of prolonged repression.',
+            'Discuss how the culture of silence enables violence by preventing early intervention.',
+            'Link to context: Victorian anxieties about the "beast within" civilised man.',
+          ],
+          keyQuotes: [
+            '"I had voluntarily stripped myself of all those balancing instincts."',
+            '"The powers of Hyde seemed to have grown with the sickliness of Jekyll."',
+          ],
+        },
+      ],
+      conclusion:
+        'Summarise how Stevenson presents violence not as an external threat but as an internal potential — something that exists within every civilised person, held in check only by the "balancing instincts" of conscience and social training. The novella\'s violence escalates because repression intensifies the very impulses it seeks to suppress.',
+    },
+  ],
+
+  // ──────────────────────────────────────────────
+  //  GRADE 9 ANALYSIS: NARRATIVE VOICE & FORM
+  // ──────────────────────────────────────────────
+  narrativeVoiceAnalysis: {
+    overview: `The novella's narrative structure is one of its most sophisticated features. It employs multiple narrative voices and perspectives, each contributing a different piece of the puzzle while also demonstrating the limits of individual understanding. The first eight chapters use a third-person narrator who is largely limited to Utterson's perspective; Chapter 9 shifts to Lanyon's first-person testimony; Chapter 10 provides Jekyll's first-person confession. This progressive narrowing of perspective — from external observation to internal confession — mirrors the peeling back of layers that the novella's plot enacts.`,
+
+    uttertonAsNarrativeLens: `For the first eight chapters, the reader sees the world through Utterson's eyes. This is a deliberate limitation: Utterson is rational, restrained, and fundamentally decent, but he is also unimaginative. He cannot conceive of the truth about Jekyll and Hyde because it lies outside the bounds of his experience and his worldview. The reader, trapped within Utterson's perspective, shares his confusion, his mounting unease, and his ultimate failure to understand. This creates a powerful identification between reader and character — we are not superior to Utterson but alongside him, equally baffled by the mystery.`,
+
+    lanyonAsWitness: `Chapter 9's shift to Lanyon's voice introduces a new perspective — that of a scientist confronted with something that destroys his scientific worldview. Lanyon's narrative is characterised by trauma: he writes in short, anguished sentences, and his most significant act is the refusal to describe what Jekyll told him ("What he told me in the next hour, I cannot bring my mind to set on paper"). This silence — the most important information in the chapter deliberately withheld — creates narrative tension and demonstrates that some truths are too dangerous to transmit.`,
+
+    jekyllAsConfessor: `Chapter 10's shift to Jekyll's own voice is the novella's greatest structural gambit. After nine chapters of external observation and partial understanding, the reader finally hears from the man at the centre of the mystery. Jekyll's confession is remarkable for its combination of intellectual clarity (he analyses his own condition with scientific precision) and emotional anguish (he writes against the clock, knowing he is about to lose his identity forever). The discrepancy between these two registers — the calm scientist and the desperate prisoner — is itself a form of duality, enacted within a single text.`,
+
+    theRoleOfDocuments: `Letters, wills, and confessions drive the novella's plot and structure. Jekyll's will, Lanyon's sealed envelope, Jekyll's final statement — the truth is always contained within documents, never spoken aloud. This reflects the Victorian culture of discretion: what cannot be said can sometimes be written, especially posthumously. The sealed envelope — a document within a document, a secret within a secret — is a perfect metaphor for the novella's layered structure and for the hidden nature of the truth it eventually reveals.`,
+  },
+
+  // ──────────────────────────────────────────────
+  //  THEMATIC CONNECTIONS TO MODERN LIFE
+  // ──────────────────────────────────────────────
+  modernConnections: [
+    {
+      theme: 'Social media and dual identity',
+      connection: 'The novella\'s exploration of the gap between public and private selves resonates strongly in the age of social media, where people curate idealised online personas that may differ dramatically from their offline reality. The pressure to present a perfect public image — which drives Jekyll\'s experiment — is arguably even more intense in the era of Instagram, TikTok, and LinkedIn.',
+    },
+    {
+      theme: 'Addiction',
+      connection: 'Jekyll\'s progressive loss of control over the transformation — needing larger doses, experiencing involuntary changes, being unable to stop despite knowing the consequences — mirrors the pattern of addiction. The novella can be read as an addiction narrative: the initial pleasure, the escalating dependence, the loss of control, and the ultimate destruction.',
+    },
+    {
+      theme: 'The ethics of science',
+      connection: 'Jekyll\'s experiment raises questions about the moral responsibility of scientists — questions that remain urgent in the age of genetic engineering, artificial intelligence, and biotechnology. Should science pursue knowledge regardless of consequences? Who is responsible when an experiment goes wrong? The novella argues that science without moral direction is dangerous.',
+    },
+    {
+      theme: 'Mental health and the divided self',
+      connection: 'Jekyll\'s experience of housing two conflicting identities within a single body anticipates modern understandings of dissociative disorders and the more general experience of feeling divided between different aspects of oneself. The novella\'s insistence that the self is not unified but multiple is now widely accepted in psychology.',
+    },
+    {
+      theme: 'Toxic masculinity',
+      connection: 'The all-male world of the novella — with its emphasis on emotional restraint, professional success, and the suppression of vulnerability — can be read as an exploration of what is now called "toxic masculinity." The men in the novella are unable to express emotion, ask for help, or acknowledge weakness, and this inability enables Hyde\'s violence.',
+    },
+    {
+      theme: 'Online anonymity and hidden behaviour',
+      connection: 'Hyde can be read as a metaphor for the way people behave when they believe they are anonymous or unaccountable — on the internet, behind screen names, in online forums. The freedom from consequences that Hyde enjoys parallels the sense of impunity that anonymous online spaces can provide, leading to behaviour that individuals would never engage in under their real names.',
+    },
+    {
+      theme: 'The limits of science',
+      connection: 'Jekyll\'s experiment — which depends on an unknown impurity he cannot replicate — speaks to modern anxieties about the limits of scientific understanding. In fields from climate science to genetic engineering, we are confronted with systems so complex that our interventions may have unforeseen, irreversible consequences. Jekyll\'s catastrophe is a warning about the dangers of acting on incomplete knowledge.',
+    },
+  ],
+
+  // ──────────────────────────────────────────────
+  //  ADDITIONAL CHAPTER QUOTE ANALYSIS
+  // ──────────────────────────────────────────────
+  additionalChapterQuotes: {
+    chapter2: [
+      {
+        quote: '"Utterson heaved an irrepressible sigh. \'The fact is, if I do not ask you the name of the other party, it is because I know it already … you see, Dr Lanyon, I suppose?\'"',
+        analysis: `Utterson's "irrepressible sigh" — one of his few involuntary emotional expressions — reveals the depth of his concern. The word "irrepressible" is significant: it means he could not suppress it, suggesting that his anxiety about Jekyll has broken through his normal control. His indirect approach — "if I do not ask … it is because I know it already" — exemplifies the Victorian gentleman's technique of appearing not to pry while actually extracting information. Even in his worry, Utterson cannot bring himself to ask a direct question; he must frame his knowledge as an assumption and invite confirmation. This circuitous communication style is characteristic of the novella's world, where directness is considered rude and the most important conversations happen through implication and inference.`,
+      },
+      {
+        quote: '"If he shall be Mr Hyde, I shall be Mr Seek."',
+        analysis: `This pun, often misquoted as the more famous version, reveals Utterson at his most characteristically English: using wordplay to manage anxiety. The children's game reference frames the investigation as something playful and manageable, when in fact the truth Utterson is seeking is catastrophic. The pun also reveals an unconscious truth: in the game of hide and seek, the seeker eventually finds the hider — but what Utterson finds will be nothing like what he expects. The lightness of the joke creates dramatic irony: the reader senses that the pursuit of Hyde will not end in a satisfying discovery but in a confrontation with something beyond Utterson's comprehension.`,
+      },
+      {
+        quote: '"I thought it was madness … and now I begin to fear it is disgrace."',
+        analysis: `Utterson's shifting interpretation of the will — first madness, now disgrace — traces his progression from bewilderment to suspicion. "Madness" suggests an irrational act by Jekyll, something explicable by mental instability. "Disgrace" suggests something deliberate and shameful — that Jekyll has done something that, if revealed, would destroy his reputation. The shift from one to the other shows Utterson's rational mind working through possibilities, each worse than the last. The word "fear" reveals genuine emotional investment — this is not merely a professional concern but a personal one. Neither interpretation is correct; the truth is stranger than either. Stevenson uses Utterson's partial understanding to build suspense and to demonstrate the limits of rational deduction.`,
+      },
+    ],
+    chapter3: [
+      {
+        quote: '"It was a fine dry night; frost in the air; the streets as clean as a ballroom floor; the lamps, unshaken by any wind, drawing a regular pattern of light and shadow."',
+        analysis: `This rare description of pleasant weather creates a deceptive sense of calm and order. The simile "clean as a ballroom floor" associates the streets with civilised, upper-class entertainment. The regular pattern of "light and shadow" — created by evenly spaced gas lamps — suggests an ordered, comprehensible world where light and dark are neatly divided. But this apparent order is an illusion: the "shadow" that lurks between the pools of lamplight is where Hyde exists. Stevenson uses this description to show how the surface of Victorian London — clean, ordered, well-lit — masks a darker reality. The phrase "unshaken by any wind" implies stillness and stability, but the novella will soon shatter this calm with violence and horror.`,
+      },
+      {
+        quote: '"\'I do not care to hear more,\' said he. \'This is a matter I thought we had agreed to drop.\'"',
+        analysis: `Jekyll's sharp refusal to discuss the will or his relationship with Hyde demonstrates the Victorian technique of shutting down conversation through an appeal to prior agreement. The phrase "agreed to drop" implies a gentleman's compact — a mutual decision to avoid an uncomfortable subject. Jekyll exploits the code of discretion to prevent Utterson from asking the questions that might save him. The irony is that Utterson's compliance with this code — his unwillingness to push further — enables Jekyll's destruction. Stevenson shows that the social conventions designed to protect privacy can also protect dangerous secrets.`,
+      },
+    ],
+    chapter5: [
+      {
+        quote: '"He was sitting close to a warm fire, and yet he shivered."',
+        analysis: `Jekyll's shivering beside a fire — a detail echoed in the cold/warmth imagery of A Christmas Carol — reveals that his distress is internal, not external. The fire provides physical warmth, but Jekyll's chill comes from within: the horror of what Hyde has done, the fear of discovery, and the growing awareness that he may be losing control. This detail also foreshadows the progressive physical deterioration that Jekyll will undergo. His body is no longer responding normally to its environment because his body is no longer entirely his own. The simple, factual statement — no metaphor, no elaboration — makes the moment more unsettling: Stevenson lets the reader draw their own conclusions about what is making Jekyll cold.`,
+      },
+      {
+        quote: '"The letter was written in an odd, upright hand."',
+        analysis: `The apparently minor detail of Hyde's "odd, upright hand" becomes crucial when Guest, the handwriting expert, compares it with Jekyll's writing and finds them "in many points identical; only differently sloped." The word "upright" — meaning vertical, straight — contrasts with the "sloped" quality that differentiates it from Jekyll's hand. Stevenson uses handwriting as a metaphor for character: the same fundamental identity, expressed at a different angle. The detail is also a piece of detective-fiction craft — a clue planted early that only reveals its significance later. On first reading, it seems merely descriptive; on re-reading, it is a revelation hidden in plain sight.`,
+      },
+    ],
+    chapter6: [
+      {
+        quote: '"Some day, Utterson, after I am dead, you may perhaps come to learn the right and wrong of this."',
+        analysis: `Jekyll's cryptic promise to Utterson is loaded with tragic irony. He knows that the truth will only emerge after his death — and indeed, the truth is revealed posthumously, through Jekyll's written confession. The phrase "the right and wrong of this" is ambiguous: it could mean "the rights and wrongs" (the moral dimensions) or "what was right and what was wrong" (the factual details). Both meanings are relevant. The qualification "may perhaps" introduces uncertainty — Jekyll is not confident that even his posthumous explanation will be understood. The sentence also reveals Jekyll's anguish: he wants to be understood but cannot explain while alive, trapped between the desire for confession and the need for secrecy.`,
+      },
+      {
+        quote: '"The death of Sir Danvers was, to his way of thinking, more than paid for by the disappearance of Mr Hyde."',
+        analysis: `Utterson's callous-seeming calculation — that Carew's death was an acceptable price for Hyde's disappearance — reveals the way Victorian society prioritises stability and reputation over justice. Utterson is not evil; he is a pragmatist who believes that the best outcome of a terrible situation has been achieved: the murderer has vanished, Jekyll is safe, and no scandal has attached to his friend's name. But the phrase "more than paid for" reduces a man's life to a transaction, a debt that can be settled. Stevenson uses this moment to show how the code of respectability can corrupt even good men, leading them to rationalise injustice in the name of social harmony.`,
+      },
+    ],
+    chapter7: [
+      {
+        quote: '"I am very low, Utterson, very low. It will not last long, thank God."',
+        analysis: `Jekyll's words from the window are among the most ambiguous in the novella. "Very low" means depressed or unwell, but the repetition gives it an ominous weight. "It will not last long, thank God" seems to promise recovery — but it can also be read as a prediction of death. If Jekyll knows he is dying (or about to be permanently consumed by Hyde), then "thank God" becomes a prayer for release from suffering rather than a hopeful forecast. The phrase creates a moment of horrifying dramatic irony: Utterson hears reassurance where the reader may hear despair. This ambiguity — the gap between what is said and what is meant — is characteristic of the novella's entire world, where the surface of conversation conceals an abyss of unspoken truth.`,
+      },
+    ],
+    chapter9: [
+      {
+        quote: '"Will you be wise? Will you be guided? Will you suffer me to take this glass in my hand and to go forth from your house without further parley? Or has the greed of curiosity too much command of you?"',
+        analysis: `Hyde's questions to Lanyon offer a choice between ignorance and knowledge — between wisdom and curiosity. The word "wise" is ironic: in this context, wisdom means choosing not to know, choosing to remain in comfortable ignorance. "Greed of curiosity" frames the desire for knowledge as a vice — a dangerous appetite that should be resisted. This is one of the novella's most philosophically significant moments: it suggests that some knowledge is inherently destructive, that knowing certain truths can damage or destroy the knower. Lanyon, characteristically, chooses knowledge — and it kills him. The scene functions as a meta-textual moment: Stevenson asks the reader the same question he asks Lanyon. Do you want to know what happens next? Can you handle the truth? The reader, like Lanyon, presses on — and the truth, while not literally fatal, is profoundly disturbing.`,
+      },
+      {
+        quote: '"Put your heart at rest," said his visitor. "I will not fail you; I am pledged."',
+        analysis: `Hyde speaking to Lanyon — reassuring him, using polite language, even expressing concern ("put your heart at rest") — is deeply unsettling because it shows Hyde performing the role of a civilised gentleman. The phrase "I am pledged" suggests honour and commitment — qualities associated with Jekyll, not Hyde. This moment blurs the boundary between the two selves, showing that Hyde can mimic Jekyll's social graces when it serves his purposes. It also creates dramatic irony: Hyde's "pledge" is to reveal his own identity through the transformation, which will destroy Lanyon. The reassurance is thus a form of cruelty — Hyde is calming his victim before delivering a fatal blow.`,
+      },
+    ],
+  },
+
+  // ──────────────────────────────────────────────
+  //  STEVENSON'S PURPOSE — SUMMARY
+  // ──────────────────────────────────────────────
+  stevensonsPurpose: {
+    summary: `Robert Louis Stevenson wrote Jekyll and Hyde as an exploration of the divided self and a critique of the Victorian culture of repression that created it. While the novella functions brilliantly as a thriller and a Gothic horror story, its deeper purpose is to challenge the comfortable assumptions of its readership: that respectability equals virtue, that the self is unified and consistent, that science can solve moral problems, and that evil can be contained through suppression. Stevenson does not offer easy answers — the novella is notably pessimistic about the possibility of resolving human duality — but he insists on the importance of acknowledging the complexity of human nature rather than hiding from it.`,
+
+    techniques: [
+      'Using the detective-fiction structure to involve the reader as investigator, making the discovery of truth a participatory experience.',
+      'Withholding the full truth until the final two chapters, creating maximum suspense and maximum impact when the revelation arrives.',
+      'Using multiple narrative perspectives to show the limitations of any single viewpoint.',
+      'Making Hyde indescribable — so that each reader must imagine their own version of evil, making it more personal and more frightening.',
+      'Choosing the novella form for compressed intensity — every scene, character, and detail serves the central theme.',
+      'Using London as a moral landscape where setting reflects and enables the themes of duality and concealment.',
+      'Drawing on multiple literary traditions — Gothic, detective fiction, the doppelganger, the Faustian overreacher — to create a text that operates on several levels simultaneously.',
+      'Leaving key questions deliberately unresolved — the nature of Hyde\'s pleasures, the source of his evil, the possibility of reconciling the dual self — to force the reader to engage actively with the text\'s implications.',
+    ],
+
+    keyMessage: `The novella's central message is that human nature is irreducibly dual — that every person contains both good and evil impulses, and that the attempt to deny, suppress, or separate these impulses is dangerous and ultimately destructive. Stevenson does not argue that evil should be indulged (Hyde is monstrous) but that it must be acknowledged as part of the whole self. The attempt to be purely good — to present a perfect facade of respectability while hiding all imperfection — does not make people better; it makes them sick, and the sickness can become monstrous. The novella is a plea for psychological honesty in a culture that demanded psychological deception.`,
+  },
+
+  // ──────────────────────────────────────────────
+  //  EXTENDED CONTEXT: DEACON BRODIE
+  // ──────────────────────────────────────────────
+  extendedContext: {
+    deaconBrodie: `William Brodie (1741-1788) was an Edinburgh city councillor, deacon of the Incorporation of Wrights (a prestigious guild of tradesmen), and a respected member of Edinburgh society. By day, he was a skilled cabinet-maker and locksmith who served on the city council; by night, he was a gambling addict and burglar who used his professional knowledge of locks to break into the homes and businesses of his fellow citizens. He maintained his double life for nearly two decades before being caught, tried, and hanged on a gibbet he had himself designed as part of his civic duties. Stevenson grew up knowing the story of Deacon Brodie — there was even a cabinet made by Brodie in his childhood bedroom. He co-wrote a play called Deacon Brodie, or The Double Life in 1880, six years before publishing Jekyll and Hyde. Brodie's story provided the real-life template for the novella's central conceit: a respectable man who leads a secret criminal life. But where Brodie's duality was a matter of choice and circumstance, Jekyll's is given a scientific and philosophical dimension through the chemical transformation.`,
+
+    jackTheRipper: `Although the Jack the Ripper murders occurred in 1888 — two years after the publication of Jekyll and Hyde — the novella was frequently invoked in the public response to the crimes. The idea that a respectable gentleman might be a secret murderer, moving between the drawing rooms of the wealthy and the dark streets of the East End, seemed to confirm Stevenson's fiction as social prophecy. Some commentators even suggested that the Ripper might be a doctor — a Jekyll figure who used his professional knowledge for evil purposes. The cultural association between Jekyll and Hyde and the Ripper murders deepened the novella's impact and contributed to its enduring place in popular consciousness. Whether or not Stevenson influenced the public interpretation of the Ripper, the timing was remarkable: his novella had prepared the Victorian imagination for exactly the kind of horror that the Ripper crimes represented.`,
+
+    temperanceMovement: `The Victorian temperance movement — which campaigned against the consumption of alcohol — provides another context for understanding Jekyll and Hyde. Alcoholism was a major social problem in Victorian Britain, and the temperance movement's rhetoric often described alcohol as a substance that transformed respectable citizens into violent, animalistic creatures. Jekyll's chemical potion — which transforms a gentle doctor into a violent monster — mirrors the temperance movement's description of alcohol's effects. The progressive loss of control that Jekyll experiences — needing larger doses, transforming involuntarily, being unable to stop — also mirrors the pattern of alcohol addiction. Some critics have read the novella as a temperance allegory, with the potion representing alcohol and Hyde representing the alcoholic self. While this reading is too narrow to capture the novella's full complexity, the parallel is suggestive and would have been recognised by Victorian readers.`,
+
+    theDoubleInLiterature: `The literary tradition of the double (doppelganger) has deep roots in Western literature. Key precursors to Jekyll and Hyde include: James Hogg's The Private Memoirs and Confessions of a Justified Sinner (1824), a Scottish novel about a man who may or may not be possessed by a demonic double; Edgar Allan Poe's "William Wilson" (1839), in which a man is haunted by his own double, who embodies his conscience; Fyodor Dostoevsky's The Double (1846), about a government clerk whose double gradually takes over his life; and the many myths and folk tales about shadow selves, mirror images, and evil twins that exist in cultures around the world. Stevenson's contribution to this tradition was to ground the double in science rather than pure superstition, to set it in a modern urban environment rather than a Gothic castle, and to use it as a vehicle for social criticism of Victorian culture specifically. The enduring cultural impact of Jekyll and Hyde — the names have entered common language as shorthand for any form of dual personality — suggests that Stevenson created the definitive literary treatment of a universal human anxiety: the fear that we are not who we appear to be.`,
+  },
+
+  // ──────────────────────────────────────────────
+  //  ANALYSIS OF THE NOVELLA'S ENDING
+  // ──────────────────────────────────────────────
+  endingAnalysis: {
+    whatHappens: `The novella ends with Jekyll's written confession — his "Full Statement of the Case." He writes against the clock, knowing that his supply of the transforming salt has run out and that he will soon become Hyde permanently. The final paragraphs describe his growing desperation: the involuntary transformations are becoming more frequent, the periods of Jekyll-identity are becoming shorter, and the new batches of salt (which lack the unknown impurity of the original) fail to work. Jekyll's last words — "This, then, is the last time, short of a miracle, that Henry Jekyll can think his own thoughts or see his own face … I bring the life of that unhappy Henry Jekyll to an end" — are a farewell to his own identity and, effectively, a suicide note.`,
+
+    ambiguity: `The ending is deliberately ambiguous on several points. We know that Utterson and Poole found Hyde's body (in Chapter 8), but we do not know whether Hyde took poison voluntarily (suicide) or was forced to by Jekyll's last remaining will. We do not know what happened in the hours between the end of Jekyll's confession and the breaking down of the door. We do not know whether Jekyll's "full statement" is entirely truthful — he may be minimising his complicity in Hyde's crimes. And we do not know how Utterson reacted after reading the confession — the novella ends with Jekyll's words, not with Utterson's response. These ambiguities are not narrative failures but deliberate choices: Stevenson refuses to provide a neat resolution because the questions the novella raises — about the nature of identity, the relationship between good and evil, the consequences of repression — do not have neat answers.`,
+
+    significance: `The ending is significant for several reasons. First, it confirms that Jekyll's experiment was ultimately a failure — not because the science was wrong but because the moral reasoning was flawed. Jekyll thought he could separate his dual nature and enjoy the freedom of each half independently; instead, the evil half grew stronger and consumed the good. Second, the ending raises the question of responsibility: is Jekyll a villain (who created Hyde) or a victim (who was destroyed by him)? The novella suggests he is both, and this ambiguity is central to its moral vision. Third, the ending is formally striking: the novella concludes not with resolution but with a voice that is about to be silenced. Jekyll's confession is a document written by a man who is ceasing to exist, and the reader is left holding the testimony of a ghost — a written trace of someone who is no longer there to explain, defend, or clarify. The ending enacts the theme of loss — of identity, of control, of the ability to speak for oneself — that the novella has been exploring throughout.`,
+
+    contrastWithChristmasCarol: `Where A Christmas Carol ends in triumph and celebration — Scrooge is redeemed, Tiny Tim survives, the reader is invited to join in universal blessing — Jekyll and Hyde ends in despair and silence. There is no redemption, no second chance, no happy ending. Jekyll is consumed by Hyde; Lanyon is killed by knowledge; Utterson is left with a confession he may not fully understand. This contrast reflects the different visions of the two novellas: Dickens believes in the possibility of moral transformation; Stevenson is far more pessimistic about the human capacity to overcome its darker impulses. Where Dickens sees duality as a problem that can be solved through love and generosity, Stevenson sees it as a permanent condition that can only be acknowledged, never cured.`,
+  },
+
+  // ──────────────────────────────────────────────
+  //  DETAILED SETTING ANALYSIS
+  // ──────────────────────────────────────────────
+  settingAnalysis: {
+    jekyllsHouse: {
+      description: 'A large, well-maintained house on a square of ancient, handsome houses. The front door is presented as elegant and respectable.',
+      symbolism: `Jekyll's house — with its elegant front door opening onto a respectable square and its battered back door opening onto a sinister side street — is the novella's most important spatial symbol. The house is literally dual: it has two faces, one presented to the world and one hidden from it. The front door represents Jekyll's public persona — the "large, well-made, smooth-faced" doctor who entertains friends and supports charities. The back door represents his private self — the transgressive, pleasure-seeking Hyde who moves through back alleys and dark streets. The fact that both doors lead to the same building makes the symbolism explicit: the respectable facade and the hidden shame are parts of the same structure. The laboratory — accessed through the back door — is the liminal space where the transformation occurs, the threshold between the two identities. Stevenson uses architecture to make the abstract concept of duality concrete and visible.`,
+    },
+    theBackDoor: {
+      description: '"The door, which was equipped with neither bell nor knocker, was blistered and distained. Tramps slouched into the recess and struck matches on the panels."',
+      symbolism: `The battered door contrasts violently with the well-maintained street. "Neither bell nor knocker" means there is no way to announce oneself — visits through this door are furtive and unannounced. "Blistered and distained" (discoloured) suggests neglect and decay. The tramps who "slouch" in its recess represent the marginalised, disreputable world that the door connects to. The matches struck on the panels suggest a minor form of vandalism that no one cares to prevent — the door exists in a space beyond social care or surveillance. This door is the entry point to Hyde's world, and its condition reflects Hyde's nature: neglected, damaged, and existing outside the norms of respectable society.`,
+    },
+    soho: {
+      description: '"The dismal quarter of Soho seen under these changing glimpses, with its muddy ways, and slatternly passengers."',
+      symbolism: `Soho — Hyde's neighbourhood — was associated in the Victorian imagination with vice, poverty, and crime. Stevenson chooses it deliberately to contrast with the affluent squares where Jekyll lives. The "muddy ways" suggest both literal dirt and moral pollution. "Slatternly passengers" (untidy, slovenly people) create an atmosphere of degradation. The "changing glimpses" — as fog parts and reforms — suggest that this world is only intermittently visible, hidden most of the time beneath layers of obscuring fog. Soho is the physical manifestation of everything that Victorian respectability tries to conceal: poverty, vice, violence, and the darker aspects of human nature.`,
+    },
+    jekyllsCabinet: {
+      description: 'A room above the laboratory where Jekyll works and writes. Described as cosy — with a fire, a lamp, and tea things — but also as the site of horror.',
+      symbolism: `The cabinet is the novella's most paradoxical space: it is simultaneously the cosiest and the most horrifying room in the story. The fire, the lamplight, the tea things — these are the accoutrements of domestic comfort, of civilised English life at its most reassuring. But this same room is where Hyde was born, where Jekyll wrote his desperate confession, and where Hyde's dead body is found. Stevenson uses this contrast to argue that horror does not require exotic settings — it can emerge in the most comfortable, familiar surroundings. The cabinet is literally the room where the two worlds meet: Jekyll's respectability and Hyde's monstrosity coexist in the same physical space, separated by nothing more than a chemical transformation.`,
+    },
+    fog: {
+      description: 'Pervasive throughout the novella — rolling, changing, obscuring, lifting intermittently.',
+      symbolism: `The fog is the novella's most pervasive atmospheric device. It operates on multiple levels simultaneously. Literally, it creates an atmosphere of danger and uncertainty — characters cannot see clearly, streets become labyrinthine, and the familiar becomes strange. Symbolically, the fog represents the moral confusion of Victorian society — the inability (or refusal) to see clearly what is happening beneath the surface of respectability. Narratively, it reflects the reader's own limited understanding — like the characters, we are groping through fog, unable to see the full picture until the final chapters. The fog also connects to the theme of concealment: it hides things from view, just as the characters hide their true natures from each other and from themselves. When the fog lifts — as it occasionally does, allowing "changing glimpses" of the world beneath — we are reminded that the truth is always there, waiting to be seen by those willing to look.`,
+    },
+  },
+
+  // ──────────────────────────────────────────────
+  //  SAMPLE GRADE 7-9 INTRODUCTIONS
+  // ──────────────────────────────────────────────
+  sampleIntroductions: [
+    {
+      question: 'How does Stevenson present the theme of duality in Jekyll and Hyde?',
+      grade7: 'In Jekyll and Hyde, Stevenson presents the theme of duality through the central relationship between Dr Jekyll and Mr Hyde, who are two sides of the same person. Stevenson uses this duality to explore the idea that every person contains both good and evil, and that Victorian society\'s emphasis on respectability forces people to hide their darker impulses.',
+      grade9: 'Stevenson constructs duality not merely as a plot device but as the organising principle of the entire novella — permeating its narrative structure (fragmented, multi-perspectival), its setting (front doors and back doors, fog and gaslight), its language (the persistent failure to describe Hyde), and its philosophical framework (Jekyll\'s devastating recognition that "man is not truly one, but truly two"). By embedding duality at every level of the text, Stevenson argues that the divided self is not an aberration but the fundamental condition of human existence — one that Victorian society, with its impossible demand for unified respectability, makes uniquely dangerous. The novella\'s enduring power lies in its refusal to resolve this duality: Jekyll is not redeemed, Hyde is not defeated, and the reader is left with the disturbing suggestion that the battle between the selves can never be won, only acknowledged.',
+    },
+    {
+      question: 'How does Stevenson present Hyde as a frightening outsider?',
+      grade7: 'Stevenson presents Hyde as frightening through his appearance, his violence, and his effect on other characters. Hyde is described as small, pale, and deformed, and his violence escalates from trampling a child to murdering Sir Danvers Carew. Every character who encounters him feels instinctive revulsion.',
+      grade9: 'Stevenson\'s most sophisticated technique in presenting Hyde is the systematic failure of language that surrounds him. Every character who encounters Hyde struggles to articulate what makes him so repulsive — Enfield can only say "there is something wrong," Utterson perceives "deformity without any nameable malformation," and even Jekyll, in his confession, resorts to the vague "undignified" to describe Hyde\'s pleasures. This failure of description is not a narrative weakness but the novella\'s central artistic strategy: by making Hyde indescribable, Stevenson suggests that he represents something that exists beyond the reach of civilised language and rational categorisation — the "primitive," pre-social self that Darwinian theory had recently revealed lurking beneath the veneer of Victorian culture. Hyde is frightening not because of what he is but because of what he represents: the uncomfortable truth that the "beast within" is not a metaphor but a biological reality, held at bay only by the fragile social conventions that Victorian society was desperately trying to maintain.',
+    },
+  ],
+
+  // ──────────────────────────────────────────────
+  //  CRITICAL PERSPECTIVES
+  // ──────────────────────────────────────────────
+  criticalPerspectives: [
+    {
+      perspective: 'Psychoanalytic reading (Freud)',
+      explanation: `A Freudian reading of Jekyll and Hyde interprets the characters through Freud's model of the psyche: Jekyll represents the ego (the rational, socially aware self), Hyde represents the id (the primitive, instinctual self), and the social pressures that force Jekyll to suppress his desires represent the superego (the moral conscience). The transformation can be read as the id breaking free from the ego's control — a process that Freud would later describe as the "return of the repressed." The key insight of a Freudian reading is that repression does not eliminate desire but drives it underground, where it becomes more concentrated and more dangerous. Jekyll's experiment is an extreme form of repression — physically separating the id from the ego — and its catastrophic failure demonstrates that the psyche cannot be divided without destroying the whole.`,
+      usefulQuotes: [
+        '"Man is not truly one, but truly two."',
+        '"I had voluntarily stripped myself of all those balancing instincts."',
+        '"I was slowly losing hold of my original and better self."',
+      ],
+    },
+    {
+      perspective: 'Marxist reading (class and capitalism)',
+      explanation: `A Marxist reading focuses on the class dimensions of the novella. Jekyll is a wealthy, upper-middle-class professional who uses his money and social position to create Hyde as a separate identity, free from the constraints that govern his own class. Hyde's rooms are in Soho — a working-class neighbourhood — suggesting that Jekyll associates freedom and pleasure with the lower classes, while associating restraint and repression with his own. The relationship between Jekyll and Hyde can be read as an allegory for the relationship between the Victorian bourgeoisie and the working class: the wealthy rely on the labour and suffering of the poor (Hyde does the "dirty work" that Jekyll's respectability prevents him from doing openly) while maintaining a facade of moral superiority. The servants — Poole, the maid, the landlady — represent the working class who witness but cannot speak about the crimes of their social superiors.`,
+      usefulQuotes: [
+        '"I was the first that could thus plod in the public eye with a load of genial respectability."',
+        '"The dismal quarter of Soho."',
+        '"That thing was not my master."',
+      ],
+    },
+    {
+      perspective: 'Gothic reading',
+      explanation: `A Gothic reading situates the novella within the traditions of Gothic literature: the haunted house (Jekyll's house, with its sinister back entrance), the Faustian overreacher (Jekyll, who pursues forbidden knowledge), the doppelganger (Hyde as Jekyll's shadow self), the unreliable narrative (multiple perspectives, each incomplete), and the atmosphere of dread (fog, darkness, locked doors). The Gothic tradition uses supernatural horror to explore psychological and social anxieties, and Jekyll and Hyde is a prime example: the transformation is both a literal event (it really happens within the world of the story) and a metaphor for the hidden anxieties of Victorian society about regression, degeneration, and the "beast within." The Gothic setting — urban London rather than a remote castle — represents Stevenson's modernisation of the genre, bringing horror into the heart of civilised life.`,
+      usefulQuotes: [
+        '"A fog rolled over the city … like a district of some city in a nightmare."',
+        '"The Phantom slowly, gravely, silently approached." (cf. A Christmas Carol)',
+        '"It was shrouded in a deep black garment." (cf. Ghost of Christmas Yet to Come)',
+      ],
+    },
+    {
+      perspective: 'Feminist reading (the absence of women)',
+      explanation: `A feminist reading draws attention to the near-complete absence of women from the novella. The main characters are all male professionals — doctors, lawyers, servants — who interact exclusively with each other in domestic and professional spaces that exclude women entirely. There are no wives, no daughters, no female friends. The only women who appear are minor, unnamed figures: the trampled girl, the maid who witnesses the Carew murder, Hyde's elderly landlady. This exclusion of women creates a claustrophobic, homosocial world in which male desire has no legitimate outlet and must therefore be repressed, disguised, or sublimated. Some critics have read Hyde's "undignified pleasures" as coded references to homosexuality — illegal and deeply stigmatised in Victorian Britain — arguing that the novella is, at one level, an exploration of the consequences of criminalising and repressing same-sex desire. Whether or not this specific reading is accepted, the absence of women from the novella is clearly meaningful: it creates a world in which the normal channels of emotional expression are blocked, forcing desire into hidden, dangerous forms.`,
+      usefulQuotes: [
+        '"The pleasures which I made haste to seek in my disguise were, as I have said, undignified."',
+        '"I concealed my pleasures."',
+        '"Weeping like a woman or a lost soul."',
+      ],
+    },
+  ],
+
+  // ──────────────────────────────────────────────
+  //  TRANSFORMATION TRACKER
+  // ──────────────────────────────────────────────
+  transformationTracker: [
+    {
+      stage: 'Stage 1: Controlled transformation (early experiments)',
+      description: 'Jekyll voluntarily takes the potion and transforms into Hyde. He can reliably reverse the process. He feels exhilarated by the freedom Hyde provides.',
+      controlLevel: 'Full control — Jekyll chooses when to transform and when to return.',
+      keyQuote: '"I felt younger, lighter, happier in body."',
+      significance: 'Establishes the appeal of the transformation and Jekyll\'s dangerous overconfidence.',
+    },
+    {
+      stage: 'Stage 2: Escalating behaviour (Hyde\'s crimes)',
+      description: 'Hyde\'s behaviour becomes increasingly violent — from trampling the girl to murdering Carew. Jekyll is horrified but addicted to the freedom.',
+      controlLevel: 'Partial control — Jekyll can still choose to stop, but finds it increasingly difficult.',
+      keyQuote: '"My devil had been long caged, he came out roaring."',
+      significance: 'Shows that evil, once released, does not remain static but escalates.',
+    },
+    {
+      stage: 'Stage 3: Involuntary transformation (loss of control)',
+      description: 'Jekyll falls asleep and wakes as Hyde — the transformation occurs without the drug. This marks the point of no return.',
+      controlLevel: 'Diminishing control — the transformation now happens against Jekyll\'s will.',
+      keyQuote: '"I was suddenly aware that I had lost in stature."',
+      significance: 'Demonstrates that the experiment has passed beyond Jekyll\'s ability to manage.',
+    },
+    {
+      stage: 'Stage 4: Desperate maintenance (larger doses)',
+      description: 'Jekyll requires larger and more frequent doses of the drug to maintain his own form. The periods of Jekyll-identity become shorter.',
+      controlLevel: 'Minimal control — Jekyll can maintain his identity only through constant chemical intervention.',
+      keyQuote: '"I had to double, and once, with infinite risk of death, to treble the amount."',
+      significance: 'Mirrors the pattern of drug addiction — increasing doses for diminishing effect.',
+    },
+    {
+      stage: 'Stage 5: Permanent transformation (the end)',
+      description: 'The original salt runs out. New batches — lacking the unknown impurity — fail to work. Jekyll is trapped as Hyde.',
+      controlLevel: 'No control — Jekyll cannot return to his own form.',
+      keyQuote: '"My provision of the salt … began to run low."',
+      significance: 'Reveals the limits of science and the irreversibility of Jekyll\'s choices.',
+    },
+    {
+      stage: 'Stage 6: Death (resolution through destruction)',
+      description: 'Hyde takes poison (or Jekyll, in a final act of will, forces Hyde to take it). Both identities are destroyed.',
+      controlLevel: 'The only remaining control is the choice of death over continued existence as Hyde.',
+      keyQuote: '"I bring the life of that unhappy Henry Jekyll to an end."',
+      significance: 'The duality can only be resolved through mutual destruction — there is no reconciliation.',
+    },
+  ],
+
+  // ──────────────────────────────────────────────
+  //  ANALYSIS OF THE TITLE
+  // ──────────────────────────────────────────────
+  titleAnalysis: {
+    fullTitle: 'The Strange Case of Dr Jekyll and Mr Hyde',
+    analysis: `Every element of the title is significant. "Strange Case" — the language of medical or legal investigation — frames the novella as a mystery to be solved, establishing the detective-fiction genre that will dominate the first eight chapters. The word "Strange" promises something unusual, something that exceeds normal categories of understanding. "Case" suggests both a legal case (appropriate for Utterson) and a medical case (appropriate for Jekyll and Lanyon), and the dual meaning reflects the novella's existence between law and science, between social order and natural inquiry.
+
+"Dr Jekyll" — the professional title "Dr" immediately establishes Jekyll's social status and his connection to science and medicine. The surname "Jekyll" has been widely debated: some scholars connect it to the French "je" (I) and "kill" (suggesting self-destruction), others to an old English word meaning "to deceive" or "to trick."
+
+"Mr Hyde" — the less prestigious "Mr" signals a lower social status than "Dr." The name "Hyde" is, of course, a pun on "hide" — the concealed self, the self that must be hidden from public view. It may also suggest an animal "hide" (skin), connecting Hyde to the bestial, the primitive, the not-fully-human.
+
+"And" — the conjunction connecting the two names suggests both partnership and opposition. Jekyll and Hyde are linked but separate, connected but distinct. The "and" implies that both are needed to complete the picture — neither alone tells the full story.
+
+The title does not reveal that Jekyll and Hyde are the same person — this is a deliberately withheld revelation. First-time readers in 1886 would have experienced the novella as a genuine mystery, not knowing until the final chapters that the "strange case" is one of dual identity rather than separate individuals.`,
+  },
+
+  // ──────────────────────────────────────────────
+  //  CHAPTER-BY-CHAPTER LANGUAGE ANALYSIS
+  // ──────────────────────────────────────────────
+  chapterLanguageAnalysis: {
+    chapter1: {
+      title: 'Story of the Door',
+      dominantTone: 'Restrained, curious, unsettled',
+      keyTechniques: [
+        {
+          technique: 'Setting as Symbol',
+          example: '"a certain sinister block of building thrust forward its gable on the street"',
+          analysis: 'The verb "thrust" personifies the building, giving it an aggressive, invasive quality that mirrors Hyde\'s own intrusion into respectable society. The word "sinister" — from the Latin for "left" — carries connotations of evil, wrongness, and the hidden. The building\'s physical position, "thrust forward" into the street, suggests something that cannot be contained, something that insists on being visible despite the desire to conceal it. This architectural description establishes the novella\'s central tension between hidden and revealed selves.',
+        },
+        {
+          technique: 'Narrative Frame',
+          example: 'Enfield tells Utterson the story of Hyde trampling the girl',
+          analysis: 'Stevenson uses an embedded narrative — a story within a story — to create distance between the reader and the events. We do not witness Hyde\'s violence directly; we hear about it secondhand, filtered through Enfield\'s perspective. This technique mirrors the way Victorian society dealt with uncomfortable truths: indirectly, through rumour and implication rather than direct confrontation. The embedded narrative also establishes the detective-fiction structure that will dominate the first eight chapters.',
+        },
+        {
+          technique: 'Understatement',
+          example: '"I feel very strongly about putting questions; it partakes too much of the style of the day of judgment"',
+          analysis: 'Enfield\'s reluctance to investigate further is presented as a gentlemanly virtue, but it is also a form of wilful blindness. The reference to "the day of judgment" is darkly ironic: by refusing to ask questions, Enfield (and the society he represents) allows evil to go unchallenged. Stevenson critiques the Victorian code of discretion, suggesting that the refusal to investigate is not politeness but complicity.',
+        },
+      ],
+    },
+    chapter2: {
+      title: 'Search for Mr Hyde',
+      dominantTone: 'Anxious, investigative, nightmarish',
+      keyTechniques: [
+        {
+          technique: 'Dream Imagery',
+          example: '"he would see a room in a rich house... and then the door of that room would be opened, the curtains of the bed plucked apart"',
+          analysis: 'Utterson\'s nightmare uses the language of revelation — doors opening, curtains being pulled back — to suggest that the truth about Hyde is pressing against the boundaries of consciousness. The domestic setting (bedroom, curtains) transforms the familiar into the threatening, a classic Gothic technique. The fact that even the rational Utterson is disturbed by dreams suggests that Hyde represents something that reason alone cannot process or control.',
+        },
+        {
+          technique: 'Physiognomy',
+          example: '"Mr Hyde was pale and dwarfish, he gave an impression of deformity without any nameable malformation"',
+          analysis: 'Stevenson engages with the Victorian pseudo-science of physiognomy — the belief that moral character is visible in physical appearance. Hyde\'s deformity is felt but cannot be specified, suggesting that his evil transcends physical categories. The phrase "without any nameable malformation" is crucial: Hyde\'s wrongness exists beyond language, beyond the rational categories that Victorian science relied upon. This connects to the novella\'s broader theme that evil cannot be contained by rational systems.',
+        },
+      ],
+    },
+    chapter4: {
+      title: 'The Carew Murder Case',
+      dominantTone: 'Violent, shocking, Gothic',
+      keyTechniques: [
+        {
+          technique: 'Escalation of Violence',
+          example: '"with ape-like fury, he was trampling his victim under foot and hailing down a storm of blows, under which the bones were audibly shattered"',
+          analysis: 'The violence of this scene represents a dramatic escalation from the trampling of the girl in Chapter 1. The comparison to an ape connects Hyde to Darwin\'s theory of evolution, suggesting he represents humanity\'s animal ancestry. "Audibly shattered" is particularly disturbing — the sound of breaking bones makes the violence visceral and inescapable. The verb "hailing" compares the blows to a storm, suggesting natural force rather than human agency — Hyde\'s violence is presented as elemental, beyond moral categories.',
+        },
+        {
+          technique: 'Pathetic Fallacy',
+          example: '"a fog rolled over the city... a great chocolate-coloured pall lowered over heaven"',
+          analysis: 'The fog that descends on London after the murder serves multiple functions. It obscures the search for Hyde (literal concealment), it represents the moral darkness that evil creates (metaphorical corruption), and it transforms London into a Gothic landscape of menace and uncertainty. The word "pall" — a cloth draped over a coffin — connects the weather to death, while "chocolate-coloured" gives the fog a sickly, artificial quality that suggests contamination rather than natural weather.',
+        },
+        {
+          technique: 'Contrast — Victim and Killer',
+          example: 'Sir Danvers Carew is described as "an aged beautiful gentleman with white hair" — the opposite of Hyde',
+          analysis: 'The contrast between Carew\'s gentle beauty and Hyde\'s savage fury emphasises the arbitrary nature of the violence. Carew was a stranger, was polite, was bowing — there was no provocation. Stevenson suggests that Hyde\'s evil needs no trigger; it is self-generating, purposeless, and therefore more terrifying than motivated violence. The murder of an innocent reinforces the idea that Hyde represents pure, undirected malevolence.',
+        },
+      ],
+    },
+    chapter8: {
+      title: 'The Last Night',
+      dominantTone: 'Suspenseful, terrifying, climactic',
+      keyTechniques: [
+        {
+          technique: 'Dramatic Tension',
+          example: '"\'Have you got it?\'... \'Have you got it?\' And so lively was his impatience that he even laid his hand upon Poole\'s arm"',
+          analysis: 'The repeated question and the physical gesture create escalating desperation. Jekyll (trapped inside the cabinet, his voice changed by transformation) is reduced to a single obsessive need — the chemical compound that might save him. Stevenson uses the locked door as a physical manifestation of the psychological barrier between Jekyll\'s two selves, and the urgency of his demand reveals that this barrier is failing.',
+        },
+        {
+          technique: 'Gothic Atmosphere',
+          example: '"The wind, which only broke in puffs and draughts into that deep well of building, tossed the light of the candle"',
+          analysis: 'The wind, the candle, the deep courtyard — these are the classic props of Gothic fiction, but Stevenson deploys them in a realistic London setting, blurring the boundary between the supernatural and the everyday. The "deep well of building" suggests both entrapment (a well you cannot climb out of) and psychological depth (the well of the unconscious). The flickering candle represents the fragility of reason in the face of the irrational.',
+        },
+      ],
+    },
+    chapter10: {
+      title: 'Henry Jekyll\'s Full Statement of the Case',
+      dominantTone: 'Confessional, philosophical, despairing',
+      keyTechniques: [
+        {
+          technique: 'First-Person Confession',
+          example: '"I was slowly losing hold of my original and better self, and becoming slowly incorporated with my second and worse"',
+          analysis: 'The shift to first-person narration in the final chapter transforms the novella from detective fiction into psychological horror. Jekyll\'s own words are more disturbing than any external description, because they reveal the internal experience of losing control over one\'s own identity. The repetition of "slowly" emphasises the gradual, insidious nature of the transformation — this is not a sudden fall but a progressive erosion of selfhood.',
+        },
+        {
+          technique: 'Scientific Language Used for Horror',
+          example: '"the drug that I have so long depended on... it was a compound, and that what lent it efficiency was some unknown impurity"',
+          analysis: 'The revelation that the original drug worked because of a random impurity — an element Jekyll cannot identify or replicate — undermines the entire scientific project. Jekyll\'s rational experiment has always depended on irrational chance. This is Stevenson\'s most devastating critique of Victorian scientific confidence: the transformative drug was never truly understood, and the experiment was never truly controlled. Science, the novella argues, does not master nature — it merely opens doors it cannot close.',
+        },
+        {
+          technique: 'Pronouns and Identity',
+          example: 'Jekyll shifts between "I" and "he" when referring to Hyde, sometimes within the same sentence',
+          analysis: 'The instability of pronouns in the final chapter reflects the instability of identity itself. When Jekyll says "I" he claims ownership of his actions; when he says "he" he distances himself from Hyde\'s crimes. This grammatical struggle enacts the novella\'s central question: if one person contains two selves, who is responsible for each self\'s actions? The pronoun confusion makes it impossible for the reader to determine where Jekyll ends and Hyde begins.',
+        },
+      ],
+    },
+  },
+
+  // ──────────────────────────────────────────────
+  //  STRUCTURAL ANALYSIS
+  // ──────────────────────────────────────────────
+  structuralAnalysis: {
+    overallStructure: `The novella uses a multi-perspective narrative structure that shifts between three distinct modes: third-person limited narration (focused on Utterson, Chapters 1-8), Dr Lanyon's first-person account (Chapter 9), and Jekyll's first-person confession (Chapter 10). This structure creates a progressive narrowing of perspective — from the public, external view of events to the private, internal experience of transformation. The shift from detection to confession mirrors the movement from surface to depth that is the novella's central concern.`,
+    narrativeArc: `The plot follows a classic mystery structure: an unusual event (the trampled girl), an investigation (Utterson's search), escalating incidents (the murder, Jekyll's seclusion), a crisis (the breaking down of the door), and a double revelation (Lanyon's letter and Jekyll's confession). However, Stevenson subverts the mystery genre by making the solution not a "whodunit" but a "who-is-it" — the mystery is not about identifying a criminal but about discovering that the criminal and the victim are the same person.`,
+    dualNarrativeTimeline: `The novella operates on two timelines simultaneously. The external timeline (Chapters 1-8) follows Utterson's investigation in chronological order, from the trampling incident through the murder to the breaking of the door. The internal timeline (Chapters 9-10) then rewinds and replays events from Lanyon's and Jekyll's perspectives, revealing what was hidden behind the locked doors and evasive answers. This dual structure enacts the novella's theme of hidden identity: the reader, like Victorian society, sees the public face first and only discovers the private truth afterwards.`,
+    roleOfLetters: `Letters function as the primary mechanism of revelation in the novella. Lanyon's letter, Jekyll's confession, and Jekyll's will all serve as sealed documents that contain dangerous truths. The emphasis on written confession reflects the Victorian belief in the power of the written word, but it also creates a disturbing irony: Jekyll can write about his transformation more honestly than he can speak about it. The written word, like Hyde himself, operates in a space removed from social performance.`,
+    significanceOfDoors: `Doors are the novella's most prominent structural motif. The story begins with a door (the "sinister block" entrance to Jekyll's laboratory), and the climax involves breaking down a door (to Jekyll's cabinet). Doors represent the boundary between public and private, respectable and criminal, known and unknown. That Jekyll's front door is respectable while his back door is sinister perfectly encapsulates the duality at the heart of the text. The locked cabinet door in Chapter 8 represents the final barrier between the public world and the secret self — and it must be broken, not opened, suggesting that the truth can only emerge through violence.`,
+  },
+
+  // ──────────────────────────────────────────────
+  //  WORD-LEVEL ANALYSIS
+  // ──────────────────────────────────────────────
+  wordLevelAnalysis: [
+    {
+      quote: '"Trampled calmly"',
+      context: 'Describing Hyde walking over the girl in Chapter 1',
+      wordAnalysis: {
+        trampled: 'A word of brutal, animalistic violence. To trample is to crush underfoot, to treat something as beneath you — literally and figuratively. The word connects to Hyde\'s repeated association with feet and walking, suggesting that his evil is expressed through movement, through his physical presence in the world.',
+        calmly: 'The adverb is what makes this phrase truly disturbing. Violence is expected to be passionate, frenzied, emotional. But Hyde is calm — his cruelty is not reactive but deliberate, not chaotic but controlled. The oxymoronic pairing of "trampled" and "calmly" suggests a form of evil that is rational, calculated, even routine. This challenges the assumption that evil is always irrational.',
+      },
+    },
+    {
+      quote: '"Something troglodytic"',
+      context: 'Utterson trying to describe his impression of Hyde',
+      wordAnalysis: {
+        troglodytic: 'Means "cave-dwelling" — derived from Greek trogle (cave) and dyein (to enter). The word connects Hyde to pre-civilised humanity, to the primitive being that evolution has supposedly left behind. In the context of Darwin\'s Origin of Species (1859), calling someone troglodytic suggests they are a living fossil, a remnant of humanity\'s animalistic past. Stevenson uses this single word to invoke the entire Victorian anxiety about evolution and the fear that beneath the civilised surface, the primitive self still lurks.',
+      },
+    },
+    {
+      quote: '"Man is not truly one, but truly two"',
+      context: 'Jekyll\'s confession in Chapter 10',
+      wordAnalysis: {
+        truly: 'Repeated twice for emphasis, the word "truly" claims access to a deeper truth than social convention allows. Jekyll is not saying that man appears to be two — he is saying that man is, in fundamental reality, divided. The repetition insists on this uncomfortable truth against the reader\'s desire to deny it.',
+        one: 'The word "one" represents the fiction of unified identity that Victorian society demanded. To be "one" is to be consistent, predictable, respectable. Jekyll\'s denial of this oneness is a denial of the entire Victorian social contract.',
+        two: 'The number "two" opens an abyss. If man is two, then which is the real self? Which is responsible? Which deserves punishment or reward? Jekyll immediately complicates this by suggesting that "two" is itself an understatement — "I say two, because the state of my own knowledge does not pass beyond that point" — implying that the self may be infinitely fragmented.',
+      },
+    },
+    {
+      quote: '"Full moon"',
+      context: 'The night of the Carew murder',
+      wordAnalysis: {
+        full: 'The full moon is a traditional Gothic symbol associated with transformation, madness (lunacy, from luna), and the revelation of hidden truths. In werewolf mythology, the full moon triggers transformation from human to beast — an obvious parallel to Jekyll\'s transformation into Hyde.',
+        moon: 'The moon provides the light by which the maid witnesses the murder — it is literally an instrument of revelation. But moonlight is also deceptive: it illuminates partially, casting shadows and distorting shapes. The murder is seen clearly but from a distance, through a window, by a dreaming maid — Stevenson layers multiple forms of mediated perception to suggest that even witnessed events cannot be fully understood.',
+      },
+    },
+  ],
+
+  // ──────────────────────────────────────────────
+  //  GRADE 9 ESSAY TECHNIQUES
+  // ──────────────────────────────────────────────
+  grade9Techniques: {
+    description: 'Techniques and approaches that distinguish grade 9 responses from grade 7-8 responses for Jekyll and Hyde',
+    techniques: [
+      {
+        name: 'Narrative Perspective Analysis',
+        description: 'Discuss the significance of who tells the story and what is hidden or revealed by the narrative choice. Note the shift from third-person limited (Utterson) to first-person confessional (Lanyon and Jekyll).',
+        example: '"Stevenson\'s decision to filter the novella\'s events through Utterson — a lawyer whose profession depends on rational interpretation — ensures that the irrational truth of Jekyll\'s experiment is delayed as long as possible. The reader, like Utterson, is encouraged to seek rational explanations, making the final revelation more devastating because it overturns the interpretive framework we have been trained to use."',
+      },
+      {
+        name: 'Genre Awareness',
+        description: 'Discuss how Stevenson uses and subverts genre conventions — Gothic fiction, detective fiction, science fiction, the doppelganger tradition.',
+        example: '"Stevenson hybridises the detective genre with Gothic horror, creating a narrative in which the more Utterson investigates, the less rational the world becomes. Unlike Conan Doyle\'s Holmes stories (published just a year later), where investigation leads to rational solutions, Stevenson\'s investigation leads to the dissolution of rationality itself."',
+      },
+      {
+        name: 'Scientific and Religious Context',
+        description: 'Integrate the Victorian conflict between science and religion into analysis. Discuss Darwin, evolution, the crisis of faith, and the fear of what science might reveal.',
+        example: '"Jekyll\'s experiment literalises the Darwinian anxiety that beneath the civilised human lies an animal ancestor. Hyde\'s \'ape-like fury\' and \'troglodytic\' appearance are not just physical descriptions but evolutionary metaphors: he is what humanity was before civilisation, and what it might become again if the moral restraints of society are removed."',
+      },
+      {
+        name: 'Pronoun and Identity Analysis',
+        description: 'Track how pronouns shift throughout the text, especially in Jekyll\'s final confession. Note when Jekyll says "I" versus "he" and what this reveals about identity and responsibility.',
+        example: '"The grammatical instability of Jekyll\'s confession — where \'I\' and \'he\' become interchangeable — performs the very crisis of identity that the narrative describes. When Jekyll writes \'he, I say — I cannot say I,\' the correction reveals a man fighting to maintain a distinction that language itself can no longer support."',
+      },
+      {
+        name: 'Doors, Windows, and Thresholds',
+        description: 'Analyse the recurring motif of physical boundaries (doors, windows, cabinets) as metaphors for the boundary between public and private, conscious and unconscious, respectable and criminal.',
+        example: '"Every significant revelation in the novella occurs at a threshold: the back door where Hyde tramples the girl, the window where Jekyll transforms in public view, the cabinet door that Utterson and Poole must break down. Stevenson uses these physical boundaries to literalise the psychological boundaries that Jekyll\'s experiment has dissolved."',
+      },
+    ],
+  },
+
+  // ──────────────────────────────────────────────
+  //  PRACTICE EXTRACT QUESTIONS
+  // ──────────────────────────────────────────────
+  practiceExtractQuestions: [
+    {
+      extract: '"Mr Hyde was pale and dwarfish, he gave an impression of deformity without any nameable malformation, he had a displeasing smile, he had borne himself to the lawyer with a sort of murderous mixture of timidity and boldness, and he spoke with a husky, whispering and somewhat broken voice."',
+      chapter: 2,
+      questions: [
+        'How does Stevenson use language to present Hyde as a disturbing character?',
+        'What is the significance of the phrase "deformity without any nameable malformation"?',
+        'How does this description reflect Victorian attitudes to appearance and morality?',
+      ],
+      keyPointsToInclude: [
+        '"Pale and dwarfish" — physical smallness reflects Hyde\'s status as a lesser, incomplete version of Jekyll',
+        '"Deformity without any nameable malformation" — evil cannot be categorised or contained by rational language',
+        '"Displeasing smile" — the oxymoron suggests a perversion of a normal human expression',
+        '"Murderous mixture of timidity and boldness" — another oxymoron showing Hyde\'s contradictory nature',
+        '"Husky, whispering and somewhat broken voice" — the voice is fragmented, like the identity it represents',
+        'Connects to Victorian physiognomy — the belief that moral character is visible in physical form',
+        'The inability to name the deformity suggests that Hyde exists outside known categories — a new kind of evil',
+      ],
+    },
+    {
+      extract: '"If I am the chief of sinners, I am the chief of sufferers also. I could not think that this earth contained a place for sufferings and terrors so unmanning."',
+      chapter: 10,
+      questions: [
+        'How does Stevenson present Jekyll\'s state of mind at this point?',
+        'What is the significance of Jekyll calling himself "the chief of sinners"?',
+        'How does this extract contribute to the novella\'s exploration of duality?',
+      ],
+      keyPointsToInclude: [
+        '"Chief of sinners" — biblical language echoing St Paul (1 Timothy 1:15), framing Jekyll in religious terms',
+        'The parallel structure "chief of sinners... chief of sufferers" creates a causal link between sin and suffering',
+        '"Unmanning" — losing his manhood/humanity, connecting to Hyde\'s dehumanising effect',
+        'Jekyll claims victim status alongside criminal status — the duality extends to self-perception',
+        'The word "terrors" suggests Gothic horror experienced from within, not imposed from outside',
+        'This moment shows Jekyll still attempting to separate himself from his actions — still performing innocence',
+        'Stevenson critiques the Victorian tendency to excuse transgressions by emphasising the transgressor\'s suffering',
+      ],
+    },
+  ],
+
+  // ──────────────────────────────────────────────
+  //  NAME ANALYSIS
+  // ──────────────────────────────────────────────
+  nameAnalysis: [
+    {
+      name: 'Dr Henry Jekyll',
+      analysis: `The professional title "Dr" immediately establishes Jekyll's social authority and his connection to science. "Henry" is a kingly name — multiple English kings bore it — suggesting respectability, power, and establishment status. "Jekyll" has been debated by scholars: some connect it to the French "je" (I) and "kill," suggesting self-destruction, which is precisely what Jekyll's experiment achieves. Others link it to an old Norse word meaning "icicle," suggesting coldness and brittleness beneath the warm surface. The name's dual potential meanings mirror the character's dual nature.`,
+    },
+    {
+      name: 'Edward Hyde',
+      analysis: `"Edward" is another royal name, but one associated with more troubled monarchs. The contrast with "Henry" is subtle but present — both are names of kings, but Hyde's Edward suggests a lesser, more unstable royalty. "Hyde" is the novella's most transparent name: it puns on "hide" (to conceal), making Hyde literally the hidden self. It may also suggest an animal "hide" (skin), connecting Hyde to the bestial, the primitive, the surface rather than the depth. The name functions as a warning that Stevenson places in plain sight — the hidden self is named as hidden, yet the characters fail to understand the clue.`,
+    },
+    {
+      name: 'Gabriel John Utterson',
+      analysis: `"Gabriel" is the name of an archangel — the messenger of God — which is ironic for a character who consistently fails to see the truth. "Utterson" contains "utter," meaning to speak or to complete, but Utterson is defined by what he does not say, what he chooses not to investigate. His surname suggests a potential for revelation that his Victorian discretion prevents him from fulfilling. He is the messenger who refuses to deliver the message.`,
+    },
+    {
+      name: 'Dr Hastie Lanyon',
+      analysis: `"Hastie" suggests haste, speed, and urgency — and indeed Lanyon's death is hastened by his horrific discovery. "Lanyon" contains "lay on," suggesting someone upon whom a burden is placed — the burden of knowledge about Jekyll's experiment proves literally fatal. Lanyon represents orthodox science, and his name's suggestion of haste and burden reflects the speed with which conventional certainties collapse when confronted with Jekyll's transgressive discoveries.`,
+    },
+    {
+      name: 'Richard Enfield',
+      analysis: `"Enfield" suggests an open field — a public space — which aligns with Enfield's role as a man of society, a wanderer of London's streets. He is the character most connected to the public world, which is why he witnesses Hyde's first crime in a public street. "Richard" means "powerful ruler," but Enfield's power is limited to observation: he sees events but does not understand them, reports them but does not investigate them.`,
+    },
+    {
+      name: 'Poole',
+      analysis: `Jekyll's butler is given a name that suggests a pool — a body of still water that reflects what stands above it. Poole reflects his master's moods and anxieties without fully understanding them. As a servant, he is a mirror of the household's inner state, and it is Poole who first recognises that something is fundamentally wrong — not through intellect but through intimate familiarity with Jekyll's habits.`,
+    },
+  ],
+
+  // ──────────────────────────────────────────────
+  //  IMAGERY PATTERNS ACROSS THE NOVELLA
+  // ──────────────────────────────────────────────
+  imageryPatterns: [
+    {
+      pattern: 'Doors and Thresholds',
+      description: 'Doors represent the boundary between public respectability and private transgression, between the known and the hidden.',
+      examples: [
+        'The "sinister block" with its blistered, stained door — Jekyll\'s back entrance',
+        'Jekyll\'s respectable front door on the square',
+        'The locked cabinet door that must be broken down in Chapter 8',
+        'The door of Jekyll\'s dissecting room where Hyde shelters',
+      ],
+      significance: 'The two doors to Jekyll\'s property — one respectable, one sinister — physically embody the duality at the heart of the novella. The front door presents the face that Jekyll shows to the world; the back door is the entrance to his secret life. That they connect to the same building is the architectural equivalent of Jekyll and Hyde being the same person.',
+    },
+    {
+      pattern: 'Fog and Weather',
+      description: 'Fog represents moral confusion, concealment, and the impossibility of seeing clearly in a society built on secrets.',
+      examples: [
+        '"A great chocolate-coloured pall lowered over heaven"',
+        '"The fog settled down again upon that part, as brown as umber"',
+        'The wind that "charged and routed" the fog only to have it return',
+        'The clear night of Carew\'s murder — the one scene where clarity enables vision of evil',
+      ],
+      significance: 'Stevenson uses fog as both literal atmosphere and moral metaphor. The fog that blankets London conceals Hyde\'s movements just as Victorian respectability conceals the city\'s secret vices. The moments of clarity — like the full moon on the night of Carew\'s murder — are moments when evil becomes visible, suggesting that moral truth exists but is usually obscured.',
+    },
+    {
+      pattern: 'Hands and Physicality',
+      description: 'Hands are repeatedly described to differentiate Jekyll and Hyde and to explore the physical manifestation of moral character.',
+      examples: [
+        'Jekyll\'s hand is "large, firm, white and comely"',
+        'Hyde\'s hand is "lean, corded, knuckly, of a dusky pallor and thickly shaded with a swart growth of hair"',
+        'Jekyll watches his hand change on waking — the moment he loses control',
+        'Hyde\'s hands trampling the girl, beating Carew',
+      ],
+      significance: 'Hands represent agency — the capacity to act in the world. The contrast between Jekyll\'s civilised hands and Hyde\'s bestial ones suggests that moral character is expressed through physical action. The moment Jekyll wakes to find Hyde\'s hand on the bedclothes is the novella\'s most terrifying image of lost control: the body has changed without the mind\'s consent, and the hand that acts is no longer the hand the mind recognises.',
+    },
+    {
+      pattern: 'Mirrors and Reflections',
+      description: 'Mirrors represent self-knowledge, self-examination, and the confrontation with one\'s true nature.',
+      examples: [
+        'Jekyll looks in the mirror after his first transformation and feels "a leap of welcome" for Hyde',
+        'The "cheval glass" in Jekyll\'s cabinet — a full-length mirror that has "seen some strange things"',
+        'Utterson\'s nightmare visions that function as distorted mirrors of reality',
+      ],
+      significance: 'The mirror is the one place where Jekyll can see Hyde as himself — where the two identities are literally reflected as one. Jekyll\'s initial pleasure in seeing Hyde in the mirror reveals a disturbing self-recognition: he welcomes his darker self because he has always known it was there. The mirror tells the truth that society is designed to conceal.',
+    },
+  ],
+
+  // ──────────────────────────────────────────────
+  //  COMPARISON WITH OTHER GCSE TEXTS
+  // ──────────────────────────────────────────────
+  gcseCrossTextComparisons: [
+    {
+      text: 'A Christmas Carol (Dickens)',
+      connectionType: 'Victorian Society and Transformation',
+      comparison: 'Both novellas explore transformation, but in opposite directions. Scrooge transforms from evil to good through supernatural intervention; Jekyll transforms from good to evil through scientific intervention. Dickens is optimistic about human nature — the hidden self is generous and must be released. Stevenson is pessimistic — the hidden self is bestial and must be contained. Both texts critique Victorian society, but where Dickens attacks social structures (poverty, the Poor Law), Stevenson attacks the psychology of respectability itself.',
+    },
+    {
+      text: 'Macbeth (Shakespeare)',
+      connectionType: 'Ambition and Moral Destruction',
+      comparison: 'Both Jekyll and Macbeth are respected men whose ambition leads to moral destruction. Jekyll\'s desire to separate good from evil mirrors Macbeth\'s desire to seize the crown — both pursue goals that seem rational but unleash uncontrollable consequences. Both texts use darkness and Gothic imagery to represent moral corruption, and both end with the protagonist\'s death. However, Macbeth is destroyed by external forces (Macduff), while Jekyll is destroyed by internal forces (Hyde), reflecting the shift from Renaissance to Victorian conceptions of evil as internal rather than external.',
+    },
+    {
+      text: 'An Inspector Calls (Priestley)',
+      connectionType: 'Social Respectability and Hidden Guilt',
+      comparison: 'Both texts expose the gap between public respectability and private guilt. The Birling family, like Jekyll, maintain a respectable facade that conceals morally questionable behaviour. Both texts use an investigative structure — Utterson investigates Hyde\'s identity; the Inspector investigates Eva Smith\'s death. However, Stevenson suggests that the hidden self is an inevitable part of human nature, while Priestley suggests that hidden guilt is a product of specific social and economic structures that can be changed.',
+    },
+  ],
+};
+
+export default jekyllHydeComplete;

@@ -24,10 +24,11 @@ const BOARDS = [
     name: 'Edexcel',
     subtitle: 'Pearson Edexcel',
     color: '#dc2626',
-    desc: 'Pearson Edexcel offers both GCSE and International GCSE (IGCSE) specifications, making it the go-to board for international schools worldwide. The GCSE covers Language and Literature with a focus on unseen texts and comparative analysis. IGCSE English offers flexible specifications including Spec A and Spec B, covering reading, writing, and coursework options.',
+    desc: 'Pearson Edexcel offers both GCSE and International GCSE (IGCSE) specifications, making it the go-to board for international schools worldwide. The GCSE covers Language and Literature with a focus on unseen texts and comparative analysis. Edexcel IGCSE English covers reading, writing, anthology analysis, and coursework options across two papers.',
     specs: [
       'GCSE Language & Literature',
-      'IGCSE Spec A & B',
+      'IGCSE English Language',
+      'IGCSE English Literature',
       'Belonging Poetry Anthology',
       'Set Text Study',
       'Comparative Analysis',
@@ -56,12 +57,27 @@ const BOARDS = [
     color: '#ea580c',
     desc: 'WJEC Eduqas serves schools in Wales and increasingly in England. The specification covers Language (reading and writing across fiction and non-fiction) and Literature (Shakespeare, poetry, prose, and unseen poetry). Known for its clear mark schemes and accessible question styles.',
     specs: [
-      'Language Component 1 & 2',
-      'Literature Component 1 & 2',
+      'Language Paper 1 & 2',
+      'Literature Paper 1 & 2',
       'Welsh Curriculum Alignment',
       'WJEC Poetry Anthology',
     ],
     cta: 'Study WJEC',
+  },
+  {
+    id: 'ks3',
+    name: 'KS3',
+    subtitle: 'Key Stage 3 — Years 7–9',
+    color: '#10b981',
+    desc: 'Key Stage 3 covers Years 7–9 and builds the foundation for GCSE English. There are no formal exam papers — instead, you\'ll develop core skills in reading, writing, speaking, and literature study. Whether you\'re preparing for GCSE or strengthening the basics, KS3 resources help you build confidence in comprehension, creative writing, and textual analysis.',
+    specs: [
+      'Reading & Comprehension',
+      'Creative Writing',
+      'Literature & Texts',
+      'Speaking & Listening',
+      'SPaG Skills',
+    ],
+    cta: 'Study KS3',
   },
 ];
 
@@ -174,7 +190,7 @@ export default function BoardSelect() {
 
             {/* CTA */}
             <Link
-              to={`/board/${board.id}`}
+              to={`/board/${board.id}/subject`}
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',

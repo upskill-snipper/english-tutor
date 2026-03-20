@@ -40,10 +40,19 @@ export function getCurrentUser() {
   if (!data) return null;
   let userId, timestamp;
   try { ({ userId, timestamp } = JSON.parse(data)); } catch { return null; }
-  if (Date.now() - timestamp > 7 * 24 * 60 * 60 * 1000) {
+  // Expire session after 7 days total or 24 hours of inactivity
+  const now = Date.now();
+  const SESSION_MAX_AGE = 7 * 24 * 60 * 60 * 1000;
+  const INACTIVITY_LIMIT = 24 * 60 * 60 * 1000;
+  const lastActivity = localStorage.getItem(STORAGE_PREFIX + 'last_activity');
+  const lastActivityTime = lastActivity ? parseInt(lastActivity, 10) : timestamp;
+  if (now - timestamp > SESSION_MAX_AGE || now - lastActivityTime > INACTIVITY_LIMIT) {
     localStorage.removeItem(STORAGE_PREFIX + 'current_user');
+    localStorage.removeItem(STORAGE_PREFIX + 'last_activity');
     return null;
   }
+  // Update last activity timestamp
+  localStorage.setItem(STORAGE_PREFIX + 'last_activity', String(now));
   const users = getUsers();
   return users.find(u => u.id === userId) || null;
 }
@@ -54,6 +63,7 @@ export function setCurrentUser(userId) {
 
 export function logout() {
   localStorage.removeItem(STORAGE_PREFIX + 'current_user');
+  localStorage.removeItem(STORAGE_PREFIX + 'last_activity');
 }
 
 export function login(email, password) {
@@ -68,6 +78,12 @@ export function login(email, password) {
 }
 
 export function register(name, email, password, examBoard = 'Not sure yet') {
+  if (!name || !name.trim()) {
+    return { success: false, error: 'Please enter your name' };
+  }
+  if (!email || !email.trim()) {
+    return { success: false, error: 'Please enter your email' };
+  }
   const users = getUsers();
   if (users.find(u => u.email.toLowerCase() === email.toLowerCase())) {
     return { success: false, error: 'An account with that email already exists' };
@@ -388,7 +404,8 @@ export function getAssessmentHistory(userId) {
 
 export function saveAssessmentToHistory(userId, { courseId, board, specId, score, maxScore, skillBreakdown }) {
   const data = localStorage.getItem(STORAGE_PREFIX + 'assessment_history');
-  const all = data ? JSON.parse(data) : {};
+  let all = {};
+  if (data) { try { all = JSON.parse(data); } catch { /* corrupted */ } }
   if (!all[userId]) all[userId] = [];
 
   all[userId].push({
@@ -428,9 +445,14 @@ export function getTotalScoredActivities(userId) {
 }
 
 export function seedDemoData() {
+  // Only seed if no users exist yet — prevents overwriting real data
   const users = getUsers();
   if (users.length > 0) return;
 
+  // ⚠ DEMO-ONLY credentials — these exist solely for local demonstration
+  // purposes and must not be used in any production or publicly-deployed build.
+  // Admin: admin@learnright.com / Admin2026!
+  // Student: student@learnright.com / Student2026!
   const adminUser = {
     id: 'admin-001',
     name: 'Admin User',
@@ -459,8 +481,11 @@ export function seedDemoData() {
 
   saveUsers([adminUser, studentUser]);
 
-  // Give admin Pro subscription
-  localStorage.setItem(STORAGE_PREFIX + 'subscription_admin-001', JSON.stringify({ tier: 'pro', expiresAt: null }));
+  // Give admin Pro subscription (expires next August 1st)
+  const now = new Date();
+  const adminExpiryYear = now.getMonth() >= 7 ? now.getFullYear() + 1 : now.getFullYear();
+  const adminExpiry = new Date(adminExpiryYear, 7, 1).getTime();
+  localStorage.setItem(STORAGE_PREFIX + 'subscription_admin-001', JSON.stringify({ tier: 'pro', expiresAt: adminExpiry }));
 
   const progress = {
     'user-001': {
@@ -480,8 +505,8 @@ export function seedDemoData() {
 
 export const SUBSCRIPTION_TIERS = {
   free: { name: 'Free', price: 0, gameAttempts: 3, features: ['3 free game trials', 'Browse course catalogue'] },
-  monthly: { name: 'Monthly', price: 12.50, gameAttempts: Infinity, features: ['Unlimited games', 'All courses', 'All flashcards', 'Practice questions', 'Study planner', 'Certificates'] },
-  pro: { name: 'Pro (Lifetime)', price: 179, gameAttempts: Infinity, features: ['Everything in Monthly', 'Lifetime access', 'Priority support', 'Early access to new content'] },
+  monthly: { name: 'Monthly', price: 19, gameAttempts: Infinity, features: ['Unlimited games', 'All courses', 'All flashcards', 'Practice questions', 'Study planner', 'Certificates'] },
+  pro: { name: 'Pro (Annual)', price: 179, gameAttempts: Infinity, features: ['Everything in Monthly', 'Full school year access (Aug\u2013Aug)', 'Save £49 vs monthly'] },
 };
 
 export function getSubscription(userId) {
@@ -494,6 +519,15 @@ export function setSubscription(userId, tier) {
   let expiresAt = null;
   if (tier === 'monthly') {
     expiresAt = Date.now() + 30 * 24 * 60 * 60 * 1000;
+  } else if (tier === 'pro') {
+    // Pro runs for one school year: August 1 to August 1
+    const now = new Date();
+    const currentYear = now.getFullYear();
+    const currentMonth = now.getMonth(); // 0-indexed, so July = 6, August = 7
+    // If we're in August or later, expire next year's August 1st
+    // If before August, expire this year's August 1st
+    const expiryYear = currentMonth >= 7 ? currentYear + 1 : currentYear;
+    expiresAt = new Date(expiryYear, 7, 1).getTime(); // Month 7 = August
   }
   const subscription = { tier, expiresAt };
   localStorage.setItem(STORAGE_PREFIX + 'subscription_' + userId, JSON.stringify(subscription));
@@ -502,8 +536,7 @@ export function setSubscription(userId, tier) {
 
 export function isSubscribed(userId) {
   const sub = getSubscription(userId);
-  if (sub.tier === 'pro') return true;
-  if (sub.tier === 'monthly') {
+  if (sub.tier === 'pro' || sub.tier === 'monthly') {
     return sub.expiresAt !== null && sub.expiresAt > Date.now();
   }
   return false;
@@ -523,7 +556,8 @@ export function recordGameAttempt(userId, gameId) {
     ? STORAGE_PREFIX + 'game_attempts_' + userId
     : STORAGE_PREFIX + 'anon_game_attempts';
   const data = localStorage.getItem(key);
-  const parsed = data ? JSON.parse(data) : { count: 0, history: [] };
+  let parsed = { count: 0, history: [] };
+  if (data) { try { parsed = JSON.parse(data); } catch { /* corrupted */ } }
   parsed.count += 1;
   parsed.history.push({ gameId, timestamp: Date.now() });
   localStorage.setItem(key, JSON.stringify(parsed));

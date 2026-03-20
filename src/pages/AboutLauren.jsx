@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
-import { Star, ArrowRight, GraduationCap, Globe, FileCheck } from 'lucide-react';
+import { Star, ArrowRight, Globe, FileCheck } from 'lucide-react';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const REVIEWS = [
   { name: 'Jamie', text: 'Lauren was really helpful in supporting my son and certainly boosted both his skill set, preparedness and confidence levels.' },
@@ -15,12 +16,6 @@ const REVIEWS = [
   { name: 'Charlie', text: 'Super engaging with my son who has mild ASD. Lauren has lesson planned the whole year leading up to GCSE English exams next summer. I feel super confident in her abilities to coach Harry through this challenging year. Really excellent start.' },
   { name: 'Inger', text: 'Lauren has been tutoring my son for several months during the Spring and Summer term of year 11. She has gone the extra mile to understand how best to support my son through his GCSE preparations, hugely helping his confidence and supporting his ability, tailoring the sessions to his strengths, with good results all-round. She is an amazing and dedicated teacher and we are so pleased to have found her. We highly recommend Lauren as an English tutor.' },
   { name: 'Kelly', text: 'Lauren has recently started providing support to my daughter for her GCSE English. She is incredibly friendly and approachable. My daughter finds her way of explaining things very easy to understand. We are very pleased we have found Lauren and would recommend her.' },
-];
-
-const QUALIFICATIONS = [
-  { institution: 'University of Teesside', year: '2019', level: 'Bachelors', subject: 'Education & Training' },
-  { institution: 'University of Teesside', year: '2015', level: 'Bachelors', subject: 'UCPD Teaching English' },
-  { institution: 'Stockton Riverside College', year: '2016', level: 'College', subject: 'English for Literacy Teachers' },
 ];
 
 const sectionBase = {
@@ -87,7 +82,7 @@ export default function AboutLauren() {
 
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
             <Stars />
-            <span style={{ color: '#94a3b8', fontSize: '0.95rem' }}>12 reviews</span>
+            <span style={{ color: '#94a3b8', fontSize: '0.95rem' }}>{REVIEWS.length} reviews</span>
           </div>
 
           <p style={{
@@ -119,98 +114,17 @@ export default function AboutLauren() {
             Why I Created LearnRight
           </h2>
           <p style={{ fontSize: '1.1rem', color: '#94a3b8', lineHeight: 1.85, marginBottom: '1.25rem' }}>
-            For years, I worked as a one-to-one tutor alongside my role as a GCSE examiner for AQA, Cambridge, and Pearson. Every student I worked with saw real improvement &mdash; not just in their grades, but in their confidence and understanding of English. Parents would tell me their children had gone from dreading English to genuinely enjoying it, and exam results consistently reflected that progress.
+            Alongside my full-time teaching and leadership role as Head of English, I have supported students through one-to-one tutoring, while working as an examiner and moderator for AQA, Pearson and Cambridge. Every student I worked with saw real improvement, not just in their grades, but in their confidence and understanding of English. Parents would tell me their children had gone from dreading English to genuinely enjoying it, and exam results consistently reflected that progress.
           </p>
           <p style={{ fontSize: '1.1rem', color: '#94a3b8', lineHeight: 1.85, marginBottom: '1.25rem' }}>
-            But there was a problem. There simply weren&rsquo;t enough hours in the day. My waiting list grew longer and longer, and I found myself having to turn away students who needed help. It didn&rsquo;t sit right with me &mdash; I knew I could make a difference for them, but the limitations of one-to-one tutoring meant I could only reach so many.
+            But there was a problem. There simply weren&rsquo;t enough hours in the day. My waiting list grew longer and longer, and I found myself having to turn away students who needed help. It didn&rsquo;t sit right with me because I knew I could make a difference for them, but the limitations of one-to-one tutoring meant I could only reach so many.
           </p>
           <p style={{ fontSize: '1.1rem', color: '#94a3b8', lineHeight: 1.85, marginBottom: '1.25rem' }}>
-            That&rsquo;s when the idea for LearnRight was born. I wanted to take everything that made my tutoring effective &mdash; the examiner insight, the mark scheme expertise, the ability to explain tricky concepts in a way that actually clicks &mdash; and make it available to every student who needs it, not just the ones lucky enough to get a slot in my diary.
+            That&rsquo;s when the idea for LearnRight was born. I wanted to take everything that made my tutoring effective (the examiner insight, the mark scheme expertise, the ability to explain tricky concepts in a way that actually clicks) and make it available to every student who needs it, not just the ones lucky enough to get a slot in my diary.
           </p>
           <p style={{ fontSize: '1.1rem', color: '#94a3b8', lineHeight: 1.85 }}>
             LearnRight is built from real classroom success and genuine examining experience. Every course, every practice question, every piece of feedback is shaped by what I know works. My passion is helping learners achieve the best results they&rsquo;re capable of, and this site means I can finally do that without limits.
           </p>
-        </div>
-      </section>
-
-      {/* ===== EXPERIENCE SECTION ===== */}
-      <section style={{
-        ...sectionBase,
-        background: 'linear-gradient(135deg, rgba(99,102,241,0.06) 0%, rgba(99,102,241,0.02) 100%)',
-        borderBottom: '1px solid rgba(99,102,241,0.08)',
-      }}>
-        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-          <h2 style={{
-            fontSize: 'clamp(1.8rem, 3.5vw, 2.4rem)',
-            fontWeight: 900,
-            marginBottom: '1.5rem',
-            color: '#f1f5f9',
-          }}>
-            Teaching Experience
-          </h2>
-          <p style={{ fontSize: '1.1rem', color: '#94a3b8', lineHeight: 1.85, marginBottom: '1.25rem' }}>
-            I have been teaching GCSE English since 2015, primarily working with Year 10, Year 11, and college students. Many of my students have come to me with previous negative experiences of English and little confidence in their own ability &mdash; helping them find their voice and believe in themselves is one of the most rewarding parts of what I do.
-          </p>
-          <p style={{ fontSize: '1.1rem', color: '#94a3b8', lineHeight: 1.85, marginBottom: '1.25rem' }}>
-            Alongside teaching, I have been a GCSE examiner for AQA English Language since 2019, giving me direct insight into exactly what examiners are looking for and how marks are awarded. This examining experience shapes every resource on LearnRight.
-          </p>
-          <p style={{ fontSize: '1.1rem', color: '#94a3b8', lineHeight: 1.85, marginBottom: '1.5rem' }}>
-            I also have extensive experience working with learners with SEND, including specialist knowledge of supporting students with ASD. I believe every student can achieve with the right support, and my approach is always tailored to the individual.
-          </p>
-          <div style={{
-            background: 'rgba(255,255,255,0.03)',
-            border: '1px solid rgba(255,255,255,0.06)',
-            borderRadius: '12px',
-            padding: '1.25rem 1.5rem',
-          }}>
-            <p style={{ fontSize: '0.95rem', color: '#7a8ba8', lineHeight: 1.7, margin: 0 }}>
-              I hold a full enhanced DBS which is available on request, and I complete regular safeguarding training.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== QUALIFICATIONS SECTION ===== */}
-      <section style={{
-        ...sectionBase,
-        borderBottom: '1px solid rgba(255,255,255,0.04)',
-      }}>
-        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-          <h2 style={{
-            fontSize: 'clamp(1.8rem, 3.5vw, 2.4rem)',
-            fontWeight: 900,
-            marginBottom: '2rem',
-            color: '#f1f5f9',
-            textAlign: 'center',
-          }}>
-            Qualifications
-          </h2>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-            gap: '1.5rem',
-          }}>
-            {QUALIFICATIONS.map((q, i) => (
-              <div key={i} style={{
-                background: 'rgba(255,255,255,0.03)',
-                border: '1px solid rgba(255,255,255,0.08)',
-                borderRadius: '16px',
-                padding: '1.75rem 1.5rem',
-                textAlign: 'center',
-              }}>
-                <GraduationCap size={28} color="#10b981" style={{ marginBottom: '0.75rem' }} />
-                <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#f1f5f9', marginBottom: '0.25rem' }}>
-                  {q.institution}
-                </h3>
-                <p style={{ color: '#10b981', fontWeight: 600, fontSize: '0.9rem', marginBottom: '0.5rem' }}>
-                  {q.year} &middot; {q.level}
-                </p>
-                <p style={{ color: '#94a3b8', fontSize: '0.95rem', margin: 0 }}>
-                  {q.subject}
-                </p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -262,7 +176,7 @@ export default function AboutLauren() {
             }}>
               What Parents &amp; Students Say
             </h2>
-            <p style={{ color: '#94a3b8', fontSize: '1rem' }}>12 verified reviews</p>
+            <p style={{ color: '#94a3b8', fontSize: '1rem' }}>{REVIEWS.length} verified reviews</p>
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
@@ -340,22 +254,7 @@ export default function AboutLauren() {
         </Link>
       </section>
 
-      {/* ===== FOOTER ===== */}
-      <footer style={{
-        borderTop: '1px solid rgba(255,255,255,0.06)',
-        padding: '2.5rem 2rem',
-        textAlign: 'center',
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
-          <GraduationCap size={20} color="#10b981" />
-          <span style={{ fontWeight: 700, fontSize: '1.05rem', color: '#f1f5f9' }}>
-            Learn<span style={{ color: '#10b981' }}>Right</span> English
-          </span>
-        </div>
-        <p style={{ color: '#475569', fontSize: '0.85rem' }}>
-          &copy; {new Date().getFullYear()} LearnRight English. All rights reserved.
-        </p>
-      </footer>
+      <Footer />
     </div>
   );
 }

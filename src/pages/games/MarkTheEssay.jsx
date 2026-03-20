@@ -1,8 +1,10 @@
 import { useState, useEffect, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import { RotateCcw, Trophy, Star, Target, ChevronRight, BookOpen, Award, CheckCircle, Eye } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import GameWrapper from '../../components/GameWrapper';
 import Lauren from '../../components/Lauren';
+import { recordGamePlayed } from '../../utils/gameUtils';
 
 /* ───────────────────────── ESSAY EXCERPT DATA ───────────────────────── */
 
@@ -265,6 +267,7 @@ export default function MarkTheEssay() {
       const finalScore = score;
       saveBest(finalScore);
       setBestScore(Math.max(bestScore, finalScore));
+      recordGamePlayed();
       setPhase('results');
     } else {
       setEssayIndex(i => i + 1);
@@ -676,6 +679,17 @@ export default function MarkTheEssay() {
               >
                 Back to Menu
               </button>
+              <Link
+                to="/games"
+                style={{
+                  flex: 1, padding: '14px 0', borderRadius: 14,
+                  background: 'rgba(30, 41, 59, 0.6)', border: '1px solid rgba(71, 85, 105, 0.5)',
+                  color: '#fff', fontWeight: 600, fontSize: 15, textDecoration: 'none',
+                  textAlign: 'center', transition: 'all 0.2s'
+                }}
+              >
+                Back to Games
+              </Link>
             </div>
           </div>
         )}

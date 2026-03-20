@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, memo, useMemo } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { BookOpen, Clock, ArrowRight } from 'lucide-react';
 import Navbar from '../components/Navbar';
@@ -6,12 +6,13 @@ import { getCurrentUser } from '../utils/auth';
 import COURSES from '../data/courseData';
 import BOARDS from '../data/boardRegistry';
 
-/* ── Course Row component (full-width catalogue entry) ── */
+/* ── Course Row component (full-width catalogue entry, memoized) ── */
 
-function CourseRow({ course, enrolled, boardColor, isLast }) {
+const CourseRow = memo(function CourseRow({ course, enrolled, boardColor, isLast }) {
   return (
     <Link to={`/course/${course.id}`} style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
       <div
+        className="course-row-inner"
         style={{
           display: 'flex',
           alignItems: 'center',
@@ -138,7 +139,7 @@ function CourseRow({ course, enrolled, boardColor, isLast }) {
         </div>
 
         {/* Right side: View Course button */}
-        <div style={{ flexShrink: 0 }}>
+        <div className="course-row-btn" style={{ flexShrink: 0 }}>
           <span style={{
             fontSize: '0.82rem', fontWeight: 600,
             background: `linear-gradient(135deg, ${boardColor}, ${boardColor}cc)`,
@@ -155,7 +156,7 @@ function CourseRow({ course, enrolled, boardColor, isLast }) {
       </div>
     </Link>
   );
-}
+});
 
 /* ── Main Component ── */
 
@@ -169,7 +170,7 @@ export default function CourseCatalogue() {
   const [boardFilter, setBoardFilter] = useState('all');
   const user = getCurrentUser();
 
-  const filtered = COURSES.filter(c => {
+  const filtered = useMemo(() => COURSES.filter(c => {
     // Tier filter
     if (tierFilter === 'KS3' && c.tier !== 'KS3') return false;
     if (tierFilter === 'GCSE' && c.tier !== 'GCSE') return false;
@@ -178,7 +179,7 @@ export default function CourseCatalogue() {
     if (boardFilter !== 'all' && c.board && c.board !== boardFilter) return false;
     if (boardFilter !== 'all' && !c.board && tierFilter !== 'all') return false;
     return true;
-  });
+  }), [tierFilter, boardFilter]);
 
   const pillStyle = (active, color) => ({
     padding: '0.5rem 1.25rem', borderRadius: '100px', fontSize: '0.85rem', fontWeight: 600,
@@ -190,15 +191,18 @@ export default function CourseCatalogue() {
   });
 
   // Count courses per board for badges
-  const boardCounts = {};
-  COURSES.filter(c => {
-    if (tierFilter === 'KS3') return c.tier === 'KS3';
-    if (tierFilter === 'GCSE') return c.tier === 'GCSE';
-    if (tierFilter === 'IGCSE') return c.tier === 'IGCSE';
-    return true;
-  }).forEach(c => {
-    if (c.board) boardCounts[c.board] = (boardCounts[c.board] || 0) + 1;
-  });
+  const boardCounts = useMemo(() => {
+    const counts = {};
+    COURSES.filter(c => {
+      if (tierFilter === 'KS3') return c.tier === 'KS3';
+      if (tierFilter === 'GCSE') return c.tier === 'GCSE';
+      if (tierFilter === 'IGCSE') return c.tier === 'IGCSE';
+      return true;
+    }).forEach(c => {
+      if (c.board) counts[c.board] = (counts[c.board] || 0) + 1;
+    });
+    return counts;
+  }, [tierFilter]);
 
   // Determine whether to show board filter (not for KS3)
   const showBoardFilter = tierFilter !== 'KS3';

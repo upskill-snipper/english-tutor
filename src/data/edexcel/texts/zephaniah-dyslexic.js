@@ -1,4 +1,4 @@
-// Edexcel IGCSE English Language Spec A (4EA1) — Anthology Part 1
+// Edexcel IGCSE English Language 4EA1 (4EA1) — Anthology Part 1
 // "Young and Dyslexic? You've Got it Going On" by Benjamin Zephaniah
 // Individual annotated text lesson
 

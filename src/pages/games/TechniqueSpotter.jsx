@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import GameWrapper from '../../components/GameWrapper';
 import Lauren from '../../components/Lauren';
+import { recordGamePlayed } from '../../utils/gameUtils';
 
 /* ────────────────────────────────────────────
    PASSAGE DATA  –  15 passages across 3 difficulties
@@ -316,6 +317,7 @@ export default function TechniqueSpotter() {
         time: elapsed,
         mistakes
       });
+      recordGamePlayed();
       setScreen('results');
     } else {
       setRoundIndex(r => r + 1);
@@ -391,8 +393,8 @@ export default function TechniqueSpotter() {
         <Navbar />
         <GameWrapper gameId="technique-spotter">
         <div style={{ maxWidth: 700, margin: '0 auto', padding: '2rem 1rem' }}>
-          <Link to="/dashboard" style={{ color: '#60a5fa', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 6, marginBottom: '1.5rem', fontSize: '0.9rem' }}>
-            <ArrowLeft size={16} /> Back to Dashboard
+          <Link to="/games" style={{ color: '#60a5fa', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 6, marginBottom: '1.5rem', fontSize: '0.9rem' }}>
+            <ArrowLeft size={16} /> Back to Games
           </Link>
 
           <div style={{ textAlign: 'center', marginBottom: '2rem' }}>

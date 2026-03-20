@@ -1,9 +1,9 @@
-// Edexcel IGCSE English Language — Spec A (4EA1), Spec B (4EB1), Revision
+// Edexcel IGCSE English Language — 4EA1 (Specification A), 4EB1 (Specification B), Revision
 // All content is Edexcel IGCSE-specific — NOT AQA, NOT Edexcel GCSE
 
 const edexcelIgcseLangA = {
   id: 'edexcel-igcse-lang-a',
-  title: 'Edexcel IGCSE Language: Spec A',
+  title: 'Edexcel IGCSE English Language',
   subtitle: 'Master the 4EA1 specification with anthology-based reading and writing skills.',
   tier: 'IGCSE',
   board: 'Edexcel',
@@ -16,10 +16,10 @@ const edexcelIgcseLangA = {
   moduleList: [
     {
       id: 'eia-m1',
-      title: 'The Spec A Anthology: Part 1 Non-Fiction',
+      title: 'The Anthology: Part 1 Non-Fiction',
       duration: '30 mins',
       content: `<h2>Your 10 Non-Fiction Texts</h2>
-<p>Specification A is built around the <strong>Pearson Edexcel International GCSE English Anthology</strong>. Part 1 contains 10 non-fiction texts that will appear on Component 1. One of these texts will be printed in your exam alongside an unseen text.</p>
+<p>Specification A is built around the <strong>Pearson Edexcel International GCSE English Anthology</strong>. Part 1 contains 10 non-fiction texts that will appear on Paper 1. One of these texts will be printed in your exam alongside an unseen text.</p>
 
 <div class="key-term"><strong>Key Term: Anthology text</strong> — A pre-studied text from the official Pearson anthology. You study all 10, but only ONE appears in your exam. The second text is always unseen.</div>
 
@@ -40,19 +40,19 @@ const edexcelIgcseLangA = {
 <div class="examiner-tip"><strong>Examiner Tip:</strong> You do not need to memorise quotations from Part 1 texts — the anthology text is reprinted in your exam. Focus on understanding each writer's purpose, audience, and key techniques so you can analyse efficiently under timed conditions.</div>
 
 <h3>How They Appear in the Exam</h3>
-<p>Component 1 Section A gives you <strong>two texts linked by theme</strong>. Text 1 is unseen; Text 2 is from the anthology. Questions 1-3 test Text 1 (the unseen). Question 4 tests Text 2 (the anthology text — language and structure, 12 marks). Question 5 compares both texts (22 marks).</p>
+<p>Paper 1 Section A gives you <strong>two texts linked by theme</strong>. Text 1 is unseen; Text 2 is from the anthology. Questions 1-3 test Text 1 (the unseen). Question 4 tests Text 2 (the anthology text — language and structure, 12 marks). Question 5 compares both texts (22 marks).</p>
 
 <div class="common-mistake"><strong>Common Mistake:</strong> Students spend too long on Q1-Q3 (11 marks total) and rush Q4-Q5 (34 marks). Allocate your time proportionally — the anthology text and comparison are worth three times more.</div>`,
       quiz: [
-        { id: 'eia-m1-q1', question: 'How many non-fiction texts are in Part 1 of the Spec A anthology?', options: ['5', '8', '10', '15'], correct: 2, explanation: 'Part 1 contains 10 non-fiction texts. One will appear in your Component 1 exam alongside an unseen text.' },
-        { id: 'eia-m1-q2', question: 'In the Component 1 exam, which text is from the anthology?', options: ['Text 1', 'Text 2', 'Both texts', 'Neither — both are unseen'], correct: 1, explanation: 'Text 1 is always unseen. Text 2 is the anthology text that you have studied in advance.' },
-        { id: 'eia-m1-q3', question: 'Which question on Component 1 is worth the most marks?', options: ['Q1 (retrieval)', 'Q3 (describe with quotations)', 'Q4 (language and structure)', 'Q5 (comparison)'], correct: 3, explanation: 'Q5 is worth 22 marks — the most of any single question on Component 1. It requires you to compare both texts.' },
+        { id: 'eia-m1-q1', question: 'How many non-fiction texts are in Part 1 of the anthology?', options: ['5', '8', '10', '15'], correct: 2, explanation: 'Part 1 contains 10 non-fiction texts. One will appear in your Paper 1 exam alongside an unseen text.' },
+        { id: 'eia-m1-q2', question: 'In the Paper 1 exam, which text is from the anthology?', options: ['Text 1', 'Text 2', 'Both texts', 'Neither — both are unseen'], correct: 1, explanation: 'Text 1 is always unseen. Text 2 is the anthology text that you have studied in advance.' },
+        { id: 'eia-m1-q3', question: 'Which question on Paper 1 is worth the most marks?', options: ['Q1 (retrieval)', 'Q3 (describe with quotations)', 'Q4 (language and structure)', 'Q5 (comparison)'], correct: 3, explanation: 'Q5 is worth 22 marks — the most of any single question on Paper 1. It requires you to compare both texts.' },
         { id: 'eia-m1-q4', question: 'Do you need to memorise quotations from the Part 1 anthology texts?', options: ['Yes, at least 10 per text', 'Yes, but only key phrases', 'No — the anthology text is reprinted in the exam', 'No — there are no quotation questions'], correct: 2, explanation: 'The anthology text is reprinted in your exam paper, so you do not need to memorise quotations. Focus on understanding techniques and purposes.' },
       ],
     },
     {
       id: 'eia-m2',
-      title: 'Component 1 Q1-Q3: Short Reading Questions',
+      title: 'Paper 1 Q1-Q3: Short Reading Questions',
       duration: '25 mins',
       content: `<h2>The Unseen Text Questions</h2>
 <p>Questions 1-3 all target <strong>Text 1 (the unseen text)</strong>. They test AO1 — your ability to read, understand, and select information. Together they are worth only 11 marks, so work quickly and precisely.</p>
@@ -70,14 +70,14 @@ const edexcelIgcseLangA = {
 <h3>Question 3 (5 marks)</h3>
 <p>Describe or identify specific information with brief quotations. This is a retrieval question but you can support your points with short embedded quotations.</p>
 
-<div class="text-extract">"From lines 25-47, describe the dangers and difficulties of the swim. You may support your points with brief quotations."<div class="source">Example Q3 from Edexcel IGCSE Spec A SAMs</div></div>
+<div class="text-extract">"From lines 25-47, describe the dangers and difficulties of the swim. You may support your points with brief quotations."<div class="source">Example Q3 from Edexcel IGCSE IGCSE SAMs</div></div>
 
 <div class="common-mistake"><strong>Common Mistake:</strong> Writing long analytical paragraphs for Q1-Q3. These are retrieval questions — keep your answers short and factual. Save your analysis for Q4 and Q5.</div>
 
 <h3>Timing Strategy</h3>
 <p>You have <strong>1 hour 30 minutes</strong> for Section A (including reading time). Spend no more than 10 minutes on Q1-Q3 combined, leaving the bulk of your time for Q4 (12 marks) and Q5 (22 marks).</p>`,
       quiz: [
-        { id: 'eia-m2-q1', question: 'Which text do Q1-Q3 test on Component 1?', options: ['Text 2 (the anthology text)', 'Text 1 (the unseen text)', 'Both texts', 'A third text'], correct: 1, explanation: 'Q1-Q3 all target Text 1, which is the unseen text. The anthology text is tested in Q4.' },
+        { id: 'eia-m2-q1', question: 'Which text do Q1-Q3 test on Paper 1?', options: ['Text 2 (the anthology text)', 'Text 1 (the unseen text)', 'Both texts', 'A third text'], correct: 1, explanation: 'Q1-Q3 all target Text 1, which is the unseen text. The anthology text is tested in Q4.' },
         { id: 'eia-m2-q2', question: 'How many marks are Q1-Q3 worth in total?', options: ['5 marks', '11 marks', '22 marks', '34 marks'], correct: 1, explanation: 'Q1 is 2 marks, Q2 is 4 marks, Q3 is 5 marks = 11 marks total.' },
         { id: 'eia-m2-q3', question: 'What does Q2 require you to do?', options: ['Copy quotations from the text', 'Explain the writer\'s thoughts and feelings in your own words', 'Analyse language techniques', 'Compare the two texts'], correct: 1, explanation: 'Q2 asks you to paraphrase — explain the writer\'s thoughts and feelings in your own words, not by copying the text.' },
         { id: 'eia-m2-q4', question: 'How long should you spend on Q1-Q3 combined?', options: ['30 minutes', '20 minutes', 'About 10 minutes', '45 minutes'], correct: 2, explanation: 'Q1-Q3 are worth only 11 marks. Spending more than 10 minutes on them takes time away from the higher-value Q4 and Q5.' },
@@ -85,7 +85,7 @@ const edexcelIgcseLangA = {
     },
     {
       id: 'eia-m3',
-      title: 'Component 1 Q4: Language & Structure Analysis',
+      title: 'Paper 1 Q4: Language & Structure Analysis',
       duration: '40 mins',
       content: `<h2>Analysing the Anthology Text (12 marks)</h2>
 <p>Question 4 is the first <strong>higher-tariff</strong> question. It tests AO2 — your ability to analyse how the writer uses <strong>language and structure</strong> to achieve effects. It targets the anthology text (Text 2).</p>
@@ -93,7 +93,7 @@ const edexcelIgcseLangA = {
 <div class="key-term"><strong>Key Term: AO2 (Assessment Objective 2)</strong> — Understand and analyse how writers use linguistic and structural devices to achieve their effects. This means you must identify techniques AND explain their impact on the reader.</div>
 
 <h3>What the Question Looks Like</h3>
-<div class="text-extract">"How does the writer use language and structure to create suspense and tension?"<div class="source">Example Q4 from Edexcel IGCSE Spec A SAMs (on "127 Hours")</div></div>
+<div class="text-extract">"How does the writer use language and structure to create suspense and tension?"<div class="source">Example Q4 from Edexcel IGCSE IGCSE SAMs (on "127 Hours")</div></div>
 
 <h3>The WHAT-HOW-WHY Paragraph</h3>
 <p>Every analytical paragraph should follow this structure:</p>
@@ -127,15 +127,15 @@ const edexcelIgcseLangA = {
     },
     {
       id: 'eia-m4',
-      title: 'Component 1 Q5: Comparative Analysis',
+      title: 'Paper 1 Q5: Comparative Analysis',
       duration: '45 mins',
       content: `<h2>The Big Comparison Question (22 marks)</h2>
-<p>Question 5 is the <strong>highest-value question</strong> on Component 1. It tests AO3 — your ability to compare how two writers present their ideas and perspectives. You must discuss <strong>both texts</strong> with detailed examples.</p>
+<p>Question 5 is the <strong>highest-value question</strong> on Paper 1. It tests AO3 — your ability to compare how two writers present their ideas and perspectives. You must discuss <strong>both texts</strong> with detailed examples.</p>
 
 <div class="key-term"><strong>Key Term: AO3</strong> — Explore links and connections between writers' ideas and perspectives, as well as how these are conveyed. This means comparing what they say AND how they say it.</div>
 
 <h3>Typical Question Wording</h3>
-<div class="text-extract">"Compare how the writers present their ideas and perspectives about their experiences. Support your answer with detailed examples from both texts including brief quotations."<div class="source">Example Q5 from Edexcel IGCSE Spec A SAMs</div></div>
+<div class="text-extract">"Compare how the writers present their ideas and perspectives about their experiences. Support your answer with detailed examples from both texts including brief quotations."<div class="source">Example Q5 from Edexcel IGCSE IGCSE SAMs</div></div>
 
 <h3>Structure Your Comparison</h3>
 <p>Use an <strong>alternating structure</strong> — discuss both texts in every paragraph:</p>
@@ -155,7 +155,7 @@ const edexcelIgcseLangA = {
 
 <div class="common-mistake"><strong>Common Mistake:</strong> Writing about Text 1 for half the essay, then Text 2 for the other half. This is NOT comparison — it's two separate analyses. You must compare within each paragraph.</div>`,
       quiz: [
-        { id: 'eia-m4-q1', question: 'How many marks is Q5 worth on Component 1?', options: ['12 marks', '16 marks', '22 marks', '30 marks'], correct: 2, explanation: 'Q5 is worth 22 marks — the highest-value question in Section A and nearly half the reading marks.' },
+        { id: 'eia-m4-q1', question: 'How many marks is Q5 worth on Paper 1?', options: ['12 marks', '16 marks', '22 marks', '30 marks'], correct: 2, explanation: 'Q5 is worth 22 marks — the highest-value question in Section A and nearly half the reading marks.' },
         { id: 'eia-m4-q2', question: 'What is the best structure for a comparison answer?', options: ['Write about Text 1 fully, then Text 2 fully', 'Alternate between both texts in every paragraph', 'Only discuss similarities', 'Write a short paragraph on each text'], correct: 1, explanation: 'An alternating structure — discussing both texts within each paragraph — is the most effective way to demonstrate sustained comparison.' },
         { id: 'eia-m4-q3', question: 'Which assessment objective does Q5 test?', options: ['AO1', 'AO2', 'AO3', 'AO4'], correct: 2, explanation: 'Q5 tests AO3 — exploring links and connections between writers\' ideas and perspectives.' },
         { id: 'eia-m4-q4', question: 'What should you compare beyond content?', options: ['Only the facts in each text', 'The writers\' methods — language, structure, and tone', 'The word count of each text', 'The publication dates'], correct: 1, explanation: 'The best answers compare writers\' methods (how they write) as well as their ideas (what they write about). This shows sophisticated analytical skills.' },
@@ -163,10 +163,10 @@ const edexcelIgcseLangA = {
     },
     {
       id: 'eia-m5',
-      title: 'Component 1 Section B: Transactional Writing',
+      title: 'Paper 1 Section B: Transactional Writing',
       duration: '40 mins',
       content: `<h2>Writing to Persuade, Argue, or Inform (45 marks)</h2>
-<p>Section B of Component 1 tests your <strong>transactional writing</strong> — real-world writing with a clear audience, purpose, and form. You choose <strong>one task from two options</strong>. This is worth 45 marks — half the paper!</p>
+<p>Section B of Paper 1 tests your <strong>transactional writing</strong> — real-world writing with a clear audience, purpose, and form. You choose <strong>one task from two options</strong>. This is worth 45 marks — half the paper!</p>
 
 <div class="key-term"><strong>Key Term: Transactional writing</strong> — Writing that has a practical, real-world purpose: to argue, persuade, advise, inform, explain, or review. It always has a specific audience and form (article, speech, letter, etc.).</div>
 
@@ -187,7 +187,7 @@ const edexcelIgcseLangA = {
 <li>A <strong>planning box</strong></li>
 </ul>
 
-<div class="text-extract">"Schools and colleges have a duty to ensure their students keep fit." You have been asked to give a speech in which you express your views on this statement.<div class="source">Example from Edexcel IGCSE Spec A SAMs</div></div>
+<div class="text-extract">"Schools and colleges have a duty to ensure their students keep fit." You have been asked to give a speech in which you express your views on this statement.<div class="source">Example from Edexcel IGCSE IGCSE SAMs</div></div>
 
 <h3>Mark Breakdown</h3>
 <p>AO4 (27 marks): Purpose, audience, form, tone, register, structure, persuasive techniques. AO5 (18 marks): Vocabulary, sentence structures, spelling, punctuation, paragraphing.</p>
@@ -199,7 +199,7 @@ const edexcelIgcseLangA = {
 <div class="common-mistake"><strong>Common Mistake:</strong> Ignoring the bullet points. They are there to help you structure your response — use them as paragraph prompts.</div>`,
       quiz: [
         { id: 'eia-m5-q1', question: 'How many marks is the transactional writing task worth?', options: ['20 marks', '30 marks', '40 marks', '45 marks'], correct: 3, explanation: 'Section B is worth 45 marks total — 27 for AO4 (content/purpose) and 18 for AO5 (technical accuracy).' },
-        { id: 'eia-m5-q2', question: 'Which of these is NOT a permitted form for transactional writing?', options: ['Article', 'Short story', 'Speech', 'Letter'], correct: 1, explanation: 'Short stories are imaginative writing (Component 2), not transactional writing. Component 1 Section B uses articles, speeches, letters, guides, and reviews.' },
+        { id: 'eia-m5-q2', question: 'Which of these is NOT a permitted form for transactional writing?', options: ['Article', 'Short story', 'Speech', 'Letter'], correct: 1, explanation: 'Short stories are imaginative writing (Paper 2), not transactional writing. Paper 1 Section B uses articles, speeches, letters, guides, and reviews.' },
         { id: 'eia-m5-q3', question: 'What scaffolding does Edexcel provide for the writing task?', options: ['Nothing — just a blank page', 'A statement, bullet points, and a planning box', 'A full essay plan', 'Model paragraphs to copy'], correct: 1, explanation: 'Edexcel provides a statement to respond to, bullet point suggestions, and a planning box. Use these to structure your answer.' },
         { id: 'eia-m5-q4', question: 'What does AO4 assess in the writing task?', options: ['Spelling and grammar only', 'Purpose, audience, form, tone, and register', 'Creative story techniques', 'Vocabulary length'], correct: 1, explanation: 'AO4 assesses how well you communicate for a specific purpose and audience, adapting your tone, form, and register appropriately.' },
       ],
@@ -209,7 +209,7 @@ const edexcelIgcseLangA = {
       title: 'Anthology Part 2: Poetry Analysis',
       duration: '35 mins',
       content: `<h2>The Five Anthology Poems</h2>
-<p>Part 2 of the anthology contains five poems that may appear on Component 2. The poem is <strong>printed in your exam</strong>, but you need to know each poem's techniques, themes, and effects in advance to write a strong response quickly.</p>
+<p>Part 2 of the anthology contains five poems that may appear on Paper 2. The poem is <strong>printed in your exam</strong>, but you need to know each poem's techniques, themes, and effects in advance to write a strong response quickly.</p>
 
 <h3>The Poems</h3>
 <ul>
@@ -227,14 +227,14 @@ const edexcelIgcseLangA = {
 <h3>How to Prepare</h3>
 <p>For each poem, prepare notes on: <strong>theme</strong>, <strong>tone</strong>, <strong>key techniques</strong> (3-4), <strong>structural features</strong>, and <strong>context</strong>. The exam question will ask how the writer achieves specific effects, so practise WHAT-HOW-WHY paragraphs for each.</p>
 
-<div class="examiner-tip"><strong>Examiner Tip:</strong> Component 2 Section A is worth 30 marks. The question will name a specific poem and give you bullet-point prompts. Address every bullet point to ensure full coverage.</div>
+<div class="examiner-tip"><strong>Examiner Tip:</strong> Paper 2 Section A is worth 30 marks. The question will name a specific poem and give you bullet-point prompts. Address every bullet point to ensure full coverage.</div>
 
 <div class="common-mistake"><strong>Common Mistake:</strong> Retelling the poem's story instead of analysing techniques. The examiner wants to see HOW the writer creates effects, not WHAT the poem is about.</div>`,
       quiz: [
-        { id: 'eia-m6-q1', question: 'How many poems are in Part 2 of the Spec A anthology?', options: ['3', '5', '10', '15'], correct: 1, explanation: 'Part 2 contains 5 poems and 5 prose texts. The five poems are by Owen, Frost, Alvi, Harrison, and Angelou.' },
+        { id: 'eia-m6-q1', question: 'How many poems are in Part 2 of the anthology?', options: ['3', '5', '10', '15'], correct: 1, explanation: 'Part 2 contains 5 poems and 5 prose texts. The five poems are by Owen, Frost, Alvi, Harrison, and Angelou.' },
         { id: 'eia-m6-q2', question: 'Which poem uses the refrain "an unknown girl is hennaing my hand"?', options: ['Still I Rise', 'Disabled', 'An Unknown Girl', 'The Bright Lights of Sarajevo'], correct: 2, explanation: '"An Unknown Girl" by Moniza Alvi uses this refrain throughout the poem to anchor the speaker\'s cultural experience.' },
         { id: 'eia-m6-q3', question: 'The title "Out, Out—" is an allusion to which Shakespeare play?', options: ['Hamlet', 'Romeo and Juliet', 'Macbeth', 'Othello'], correct: 2, explanation: 'The title alludes to Macbeth\'s soliloquy: "Out, out, brief candle! Life\'s but a walking shadow." This connects to the poem\'s theme of life\'s fragility.' },
-        { id: 'eia-m6-q4', question: 'How many marks is the Component 2 Section A poetry/prose question worth?', options: ['15 marks', '20 marks', '30 marks', '40 marks'], correct: 2, explanation: 'Component 2 Section A (Reading) is worth 30 marks — 12 for AO1 and 18 for AO2.' },
+        { id: 'eia-m6-q4', question: 'How many marks is the Paper 2 Section A poetry/prose question worth?', options: ['15 marks', '20 marks', '30 marks', '40 marks'], correct: 2, explanation: 'Paper 2 Section A (Reading) is worth 30 marks — 12 for AO1 and 18 for AO2.' },
       ],
     },
     {
@@ -242,7 +242,7 @@ const edexcelIgcseLangA = {
       title: 'Anthology Part 2: Prose Analysis',
       duration: '35 mins',
       content: `<h2>The Five Anthology Prose Texts</h2>
-<p>Part 2 also contains five prose texts — short stories and extracts. Like the poetry, these may appear on Component 2. The text is printed in your exam.</p>
+<p>Part 2 also contains five prose texts — short stories and extracts. Like the poetry, these may appear on Paper 2. The text is printed in your exam.</p>
 
 <h3>The Prose Texts</h3>
 <ul>
@@ -269,20 +269,20 @@ const edexcelIgcseLangA = {
 
 <div class="examiner-tip"><strong>Examiner Tip:</strong> If you get a prose text in the exam, treat the bullet points as a ready-made essay plan. Each bullet = one paragraph. This keeps you focused and saves planning time.</div>
 
-<div class="common-mistake"><strong>Common Mistake:</strong> Confusing the Component 2 prose question with a literature essay. This is a LANGUAGE exam — focus on how the writer uses language and structure, not on themes or context like you would in English Literature.</div>`,
+<div class="common-mistake"><strong>Common Mistake:</strong> Confusing the Paper 2 prose question with a literature essay. This is a LANGUAGE exam — focus on how the writer uses language and structure, not on themes or context like you would in English Literature.</div>`,
       quiz: [
         { id: 'eia-m7-q1', question: 'In "The Necklace," what is the central irony?', options: ['The necklace was stolen', 'The necklace was real diamonds', 'The original necklace was fake — the replacement was unnecessary', 'The woman never borrowed it'], correct: 2, explanation: 'The dramatic irony is that Mathilde spent years in poverty repaying a diamond necklace, only to discover the original was paste (fake). This drives the theme of social ambition and wasted sacrifice.' },
         { id: 'eia-m7-q2', question: 'Which prose text uses a Gothic horror setting?', options: ['The Story of an Hour', 'The Necklace', 'Whistle and I\'ll Come to You', 'Night'], correct: 2, explanation: '"Whistle and I\'ll Come to You" by Susan Hill is an extract from The Woman in Black, using classic Gothic conventions: a haunted house, isolation, and tension building.' },
         { id: 'eia-m7-q3', question: 'What should you focus on when analysing prose in this language exam?', options: ['Historical context and themes', 'Language, structure, and writer\'s craft', 'Character motivations only', 'Biographical details about the author'], correct: 1, explanation: 'This is a language exam (not literature), so you must focus on HOW the writer uses language and structure to create effects, not on themes or context.' },
-        { id: 'eia-m7-q4', question: 'How many prose texts are in Part 2 of the Spec A anthology?', options: ['3', '5', '8', '10'], correct: 1, explanation: 'Part 2 contains 5 prose texts (Chopin, Maupassant, Tremain, Hill, Munro) alongside the 5 poems.' },
+        { id: 'eia-m7-q4', question: 'How many prose texts are in Part 2 of the anthology?', options: ['3', '5', '8', '10'], correct: 1, explanation: 'Part 2 contains 5 prose texts (Chopin, Maupassant, Tremain, Hill, Munro) alongside the 5 poems.' },
       ],
     },
     {
       id: 'eia-m8',
-      title: 'Component 2: Imaginative Writing',
+      title: 'Paper 2: Imaginative Writing',
       duration: '35 mins',
       content: `<h2>Writing to Narrate, Describe, or Entertain (30 marks)</h2>
-<p>Component 2 Section B tests your <strong>imaginative writing</strong>. You choose <strong>one task from three options</strong>: a personal narrative prompt, a title-based story, or an image-inspired piece.</p>
+<p>Paper 2 Section B tests your <strong>imaginative writing</strong>. You choose <strong>one task from three options</strong>: a personal narrative prompt, a title-based story, or an image-inspired piece.</p>
 
 <h3>The Three Types of Prompt</h3>
 <ul>
@@ -312,7 +312,7 @@ const edexcelIgcseLangA = {
 
 <div class="common-mistake"><strong>Common Mistake:</strong> Trying to write a complete novel in 45 minutes. Focus on one scene, one moment, or one memory. Depth beats breadth.</div>`,
       quiz: [
-        { id: 'eia-m8-q1', question: 'How many writing options do you choose from in Component 2 Section B?', options: ['One (no choice)', 'Two', 'Three', 'Four'], correct: 2, explanation: 'Component 2 Section B gives you three options: a personal experience prompt, a title-based story, or an image-inspired piece. You choose one.' },
+        { id: 'eia-m8-q1', question: 'How many writing options do you choose from in Paper 2 Section B?', options: ['One (no choice)', 'Two', 'Three', 'Four'], correct: 2, explanation: 'Paper 2 Section B gives you three options: a personal experience prompt, a title-based story, or an image-inspired piece. You choose one.' },
         { id: 'eia-m8-q2', question: 'What is the total mark for the imaginative writing task?', options: ['20 marks', '30 marks', '40 marks', '45 marks'], correct: 1, explanation: 'The imaginative writing task is worth 30 marks — 18 for AO4 (content and style) and 12 for AO5 (technical accuracy).' },
         { id: 'eia-m8-q3', question: 'What does "show, don\'t tell" mean?', options: ['Use pictures instead of words', 'Describe actions and sensations rather than stating emotions directly', 'Write in first person only', 'Show your plan to the examiner'], correct: 1, explanation: '"Show, don\'t tell" means conveying emotions through actions, body language, and sensory detail rather than just naming the emotion (e.g., "her hands trembled" rather than "she was scared").' },
         { id: 'eia-m8-q4', question: 'How should you spend your 45 minutes on this task?', options: ['Write for 45 minutes straight', '5 min plan, 35 min write, 5 min proofread', '20 min plan, 25 min write', '40 min write, 5 min rest'], correct: 1, explanation: 'A 5-5-35 split (plan, proofread, write) ensures your piece is well-structured and polished. Many marks are lost to avoidable SPaG errors that proofreading would catch.' },
@@ -320,24 +320,24 @@ const edexcelIgcseLangA = {
     },
   ],
   assessmentQuestions: [
-    { id: 'eia-a1', question: 'What is the Edexcel IGCSE Spec A qualification code?', options: ['1EN2', '4EA1', '4EB1', '8700'], correct: 1, explanation: 'Specification A is coded 4EA1. 1EN2 is Edexcel GCSE, 4EB1 is Spec B, and 8700 is AQA.' },
-    { id: 'eia-a2', question: 'How many components make up the Spec A qualification?', options: ['1 — a single exam', '2 — Component 1 plus Component 2 or 3', '3 — all three components', '4 — including spoken language'], correct: 1, explanation: 'Students take Component 1 (mandatory) plus EITHER Component 2 (exam) OR Component 3 (coursework). The spoken language endorsement is optional and separate.' },
-    { id: 'eia-a3', question: 'What percentage of the total IGCSE does Component 1 represent?', options: ['40%', '50%', '60%', '100%'], correct: 2, explanation: 'Component 1 is worth 60% of the total IGCSE (90 marks out of 150).' },
+    { id: 'eia-a1', question: 'What is the Edexcel IGCSE 4EA1 qualification code?', options: ['1EN2', '4EA1', '4EB1', '8700'], correct: 1, explanation: 'Specification A is coded 4EA1. 1EN2 is Edexcel GCSE, 4EB1 is 4EB1, and 8700 is AQA.' },
+    { id: 'eia-a2', question: 'How many components make up the 4EA1 qualification?', options: ['1 — a single exam', '2 — Paper 1 plus Paper 2 or 3', '3 — all three components', '4 — including spoken language'], correct: 1, explanation: 'Students take Paper 1 (mandatory) plus EITHER Paper 2 (exam) OR Paper 3 (coursework). The spoken language endorsement is optional and separate.' },
+    { id: 'eia-a3', question: 'What percentage of the total IGCSE does Paper 1 represent?', options: ['40%', '50%', '60%', '100%'], correct: 2, explanation: 'Paper 1 is worth 60% of the total IGCSE (90 marks out of 150).' },
     { id: 'eia-a4', question: 'How many non-fiction texts are in Part 1 of the anthology?', options: ['5', '8', '10', '15'], correct: 2, explanation: 'Part 1 contains 10 non-fiction texts covering speeches, memoirs, travel writing, journalism, and autobiography.' },
-    { id: 'eia-a5', question: 'In Component 1, which text is the unseen one?', options: ['Text 1', 'Text 2', 'Both texts', 'Neither'], correct: 0, explanation: 'Text 1 is always the unseen text. Text 2 is from the anthology (Part 1).' },
-    { id: 'eia-a6', question: 'What is the highest-value single question on Component 1?', options: ['Q1 (retrieval, 2 marks)', 'Q4 (language analysis, 12 marks)', 'Q5 (comparison, 22 marks)', 'Q6/7 (writing, 45 marks)'], correct: 2, explanation: 'Q5 is worth 22 marks — the highest single reading question. However, the writing task (Q6/7) is worth 45 marks as a combined total.' },
+    { id: 'eia-a5', question: 'In Paper 1, which text is the unseen one?', options: ['Text 1', 'Text 2', 'Both texts', 'Neither'], correct: 0, explanation: 'Text 1 is always the unseen text. Text 2 is from the anthology (Part 1).' },
+    { id: 'eia-a6', question: 'What is the highest-value single question on Paper 1?', options: ['Q1 (retrieval, 2 marks)', 'Q4 (language analysis, 12 marks)', 'Q5 (comparison, 22 marks)', 'Q6/7 (writing, 45 marks)'], correct: 2, explanation: 'Q5 is worth 22 marks — the highest single reading question. However, the writing task (Q6/7) is worth 45 marks as a combined total.' },
     { id: 'eia-a7', question: 'Which assessment objective does Q5 (comparison) test?', options: ['AO1', 'AO2', 'AO3', 'AO4'], correct: 2, explanation: 'Q5 tests AO3 — exploring links and connections between writers\' ideas and perspectives across two texts.' },
     { id: 'eia-a8', question: 'Which poem in Part 2 was written by Wilfred Owen?', options: ['Still I Rise', 'Out, Out—', 'Disabled', 'An Unknown Girl'], correct: 2, explanation: '"Disabled" by Wilfred Owen is about a WW1 soldier who lost his limbs, contrasting his youthful past with his isolated present.' },
     { id: 'eia-a9', question: 'What is the central irony in "The Necklace" by Guy de Maupassant?', options: ['The necklace was stolen by a friend', 'The husband secretly bought a new necklace', 'The original necklace was fake, making years of repayment unnecessary', 'The woman found the necklace years later'], correct: 2, explanation: 'Mathilde spent a decade in poverty repaying the cost of a diamond necklace replacement, only to learn the original was paste (costume jewellery).' },
-    { id: 'eia-a10', question: 'What type of writing does Component 1 Section B assess?', options: ['Imaginative/creative writing', 'Transactional writing', 'Poetry writing', 'Note-taking'], correct: 1, explanation: 'Component 1 Section B tests transactional writing — articles, speeches, letters, guides, and reviews with a clear audience and purpose.' },
-    { id: 'eia-a11', question: 'What type of writing does Component 2 Section B assess?', options: ['Transactional writing', 'Imaginative/creative writing', 'Summary writing', 'Report writing'], correct: 1, explanation: 'Component 2 Section B tests imaginative writing — narratives, descriptions, and creative pieces.' },
-    { id: 'eia-a12', question: 'How many writing task options do you get in Component 2 Section B?', options: ['One', 'Two', 'Three', 'Four'], correct: 2, explanation: 'You choose one from three options: a personal experience prompt, a title-based story, or an image-inspired piece.' },
+    { id: 'eia-a10', question: 'What type of writing does Paper 1 Section B assess?', options: ['Imaginative/creative writing', 'Transactional writing', 'Poetry writing', 'Note-taking'], correct: 1, explanation: 'Paper 1 Section B tests transactional writing — articles, speeches, letters, guides, and reviews with a clear audience and purpose.' },
+    { id: 'eia-a11', question: 'What type of writing does Paper 2 Section B assess?', options: ['Transactional writing', 'Imaginative/creative writing', 'Summary writing', 'Report writing'], correct: 1, explanation: 'Paper 2 Section B tests imaginative writing — narratives, descriptions, and creative pieces.' },
+    { id: 'eia-a12', question: 'How many writing task options do you get in Paper 2 Section B?', options: ['One', 'Two', 'Three', 'Four'], correct: 2, explanation: 'You choose one from three options: a personal experience prompt, a title-based story, or an image-inspired piece.' },
     { id: 'eia-a13', question: 'Which anthology text is about the Siege of Sarajevo?', options: ['Disabled', 'The Bright Lights of Sarajevo', 'A Passage to Africa', 'Still I Rise'], correct: 1, explanation: '"The Bright Lights of Sarajevo" by Tony Harrison juxtaposes everyday life with the horrors of war during the siege.' },
     { id: 'eia-a14', question: 'What does AO2 assess?', options: ['Comprehension and retrieval', 'Language and structure analysis', 'Comparison between texts', 'Writing for purpose and audience'], correct: 1, explanation: 'AO2 assesses your ability to understand and analyse how writers use linguistic and structural devices to achieve their effects.' },
-    { id: 'eia-a15', question: 'How long is the Component 1 exam?', options: ['1 hour 30 minutes', '1 hour 55 minutes', '2 hours 15 minutes', '3 hours'], correct: 2, explanation: 'Component 1 is 2 hours 15 minutes, worth 90 marks (60% of the IGCSE).' },
-    { id: 'eia-a16', question: 'How long is the Component 2 exam?', options: ['1 hour', '1 hour 30 minutes', '2 hours', '2 hours 15 minutes'], correct: 1, explanation: 'Component 2 is 1 hour 30 minutes, worth 60 marks (40% of the IGCSE).' },
+    { id: 'eia-a15', question: 'How long is the Paper 1 exam?', options: ['1 hour 30 minutes', '1 hour 55 minutes', '2 hours 15 minutes', '3 hours'], correct: 2, explanation: 'Paper 1 is 2 hours 15 minutes, worth 90 marks (60% of the IGCSE).' },
+    { id: 'eia-a16', question: 'How long is the Paper 2 exam?', options: ['1 hour', '1 hour 30 minutes', '2 hours', '2 hours 15 minutes'], correct: 1, explanation: 'Paper 2 is 1 hour 30 minutes, worth 60 marks (40% of the IGCSE).' },
     { id: 'eia-a17', question: '"Chinese Cinderella" is by which author?', options: ['Kari Herbert', 'Helen Macdonald', 'Adeline Yen Mah', 'Jamie Zeppa'], correct: 2, explanation: '"Chinese Cinderella" by Adeline Yen Mah is an autobiographical text about her childhood experiences in China.' },
-    { id: 'eia-a18', question: 'What is the difference between Component 2 and Component 3?', options: ['Component 2 is reading, Component 3 is writing', 'Component 2 is an exam, Component 3 is coursework (NEA)', 'Component 2 is harder', 'There is no difference'], correct: 1, explanation: 'Component 2 is the examined option (1h 30m paper). Component 3 is the non-examined assessment (coursework) option. Students take one or the other, not both.' },
+    { id: 'eia-a18', question: 'What is the difference between Paper 2 and Paper 3?', options: ['Paper 2 is reading, Paper 3 is writing', 'Paper 2 is an exam, Paper 3 is coursework (NEA)', 'Paper 2 is harder', 'There is no difference'], correct: 1, explanation: 'Paper 2 is the examined option (1h 30m paper). Paper 3 is the non-examined assessment (coursework) option. Students take one or the other, not both.' },
     { id: 'eia-a19', question: 'What does the Spoken Language Endorsement assess?', options: ['Reading aloud', 'A prepared spoken presentation and Q&A', 'Spelling tests', 'Group discussion only'], correct: 1, explanation: 'The endorsement involves delivering a prepared presentation (max 10 minutes) and responding to questions. It is graded Pass/Merit/Distinction separately from the main grade.' },
     { id: 'eia-a20', question: 'What is the best approach for Q4 (language and structure analysis)?', options: ['List techniques without explanation', 'Use WHAT-HOW-WHY paragraphs covering both language AND structure', 'Only discuss language features', 'Retell the text in your own words'], correct: 1, explanation: 'Q4 requires analysis of BOTH language and structure. Use WHAT (identify the technique), HOW (quote and explain), WHY (analyse the reader\'s response) for each point.' },
   ],
@@ -345,7 +345,7 @@ const edexcelIgcseLangA = {
 
 const edexcelIgcseLangB = {
   id: 'edexcel-igcse-lang-b',
-  title: 'Edexcel IGCSE Language: Spec B',
+  title: 'Edexcel IGCSE English Language (Single Paper)',
   subtitle: 'Master the single-paper 4EB1 exam with unseen text skills and versatile writing.',
   tier: 'IGCSE',
   board: 'Edexcel',
@@ -361,9 +361,9 @@ const edexcelIgcseLangB = {
       title: 'Section A: Reading Unseen Texts',
       duration: '35 mins',
       content: `<h2>One Paper, All Unseen</h2>
-<p>Spec B is a <strong>single 3-hour exam</strong> worth 100 marks. There is no anthology and no coursework. Everything depends on your ability to read unseen texts and write effectively under pressure.</p>
+<p>4EB1 is a <strong>single 3-hour exam</strong> worth 100 marks. There is no anthology and no coursework. Everything depends on your ability to read unseen texts and write effectively under pressure.</p>
 
-<div class="key-term"><strong>Key Term: Spec B (4EB1)</strong> — A single-paper IGCSE with no pre-studied texts. Section A (40 marks) tests reading across two unseen extracts. Section B (30 marks) tests directed writing. Section C (30 marks) tests free writing.</div>
+<div class="key-term"><strong>Key Term: 4EB1 (Specification B)</strong> — A single-paper IGCSE with no pre-studied texts. Section A (40 marks) tests reading across two unseen extracts. Section B (30 marks) tests directed writing. Section C (30 marks) tests free writing.</div>
 
 <h3>Section A Structure</h3>
 <p>You receive <strong>two unseen text extracts</strong> — these could be fiction, non-fiction, journalism, speeches, letters, autobiography, or travel writing. Seven questions test your understanding:</p>
@@ -384,9 +384,9 @@ const edexcelIgcseLangB = {
 
 <div class="common-mistake"><strong>Common Mistake:</strong> Spending 20 minutes on Q1-Q2 because you're nervous about the unseen text. These are 1-mark questions — find the answer and move on.</div>`,
       quiz: [
-        { id: 'eib-m1-q1', question: 'How long is the Spec B exam?', options: ['1 hour 30 minutes', '2 hours', '2 hours 15 minutes', '3 hours'], correct: 3, explanation: 'Spec B is a single 3-hour exam. This is the only examined component — there is no second paper and no coursework.' },
+        { id: 'eib-m1-q1', question: 'How long is the 4EB1 exam?', options: ['1 hour 30 minutes', '2 hours', '2 hours 15 minutes', '3 hours'], correct: 3, explanation: '4EB1 is a single 3-hour exam. This is the only examined component — there is no second paper and no coursework.' },
         { id: 'eib-m1-q2', question: 'How many marks is Section A worth?', options: ['30 marks', '40 marks', '50 marks', '60 marks'], correct: 1, explanation: 'Section A (Reading) is worth 40 marks out of the total 100.' },
-        { id: 'eib-m1-q3', question: 'What types of text might appear in the Spec B exam?', options: ['Only fiction', 'Only non-fiction', 'Only poetry', 'Fiction, non-fiction, journalism, speeches, letters, and more'], correct: 3, explanation: 'Spec B can use any text type — fiction, non-fiction, journalism, speeches, letters, autobiography, travel writing. There are no restrictions.' },
+        { id: 'eib-m1-q3', question: 'What types of text might appear in the 4EB1 exam?', options: ['Only fiction', 'Only non-fiction', 'Only poetry', 'Fiction, non-fiction, journalism, speeches, letters, and more'], correct: 3, explanation: '4EB1 can use any text type — fiction, non-fiction, journalism, speeches, letters, autobiography, travel writing. There are no restrictions.' },
         { id: 'eib-m1-q4', question: 'How many marks are Q1, Q2, Q4, and Q5 worth combined?', options: ['5 marks', '10 marks', '15 marks', '20 marks'], correct: 0, explanation: 'Q1 (1) + Q2 (1) + Q4 (1) + Q5 (2) = 5 marks total. These are quick retrieval questions.' },
       ],
     },
@@ -434,7 +434,7 @@ const edexcelIgcseLangB = {
       title: 'Q7: Comparison Across Texts',
       duration: '40 mins',
       content: `<h2>Comparing Two Unseen Texts (15 marks)</h2>
-<p>Q7 is the <strong>highest-value reading question</strong> on Spec B, worth 15 marks and testing <strong>AO3</strong>. You must compare how the two writers present their ideas and perspectives.</p>
+<p>Q7 is the <strong>highest-value reading question</strong> on 4EB1, worth 15 marks and testing <strong>AO3</strong>. You must compare how the two writers present their ideas and perspectives.</p>
 
 <div class="key-term"><strong>Key Term: Perspectives</strong> — The writers' attitudes, viewpoints, and feelings about their subject. Comparing perspectives means examining not just what they write about, but how they feel about it and why.</div>
 
@@ -463,7 +463,7 @@ const edexcelIgcseLangB = {
 
 <div class="common-mistake"><strong>Common Mistake:</strong> Writing two separate analyses instead of a comparison. Every paragraph must mention BOTH texts. Use connectives: "similarly," "in contrast," "whereas," "conversely," "unlike."</div>`,
       quiz: [
-        { id: 'eib-m3-q1', question: 'How many marks is Q7 worth?', options: ['10 marks', '12 marks', '15 marks', '22 marks'], correct: 2, explanation: 'Q7 is worth 15 marks — the highest-value reading question on the Spec B paper.' },
+        { id: 'eib-m3-q1', question: 'How many marks is Q7 worth?', options: ['10 marks', '12 marks', '15 marks', '22 marks'], correct: 2, explanation: 'Q7 is worth 15 marks — the highest-value reading question on the 4EB1 paper.' },
         { id: 'eib-m3-q2', question: 'What is the "ping-pong method"?', options: ['Switching between reading and writing', 'Alternating between both texts within each paragraph', 'Writing about one text then the other', 'Answering quickly'], correct: 1, explanation: 'The ping-pong method means alternating between Text 1 and Text 2 within each paragraph, creating sustained comparison throughout your answer.' },
         { id: 'eib-m3-q3', question: 'What should the strongest comparison answers focus on?', options: ['Just the content of each text', 'Only the word count differences', 'Both content AND the writers\' methods/techniques', 'Only biographical details'], correct: 2, explanation: 'Top-band answers compare both what the writers say (ideas, perspectives) AND how they say it (methods, techniques, tone).' },
         { id: 'eib-m3-q4', question: 'Which AO does Q7 test?', options: ['AO1', 'AO2', 'AO3', 'AO4'], correct: 2, explanation: 'Q7 tests AO3 — exploring links and connections between writers\' ideas and perspectives across two or more texts.' },
@@ -473,8 +473,8 @@ const edexcelIgcseLangB = {
       id: 'eib-m4',
       title: 'Section B Q8: Directed Writing',
       duration: '35 mins',
-      content: `<h2>The Unique Spec B Question (30 marks)</h2>
-<p>Q8 is <strong>unique to Spec B</strong> — it combines reading and writing. You must produce a piece of transactional writing that draws on ideas from the source texts. This tests AO1 (10 marks), AO4 (12 marks), and AO5 (8 marks).</p>
+      content: `<h2>The Unique 4EB1 Question (30 marks)</h2>
+<p>Q8 is <strong>unique to 4EB1</strong> — it combines reading and writing. You must produce a piece of transactional writing that draws on ideas from the source texts. This tests AO1 (10 marks), AO4 (12 marks), and AO5 (8 marks).</p>
 
 <div class="key-term"><strong>Key Term: Directed writing</strong> — A writing task that requires you to use ideas, arguments, or information from the reading texts as a starting point. You must demonstrate that you've understood the texts while also writing effectively for a new purpose and audience.</div>
 
@@ -500,7 +500,7 @@ const edexcelIgcseLangB = {
 
 <div class="common-mistake"><strong>Common Mistake:</strong> Either ignoring the source texts entirely (losing AO1 marks) or copying chunks of the source texts (losing AO4 marks for lack of original voice). Strike a balance — reference ideas but write in your own style.</div>`,
       quiz: [
-        { id: 'eib-m4-q1', question: 'What makes Q8 unique to Spec B?', options: ['It\'s a poetry question', 'It combines reading comprehension with transactional writing', 'It\'s worth 50 marks', 'It tests speaking skills'], correct: 1, explanation: 'Q8 is a "directed writing" task that requires you to draw on the source texts while writing for a new purpose and audience — combining reading and writing skills.' },
+        { id: 'eib-m4-q1', question: 'What makes Q8 unique to 4EB1?', options: ['It\'s a poetry question', 'It combines reading comprehension with transactional writing', 'It\'s worth 50 marks', 'It tests speaking skills'], correct: 1, explanation: 'Q8 is a "directed writing" task that requires you to draw on the source texts while writing for a new purpose and audience — combining reading and writing skills.' },
         { id: 'eib-m4-q2', question: 'How many marks is Q8 worth?', options: ['20 marks', '25 marks', '30 marks', '40 marks'], correct: 2, explanation: 'Q8 is worth 30 marks — 10 for AO1 (reading), 12 for AO4 (writing purpose/audience), and 8 for AO5 (technical accuracy).' },
         { id: 'eib-m4-q3', question: 'What should you do with the source texts when answering Q8?', options: ['Ignore them completely', 'Copy long quotations from them', 'Reference and build upon their ideas in your own voice', 'Summarise them in your answer'], correct: 2, explanation: 'You must reference ideas from the source texts to score AO1 marks, but develop them in your own voice and style for AO4 marks.' },
         { id: 'eib-m4-q4', question: 'Which forms might Q8 require you to write in?', options: ['Short story, poem, or play script', 'Article, speech, letter, or website contribution', 'Exam essay only', 'Text message or social media post'], correct: 1, explanation: 'Q8 uses transactional forms: articles for magazines/newspapers, speeches/talks, letters, or contributions to a website.' },
@@ -589,71 +589,71 @@ const edexcelIgcseLangB = {
     },
   ],
   assessmentQuestions: [
-    { id: 'eib-a1', question: 'What is the Spec B qualification code?', options: ['4EA1', '4EB1', '1EN2', 'J351'], correct: 1, explanation: 'Spec B is coded 4EB1. 4EA1 is Spec A, 1EN2 is Edexcel GCSE, J351 is OCR.' },
-    { id: 'eib-a2', question: 'How many components does Spec B have?', options: ['1', '2', '3', '4'], correct: 0, explanation: 'Spec B has just one component — a single 3-hour exam. There is no coursework option.' },
-    { id: 'eib-a3', question: 'What is the total marks for the Spec B exam?', options: ['80', '90', '100', '160'], correct: 2, explanation: 'The single Spec B exam is worth 100 marks total: 40 reading + 30 directed writing + 30 free writing.' },
-    { id: 'eib-a4', question: 'Does Spec B have an anthology?', options: ['Yes — 20 texts', 'Yes — 10 texts', 'No — all texts are unseen', 'Yes — 5 poems'], correct: 2, explanation: 'Spec B has no anthology and no set texts. All reading material in the exam is completely unseen.' },
+    { id: 'eib-a1', question: 'What is the 4EB1 qualification code?', options: ['4EA1', '4EB1', '1EN2', 'J351'], correct: 1, explanation: '4EB1 is coded 4EB1. 4EA1 is 4EA1, 1EN2 is Edexcel GCSE, J351 is OCR.' },
+    { id: 'eib-a2', question: 'How many components does 4EB1 have?', options: ['1', '2', '3', '4'], correct: 0, explanation: '4EB1 has just one component — a single 3-hour exam. There is no coursework option.' },
+    { id: 'eib-a3', question: 'What is the total marks for the 4EB1 exam?', options: ['80', '90', '100', '160'], correct: 2, explanation: 'The single 4EB1 exam is worth 100 marks total: 40 reading + 30 directed writing + 30 free writing.' },
+    { id: 'eib-a4', question: 'Does 4EB1 have an anthology?', options: ['Yes — 20 texts', 'Yes — 10 texts', 'No — all texts are unseen', 'Yes — 5 poems'], correct: 2, explanation: '4EB1 has no anthology and no set texts. All reading material in the exam is completely unseen.' },
     { id: 'eib-a5', question: 'What is unique about Q8 (Section B)?', options: ['It\'s a poetry analysis', 'It combines reading comprehension with writing', 'It\'s optional', 'It\'s worth 50 marks'], correct: 1, explanation: 'Q8 is a "directed writing" task that requires you to draw on ideas from the source texts while writing for a new purpose and audience.' },
     { id: 'eib-a6', question: 'How many marks does Q8 allocate to reading comprehension (AO1)?', options: ['5 marks', '10 marks', '15 marks', '20 marks'], correct: 1, explanation: 'Q8 allocates 10 marks to AO1 (reading), 12 to AO4 (writing content), and 8 to AO5 (technical accuracy).' },
     { id: 'eib-a7', question: 'How many options do you get in Section C?', options: ['1', '2', '3', '4'], correct: 2, explanation: 'Section C offers three choices: discursive (Q9), narrative (Q10), or descriptive (Q11).' },
-    { id: 'eib-a8', question: 'What is the reading-to-writing ratio in Spec B?', options: ['60:40', '40:60', '50:50', '70:30'], correct: 2, explanation: 'Spec B is 50% reading (Section A + AO1 in Section B) and 50% writing (AO4+AO5 in Sections B and C).' },
+    { id: 'eib-a8', question: 'What is the reading-to-writing ratio in 4EB1?', options: ['60:40', '40:60', '50:50', '70:30'], correct: 2, explanation: '4EB1 is 50% reading (Section A + AO1 in Section B) and 50% writing (AO4+AO5 in Sections B and C).' },
     { id: 'eib-a9', question: 'How much time is advised for Section A?', options: ['30 minutes', '45 minutes', '1 hour', '1 hour 30 minutes'], correct: 2, explanation: 'The advised time is 1 hour for Section A, 1 hour for Section B, and 1 hour for Section C.' },
-    { id: 'eib-a10', question: 'What is the highest-value reading question on Spec B?', options: ['Q3 (10 marks)', 'Q6 (10 marks)', 'Q7 (15 marks)', 'Q8 (30 marks)'], correct: 2, explanation: 'Q7 is the highest purely reading question at 15 marks. Q8 includes reading marks but is a combined reading-writing task.' },
+    { id: 'eib-a10', question: 'What is the highest-value reading question on 4EB1?', options: ['Q3 (10 marks)', 'Q6 (10 marks)', 'Q7 (15 marks)', 'Q8 (30 marks)'], correct: 2, explanation: 'Q7 is the highest purely reading question at 15 marks. Q8 includes reading marks but is a combined reading-writing task.' },
     { id: 'eib-a11', question: 'Which AOs does the Section C writing task test?', options: ['AO1 and AO2', 'AO3 and AO4', 'AO4 and AO5', 'AO2 and AO3'], correct: 2, explanation: 'Section C tests AO4 (20 marks for content, purpose, and style) and AO5 (10 marks for technical accuracy).' },
-    { id: 'eib-a12', question: 'Does Spec B include poetry?', options: ['Yes — 5 poems in an anthology', 'Yes — unseen poetry', 'No — there is no poetry requirement', 'Yes — both anthology and unseen'], correct: 2, explanation: 'Spec B has no poetry at all. Only Spec A includes poetry (in Part 2 of the anthology).' },
+    { id: 'eib-a12', question: 'Does 4EB1 include poetry?', options: ['Yes — 5 poems in an anthology', 'Yes — unseen poetry', 'No — there is no poetry requirement', 'Yes — both anthology and unseen'], correct: 2, explanation: '4EB1 has no poetry at all. Only 4EA1 includes poetry (in Part 2 of the anthology).' },
     { id: 'eib-a13', question: 'What forms are acceptable for Q8 directed writing?', options: ['Poem or short story', 'Article, speech, letter, or website contribution', 'Academic essay only', 'Any form you choose'], correct: 1, explanation: 'Q8 uses transactional forms: articles, speeches/talks, letters, or website contributions.' },
-    { id: 'eib-a14', question: 'What is the difference between Spec A and Spec B?', options: ['Spec A is harder', 'Spec A uses an anthology; Spec B is all unseen with no coursework option', 'Spec B includes more poetry', 'There is no difference'], correct: 1, explanation: 'The key difference is Spec A is built around a 20-text anthology and offers a coursework option. Spec B has no set texts, all unseen material, and no coursework.' },
+    { id: 'eib-a14', question: 'What is the difference between 4EA1 and 4EB1?', options: ['4EA1 is harder', '4EA1 uses an anthology; 4EB1 is all unseen with no coursework option', '4EB1 includes more poetry', 'There is no difference'], correct: 1, explanation: 'The key difference is 4EA1 is built around a 20-text anthology and offers a coursework option. 4EB1 has no set texts, all unseen material, and no coursework.' },
     { id: 'eib-a15', question: 'In discursive writing, what should you do?', options: ['Only argue one side', 'Explore both sides before reaching a conclusion', 'Avoid giving your opinion', 'Write as informally as possible'], correct: 1, explanation: 'Discursive writing explores multiple perspectives on an issue before reaching a balanced, reasoned conclusion.' },
     { id: 'eib-a16', question: 'What makes good descriptive writing?', options: ['Long lists of adjectives', 'Engaging multiple senses with figurative language and atmosphere', 'Using only visual description', 'Writing as many words as possible'], correct: 1, explanation: 'The best descriptive writing engages all five senses, uses figurative language purposefully, and creates a clear atmosphere.' },
     { id: 'eib-a17', question: 'What should you focus a narrative writing piece on?', options: ['An entire plot spanning years', 'A single moment or encounter explored in depth', 'As many characters as possible', 'Historical events only'], correct: 1, explanation: 'In a timed exam, focusing on a single moment or scene allows you to develop it richly. Sprawling plots result in shallow writing.' },
-    { id: 'eib-a18', question: 'Can Spec B texts include fiction?', options: ['No — non-fiction only', 'Yes — both fiction and non-fiction', 'Only classic literature', 'Only 19th-century fiction'], correct: 1, explanation: 'Spec B can include any text type: fiction, non-fiction, journalism, speeches, letters, autobiography, travel writing, etc.' },
-    { id: 'eib-a19', question: 'Is there a spoken language endorsement for Spec B?', options: ['No', 'Yes — it counts for 20% of the grade', 'Yes — graded Pass/Merit/Distinction separately', 'Yes — it replaces Section C'], correct: 2, explanation: 'Spec B has an optional spoken language endorsement graded Pass/Merit/Distinction. It is reported separately and does not affect the main IGCSE grade.' },
-    { id: 'eib-a20', question: 'When is the Spec B exam available?', options: ['June only', 'November only', 'June and November', 'January and June'], correct: 2, explanation: 'The Spec B exam is available in both June and November exam series.' },
+    { id: 'eib-a18', question: 'Can 4EB1 texts include fiction?', options: ['No — non-fiction only', 'Yes — both fiction and non-fiction', 'Only classic literature', 'Only 19th-century fiction'], correct: 1, explanation: '4EB1 can include any text type: fiction, non-fiction, journalism, speeches, letters, autobiography, travel writing, etc.' },
+    { id: 'eib-a19', question: 'Is there a spoken language endorsement for 4EB1?', options: ['No', 'Yes — it counts for 20% of the grade', 'Yes — graded Pass/Merit/Distinction separately', 'Yes — it replaces Section C'], correct: 2, explanation: '4EB1 has an optional spoken language endorsement graded Pass/Merit/Distinction. It is reported separately and does not affect the main IGCSE grade.' },
+    { id: 'eib-a20', question: 'When is the 4EB1 exam available?', options: ['June only', 'November only', 'June and November', 'January and June'], correct: 2, explanation: 'The 4EB1 exam is available in both June and November exam series.' },
   ],
 };
 
 const edexcelIgcseLangRevision = {
   id: 'edexcel-igcse-lang-revision',
   title: 'Edexcel IGCSE Language: Revision Blitz',
-  subtitle: 'Fast-track revision for both Spec A and Spec B — essential skills, model answers, final tips.',
+  subtitle: 'Fast-track revision for both 4EA1 and 4EB1 — essential skills, model answers, final tips.',
   tier: 'IGCSE',
   board: 'Edexcel',
   specCode: '4EA1/4EB1',
   price: 49,
   duration: '3-4 hours',
   level: 'IGCSE',
-  description: 'Rapid revision for both Edexcel IGCSE English Language specifications. Covers key skills, model answers at every grade, and last-minute exam strategy for Spec A and Spec B students.',
+  description: 'Rapid revision for both Edexcel IGCSE English Language specifications. Covers key skills, model answers at every grade, and last-minute exam strategy for 4EA1 and 4EB1 students.',
   color: '#dc2626',
   moduleList: [
     {
       id: 'eir-m1',
-      title: 'Spec A vs Spec B: Know Your Exam',
+      title: '4EA1 vs 4EB1: Know Your Exam',
       duration: '20 mins',
-      content: `<h2>Which Spec Are You Sitting?</h2>
+      content: `<h2>Which Specification Are You Sitting?</h2>
 <p>Before revising, make absolutely sure you know which specification you're studying. The two Edexcel IGCSE English Language specifications are <strong>completely different exams</strong>.</p>
 
 <h3>Quick Comparison</h3>
 <ul>
-<li><strong>Spec A (4EA1):</strong> Two papers (2h15m + 1h30m), anthology of 20 texts, coursework option available</li>
-<li><strong>Spec B (4EB1):</strong> One paper (3h), all unseen texts, no coursework, includes unique "directed writing" question</li>
+<li><strong>4EA1 (Specification A):</strong> Two papers (2h15m + 1h30m), anthology of 20 texts, coursework option available</li>
+<li><strong>4EB1 (Specification B):</strong> One paper (3h), all unseen texts, no coursework, includes unique "directed writing" question</li>
 </ul>
 
-<div class="key-term"><strong>Key Difference:</strong> Spec A is built around an anthology — you study 20 texts in advance. Spec B has no set texts at all — everything is unseen.</div>
+<div class="key-term"><strong>Key Difference:</strong> 4EA1 is built around an anthology — you study 20 texts in advance. 4EB1 has no set texts at all — everything is unseen.</div>
 
-<h3>Spec A at a Glance</h3>
-<p>Component 1 (60%): Non-fiction anthology reading + transactional writing. Component 2/3 (40%): Poetry/prose anthology reading + imaginative writing (exam or coursework).</p>
+<h3>4EA1 at a Glance</h3>
+<p>Paper 1 (60%): Non-fiction anthology reading + transactional writing. Paper 2/3 (40%): Poetry/prose anthology reading + imaginative writing (exam or coursework).</p>
 
-<h3>Spec B at a Glance</h3>
+<h3>4EB1 at a Glance</h3>
 <p>One paper with three sections: A — Reading (40 marks), B — Directed writing (30 marks), C — Free writing: discursive, narrative, or descriptive (30 marks).</p>
 
-<div class="examiner-tip"><strong>Examiner Tip:</strong> Check your exam entry statement or ask your teacher. The specification code is printed on your exam paper: 4EA1 for Spec A, 4EB1 for Spec B.</div>
+<div class="examiner-tip"><strong>Examiner Tip:</strong> Check your exam entry statement or ask your teacher. The specification code is printed on your exam paper: 4EA1 or 4EB1.</div>
 
-<div class="common-mistake"><strong>Common Mistake:</strong> Revising the wrong specification. If you're doing Spec A, you MUST study the anthology texts. If you're doing Spec B, spending time memorising anthology texts is wasted effort.</div>`,
+<div class="common-mistake"><strong>Common Mistake:</strong> Revising the wrong specification. If you're doing 4EA1, you MUST study the anthology texts. If you're doing 4EB1, spending time memorising anthology texts is wasted effort.</div>`,
       quiz: [
-        { id: 'eir-m1-q1', question: 'How many papers does Spec A have?', options: ['1', '2', '3', '4'], correct: 1, explanation: 'Spec A has two components: Component 1 (2h15m, 60%) and Component 2 or 3 (1h30m or coursework, 40%).' },
-        { id: 'eir-m1-q2', question: 'What is unique to Spec B?', options: ['An anthology', 'Coursework', 'A directed writing question combining reading and writing', 'Poetry analysis'], correct: 2, explanation: 'Spec B\'s Q8 is a "directed writing" task where you must use ideas from the source texts in your writing — unique to this specification.' },
-        { id: 'eir-m1-q3', question: 'How long is the Spec B exam?', options: ['1h 30m', '2h 15m', '3 hours', '3h 45m'], correct: 2, explanation: 'Spec B is a single 3-hour exam. Spec A has two papers totalling 3h 45m.' },
-        { id: 'eir-m1-q4', question: 'Does Spec B have an anthology?', options: ['Yes — 20 texts', 'Yes — 10 texts', 'No', 'Optional'], correct: 2, explanation: 'Spec B has no anthology. All texts are unseen.' },
+        { id: 'eir-m1-q1', question: 'How many papers does 4EA1 have?', options: ['1', '2', '3', '4'], correct: 1, explanation: '4EA1 has two papers: Paper 1 (2h15m, 60%) and Paper 2 or 3 (1h30m or coursework, 40%).' },
+        { id: 'eir-m1-q2', question: 'What is unique to 4EB1?', options: ['An anthology', 'Coursework', 'A directed writing question combining reading and writing', 'Poetry analysis'], correct: 2, explanation: '4EB1\'s Q8 is a "directed writing" task where you must use ideas from the source texts in your writing — unique to this specification.' },
+        { id: 'eir-m1-q3', question: 'How long is the 4EB1 exam?', options: ['1h 30m', '2h 15m', '3 hours', '3h 45m'], correct: 2, explanation: '4EB1 is a single 3-hour exam. 4EA1 has two papers totalling 3h 45m.' },
+        { id: 'eir-m1-q4', question: 'Does 4EB1 have an anthology?', options: ['Yes — 20 texts', 'Yes — 10 texts', 'No', 'Optional'], correct: 2, explanation: '4EB1 has no anthology. All texts are unseen.' },
       ],
     },
     {
@@ -661,7 +661,7 @@ const edexcelIgcseLangRevision = {
       title: 'Reading Skills Blitz',
       duration: '30 mins',
       content: `<h2>Essential Reading Skills for Both Specs</h2>
-<p>Whether you're sitting Spec A or B, the core reading skills are the same. Here's your quick-fire revision of everything you need.</p>
+<p>Whether you're sitting 4EA1 or 4EB1, the core reading skills are the same. Here's your quick-fire revision of everything you need.</p>
 
 <h3>Retrieval (AO1)</h3>
 <p>Find information. Quote it. Move on. Don't overthink 1-2 mark questions.</p>
@@ -738,10 +738,10 @@ const edexcelIgcseLangRevision = {
       id: 'eir-m4',
       title: 'Anthology Quick Reference',
       duration: '25 mins',
-      content: `<h2>Spec A: All 20 Texts at a Glance</h2>
-<p>If you're sitting Spec A, here is your rapid-fire guide to all 20 anthology texts.</p>
+      content: `<h2>4EA1: All 20 Texts at a Glance</h2>
+<p>If you're sitting 4EA1, here is your rapid-fire guide to all 20 anthology texts.</p>
 
-<h3>Part 1: Non-Fiction (Component 1)</h3>
+<h3>Part 1: Non-Fiction (Paper 1)</h3>
 <ul>
 <li><strong>Adichie</strong> — Single Story: stereotypes, power of narrative, anecdote-driven speech</li>
 <li><strong>Alagiah</strong> — Passage to Africa: guilt, suffering, emotional journalism</li>
@@ -755,7 +755,7 @@ const edexcelIgcseLangRevision = {
 <li><strong>Yen Mah</strong> — Chinese Cinderella: isolation, family cruelty, childhood voice</li>
 </ul>
 
-<h3>Part 2: Poetry and Prose (Component 2/3)</h3>
+<h3>Part 2: Poetry and Prose (Paper 2/3)</h3>
 <ul>
 <li><strong>Owen, "Disabled"</strong> — Loss, contrast past/present, anti-war</li>
 <li><strong>Frost, "Out, Out—"</strong> — Death of a child, indifference, Macbeth allusion</li>
@@ -776,7 +776,7 @@ const edexcelIgcseLangRevision = {
         { id: 'eir-m4-q1', question: 'Which anthology text uses satire and a mocking tone?', options: ['A Passage to Africa', 'Explorers, or boys messing about?', '127 Hours', 'H is for Hawk'], correct: 1, explanation: '"Explorers, or boys messing about?" by Steven Morris uses a satirical, mocking tone typical of newspaper opinion pieces.' },
         { id: 'eir-m4-q2', question: 'What literary technique is central to "The Necklace"?', options: ['Pathetic fallacy', 'Dramatic irony', 'Stream of consciousness', 'Onomatopoeia'], correct: 1, explanation: '"The Necklace" revolves around dramatic irony — the reader eventually learns that the borrowed necklace was fake, making the years of repayment tragically unnecessary.' },
         { id: 'eir-m4-q3', question: 'Which poem alludes to Shakespeare\'s Macbeth in its title?', options: ['Still I Rise', 'Disabled', 'An Unknown Girl', 'Out, Out—'], correct: 3, explanation: '"Out, Out—" alludes to Macbeth\'s soliloquy: "Out, out, brief candle!" connecting to the poem\'s theme of life\'s fragility.' },
-        { id: 'eir-m4-q4', question: 'How many anthology texts should you revise for Spec A?', options: ['5 (your favourites)', '10 (Part 1 only)', '15', 'All 20'], correct: 3, explanation: 'You must revise all 20 — any of the 10 Part 1 texts could appear on Component 1, and any of the 10 Part 2 texts could appear on Component 2.' },
+        { id: 'eir-m4-q4', question: 'How many anthology texts should you revise for 4EA1?', options: ['5 (your favourites)', '10 (Part 1 only)', '15', 'All 20'], correct: 3, explanation: 'You must revise all 20 — any of the 10 Part 1 texts could appear on Paper 1, and any of the 10 Part 2 texts could appear on Paper 2.' },
       ],
     },
     {
@@ -826,17 +826,17 @@ const edexcelIgcseLangRevision = {
 
 <h3>Quick Revision Tasks (30 mins max)</h3>
 <ul>
-<li><strong>Spec A:</strong> Flick through your anthology notes — one keyword per text</li>
-<li><strong>Spec B:</strong> Review the Section C writing options (discursive, narrative, descriptive) and remind yourself which you're strongest at</li>
+<li><strong>4EA1:</strong> Flick through your anthology notes — one keyword per text</li>
+<li><strong>4EB1:</strong> Review the Section C writing options (discursive, narrative, descriptive) and remind yourself which you're strongest at</li>
 <li><strong>Both specs:</strong> Write one WHAT-HOW-WHY paragraph on any text extract to warm up your analytical brain</li>
 </ul>
 
 <div class="key-term"><strong>Key Term: Exam tempo</strong> — The pace at which you work through the paper. Knowing exactly how many minutes per question prevents panic and ensures you finish.</div>
 
 <h3>Timing Reminders</h3>
-<p><strong>Spec A Component 1 (2h 15m):</strong> Section A 1h 30m (Q1-Q3: 10 min, Q4: 20 min, Q5: 30 min, reading: 15 min) + Section B 45m.</p>
-<p><strong>Spec A Component 2 (1h 30m):</strong> Section A 45m + Section B 45m.</p>
-<p><strong>Spec B (3h):</strong> Section A 1h + Section B 1h + Section C 1h.</p>
+<p><strong>4EA1 Paper 1 (2h 15m):</strong> Section A 1h 30m (Q1-Q3: 10 min, Q4: 20 min, Q5: 30 min, reading: 15 min) + Section B 45m.</p>
+<p><strong>4EA1 Paper 2 (1h 30m):</strong> Section A 45m + Section B 45m.</p>
+<p><strong>4EB1 (3h):</strong> Section A 1h + Section B 1h + Section C 1h.</p>
 
 <div class="examiner-tip"><strong>Examiner Tip:</strong> Write your timing on the front of the exam paper as soon as it starts. For example: "Section A finish by 10:00. Section B finish by 10:45." This keeps you on track without checking constantly.</div>
 
@@ -844,17 +844,17 @@ const edexcelIgcseLangRevision = {
       quiz: [
         { id: 'eir-m6-q1', question: 'What should you spend the night before doing?', options: ['Learning new material', 'Consolidating what you know and preparing practically', 'Reading the entire anthology cover to cover', 'Writing full practice essays'], correct: 1, explanation: 'The night before is for consolidation (brief review of key points) and practical preparation (equipment, timing reminders). Not new learning.' },
         { id: 'eir-m6-q2', question: 'How should you start the exam?', options: ['Dive straight into Question 1', 'Read the whole paper first', 'Write your timing plan on the front of the paper', 'Ask the invigilator for help'], correct: 2, explanation: 'Writing timing targets on the front of your paper helps you pace yourself throughout the exam without constantly watching the clock.' },
-        { id: 'eir-m6-q3', question: 'How long do you have for Spec B Section C?', options: ['30 minutes', '45 minutes', '1 hour', '1 hour 30 minutes'], correct: 2, explanation: 'Spec B Section C is advised at 1 hour out of the 3-hour total.' },
+        { id: 'eir-m6-q3', question: 'How long do you have for 4EB1 Section C?', options: ['30 minutes', '45 minutes', '1 hour', '1 hour 30 minutes'], correct: 2, explanation: '4EB1 Section C is advised at 1 hour out of the 3-hour total.' },
         { id: 'eir-m6-q4', question: 'What is more valuable than extra revision the night before?', options: ['More practice essays', 'Sleep', 'Re-reading the specification', 'Watching a film'], correct: 1, explanation: 'Sleep is critical for cognitive function. A well-rested brain analyses text, plans essays, and proofreads far better than a tired one.' },
       ],
     },
   ],
   assessmentQuestions: [
-    { id: 'eir-a1', question: 'What is the code for Edexcel IGCSE English Language Specification A?', options: ['4EB1', '4EA1', '1EN2', '8700'], correct: 1, explanation: 'Spec A is coded 4EA1.' },
-    { id: 'eir-a2', question: 'How many anthology texts are in Spec A?', options: ['10', '15', '20', '25'], correct: 2, explanation: 'Spec A has 20 anthology texts: 10 non-fiction in Part 1 and 10 poetry/prose in Part 2.' },
-    { id: 'eir-a3', question: 'Does Spec B have an anthology?', options: ['Yes', 'No', 'Optional', 'Only for coursework'], correct: 1, explanation: 'Spec B has no anthology — all texts are unseen.' },
-    { id: 'eir-a4', question: 'What is the total exam time for Spec A?', options: ['2 hours', '3 hours', '3 hours 45 minutes', '4 hours'], correct: 2, explanation: 'Spec A has Component 1 (2h 15m) + Component 2 (1h 30m) = 3 hours 45 minutes total.' },
-    { id: 'eir-a5', question: 'What is the total exam time for Spec B?', options: ['2 hours', '3 hours', '3 hours 45 minutes', '4 hours'], correct: 1, explanation: 'Spec B is a single 3-hour exam.' },
+    { id: 'eir-a1', question: 'What is the code for Edexcel IGCSE English Language Specification A?', options: ['4EB1', '4EA1', '1EN2', '8700'], correct: 1, explanation: '4EA1 is Specification A.' },
+    { id: 'eir-a2', question: 'How many anthology texts are in 4EA1?', options: ['10', '15', '20', '25'], correct: 2, explanation: '4EA1 has 20 anthology texts: 10 non-fiction in Part 1 and 10 poetry/prose in Part 2.' },
+    { id: 'eir-a3', question: 'Does 4EB1 have an anthology?', options: ['Yes', 'No', 'Optional', 'Only for coursework'], correct: 1, explanation: '4EB1 has no anthology — all texts are unseen.' },
+    { id: 'eir-a4', question: 'What is the total exam time for 4EA1?', options: ['2 hours', '3 hours', '3 hours 45 minutes', '4 hours'], correct: 2, explanation: '4EA1 has Paper 1 (2h 15m) + Paper 2 (1h 30m) = 3 hours 45 minutes total.' },
+    { id: 'eir-a5', question: 'What is the total exam time for 4EB1?', options: ['2 hours', '3 hours', '3 hours 45 minutes', '4 hours'], correct: 1, explanation: '4EB1 is a single 3-hour exam.' },
     { id: 'eir-a6', question: 'Which AO does the comparison question test?', options: ['AO1', 'AO2', 'AO3', 'AO4'], correct: 2, explanation: 'AO3 tests the ability to compare writers\' ideas and perspectives across texts.' },
     { id: 'eir-a7', question: 'What is WHAT-HOW-WHY?', options: ['An essay structure', 'A paragraph structure for language analysis', 'A timing strategy', 'A revision method'], correct: 1, explanation: 'WHAT (identify technique) — HOW (quote and explain) — WHY (analyse effect on reader). It\'s the core paragraph structure for analysis.' },
     { id: 'eir-a8', question: 'What is "feature spotting"?', options: ['A good exam skill', 'Listing techniques without analysing their effects', 'Finding structural features', 'Spotting errors in the text'], correct: 1, explanation: 'Feature spotting means identifying techniques without explaining their effect — it scores very low marks.' },
@@ -862,11 +862,11 @@ const edexcelIgcseLangRevision = {
     { id: 'eir-a10', question: 'How much does SPaG contribute to the overall grade?', options: ['5%', '10%', '15%', '20%'], correct: 3, explanation: 'SPaG (AO5/AO6) contributes approximately 20% of the total IGCSE grade.' },
     { id: 'eir-a11', question: 'What is the main jump from Grade 5 to Grade 7?', options: ['Writing more', 'Depth of analysis and exploring connotations', 'Using more quotations', 'Better handwriting'], correct: 1, explanation: 'Grade 7 requires going beyond identification to explore connotations, word-level choices, and connections to themes.' },
     { id: 'eir-a12', question: 'What extra skill characterises Grade 8-9?', options: ['Longer answers', 'Multiple interpretations and structural awareness', 'More techniques named', 'Perfect spelling'], correct: 1, explanation: 'Grade 8-9 shows sophisticated thinking: multiple layers of meaning, structural analysis, alternative interpretations.' },
-    { id: 'eir-a13', question: 'In Spec A, which component is worth 60%?', options: ['Component 1', 'Component 2', 'Component 3', 'They are equal'], correct: 0, explanation: 'Component 1 (non-fiction reading + transactional writing) is worth 60% of the total IGCSE.' },
-    { id: 'eir-a14', question: 'What forms can Spec A transactional writing take?', options: ['Short story or poem', 'Article, speech, letter, guide, review', 'Academic essay only', 'Any form'], correct: 1, explanation: 'Component 1 Section B permits: articles, speeches, letters, guides, and reviews.' },
-    { id: 'eir-a15', question: 'How many options does Spec B Section C give you?', options: ['1', '2', '3', '4'], correct: 2, explanation: 'Three options: discursive (Q9), narrative (Q10), or descriptive (Q11).' },
-    { id: 'eir-a16', question: 'What is directed writing (Spec B Q8)?', options: ['A dictation exercise', 'Writing that draws on ideas from the reading texts', 'Copying the source texts', 'Writing directions'], correct: 1, explanation: 'Directed writing requires you to use ideas from the source texts in a new piece of writing for a specific purpose and audience.' },
-    { id: 'eir-a17', question: 'Which Spec A text is about the Siege of Sarajevo?', options: ['A Passage to Africa', 'The Bright Lights of Sarajevo', '127 Hours', 'Disabled'], correct: 1, explanation: '"The Bright Lights of Sarajevo" by Tony Harrison is a poem about everyday life continuing during the siege of Sarajevo.' },
+    { id: 'eir-a13', question: 'In 4EA1, which component is worth 60%?', options: ['Paper 1', 'Paper 2', 'Paper 3', 'They are equal'], correct: 0, explanation: 'Paper 1 (non-fiction reading + transactional writing) is worth 60% of the total IGCSE.' },
+    { id: 'eir-a14', question: 'What forms can 4EA1 transactional writing take?', options: ['Short story or poem', 'Article, speech, letter, guide, review', 'Academic essay only', 'Any form'], correct: 1, explanation: 'Paper 1 Section B permits: articles, speeches, letters, guides, and reviews.' },
+    { id: 'eir-a15', question: 'How many options does 4EB1 Section C give you?', options: ['1', '2', '3', '4'], correct: 2, explanation: 'Three options: discursive (Q9), narrative (Q10), or descriptive (Q11).' },
+    { id: 'eir-a16', question: 'What is directed writing (4EB1 Q8)?', options: ['A dictation exercise', 'Writing that draws on ideas from the reading texts', 'Copying the source texts', 'Writing directions'], correct: 1, explanation: 'Directed writing requires you to use ideas from the source texts in a new piece of writing for a specific purpose and audience.' },
+    { id: 'eir-a17', question: 'Which 4EA1 text is about the Siege of Sarajevo?', options: ['A Passage to Africa', 'The Bright Lights of Sarajevo', '127 Hours', 'Disabled'], correct: 1, explanation: '"The Bright Lights of Sarajevo" by Tony Harrison is a poem about everyday life continuing during the siege of Sarajevo.' },
     { id: 'eir-a18', question: 'What is the best scope for a narrative piece in a timed exam?', options: ['An epic spanning years', 'A single moment or scene', 'A full biography', 'Multiple storylines'], correct: 1, explanation: 'Focusing on a single moment allows you to develop it richly. Ambitious scope leads to shallow writing in timed conditions.' },
     { id: 'eir-a19', question: 'What should you write on the front of your exam paper?', options: ['Your name only', 'Your timing plan for each section', 'A prayer', 'Nothing'], correct: 1, explanation: 'Writing timing targets (e.g., "Section A finish by 10:00") keeps you on track without constantly checking the clock.' },
     { id: 'eir-a20', question: 'What is more valuable than midnight cramming?', options: ['More flashcards', 'Sleep', 'Re-reading the anthology', 'Writing practice essays'], correct: 1, explanation: 'Sleep is essential for cognitive function. A well-rested brain performs significantly better in exams than an exhausted one.' },

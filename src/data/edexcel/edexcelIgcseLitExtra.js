@@ -466,7 +466,7 @@ const edexcelIgcseLitUnseen = {
 <p>All the analytical skill in the world is wasted if you cannot deploy it effectively under exam conditions. The unseen section of the Edexcel IGCSE Literature exam requires you to read, annotate, plan, and write within a strict time limit. This module focuses on <span class="key-term">time management</span>, <span class="key-term">prioritisation</span>, and the practical strategies that turn your skills into marks on the day.</p>
 
 <h3>Know Your Timings</h3>
-<p>The unseen poetry question on Component 1 Section A is worth <span class="key-term">20 marks</span>, and you should allocate approximately <span class="key-term">30 minutes</span> to it. Within those 30 minutes, a reliable breakdown is:</p>
+<p>The unseen poetry question on Paper 1 Section A is worth <span class="key-term">20 marks</span>, and you should allocate approximately <span class="key-term">30 minutes</span> to it. Within those 30 minutes, a reliable breakdown is:</p>
 <ul>
   <li><strong>5 minutes</strong>: Three reads and annotation</li>
   <li><strong>3 minutes</strong>: Planning your three or four key points</li>

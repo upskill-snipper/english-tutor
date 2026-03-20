@@ -1,4 +1,4 @@
-// Edexcel IGCSE English Language Spec A (4EA1) — Anthology Part 1
+// Edexcel IGCSE English Language 4EA1 (4EA1) — Anthology Part 1
 // "The Danger of a Single Story" by Chimamanda Ngozi Adichie
 // Individual annotated text lesson
 
@@ -86,8 +86,8 @@ const text = {
 <p>Adichie's purpose is to <strong>persuade</strong> her audience that relying on single narratives is intellectually lazy and morally damaging. Her perspective is that of someone who has been both the subject and the perpetrator of single stories — this dual positioning gives her argument balance and authenticity. She writes from a <strong>post-colonial perspective</strong>, challenging the dominance of Western narratives about Africa, but her argument extends far beyond geography: any group can be reduced by a single story.</p>
 
 <h2>Links to Exam Questions</h2>
-<p><strong>Component 1, Q4 (12 marks):</strong> You will be asked how Adichie uses <strong>language and structure</strong> to convey her ideas. Focus on her use of anecdote, repetition of "single story," rhetorical contrasts, and the sequenced structure of her argument. Use the PEA (Point-Evidence-Analysis) framework and always link techniques to <strong>effect on the audience</strong>.</p>
-<p><strong>Component 1, Q5 (22 marks):</strong> You will compare this text with an unseen text on a related theme. Likely comparison themes include: prejudice, cultural misunderstanding, the power of language, challenging assumptions. Structure your comparison using <strong>integrated comparison</strong> — discuss both texts in every paragraph rather than writing about one then the other.</p>
+<p><strong>Paper 1, Q4 (12 marks):</strong> You will be asked how Adichie uses <strong>language and structure</strong> to convey her ideas. Focus on her use of anecdote, repetition of "single story," rhetorical contrasts, and the sequenced structure of her argument. Use the PEA (Point-Evidence-Analysis) framework and always link techniques to <strong>effect on the audience</strong>.</p>
+<p><strong>Paper 1, Q5 (22 marks):</strong> You will compare this text with an unseen text on a related theme. Likely comparison themes include: prejudice, cultural misunderstanding, the power of language, challenging assumptions. Structure your comparison using <strong>integrated comparison</strong> — discuss both texts in every paragraph rather than writing about one then the other.</p>
 
 <div class="common-mistake"><strong>Common Mistake:</strong> In Q5, writing about Text 1 for two paragraphs then Text 2 for two paragraphs. This "block" approach limits your marks. Instead, compare within each paragraph: "While Adichie uses personal anecdote to challenge stereotypes, the writer of Text 1 employs statistical evidence to achieve a similar purpose."</div>`,
 
@@ -95,7 +95,7 @@ const text = {
     {
       question: 'How does Adichie use language and structure to convey her views on stereotypes in "The Danger of a Single Story"?',
       marks: 12,
-      paper: 'Component 1 Q4',
+      paper: 'Paper 1 Q4',
       modelAnswer: `Adichie uses a range of language and structural techniques to powerfully convey her argument that stereotypes arise from incomplete narratives.
 
 Her most prominent language technique is the use of personal anecdote. The account of her American roommate — who "asked where I had learned to speak English so well" and wanted to hear her "tribal music" — transforms an abstract argument about stereotyping into a vivid, relatable scene. The understated irony of "Nigeria happened to have English as its official language" is devastatingly effective: the word "happened" carries quiet incredulity, inviting the audience to share Adichie's bemusement without creating hostility. This measured tone is a deliberate rhetorical choice — by refusing anger, Adichie ensures her audience listens rather than becoming defensive.
@@ -110,7 +110,7 @@ Structurally, Adichie sequences her argument to maximise persuasion. She opens w
     {
       question: 'Compare how the writers of Text 1 and Text 2 present their ideas about the way people from other cultures are perceived. You should consider the writers\' use of language, structure, and the contexts in which the texts were produced.',
       marks: 22,
-      paper: 'Component 1 Q5',
+      paper: 'Paper 1 Q5',
       modelAnswer: `Both writers address the theme of cultural perception, yet they approach it from different angles and employ contrasting techniques to engage their audiences.
 
 Adichie's central strategy is the personal anecdote, which gives her argument emotional authenticity. When she recounts her roommate's assumption that she could not speak English, the understated irony — "Nigeria happened to have English as its official language" — creates a quiet but devastating exposure of ignorance. In contrast, the writer of Text 1 may use a more impersonal or journalistic register, relying on factual evidence or third-person accounts to establish credibility. Where Adichie builds trust through vulnerability, the other writer may build authority through objectivity. Both approaches serve the same fundamental purpose — challenging the audience's assumptions — but they do so through different rhetorical means.
@@ -127,7 +127,7 @@ Ultimately, both texts demonstrate that cultural misperception is a recurring an
     {
       question: 'How does Adichie use the structure of her speech to build a persuasive argument about the dangers of incomplete narratives?',
       marks: 12,
-      paper: 'Component 1 Q4',
+      paper: 'Paper 1 Q4',
       modelAnswer: `Adichie structures her speech as a carefully sequenced series of anecdotes that build cumulatively toward her central argument, using the arc of the speech itself to mirror the process of moving from single stories to a more complete understanding.
 
 She opens by positioning herself as a reader, not a critic. Her childhood anecdote about writing stories featuring white, blue-eyed characters who ate apples — even though she had never seen snow or eaten an apple — establishes her as someone who was herself shaped by single stories. This structural choice is significant: by beginning with her own susceptibility, she avoids the accusatory tone that might alienate her audience. The listener is invited to empathise rather than feel attacked.
@@ -219,7 +219,7 @@ Finally, Adichie moves from diagnosis to prescription. The closing section — w
     },
     {
       id: 'adichie-q4',
-      question: 'In the Component 1 exam, what is the best approach for Q5 (the comparison question worth 22 marks)?',
+      question: 'In the Paper 1 exam, what is the best approach for Q5 (the comparison question worth 22 marks)?',
       options: [
         'Write about the Adichie text first, then write about the unseen text separately',
         'Only write about the unseen text since it is new material',

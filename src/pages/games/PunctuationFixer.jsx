@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import Navbar from '../../components/Navbar';
 import GameWrapper from '../../components/GameWrapper';
 import Lauren from '../../components/Lauren';
+import { recordGamePlayed } from '../../utils/gameUtils';
 import { ArrowLeft, Trophy, RotateCcw, CheckCircle, XCircle, Timer, Zap, Star, Eye, EyeOff } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -632,6 +633,7 @@ export default function PunctuationFixer() {
         setSavedData(newData);
         saveBest(newData);
       } else { saveBest({ lastPlayed: new Date().toISOString() }); }
+      recordGamePlayed();
       setScreen('results');
     }
   };
@@ -675,7 +677,7 @@ export default function PunctuationFixer() {
               <Link to="/games" style={{ color: '#10b981', display: 'flex', alignItems: 'center' }}><ArrowLeft size={20} /></Link>
               <h1 style={{ ...sty.title, textAlign: 'left', marginBottom: 0, fontSize: '2rem' }}>Punctuation Fixer</h1>
             </div>
-            <p style={sty.subtitle}>Fix the broken punctuation in each passage -- perfect for AO6 SPaG skills!</p>
+            <p style={sty.subtitle}>Fix the broken punctuation in each passage — perfect for AO6 SPaG skills!</p>
             <div className="card" style={sty.card}>
               <h2 style={{ fontSize: '1.3rem', fontWeight: 700, marginBottom: '1rem', color: '#10b981' }}>How to Play</h2>
               <ul style={{ color: '#94a3b8', lineHeight: '1.8', paddingLeft: '1.25rem', margin: 0 }}>

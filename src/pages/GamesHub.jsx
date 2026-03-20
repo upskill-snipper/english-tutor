@@ -8,6 +8,7 @@ import {
 import Navbar from '../components/Navbar';
 import { getCurrentUser, isSubscribed } from '../utils/auth';
 import { getUnlockedAchievements } from '../utils/achievements';
+import { getDailyStreak } from '../utils/gameUtils';
 
 /* ─── Game definitions with full metadata ─── */
 
@@ -195,19 +196,6 @@ const DIFFICULTY_COLORS = {
   Advanced: { bg: 'rgba(239,68,68,0.12)', border: 'rgba(239,68,68,0.3)', text: '#ef4444' },
 };
 
-function getDailyStreak() {
-  try {
-    const last = localStorage.getItem('learnright_last_game_date');
-    const streakCount = parseInt(localStorage.getItem('learnright_game_daily_streak') || '0', 10);
-    if (!last) return 0;
-    const today = new Date().toISOString().slice(0, 10);
-    const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
-    if (last === today) return Math.max(streakCount, 1);
-    if (last === yesterday) return streakCount;
-    return 0;
-  } catch { return 0; }
-}
-
 function getBestScore(storageKey) {
   try {
     const data = JSON.parse(localStorage.getItem(storageKey));
@@ -270,6 +258,7 @@ function GameRow({ game, isLast }) {
   return (
     <Link to={game.path} style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
       <div
+        className="game-row-inner"
         style={{
           display: 'flex',
           alignItems: 'center',
@@ -336,7 +325,7 @@ function GameRow({ game, isLast }) {
         </div>
 
         {/* Right section: play button */}
-        <div style={{ flexShrink: 0 }}>
+        <div className="game-row-play" style={{ flexShrink: 0 }}>
           <span style={{
             fontSize: '0.82rem', fontWeight: 600,
             background: game.gradient, color: 'white',
@@ -376,6 +365,29 @@ export default function GamesHub() {
 
   return (
     <div style={{ minHeight: '100vh', background: '#0a0e1a', color: '#f1f5f9' }}>
+      <style>{`
+        @media (max-width: 700px) {
+          .games-stats-bar {
+            flex-direction: column !important;
+          }
+          .games-stats-bar > div {
+            border-right: none !important;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            padding: 0.75rem 1rem !important;
+          }
+          .games-stats-bar > div:last-child {
+            border-bottom: none;
+          }
+          .game-row-inner {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 0.75rem !important;
+          }
+          .game-row-play {
+            align-self: flex-end;
+          }
+        }
+      `}</style>
       <Navbar />
       <main id="main-content" style={{ maxWidth: '1100px', margin: '0 auto', padding: '2rem 1.5rem' }}>
         {/* Header */}
@@ -406,7 +418,7 @@ export default function GamesHub() {
         </div>
 
         {/* Stats Bar — full-width horizontal */}
-        <div style={{
+        <div className="games-stats-bar" style={{
           display: 'flex',
           alignItems: 'center',
           background: 'rgba(255,255,255,0.03)',

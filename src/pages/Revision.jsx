@@ -1,12 +1,29 @@
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { BookMarked, RotateCcw, CheckCircle, Search, ChevronLeft, ChevronRight, Filter } from 'lucide-react';
+import { BookMarked, RotateCcw, CheckCircle, Search, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import flashcardDecks from '../data/flashcardData';
 import techniques from '../data/techniquesData';
 import { getFlashcardProgress, saveFlashcardProgress } from '../utils/auth';
 
 const BOARD_COLORS = { AQA: '#2563eb', Edexcel: '#dc2626', OCR: '#7c3aed', WJEC: '#ea580c', All: '#10b981' };
+const CATEGORY_COLORS = {
+  'Language Devices': '#10b981',
+  'Structural Devices': '#6366f1',
+  'Sound Devices': '#f59e0b',
+  'Grammatical Devices': '#ec4899',
+  'Narrative Techniques': '#06b6d4',
+  'Rhetorical Devices': '#a78bfa',
+};
+
+const pillStyle = (active, color) => ({
+  padding: '0.5rem 1.25rem', borderRadius: '100px', fontSize: '0.85rem', fontWeight: 600,
+  border: 'none', cursor: 'pointer', transition: 'all 0.2s',
+  background: active ? `${color || '#10b981'}18` : 'rgba(255,255,255,0.04)',
+  color: active ? (color || '#34d399') : '#94a3b8',
+  borderWidth: '1px', borderStyle: 'solid',
+  borderColor: active ? `${color || '#10b981'}40` : 'rgba(255,255,255,0.08)',
+});
 
 export default function Revision() {
   const [searchParams] = useSearchParams();
@@ -43,7 +60,7 @@ export default function Revision() {
     return (
       <div style={{ background: '#0a0e1a', minHeight: '100vh', color: '#f1f5f9' }}>
         <Navbar />
-        <div id="main-content" role="main" style={{ maxWidth: '600px', margin: '0 auto', padding: '2rem 1.5rem 4rem' }}>
+        <div id="main-content" role="main" style={{ maxWidth: '900px', margin: '0 auto', padding: '2rem 1.5rem 4rem' }}>
           <button onClick={() => { setSelectedDeck(null); setCardIndex(0); setFlipped(false); }} className="btn-ghost" style={{ marginBottom: '1rem' }}>
             <ChevronLeft size={15} /> All Decks
           </button>
@@ -154,15 +171,17 @@ export default function Revision() {
     return matchSearch && matchCat;
   });
 
+  const filteredDecks = flashcardDecks.filter(d => boardFilter === 'all' || d.board === boardFilter || d.board === 'All');
+
   return (
     <div style={{ background: '#0a0e1a', minHeight: '100vh', color: '#f1f5f9' }}>
       <Navbar />
       <div id="main-content" role="main" style={{ maxWidth: '900px', margin: '0 auto', padding: '2rem 1.5rem 4rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
           <BookMarked size={24} color="#10b981" />
-          <h1 style={{ fontSize: '1.75rem', fontWeight: 900 }}>Revision Tools</h1>
+          <h1 style={{ fontSize: '2rem', fontWeight: 900 }}>Revision Tools</h1>
         </div>
-        <p style={{ color: '#94a3b8', marginBottom: '2rem' }}>Flashcards and technique reference — everything you need to revise.</p>
+        <p style={{ color: '#94a3b8', marginBottom: '2rem', fontSize: '1rem' }}>Flashcards and technique reference — everything you need to revise.</p>
 
         {/* Tabs */}
         <div role="group" aria-label="Revision tool tabs" style={{ display: 'flex', gap: '0.5rem', marginBottom: '2rem' }}>
@@ -171,14 +190,7 @@ export default function Revision() {
             { id: 'techniques', label: 'Techniques Reference' },
           ].map(t => (
             <button key={t.id} onClick={() => setTab(t.id)}
-              style={{
-                padding: '0.625rem 1.5rem', borderRadius: '100px', fontSize: '0.9rem', fontWeight: 600,
-                border: 'none', cursor: 'pointer',
-                background: tab === t.id ? 'rgba(16,185,129,0.15)' : 'rgba(255,255,255,0.04)',
-                color: tab === t.id ? '#34d399' : '#94a3b8',
-                borderWidth: '1px', borderStyle: 'solid',
-                borderColor: tab === t.id ? 'rgba(16,185,129,0.3)' : 'rgba(255,255,255,0.08)',
-              }}>
+              style={pillStyle(tab === t.id)}>
               {t.label}
             </button>
           ))}
@@ -187,135 +199,241 @@ export default function Revision() {
         {tab === 'flashcards' && (
           <>
           {/* Board filter */}
-          <div role="group" aria-label="Filter by board" style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
+          <div role="group" aria-label="Filter by board" style={{ display: 'flex', gap: '0.5rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
             {['all', 'AQA', 'Edexcel', 'OCR', 'WJEC'].map(b => {
-              const active = boardFilter === b;
               const col = b === 'all' ? '#10b981' : BOARD_COLORS[b];
               return (
-                <button key={b} onClick={() => setBoardFilter(b)} style={{
-                  padding: '0.5rem 1rem', borderRadius: '100px', fontSize: '0.8rem', fontWeight: 600,
-                  border: `1px solid ${active ? col + '50' : 'rgba(255,255,255,0.08)'}`,
-                  background: active ? col + '18' : 'rgba(255,255,255,0.04)',
-                  color: active ? col : '#94a3b8', cursor: 'pointer',
-                }}>{b === 'all' ? 'All Boards' : b}</button>
+                <button key={b} onClick={() => setBoardFilter(b)}
+                  style={pillStyle(boardFilter === b, col)}>
+                  {b === 'all' ? 'All Boards' : b}
+                </button>
               );
             })}
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1rem' }}>
-            {flashcardDecks.filter(d => boardFilter === 'all' || d.board === boardFilter || d.board === 'All').map(deck => {
-              const dp = fcProgress[deck.id] || {};
-              const known = Object.values(dp).filter(v => v === 'known').length;
-              return (
-                <div key={deck.id} className="card" style={{ padding: '1.5rem', cursor: 'pointer', transition: 'transform 0.2s' }}
-                  onClick={() => { setSelectedDeck(deck.id); setCardIndex(0); setFlipped(false); }}
-                  onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-2px)'}
-                  onMouseLeave={e => e.currentTarget.style.transform = 'none'}
-                >
-                  <div style={{ display: 'flex', gap: '0.375rem', marginBottom: '0.75rem', flexWrap: 'wrap' }}>
-                    <span style={{
-                      fontSize: '0.65rem', fontWeight: 700, color: '#34d399', background: 'rgba(52,211,153,0.1)',
-                      padding: '0.2rem 0.5rem', borderRadius: '4px',
-                    }}>{deck.category}</span>
-                    {deck.board && deck.board !== 'All' && (
-                      <span style={{
-                        fontSize: '0.65rem', fontWeight: 700,
-                        color: BOARD_COLORS[deck.board] || '#94a3b8',
-                        background: (BOARD_COLORS[deck.board] || '#94a3b8') + '15',
-                        padding: '0.2rem 0.5rem', borderRadius: '4px',
-                      }}>{deck.board}</span>
-                    )}
+
+          {/* Deck rows in bordered container */}
+          {filteredDecks.length === 0 ? (
+            <div className="card" style={{
+              padding: '3rem', textAlign: 'center',
+            }}>
+              <p style={{ color: '#94a3b8', fontSize: '1rem' }}>No decks found for this board.</p>
+            </div>
+          ) : (
+            <div className="card" style={{
+              overflow: 'hidden',
+              padding: 0,
+            }}>
+              {filteredDecks.map((deck, i) => {
+                const dp = fcProgress[deck.id] || {};
+                const known = Object.values(dp).filter(v => v === 'known').length;
+                const boardColor = (deck.board && deck.board !== 'All') ? (BOARD_COLORS[deck.board] || '#10b981') : '#10b981';
+                const isLast = i === filteredDecks.length - 1;
+                return (
+                  <div key={deck.id}
+                    style={{
+                      display: 'flex', alignItems: 'center', gap: '1.25rem',
+                      padding: '1.5rem 1.75rem',
+                      borderLeft: `4px solid ${boardColor}`,
+                      borderBottom: isLast ? 'none' : '1px solid rgba(255,255,255,0.06)',
+                      background: 'rgba(255,255,255,0.02)',
+                      transition: 'all 0.2s',
+                      cursor: 'pointer',
+                    }}
+                    onClick={() => { setSelectedDeck(deck.id); setCardIndex(0); setFlipped(false); }}
+                    onMouseOver={e => {
+                      e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
+                      e.currentTarget.style.boxShadow = `inset 4px 0 0 ${boardColor}, 0 2px 12px rgba(0,0,0,0.2)`;
+                    }}
+                    onMouseOut={e => {
+                      e.currentTarget.style.background = 'rgba(255,255,255,0.02)';
+                      e.currentTarget.style.boxShadow = 'none';
+                    }}
+                  >
+                    {/* Content */}
+                    <div style={{ flex: '1 1 auto', minWidth: 0 }}>
+                      {/* Badges */}
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '0.4rem' }}>
+                        <span style={{
+                          fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.05em', textTransform: 'uppercase',
+                          color: '#34d399', background: 'rgba(52,211,153,0.1)',
+                          padding: '0.2rem 0.6rem', borderRadius: 4,
+                        }}>{deck.category}</span>
+                        {deck.board && deck.board !== 'All' && (
+                          <span style={{
+                            fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.05em', textTransform: 'uppercase',
+                            color: BOARD_COLORS[deck.board] || '#94a3b8',
+                            background: (BOARD_COLORS[deck.board] || '#94a3b8') + '15',
+                            padding: '0.2rem 0.6rem', borderRadius: 4,
+                            border: `1px solid ${(BOARD_COLORS[deck.board] || '#94a3b8')}25`,
+                          }}>{deck.board}</span>
+                        )}
+                      </div>
+
+                      {/* Title & description */}
+                      <h3 style={{ fontWeight: 700, fontSize: '1.1rem', color: '#f1f5f9', margin: '0 0 0.25rem 0', lineHeight: 1.3 }}>{deck.title}</h3>
+                      <p style={{ fontSize: '0.85rem', color: '#94a3b8', lineHeight: 1.5, margin: '0 0 0.75rem 0' }}>{deck.description}</p>
+
+                      {/* Meta row */}
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
+                        <span style={{ color: '#64748b', fontSize: '0.78rem' }}>{deck.cards.length} cards</span>
+                        <span style={{ color: '#10b981', fontSize: '0.78rem', fontWeight: 600 }}>{known}/{deck.cards.length} known</span>
+                        <div className="progress-track" style={{ flex: '1 1 120px', maxWidth: '200px' }}>
+                          <div className="progress-fill" style={{ width: `${deck.cards.length > 0 ? (known / deck.cards.length) * 100 : 0}%` }} />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Right arrow hint */}
+                    <div style={{ flexShrink: 0 }}>
+                      <ChevronRight size={18} color="#475569" />
+                    </div>
                   </div>
-                  <h3 style={{ fontWeight: 700, fontSize: '1rem', color: '#f1f5f9', marginBottom: '0.375rem' }}>{deck.title}</h3>
-                  <p style={{ color: '#94a3b8', fontSize: '0.8rem', marginBottom: '1rem' }}>{deck.description}</p>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: '#64748b' }}>
-                    <span>{deck.cards.length} cards</span>
-                    <span style={{ color: '#10b981' }}>{known}/{deck.cards.length} known</span>
-                  </div>
-                  <div className="progress-track" style={{ marginTop: '0.5rem' }}>
-                    <div className="progress-fill" style={{ width: `${deck.cards.length > 0 ? (known / deck.cards.length) * 100 : 0}%` }} />
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+                );
+              })}
+            </div>
+          )}
           </>
         )}
 
         {tab === 'techniques' && (
           <>
-            {/* Search and filter */}
-            <div style={{ display: 'flex', gap: '0.75rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
-              <div style={{ position: 'relative', flex: '1 1 250px' }}>
-                <Search size={16} style={{ position: 'absolute', left: '0.875rem', top: '50%', transform: 'translateY(-50%)', color: '#475569' }} />
-                <input
-                  type="text"
-                  placeholder="Search techniques..."
-                  value={searchTerm}
-                  onChange={e => setSearchTerm(e.target.value)}
+            {/* Search */}
+            <div style={{ position: 'relative', marginBottom: '1rem' }}>
+              <Search size={16} style={{ position: 'absolute', left: '0.875rem', top: '50%', transform: 'translateY(-50%)', color: '#475569' }} />
+              <input
+                type="text"
+                aria-label="Search techniques"
+                placeholder="Search techniques..."
+                value={searchTerm}
+                onChange={e => setSearchTerm(e.target.value)}
+                style={{
+                  width: '100%', padding: '0.625rem 2.25rem 0.625rem 2.75rem',
+                  background: '#131d35', border: '1px solid #1e2d4a', borderRadius: '10px',
+                  color: '#f1f5f9', fontSize: '0.85rem', outline: 'none',
+                  boxSizing: 'border-box',
+                }}
+              />
+              {searchTerm && (
+                <button
+                  onClick={() => setSearchTerm('')}
+                  aria-label="Clear search"
                   style={{
-                    width: '100%', padding: '0.625rem 0.875rem 0.625rem 2.75rem',
-                    background: '#131d35', border: '1px solid #1e2d4a', borderRadius: '8px',
-                    color: '#f1f5f9', fontSize: '0.85rem', outline: 'none',
+                    position: 'absolute', right: '0.625rem', top: '50%', transform: 'translateY(-50%)',
+                    background: 'rgba(255,255,255,0.08)', border: 'none', borderRadius: '50%',
+                    width: '20px', height: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    cursor: 'pointer', padding: 0,
                   }}
-                />
-              </div>
-              <div role="group" aria-label="Filter by category" style={{ display: 'flex', gap: '0.375rem', flexWrap: 'wrap' }}>
-                <button onClick={() => setFilterCategory('')}
-                  style={{
-                    padding: '0.5rem 0.875rem', borderRadius: '6px', fontSize: '0.8rem', fontWeight: 600,
-                    border: 'none', cursor: 'pointer',
-                    background: !filterCategory ? 'rgba(16,185,129,0.15)' : 'rgba(255,255,255,0.04)',
-                    color: !filterCategory ? '#34d399' : '#94a3b8',
-                  }}>All</button>
-                {categories.map(c => (
+                >
+                  <X size={12} color="#94a3b8" />
+                </button>
+              )}
+            </div>
+
+            {/* Category filter pills */}
+            <div role="group" aria-label="Filter by category" style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '2rem' }}>
+              <button onClick={() => setFilterCategory('')}
+                style={pillStyle(!filterCategory)}>
+                All
+              </button>
+              {categories.map(c => {
+                const catColor = CATEGORY_COLORS[c] || '#10b981';
+                return (
                   <button key={c} onClick={() => setFilterCategory(c)}
-                    style={{
-                      padding: '0.5rem 0.875rem', borderRadius: '6px', fontSize: '0.8rem', fontWeight: 600,
-                      border: 'none', cursor: 'pointer',
-                      background: filterCategory === c ? 'rgba(16,185,129,0.15)' : 'rgba(255,255,255,0.04)',
-                      color: filterCategory === c ? '#34d399' : '#94a3b8',
-                    }}>{c}</button>
-                ))}
-              </div>
+                    style={pillStyle(filterCategory === c, catColor)}>
+                    {c}
+                  </button>
+                );
+              })}
             </div>
 
             <div style={{ fontSize: '0.8rem', color: '#64748b', marginBottom: '1rem' }}>
               {filteredTechniques.length} technique{filteredTechniques.length !== 1 ? 's' : ''}
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-              {filteredTechniques.map(t => (
-                <details key={t.id} className="card" style={{ padding: '1.25rem', cursor: 'pointer' }}>
-                  <summary style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', listStyle: 'none' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                      <span style={{ fontWeight: 700, fontSize: '0.95rem', color: '#f1f5f9' }}>{t.name}</span>
-                      <span style={{
-                        fontSize: '0.6rem', fontWeight: 700, color: '#94a3b8', background: 'rgba(255,255,255,0.05)',
-                        padding: '0.15rem 0.5rem', borderRadius: '4px',
-                      }}>{t.category}</span>
-                    </div>
-                  </summary>
-                  <div style={{ marginTop: '1rem', paddingTop: '1rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-                    <div style={{ marginBottom: '0.75rem' }}>
-                      <span style={{ fontSize: '0.7rem', fontWeight: 700, color: '#10b981', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Definition</span>
-                      <p style={{ color: '#cbd5e1', fontSize: '0.85rem', lineHeight: 1.7, marginTop: '0.25rem' }}>{t.definition}</p>
-                    </div>
-                    <div style={{ marginBottom: '0.75rem' }}>
-                      <span style={{ fontSize: '0.7rem', fontWeight: 700, color: '#f59e0b', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Example</span>
-                      <p style={{ color: '#cbd5e1', fontSize: '0.85rem', lineHeight: 1.7, marginTop: '0.25rem', fontStyle: 'italic' }}>{t.example}</p>
-                    </div>
-                    <div style={{ marginBottom: '0.75rem' }}>
-                      <span style={{ fontSize: '0.7rem', fontWeight: 700, color: '#06b6d4', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Effect on Reader</span>
-                      <p style={{ color: '#cbd5e1', fontSize: '0.85rem', lineHeight: 1.7, marginTop: '0.25rem' }}>{t.effect}</p>
-                    </div>
-                    <div>
-                      <span style={{ fontSize: '0.7rem', fontWeight: 700, color: '#a78bfa', textTransform: 'uppercase', letterSpacing: '0.05em' }}>How to Analyse in an Essay</span>
-                      <p style={{ color: '#cbd5e1', fontSize: '0.85rem', lineHeight: 1.7, marginTop: '0.25rem' }}>{t.howToAnalyse}</p>
-                    </div>
-                  </div>
-                </details>
-              ))}
-            </div>
+            {/* Techniques in bordered container */}
+            {filteredTechniques.length === 0 ? (
+              <div className="card" style={{
+                padding: '3rem', textAlign: 'center',
+              }}>
+                <p style={{ color: '#94a3b8', fontSize: '1rem', marginBottom: '0.75rem' }}>No techniques match your search.</p>
+                <button
+                  onClick={() => { setSearchTerm(''); setFilterCategory(''); }}
+                  style={{
+                    background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.3)',
+                    borderRadius: '8px', padding: '0.5rem 1.25rem', color: '#10b981',
+                    fontSize: '0.85rem', fontWeight: 600, cursor: 'pointer',
+                  }}
+                >
+                  Clear filters
+                </button>
+              </div>
+            ) : (
+              <div className="card" style={{
+                overflow: 'hidden',
+                padding: 0,
+              }}>
+                {filteredTechniques.map((t, i) => {
+                  const isLast = i === filteredTechniques.length - 1;
+                  const catColor = CATEGORY_COLORS[t.category] || '#10b981';
+                  return (
+                    <details key={t.id} style={{ borderBottom: isLast ? 'none' : '1px solid rgba(255,255,255,0.06)' }}>
+                      <summary
+                        style={{
+                          display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+                          listStyle: 'none',
+                          padding: '1.5rem 1.75rem',
+                          borderLeft: `4px solid ${catColor}`,
+                          background: 'rgba(255,255,255,0.02)',
+                          transition: 'all 0.2s',
+                          cursor: 'pointer',
+                        }}
+                        onMouseOver={e => {
+                          e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
+                        }}
+                        onMouseOut={e => {
+                          e.currentTarget.style.background = 'rgba(255,255,255,0.02)';
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                          <span style={{ fontWeight: 700, fontSize: '1rem', color: '#f1f5f9' }}>{t.name}</span>
+                          <span style={{
+                            fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.05em', textTransform: 'uppercase',
+                            color: catColor,
+                            background: `${catColor}15`,
+                            padding: '0.2rem 0.6rem', borderRadius: 4,
+                          }}>{t.category}</span>
+                        </div>
+                        <ChevronRight size={16} color="#475569" style={{ flexShrink: 0 }} />
+                      </summary>
+                      <div style={{
+                        padding: '0 1.75rem 1.5rem 1.75rem',
+                        borderLeft: `4px solid ${catColor}`,
+                        background: 'rgba(255,255,255,0.02)',
+                      }}>
+                        <div style={{ paddingTop: '0.5rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+                          <div style={{ marginBottom: '0.75rem' }}>
+                            <span style={{ fontSize: '0.65rem', fontWeight: 700, color: '#10b981', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Definition</span>
+                            <p style={{ color: '#cbd5e1', fontSize: '0.85rem', lineHeight: 1.7, marginTop: '0.25rem' }}>{t.definition}</p>
+                          </div>
+                          <div style={{ marginBottom: '0.75rem' }}>
+                            <span style={{ fontSize: '0.65rem', fontWeight: 700, color: '#f59e0b', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Example</span>
+                            <p style={{ color: '#cbd5e1', fontSize: '0.85rem', lineHeight: 1.7, marginTop: '0.25rem', fontStyle: 'italic' }}>{t.example}</p>
+                          </div>
+                          <div style={{ marginBottom: '0.75rem' }}>
+                            <span style={{ fontSize: '0.65rem', fontWeight: 700, color: '#06b6d4', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Effect on Reader</span>
+                            <p style={{ color: '#cbd5e1', fontSize: '0.85rem', lineHeight: 1.7, marginTop: '0.25rem' }}>{t.effect}</p>
+                          </div>
+                          <div>
+                            <span style={{ fontSize: '0.65rem', fontWeight: 700, color: '#a78bfa', textTransform: 'uppercase', letterSpacing: '0.05em' }}>How to Analyse in an Essay</span>
+                            <p style={{ color: '#cbd5e1', fontSize: '0.85rem', lineHeight: 1.7, marginTop: '0.25rem' }}>{t.howToAnalyse}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </details>
+                  );
+                })}
+              </div>
+            )}
           </>
         )}
       </div>

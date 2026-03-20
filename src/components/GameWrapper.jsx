@@ -34,12 +34,22 @@ export default function GameWrapper({ children, gameId }) {
 
   // Loading state
   if (allowed === null) {
-    return null;
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+      </div>
+    );
   }
 
   // Paywall
   if (!allowed) {
-    return <PaywallModal />;
+    return <PaywallModal onClose={() => {
+      const user = getCurrentUser();
+      const userId = user?.id || null;
+      setAllowed(canPlayGame(userId));
+      setSubscribed(userId ? isSubscribed(userId) : false);
+      setRemaining(getRemainingFreeAttempts(userId));
+    }} />;
   }
 
   return (

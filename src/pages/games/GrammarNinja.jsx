@@ -1,9 +1,18 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import GameWrapper from '../../components/GameWrapper';
 import Lauren from '../../components/Lauren';
+import { recordGamePlayed } from '../../utils/gameUtils';
 
 const STORAGE_KEY = 'learnright_game_grammarninja';
+
+// Scoring constants
+const COMBO_TIER_2_THRESHOLD = 3;
+const COMBO_TIER_3_THRESHOLD = 5;
+const COMBO_TIER_2_MULTIPLIER = 2;
+const COMBO_TIER_3_MULTIPLIER = 3;
+const BASE_POINTS_PER_HIT = 10;
 
 const BELTS = [
   { name: 'White Belt', color: '#e2e8f0', min: 0 },
@@ -273,6 +282,7 @@ export default function GrammarNinja() {
         setScreen('levelcomplete');
       } else {
         saveBest(score);
+        recordGamePlayed();
         setScreen('gameover');
       }
       return;
@@ -299,9 +309,9 @@ export default function GrammarNinja() {
 
     if (wordObj.pos === target) {
       // Correct
-      const comboBonus = combo >= 5 ? 3 : combo >= 3 ? 2 : 1;
+      const comboBonus = combo >= COMBO_TIER_3_THRESHOLD ? COMBO_TIER_3_MULTIPLIER : combo >= COMBO_TIER_2_THRESHOLD ? COMBO_TIER_2_MULTIPLIER : 1;
       const levelBonus = level + 1;
-      const points = 10 * comboBonus * levelBonus;
+      const points = BASE_POINTS_PER_HIT * comboBonus * levelBonus;
       setScore(s => s + points);
       setCombo(c => {
         const next = c + 1;
@@ -332,6 +342,7 @@ export default function GrammarNinja() {
 
       if (newLives <= 0) {
         saveBest(score);
+        recordGamePlayed();
         setTimeout(() => setScreen('gameover'), 600);
       } else {
         // un-mark wrong after a flash
@@ -537,6 +548,9 @@ export default function GrammarNinja() {
                 onClick={() => setScreen('menu')}>
                 Main Menu
               </button>
+              <Link to="/games" style={{ ...s.btnPrimary, background: 'rgba(30, 41, 59, 0.9)', boxShadow: 'none', border: '1px solid rgba(100,116,139,0.3)', textDecoration: 'none', textAlign: 'center' }}>
+                Back to Games
+              </Link>
             </div>
           </div>
         </main>

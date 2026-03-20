@@ -5,6 +5,20 @@ import Navbar from '../components/Navbar';
 import ProgressRing from '../components/ProgressRing';
 import COURSES from '../data/courseData';
 import { getCurrentUser, getUserProgress, getPracticeProgress, getCompletedAssessmentCount, getExamBoard, setExamBoard, getSubscription, isSubscribed, getGameAttempts, getRemainingFreeAttempts } from '../utils/auth';
+import { getDailyStreak } from '../utils/gameUtils';
+
+const EXAM_BOARDS = ['Not sure yet', 'AQA', 'Edexcel', 'Edexcel (IGCSE)', 'OCR', 'WJEC Eduqas'];
+
+// ─── Magic-number constants ──────────────────────────────────
+const ACHIEVEMENT_FIRST_GAME = 1;
+const ACHIEVEMENT_10_GAMES = 10;
+const ACHIEVEMENT_50_GAMES = 50;
+const STREAK_3_DAY = 3;
+const STREAK_7_DAY = 7;
+const TOTAL_ACHIEVEMENTS = 8;
+const GRADES_UNLOCK_THRESHOLD = 5;
+const CERT_DISTINCTION_MIN = 90;
+const CERT_MERIT_MIN = 80;
 
 export default function Dashboard() {
   const user = getCurrentUser();
@@ -13,8 +27,6 @@ export default function Dashboard() {
   const [showBoardPicker, setShowBoardPicker] = useState(false);
 
   if (!user) return null;
-
-  const EXAM_BOARDS = ['Not sure yet', 'AQA', 'Edexcel', 'Edexcel (IGCSE)', 'OCR', 'WJEC Eduqas'];
 
   function handleBoardChange(board) {
     setExamBoard(user.id, board);
@@ -64,6 +76,12 @@ export default function Dashboard() {
     { name: 'Grammar Ninja', key: 'learnright_game_grammarninja' },
     { name: 'Timeline Scramble', key: 'learnright_game_timelinescramble' },
     { name: 'Speed Round', key: 'learnright_game_speedround' },
+    { name: 'Quote Detective', key: 'learnright_game_quotedetective' },
+    { name: 'Context Connect', key: 'learnright_game_contextconnect' },
+    { name: 'Spelling Bee', key: 'learnright_game_spellingbee' },
+    { name: 'Punctuation Fixer', key: 'lr_punctfix_best' },
+    { name: 'Mark The Essay', key: 'lr_markessay_best' },
+    { name: 'Daily Challenge', key: 'learnright_game_daily' },
   ];
 
   function getGamePlayCounts() {
@@ -82,40 +100,27 @@ export default function Dashboard() {
     return { counts, total };
   }
 
-  function getDailyStreak() {
-    try {
-      const last = localStorage.getItem('learnright_last_game_date');
-      const streakCount = parseInt(localStorage.getItem('learnright_game_daily_streak') || '0', 10);
-      if (!last) return 0;
-      const today = new Date().toISOString().slice(0, 10);
-      const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
-      if (last === today) return Math.max(streakCount, 1);
-      if (last === yesterday) return streakCount;
-      return 0;
-    } catch { return 0; }
-  }
-
   function getAchievementCount() {
     const achievements = [];
     const { counts, total } = gamePlays;
     // First game played
-    if (total >= 1) achievements.push('first_game');
+    if (total >= ACHIEVEMENT_FIRST_GAME) achievements.push('first_game');
     // Played 10 games
-    if (total >= 10) achievements.push('10_games');
+    if (total >= ACHIEVEMENT_10_GAMES) achievements.push('10_games');
     // Played 50 games
-    if (total >= 50) achievements.push('50_games');
+    if (total >= ACHIEVEMENT_50_GAMES) achievements.push('50_games');
     // Tried every game
     const triedAll = GAME_STORAGE_KEYS.every(g => counts[g.name] > 0);
     if (triedAll) achievements.push('tried_all');
     // 3-day streak
-    if (getDailyStreak() >= 3) achievements.push('streak_3');
+    if (getDailyStreak() >= STREAK_3_DAY) achievements.push('streak_3');
     // 7-day streak
-    if (getDailyStreak() >= 7) achievements.push('streak_7');
+    if (getDailyStreak() >= STREAK_7_DAY) achievements.push('streak_7');
     // Completed a course
     if ((user.completedCourses || []).length >= 1) achievements.push('first_course');
     // Earned a certificate
     if ((user.certificates || []).length >= 1) achievements.push('first_cert');
-    return { unlocked: achievements.length, total: 8 };
+    return { unlocked: achievements.length, total: TOTAL_ACHIEVEMENTS };
   }
 
   const gamePlays = getGamePlayCounts();
@@ -145,7 +150,7 @@ export default function Dashboard() {
         <h1 style={{ fontSize: '1.75rem', fontWeight: 900, marginBottom: '0.5rem' }}>
           Welcome back, {user.name.split(' ')[0]}
         </h1>
-        <p style={{ color: '#94a3b8', marginBottom: '1rem' }}>Keep up the great work. Here is your progress.</p>
+        <p style={{ color: '#94a3b8', margin: 0, marginBottom: '1rem' }}>Keep up the great work. Here is your progress.</p>
 
         {/* Exam board badge */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '2rem', position: 'relative' }}>
@@ -203,19 +208,21 @@ export default function Dashboard() {
             {subscription.tier === 'pro' ? (
               <>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem' }}>
-                  <p style={{ fontWeight: 700, fontSize: '1rem', color: '#f1f5f9', margin: 0 }}>Pro (Lifetime)</p>
+                  <p style={{ fontWeight: 700, fontSize: '1rem', color: '#f1f5f9', margin: 0 }}>Pro (Annual)</p>
                   <span style={{
                     fontSize: '0.6rem', fontWeight: 800, letterSpacing: '0.05em',
                     background: 'linear-gradient(135deg, #f59e0b, #d97706)', color: '#000',
                     padding: '0.15rem 0.5rem', borderRadius: '4px',
                   }}>GOLD</span>
                 </div>
-                <p style={{ fontSize: '0.8rem', color: '#94a3b8', margin: 0 }}>Lifetime access</p>
+                <p style={{ fontSize: '0.8rem', color: '#94a3b8', margin: 0 }}>
+                  Access until {subscription.expiresAt ? new Date(subscription.expiresAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) : 'August 1st'}
+                </p>
               </>
             ) : subscription.tier === 'monthly' ? (
               <>
                 <p style={{ fontWeight: 700, fontSize: '1rem', color: '#f1f5f9', margin: 0, marginBottom: '0.25rem' }}>
-                  Monthly Plan &mdash; &pound;12.50/month
+                  Monthly Plan &mdash; &pound;19/month
                 </p>
                 <p style={{ fontSize: '0.8rem', color: '#94a3b8', margin: 0 }}>
                   Renews {subscription.expiresAt ? new Date(subscription.expiresAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) : 'N/A'}
@@ -245,7 +252,7 @@ export default function Dashboard() {
         </div>
 
         {/* Game Stats & Quick Links */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1rem', marginBottom: '1.5rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(180px, 100%), 1fr))', gap: '1rem', marginBottom: '1.5rem' }}>
           <div className="card" style={{ padding: '1.25rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
             <div style={{
               width: '40px', height: '40px', borderRadius: '10px',
@@ -269,7 +276,7 @@ export default function Dashboard() {
               <Crown size={18} color="#ec4899" />
             </div>
             <div>
-              <div style={{ fontSize: '0.95rem', fontWeight: 800, color: '#f1f5f9' }}>{favouriteGame || 'None yet'}</div>
+              <div style={{ fontSize: '0.95rem', fontWeight: 800, color: '#f1f5f9', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '120px' }}>{favouriteGame || 'None yet'}</div>
               <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Favourite Game</div>
             </div>
           </div>
@@ -307,17 +314,17 @@ export default function Dashboard() {
         <Link to="/games" style={{ textDecoration: 'none', display: 'block', marginBottom: '2rem' }}>
           <div className="card" style={{
             padding: '1rem 1.5rem', display: 'flex', alignItems: 'center', gap: '1rem',
-            cursor: 'pointer', borderColor: 'rgba(139,92,246,0.2)',
+            cursor: 'pointer', borderColor: 'rgba(139,92,246,0.2)', flexWrap: 'wrap',
           }}>
-            <Gamepad2 size={20} color="#8b5cf6" />
-            <span style={{ fontWeight: 600, fontSize: '0.9rem', color: '#f1f5f9', flex: 1 }}>Games Hub</span>
+            <Gamepad2 size={20} color="#8b5cf6" style={{ flexShrink: 0 }} />
+            <span style={{ fontWeight: 600, fontSize: '0.9rem', color: '#f1f5f9', flex: 1, minWidth: '100px' }}>Games Hub</span>
             <span style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Play games to practise your skills</span>
-            <ArrowRight size={16} color="#64748b" />
+            <ArrowRight size={16} color="#64748b" style={{ flexShrink: 0 }} />
           </div>
         </Link>
 
         {/* Stats grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1rem', marginBottom: '3rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(180px, 100%), 1fr))', gap: '1rem', marginBottom: '3rem' }}>
           {[
             { label: 'Enrolled', value: enrolled.length, icon: BookOpen, color: '#10b981' },
             { label: 'Completed', value: completedCount, icon: CheckCircle, color: '#34d399' },
@@ -343,9 +350,9 @@ export default function Dashboard() {
         {/* Predicted Grades Banner */}
         {(() => {
           const assessmentCount = getCompletedAssessmentCount(user.id);
-          const isGradesUnlocked = assessmentCount >= 5;
-          const remaining = 5 - assessmentCount;
-          const progress = Math.round((assessmentCount / 5) * 100);
+          const isGradesUnlocked = assessmentCount >= GRADES_UNLOCK_THRESHOLD;
+          const assessmentsRemaining = GRADES_UNLOCK_THRESHOLD - assessmentCount;
+          const progress = Math.round((assessmentCount / GRADES_UNLOCK_THRESHOLD) * 100);
           return (
             <Link to="/predicted-grades" style={{ textDecoration: 'none', display: 'block', marginBottom: '3rem' }}>
               <div className="card" style={{
@@ -364,17 +371,17 @@ export default function Dashboard() {
                     : <Lock size={22} color="#f59e0b" />}
                 </div>
                 <div style={{ flex: 1 }}>
-                  <p style={{ fontWeight: 700, fontSize: '1rem', color: '#f1f5f9', marginBottom: '0.25rem' }}>
+                  <p style={{ fontWeight: 700, fontSize: '1rem', color: '#f1f5f9', margin: 0, marginBottom: '0.25rem' }}>
                     Predicted Grades
                   </p>
                   {isGradesUnlocked ? (
-                    <p style={{ fontSize: '0.8rem', color: '#94a3b8' }}>
+                    <p style={{ fontSize: '0.8rem', color: '#94a3b8', margin: 0 }}>
                       View your predicted grades, strengths, and recommendations
                     </p>
                   ) : (
                     <div>
-                      <p style={{ fontSize: '0.8rem', color: '#94a3b8', marginBottom: '0.5rem' }}>
-                        Complete {remaining} more assessment{remaining !== 1 ? 's' : ''} to unlock
+                      <p style={{ fontSize: '0.8rem', color: '#94a3b8', margin: 0, marginBottom: '0.5rem' }}>
+                        Complete {assessmentsRemaining} more assessment{assessmentsRemaining !== 1 ? 's' : ''} to unlock
                       </p>
                       <div style={{ maxWidth: '200px', height: '6px', borderRadius: '3px', background: 'rgba(255,255,255,0.06)', overflow: 'hidden' }}>
                         <div style={{ height: '100%', width: `${progress}%`, borderRadius: '3px', background: '#f59e0b', transition: 'width 0.3s' }} />
@@ -391,14 +398,14 @@ export default function Dashboard() {
         {/* My courses */}
         <h2 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '1.25rem' }}>My Courses</h2>
         {enrolled.length === 0 ? (
-          <div className="card" style={{ padding: '2.5rem', textAlign: 'center' }}>
-            <p style={{ color: '#94a3b8', marginBottom: '1.25rem' }}>You have not enrolled in any courses yet.</p>
+          <div className="card" style={{ padding: '2.5rem', textAlign: 'center', marginBottom: '3rem' }}>
+            <p style={{ color: '#94a3b8', margin: 0, marginBottom: '1.25rem' }}>You have not enrolled in any courses yet.</p>
             <Link to="/courses" className="btn-primary" style={{ textDecoration: 'none' }}>
               Browse Courses <ArrowRight size={16} />
             </Link>
           </div>
         ) : (
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1rem', marginBottom: '3rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(320px, 100%), 1fr))', gap: '1rem', marginBottom: '3rem' }}>
             {enrolled.map(course => {
               const prog = getUserProgress(user.id, course.id);
               const done = prog.completedModules.length;
@@ -467,10 +474,10 @@ export default function Dashboard() {
         {certs.length > 0 && (
           <>
             <h2 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '1.25rem' }}>Certificates</h2>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1rem', marginBottom: '3rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))', gap: '1rem', marginBottom: '3rem' }}>
               {certs.map(cert => {
                 const course = COURSES.find(c => c.id === cert.courseId);
-                const grade = cert.score >= 90 ? 'Distinction' : cert.score >= 80 ? 'Merit' : 'Pass';
+                const grade = cert.score >= CERT_DISTINCTION_MIN ? 'Distinction' : cert.score >= CERT_MERIT_MIN ? 'Merit' : 'Pass';
                 return (
                   <Link key={cert.id} to={`/certificate/${cert.id}`} style={{ textDecoration: 'none' }}>
                     <div className="card" style={{
@@ -496,7 +503,6 @@ export default function Dashboard() {
         {(() => {
           const recommended = getRecommendedCourses();
           if (recommended.length === 0) return null;
-          const boardLabel = examBoardState !== 'Not sure yet' ? ` for ${examBoardState}` : '';
           return (
             <>
               <h2 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.25rem' }}>Recommended Courses</h2>
@@ -505,9 +511,9 @@ export default function Dashboard() {
                   ? `Showing ${examBoardState} courses first`
                   : 'Select an exam board above to see tailored recommendations'}
               </p>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1rem' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(320px, 100%), 1fr))', gap: '1rem' }}>
                 {recommended.slice(0, 6).map(course => (
-                  <Link key={course.id} to={`/courses/${course.id}`} style={{ textDecoration: 'none' }}>
+                  <Link key={course.id} to={`/course/${course.id}`} style={{ textDecoration: 'none' }}>
                     <div className="card" style={{ padding: '1.25rem', cursor: 'pointer' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
                         <span style={{

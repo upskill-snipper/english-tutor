@@ -4,6 +4,7 @@ import { ArrowLeft, Zap, Trophy, Target, Flame, RotateCcw, Clock } from 'lucide-
 import Navbar from '../../components/Navbar';
 import GameWrapper from '../../components/GameWrapper';
 import Lauren from '../../components/Lauren';
+import { recordGamePlayed } from '../../utils/gameUtils';
 
 const QUESTIONS = [
   // Literary Techniques
@@ -132,6 +133,11 @@ const QUESTIONS = [
 
 const STORAGE_KEY = 'learnright_game_speedround';
 const GAME_DURATION = 60;
+const STREAK_BONUS_INTERVAL = 5;
+const LEADERBOARD_MAX_ENTRIES = 10;
+const RESULT_EXCELLENT_PCT = 90;
+const RESULT_GOOD_PCT = 70;
+const RESULT_OK_PCT = 50;
 
 function shuffle(arr) {
   const a = [...arr];
@@ -152,7 +158,7 @@ function saveScore(entry) {
   const lb = getLeaderboard();
   lb.push(entry);
   lb.sort((a, b) => b.score - a.score);
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(lb.slice(0, 10)));
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(lb.slice(0, LEADERBOARD_MAX_ENTRIES))); } catch { /* QuotaExceeded */ }
 }
 
 export default function SpeedRound() {
@@ -193,8 +199,7 @@ export default function SpeedRound() {
       date: new Date().toISOString(),
     });
     // Track daily streak
-    const today = new Date().toISOString().slice(0, 10);
-    localStorage.setItem('learnright_last_game_date', today);
+    recordGamePlayed();
   }, []);
 
   // Timer
@@ -237,7 +242,7 @@ export default function SpeedRound() {
 
     if (isCorrect) {
       const newStreak = streak + 1;
-      const bonus = newStreak > 0 && newStreak % 5 === 0 ? 1 : 0;
+      const bonus = newStreak > 0 && newStreak % STREAK_BONUS_INTERVAL === 0 ? 1 : 0;
       setScore(s => s + 1 + bonus);
       setStreak(newStreak);
       setBestStreak(bs => Math.max(bs, newStreak));
@@ -368,8 +373,8 @@ export default function SpeedRound() {
                     <span style={{ fontWeight: 700, fontSize: '1.25rem' }}>{score}</span>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.375rem' }}>
-                    <Flame size={16} color={streak >= 5 ? '#f59e0b' : '#64748b'} />
-                    <span style={{ fontWeight: 700, fontSize: '1.25rem', color: streak >= 5 ? '#f59e0b' : '#f1f5f9' }}>{streak}</span>
+                    <Flame size={16} color={streak >= STREAK_BONUS_INTERVAL ? '#f59e0b' : '#64748b'} />
+                    <span style={{ fontWeight: 700, fontSize: '1.25rem', color: streak >= STREAK_BONUS_INTERVAL ? '#f59e0b' : '#f1f5f9' }}>{streak}</span>
                   </div>
                 </div>
               </div>
@@ -463,10 +468,10 @@ export default function SpeedRound() {
 
             {(() => {
               const pct = answered > 0 ? Math.round((correct / answered) * 100) : 0;
-              const laurenEmotion = pct >= 90 ? 'celebrating' : pct >= 70 ? 'happy' : pct >= 50 ? 'encouraging' : 'concerned';
-              const laurenMessage = pct >= 90 ? "Outstanding work! You really know your stuff — that's Grade 9 territory!"
-                : pct >= 70 ? "Great job! You're showing solid understanding. Keep practising to push even higher!"
-                : pct >= 50 ? "Good effort! You're getting there — review the ones you missed and try again."
+              const laurenEmotion = pct >= RESULT_EXCELLENT_PCT ? 'celebrating' : pct >= RESULT_GOOD_PCT ? 'happy' : pct >= RESULT_OK_PCT ? 'encouraging' : 'concerned';
+              const laurenMessage = pct >= RESULT_EXCELLENT_PCT ? "Outstanding work! You really know your stuff — that's Grade 9 territory!"
+                : pct >= RESULT_GOOD_PCT ? "Great job! You're showing solid understanding. Keep practising to push even higher!"
+                : pct >= RESULT_OK_PCT ? "Good effort! You're getting there — review the ones you missed and try again."
                 : "Don't worry — this is how we learn! Review the feedback and give it another go.";
               return <div style={{ marginBottom: '1.5rem' }}><Lauren emotion={laurenEmotion} message={laurenMessage} size="medium" position="inline" /></div>;
             })()}

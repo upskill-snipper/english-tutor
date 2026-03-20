@@ -1,5 +1,5 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { BookOpen, Clock, Award, CheckCircle, Circle, ArrowRight, ChevronLeft, Play } from 'lucide-react';
+import { BookOpen, Clock, Award, CheckCircle, Circle, ArrowRight, ChevronLeft, Lock } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Lauren from '../components/Lauren';
 import ProgressRing from '../components/ProgressRing';
@@ -17,7 +17,7 @@ export default function CourseDetail() {
     return (
       <div style={{ background: '#0a0e1a', minHeight: '100vh', color: '#f1f5f9' }}>
         <Navbar />
-        <div style={{ padding: '4rem', textAlign: 'center' }}>
+        <div style={{ padding: '4rem 1.5rem', textAlign: 'center' }}>
           <h2>Course not found</h2>
           <Link to="/courses" className="btn-primary" style={{ textDecoration: 'none', marginTop: '1rem', display: 'inline-flex' }}>
             Browse courses
@@ -121,7 +121,6 @@ export default function CourseDetail() {
                 </>
               ) : (
                 <button onClick={handleEnrol} className="btn-primary" style={{ fontSize: '1rem', padding: '0.875rem 2rem' }}>
-                  {/* Stripe integration placeholder */}
                   Enrol Now — £{course.price} <ArrowRight size={16} />
                 </button>
               )}
@@ -140,7 +139,7 @@ export default function CourseDetail() {
                   padding: '1rem 1.25rem',
                   display: 'flex', alignItems: 'center', gap: '1rem',
                 }}>
-                  <div style={{ color: done ? '#10b981' : '#1e2d4a', flexShrink: 0 }}>
+                  <div style={{ color: done ? '#10b981' : '#4a5a78', flexShrink: 0 }}>
                     {done ? <CheckCircle size={20} /> : <Circle size={20} />}
                   </div>
                   <div style={{ flex: 1 }}>
@@ -168,6 +167,8 @@ export default function CourseDetail() {
                     >
                       Subscribe to Access <ArrowRight size={13} />
                     </Link>
+                  ) : !enrolled ? (
+                    <Lock size={14} style={{ color: '#4a5a78', flexShrink: 0 }} />
                   ) : null}
                 </div>
               );
@@ -179,7 +180,7 @@ export default function CourseDetail() {
               display: 'flex', alignItems: 'center', gap: '1rem',
               borderColor: progress?.assessmentPassed ? 'rgba(16,185,129,0.3)' : undefined,
             }}>
-              <Award size={20} color={progress?.assessmentPassed ? '#10b981' : '#1e2d4a'} />
+              <Award size={20} color={progress?.assessmentPassed ? '#10b981' : '#4a5a78'} />
               <div style={{ flex: 1 }}>
                 <div style={{ fontWeight: 600, fontSize: '0.9rem', color: '#f1f5f9' }}>Final Assessment</div>
                 <div style={{ fontSize: '0.75rem', color: '#64748b' }}>20 questions — 70% pass mark</div>

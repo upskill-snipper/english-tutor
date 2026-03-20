@@ -7,11 +7,31 @@ export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [fieldErrors, setFieldErrors] = useState({});
   const navigate = useNavigate();
+
+  function validateField(field, value) {
+    const errors = { ...fieldErrors };
+    if (field === 'email') {
+      if (value.trim() === '') errors.email = 'Please enter your email';
+      else if (!/\S+@\S+\.\S+/.test(value)) errors.email = 'Please enter a valid email address';
+      else errors.email = '';
+    } else if (field === 'password') {
+      errors.password = value.trim() === '' ? 'Please enter your password' : '';
+    }
+    setFieldErrors(errors);
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
     setError('');
+    // Validate all fields before submitting
+    const errors = {};
+    if (email.trim() === '') errors.email = 'Please enter your email';
+    else if (!/\S+@\S+\.\S+/.test(email)) errors.email = 'Please enter a valid email address';
+    if (password.trim() === '') errors.password = 'Please enter your password';
+    setFieldErrors(prev => ({ ...prev, ...errors }));
+    if (Object.values(errors).some(msg => msg)) return;
     const result = login(email, password);
     if (result.success) {
       navigate('/dashboard');
@@ -48,7 +68,7 @@ export default function Login() {
           </p>
 
           {error && (
-            <div style={{
+            <div role="alert" style={{
               background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.3)',
               borderRadius: '8px', padding: '0.75rem 1rem', marginBottom: '1.5rem',
               color: '#fca5a5', fontSize: '0.85rem',
@@ -59,15 +79,17 @@ export default function Login() {
 
           <form onSubmit={handleSubmit}>
             <div style={{ marginBottom: '1.25rem' }}>
-              <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: '#94a3b8', marginBottom: '0.5rem' }}>
+              <label htmlFor="login-email" style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: '#94a3b8', marginBottom: '0.5rem' }}>
                 Email
               </label>
               <div style={{ position: 'relative' }}>
                 <Mail size={16} style={{ position: 'absolute', left: '0.875rem', top: '50%', transform: 'translateY(-50%)', color: '#475569' }} />
                 <input
+                  id="login-email"
                   type="email"
                   value={email}
                   onChange={e => setEmail(e.target.value)}
+                  onBlur={() => validateField('email', email)}
                   placeholder="you@example.com"
                   required
                   style={{
@@ -77,18 +99,21 @@ export default function Login() {
                   }}
                 />
               </div>
+              {fieldErrors.email && <p role="alert" style={{ color: '#fca5a5', fontSize: '0.75rem', margin: '0.375rem 0 0' }}>{fieldErrors.email}</p>}
             </div>
 
             <div style={{ marginBottom: '2rem' }}>
-              <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: '#94a3b8', marginBottom: '0.5rem' }}>
+              <label htmlFor="login-password" style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: '#94a3b8', marginBottom: '0.5rem' }}>
                 Password
               </label>
               <div style={{ position: 'relative' }}>
                 <Lock size={16} style={{ position: 'absolute', left: '0.875rem', top: '50%', transform: 'translateY(-50%)', color: '#475569' }} />
                 <input
+                  id="login-password"
                   type="password"
                   value={password}
                   onChange={e => setPassword(e.target.value)}
+                  onBlur={() => validateField('password', password)}
                   placeholder="Enter your password"
                   required
                   style={{
@@ -98,6 +123,7 @@ export default function Login() {
                   }}
                 />
               </div>
+              {fieldErrors.password && <p role="alert" style={{ color: '#fca5a5', fontSize: '0.75rem', margin: '0.375rem 0 0' }}>{fieldErrors.password}</p>}
             </div>
 
             <button type="submit" className="btn-primary" style={{ width: '100%', justifyContent: 'center', padding: '0.875rem' }}>

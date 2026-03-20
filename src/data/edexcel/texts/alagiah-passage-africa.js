@@ -1,4 +1,4 @@
-// Edexcel IGCSE Spec A (4EA1) — Anthology Part 1
+// Edexcel IGCSE 4EA1 (4EA1) — Anthology Part 1
 // "A Passage to Africa" by George Alagiah — Individual Annotated Lesson
 
 const text = {

@@ -77,21 +77,21 @@ const text = {
   examQuestions: [
     {
       id: 'hill-whistle-eq1',
-      component: 'Component 2 Section A',
+      component: 'Paper 2 Section A',
       marks: 30,
       question:
         'How does Hill create a sense of fear and tension in "Whistle and I\'ll Come to You"? You should consider the writer\'s use of language, form and structure, and relevant context.',
     },
     {
       id: 'hill-whistle-eq2',
-      component: 'Component 2 Section A',
+      component: 'Paper 2 Section A',
       marks: 30,
       question:
         'How does Hill use setting to contribute to the gothic atmosphere in this extract? You should refer to the writer\'s methods and the effect on the reader.',
     },
     {
       id: 'hill-whistle-eq3',
-      component: 'Component 2 Section A',
+      component: 'Paper 2 Section A',
       marks: 30,
       question:
         'How does Hill present the conflict between the rational and the supernatural in "Whistle and I\'ll Come to You"? You should consider the writer\'s use of language, structure and relevant context.',

@@ -63,21 +63,21 @@ const text = {
   examQuestions: [
     {
       id: 'munro-night-eq1',
-      component: 'Component 2 Section A',
+      component: 'Paper 2 Section A',
       marks: 30,
       question:
         'How does Munro present the relationship between the narrator and her father in "Night"? You should consider the writer\'s use of language, form and structure, and relevant context.',
     },
     {
       id: 'munro-night-eq2',
-      component: 'Component 2 Section A',
+      component: 'Paper 2 Section A',
       marks: 30,
       question:
         'How does Munro explore the theme of childhood anxiety in "Night"? You should refer to the writer\'s methods and the effect on the reader.',
     },
     {
       id: 'munro-night-eq3',
-      component: 'Component 2 Section A',
+      component: 'Paper 2 Section A',
       marks: 30,
       question:
         'How does Munro use silence and understatement to create meaning in "Night"? You should consider the writer\'s use of language, structure and relevant context.',

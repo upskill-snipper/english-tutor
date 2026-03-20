@@ -49,21 +49,21 @@ const text = {
   examQuestions: [
     {
       id: 'tremain-cigs-eq1',
-      component: 'Component 2 Section A',
+      component: 'Paper 2 Section A',
       marks: 30,
       question:
         'How does Tremain present the experience of migration in "Significant Cigarettes"? You should consider the writer\'s use of language, form and structure, and relevant context.',
     },
     {
       id: 'tremain-cigs-eq2',
-      component: 'Component 2 Section A',
+      component: 'Paper 2 Section A',
       marks: 30,
       question:
         'How does Tremain use the symbol of cigarettes to explore memory and identity in this extract? You should refer to the writer\'s methods and the effect on the reader.',
     },
     {
       id: 'tremain-cigs-eq3',
-      component: 'Component 2 Section A',
+      component: 'Paper 2 Section A',
       marks: 30,
       question:
         'How does Tremain present loss and displacement in "Significant Cigarettes"? You should consider the writer\'s use of language, structure and relevant context.',

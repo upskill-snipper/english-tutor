@@ -11,7 +11,7 @@ const ocrGcseLitPoetry = {
   price: 39,
   duration: '5-6 hours',
   level: 'GCSE (Years 10-11)',
-  description: 'Complete preparation for the OCR GCSE English Literature poetry component. Study all three clusters of the "Towards a World Unknown" anthology, master the unique Part (a) comparison with an unseen poem, and build confident unseen analysis skills.',
+  description: 'Complete preparation for the OCR GCSE English Literature poetry paper. Study all three clusters of the "Towards a World Unknown" anthology, master the unique Part (a) comparison with an unseen poem, and build confident unseen analysis skills.',
   color: '#7c3aed',
   moduleList: [
     {
@@ -19,7 +19,7 @@ const ocrGcseLitPoetry = {
       title: 'The OCR Anthology: Three Clusters',
       duration: '30 mins',
       content: `<h2>"Towards a World Unknown" — Version 2</h2>
-<p>The OCR GCSE Literature poetry component is built around the <strong>"Towards a World Unknown"</strong> anthology (Version 2). Unlike other boards that use a single group of poems, OCR organises its anthology into <strong>three thematic clusters</strong>, each containing 15 poems. You study <strong>one cluster</strong> in class, but you need to know its poems inside out.</p>
+<p>The OCR GCSE Literature poetry paper is built around the <strong>"Towards a World Unknown"</strong> anthology (Version 2). Unlike other boards that use a single group of poems, OCR organises its anthology into <strong>three thematic clusters</strong>, each containing 15 poems. You study <strong>one cluster</strong> in class, but you need to know its poems inside out.</p>
 
 <div class="key-term"><strong>Key Term: Cluster</strong> — A thematic grouping of 15 poems within the OCR anthology. The three clusters are Love & Relationships, Conflict, and Youth & Age. Your teacher will choose one cluster for your class to study.</div>
 

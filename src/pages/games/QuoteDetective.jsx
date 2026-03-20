@@ -1,8 +1,10 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { RotateCcw, Trophy, Search, BookOpen, Filter, ChevronRight, Star, Target, Eye, Award, CheckCircle, XCircle } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import GameWrapper from '../../components/GameWrapper';
 import Lauren from '../../components/Lauren';
+import { recordGamePlayed } from '../../utils/gameUtils';
 
 /* ───────────────────────── QUOTE DATA (50+ quotes) ───────────────────────── */
 
@@ -292,6 +294,7 @@ export default function QuoteDetective() {
           // Game over
           saveHighScore({ score: newTotal });
           setHighScore(getHighScore());
+          recordGamePlayed();
           setPhase("results");
         }
       }
@@ -524,6 +527,13 @@ export default function QuoteDetective() {
             }}>
               <ChevronRight size={18} /> Menu
             </button>
+            <Link to="/games" style={{
+              flex: 1, padding: '0.875rem', borderRadius: 12, border: '1px solid rgba(71,85,105,0.5)',
+              background: 'rgba(30,41,59,0.5)', color: '#cbd5e1', textDecoration: 'none',
+              fontSize: '1rem', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem'
+            }}>
+              Back to Games
+            </Link>
           </div>
         </div>
         </GameWrapper>

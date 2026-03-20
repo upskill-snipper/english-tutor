@@ -212,7 +212,7 @@ const BOARDS = {
         papers: [
           {
             id: 1,
-            name: 'Component 1: Shakespeare and Post-1914 Literature',
+            name: 'Paper 1: Shakespeare and Post-1914 Literature',
             duration: '1h 45m',
             marks: 80,
             sections: [
@@ -235,7 +235,7 @@ const BOARDS = {
           },
           {
             id: 2,
-            name: 'Component 2: 19th-Century Novel and Poetry since 1789',
+            name: 'Paper 2: 19th-Century Novel and Poetry since 1789',
             duration: '2h 15m',
             marks: 80,
             sections: [
@@ -271,14 +271,14 @@ const BOARDS = {
           poetryCollections: ['Relationships', 'Conflict', 'Time and Place', 'Belonging'],
         },
       },
-      'igcse-lang-a': {
+      'igcse-lang': {
         code: '4EA1',
-        name: 'IGCSE English Language Spec A',
+        name: 'IGCSE English Language',
         tier: 'IGCSE',
         papers: [
           {
             id: 1,
-            name: 'Component 1: Non-fiction Texts and Transactional Writing',
+            name: 'Paper 1: Non-fiction Texts and Transactional Writing',
             duration: '2h 15m',
             marks: 90,
             sections: [
@@ -305,7 +305,7 @@ const BOARDS = {
           },
           {
             id: 2,
-            name: 'Component 2: Poetry and Prose Texts and Imaginative Writing',
+            name: 'Paper 2: Poetry and Prose Texts and Imaginative Writing',
             duration: '1h 30m',
             marks: 60,
             sections: [
@@ -356,49 +356,6 @@ const BOARDS = {
           ],
         },
       },
-      'igcse-lang-b': {
-        code: '4EB1',
-        name: 'IGCSE English Language Spec B',
-        tier: 'IGCSE',
-        papers: [
-          {
-            id: 1,
-            name: 'Component 1: Reading and Writing',
-            duration: '3h',
-            marks: 100,
-            sections: [
-              {
-                name: 'Section A: Reading',
-                marks: 40,
-                texts: 'Two unseen extracts (no anthology)',
-                questions: [
-                  { num: 'Q1', type: 'Short retrieval', marks: 1, ao: ['AO1'] },
-                  { num: 'Q2', type: 'Short retrieval', marks: 1, ao: ['AO1'] },
-                  { num: 'Q3', type: 'Language/Structure Analysis (Text 1)', marks: 10, ao: ['AO2'] },
-                  { num: 'Q4', type: 'Short retrieval', marks: 1, ao: ['AO1'] },
-                  { num: 'Q5', type: 'Short comprehension', marks: 2, ao: ['AO1'] },
-                  { num: 'Q6', type: 'Language/Structure Analysis (Text 2)', marks: 10, ao: ['AO2'] },
-                  { num: 'Q7', type: 'Comparison across both texts', marks: 15, ao: ['AO3'] },
-                ],
-              },
-              {
-                name: 'Section B: Directed Writing',
-                marks: 30,
-                questions: [
-                  { num: 'Q8', type: 'Directed Writing (based on source texts)', marks: 30, ao: ['AO1', 'AO4', 'AO5'] },
-                ],
-              },
-              {
-                name: 'Section C: Writing',
-                marks: 30,
-                questions: [
-                  { num: 'Q9/Q10/Q11', type: 'Choice: discursive, narrative, or descriptive', marks: 30, ao: ['AO4', 'AO5'] },
-                ],
-              },
-            ],
-          },
-        ],
-      },
       'igcse-lit': {
         code: '4ET1',
         name: 'IGCSE English Literature',
@@ -406,7 +363,7 @@ const BOARDS = {
         papers: [
           {
             id: 1,
-            name: 'Component 1: Poetry and Modern Prose',
+            name: 'Paper 1: Poetry and Modern Prose',
             duration: '2h',
             marks: 90,
             sections: [
@@ -435,7 +392,7 @@ const BOARDS = {
           },
           {
             id: 2,
-            name: 'Component 2: Modern Drama and Literary Heritage Texts',
+            name: 'Paper 2: Modern Drama and Literary Heritage Texts',
             duration: '1h 30m',
             marks: 60,
             sections: [
@@ -489,14 +446,14 @@ const BOARDS = {
     name: 'Edexcel IGCSE',
     color: '#b91c1c',
     specs: {
-      'igcse-lang-a': {
+      'igcse-lang': {
         code: '4EA1',
-        name: 'IGCSE English Language Spec A',
+        name: 'IGCSE English Language',
         tier: 'IGCSE',
         papers: [
           {
             id: 1,
-            name: 'Component 1: Non-fiction Texts and Transactional Writing',
+            name: 'Paper 1: Non-fiction Texts and Transactional Writing',
             duration: '2h 15m',
             marks: 90,
             sections: [
@@ -523,7 +480,7 @@ const BOARDS = {
           },
           {
             id: 2,
-            name: 'Component 2: Poetry and Prose Texts and Imaginative Writing',
+            name: 'Paper 2: Poetry and Prose Texts and Imaginative Writing',
             duration: '1h 30m',
             marks: 60,
             sections: [
@@ -561,7 +518,7 @@ const BOARDS = {
         papers: [
           {
             id: 1,
-            name: 'Component 01: Communicating Information and Ideas',
+            name: 'Paper 1: Communicating Information and Ideas',
             duration: '2h',
             marks: 80,
             sections: [
@@ -587,7 +544,7 @@ const BOARDS = {
           },
           {
             id: 2,
-            name: 'Component 02: Exploring Effects and Impact',
+            name: 'Paper 2: Exploring Effects and Impact',
             duration: '2h',
             marks: 80,
             sections: [
@@ -620,7 +577,7 @@ const BOARDS = {
         papers: [
           {
             id: 1,
-            name: 'Component 01: Exploring Modern and Literary Heritage Texts',
+            name: 'Paper 1: Exploring Modern and Literary Heritage Texts',
             duration: '2h',
             marks: 80,
             sections: [
@@ -643,7 +600,7 @@ const BOARDS = {
           },
           {
             id: 2,
-            name: 'Component 02: Exploring Poetry and Shakespeare',
+            name: 'Paper 2: Exploring Poetry and Shakespeare',
             duration: '2h',
             marks: 80,
             sections: [
@@ -687,7 +644,7 @@ const BOARDS = {
         papers: [
           {
             id: 1,
-            name: 'Component 1: 20th Century Literature Reading and Creative Prose Writing',
+            name: 'Paper 1: 20th Century Literature Reading and Creative Prose Writing',
             duration: '1h 45m',
             marks: 80,
             sections: [
@@ -710,7 +667,7 @@ const BOARDS = {
           },
           {
             id: 2,
-            name: 'Component 2: 19th and 21st Century Non-Fiction Reading and Transactional/Persuasive Writing',
+            name: 'Paper 2: 19th and 21st Century Non-Fiction Reading and Transactional/Persuasive Writing',
             duration: '2h',
             marks: 80,
             sections: [
@@ -740,7 +697,7 @@ const BOARDS = {
         papers: [
           {
             id: 1,
-            name: 'Component 1: Shakespeare and Poetry',
+            name: 'Paper 1: Shakespeare and Poetry',
             duration: '2h',
             marks: 80,
             sections: [
@@ -764,7 +721,7 @@ const BOARDS = {
           },
           {
             id: 2,
-            name: 'Component 2: Post-1914 Prose/Drama, 19th Century Prose and Unseen Poetry',
+            name: 'Paper 2: Post-1914 Prose/Drama, 19th Century Prose and Unseen Poetry',
             duration: '2h 30m',
             marks: 120,
             sections: [

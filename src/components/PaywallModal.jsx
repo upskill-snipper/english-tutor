@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Crown, Sparkles, X } from 'lucide-react';
 import { setSubscription, getCurrentUser } from '../utils/auth';
@@ -13,6 +13,22 @@ export default function PaywallModal({ onClose }) {
     requestAnimationFrame(() => setVisible(true));
   }, []);
 
+  const onCloseRef = useRef(onClose);
+  useEffect(() => { onCloseRef.current = onClose; }, [onClose]);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setVisible(false);
+        setTimeout(() => {
+          if (onCloseRef.current) onCloseRef.current();
+        }, 200);
+      }
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   const handleSubscribe = (tier) => {
     setSubscribing(tier);
     const user = getCurrentUser();
@@ -20,7 +36,14 @@ export default function PaywallModal({ onClose }) {
       setSubscription(user.id, tier);
     }
     setTimeout(() => {
-      window.location.reload();
+      setVisible(false);
+      setTimeout(() => {
+        if (onClose) {
+          onClose();
+        } else {
+          navigate('/games');
+        }
+      }, 200);
     }, 600);
   };
 
@@ -71,6 +94,7 @@ export default function PaywallModal({ onClose }) {
         {/* Close button */}
         <button
           onClick={handleClose}
+          aria-label="Close"
           style={{
             position: 'absolute',
             top: '16px',
@@ -95,7 +119,7 @@ export default function PaywallModal({ onClose }) {
             e.currentTarget.style.background = 'rgba(255, 255, 255, 0.06)';
           }}
         >
-          <X size={18} />
+          <X size={18} aria-hidden="true" />
         </button>
 
         {/* Lauren avatar */}
@@ -168,7 +192,7 @@ export default function PaywallModal({ onClose }) {
                 margin: '0 0 16px',
               }}
             >
-              £12.50
+              £19
               <span style={{ fontSize: '14px', fontWeight: 400, color: '#888' }}>/month</span>
             </p>
             <p
@@ -247,7 +271,7 @@ export default function PaywallModal({ onClose }) {
               }}
             >
               £179
-              <span style={{ fontSize: '14px', fontWeight: 400, color: '#888' }}> (Lifetime)</span>
+              <span style={{ fontSize: '14px', fontWeight: 400, color: '#888' }}> /year</span>
             </p>
             <p
               style={{
@@ -258,8 +282,8 @@ export default function PaywallModal({ onClose }) {
                 flex: 1,
               }}
             >
-              Everything in Monthly + lifetime access, priority support, early access to new content.
-              Best value — pay once, learn forever.
+              Everything in Monthly for the full school year (Aug–Aug).
+              Save £49 vs paying monthly — that's over 2 months free.
             </p>
             <button
               onClick={() => handleSubscribe('pro')}

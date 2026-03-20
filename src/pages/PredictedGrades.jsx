@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   TrendingUp, TrendingDown, Minus, Target, ArrowRight, Zap,
@@ -79,7 +80,7 @@ function generateNextSteps(prediction, weakest, notStartedCourses, scores) {
   if (avg < 50) {
     steps.push({
       priority: 'high',
-      text: 'Focus on foundational skills -- aim to bring your average above 50% by revisiting your weakest topics.',
+      text: 'Focus on foundational skills — aim to bring your average above 50% by revisiting your weakest topics.',
       color: '#ef4444',
     });
   } else if (avg < 70) {
@@ -101,7 +102,7 @@ function generateNextSteps(prediction, weakest, notStartedCourses, scores) {
     const weakNames = weakest.slice(0, 2).map(w => w.title).join(' and ');
     steps.push({
       priority: 'high',
-      text: `Prioritise revising ${weakNames} -- these are currently pulling your average down.`,
+      text: `Prioritise revising ${weakNames} — these are currently pulling your average down.`,
       color: '#f59e0b',
     });
   }
@@ -145,11 +146,14 @@ function generateNextSteps(prediction, weakest, notStartedCourses, scores) {
 
 export default function PredictedGrades() {
   const user = getCurrentUser();
-  if (!user) return null;
+  const [streak, setStreak] = useState(0);
 
-  // Record today's login for streak tracking
-  const loginDates = recordLoginDate();
-  const streak = calculateStreak(loginDates);
+  useEffect(() => {
+    const loginDates = recordLoginDate();
+    setStreak(calculateStreak(loginDates));
+  }, []);
+
+  if (!user) return null;
 
   const assessmentCount = getCompletedAssessmentCount(user.id);
   const UNLOCK_THRESHOLD = 5;
@@ -208,7 +212,23 @@ export default function PredictedGrades() {
   const scores = getAllAssessmentScores(user.id);
   const prediction = calculatePredictedGrade(scores);
 
-  if (!prediction) return null;
+  if (!prediction) {
+    return (
+      <div style={{ background: '#0a0e1a', minHeight: '100vh', color: '#f1f5f9' }}>
+        <Navbar />
+        <div style={{ maxWidth: '600px', margin: '0 auto', padding: '4rem 1.5rem', textAlign: 'center' }}>
+          <BarChart3 size={48} color="#64748b" style={{ marginBottom: '1.5rem' }} />
+          <h1 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '1rem' }}>No Score Data Available</h1>
+          <p style={{ color: '#94a3b8', marginBottom: '2rem', lineHeight: 1.7 }}>
+            Your assessments have been recorded but no scores were saved. Try retaking an assessment to generate your predicted grades.
+          </p>
+          <Link to="/courses" className="btn-primary" style={{ textDecoration: 'none' }}>
+            <BookOpen size={16} /> Browse Courses
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   const TrendIcon = prediction.trend === 'improving' ? TrendingUp
     : prediction.trend === 'declining' ? TrendingDown
@@ -357,7 +377,7 @@ export default function PredictedGrades() {
                 {prediction.potentialGrade}
               </span>
             </div>
-            <p style={{ color: '#94a3b8', fontSize: '0.85rem' }}>If you improve weak areas by 15%</p>
+            <p style={{ color: '#94a3b8', fontSize: '0.85rem' }}>If each score improves by 15%</p>
           </div>
 
           {/* D) Performance Trend */}
@@ -387,7 +407,7 @@ export default function PredictedGrades() {
               const date = new Date(s.date);
               const dateStr = `${date.getDate()}/${date.getMonth() + 1}`;
               return (
-                <div key={i} style={{
+                <div key={`${s.courseId}-${s.date}`} style={{
                   flex: 1, maxWidth: '80px', display: 'flex', flexDirection: 'column',
                   alignItems: 'center', height: '100%', justifyContent: 'flex-end',
                 }}>
@@ -443,7 +463,7 @@ export default function PredictedGrades() {
               <Star size={18} color="#10b981" /> Top Strengths
             </h2>
             {strongest.map((s, i) => (
-              <div key={i} style={{ padding: '0.6rem 0', borderBottom: i < strongest.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none' }}>
+              <div key={s.courseId} style={{ padding: '0.6rem 0', borderBottom: i < strongest.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none' }}>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.35rem' }}>
                   <span style={{ fontSize: '0.85rem', color: '#e2e8f0' }}>{s.title}</span>
                   <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#10b981' }}>{s.score}%</span>
@@ -462,7 +482,7 @@ export default function PredictedGrades() {
               <Target size={18} color="#f59e0b" /> Areas to Improve
             </h2>
             {weakRecommendations.map((s, i) => (
-              <div key={i} style={{ padding: '0.6rem 0', borderBottom: i < weakRecommendations.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none' }}>
+              <div key={s.courseId} style={{ padding: '0.6rem 0', borderBottom: i < weakRecommendations.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none' }}>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.35rem' }}>
                   <span style={{ fontSize: '0.85rem', color: '#e2e8f0' }}>{s.title}</span>
                   <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#f59e0b' }}>{s.score}%</span>

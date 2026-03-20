@@ -1,4 +1,4 @@
-// Edexcel IGCSE Spec A (4EA1) — Anthology Part 1
+// Edexcel IGCSE 4EA1 (4EA1) — Anthology Part 1
 // "The Explorer's Daughter" by Kari Herbert — Individual annotated lesson
 
 const text = {

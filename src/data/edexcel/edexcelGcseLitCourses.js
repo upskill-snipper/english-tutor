@@ -24,10 +24,10 @@ const edexcelGcseLitTexts = {
     // ──────────────────────────────────────────────
     {
       id: 'edex-lt-m1',
-      title: 'Component 1 Section A: Shakespeare Extract Analysis',
+      title: 'Paper 1 Section A: Shakespeare Extract Analysis',
       duration: '40 mins',
       content: `
-<p>In the Edexcel 1ET0 exam, <span class="key-term">Component 1 Section A</span> tests your ability to analyse Shakespeare through a <strong>two-part question</strong>. Part (a) gives you an extract of roughly 30 lines and asks you to analyse the language — this is worth <strong>20 marks</strong> and assessed purely on <span class="key-term">AO2</span> (analysis of language, form, and structure).</p>
+<p>In the Edexcel 1ET0 exam, <span class="key-term">Paper 1 Section A</span> tests your ability to analyse Shakespeare through a <strong>two-part question</strong>. Part (a) gives you an extract of roughly 30 lines and asks you to analyse the language — this is worth <strong>20 marks</strong> and assessed purely on <span class="key-term">AO2</span> (analysis of language, form, and structure).</p>
 
 <h3>What the Examiner Wants in Part (a)</h3>
 <p>Unlike AQA, where the Shakespeare question blends extract analysis with wider knowledge in a single response, Edexcel <em>separates</em> the two skills. Part (a) is laser-focused on the extract in front of you. You should:</p>
@@ -57,7 +57,7 @@ const edexcelGcseLitTexts = {
         {
           id: 'edex-lt-m1-q1',
           question:
-            'Which Assessment Objective is tested in Edexcel Component 1 Section A Part (a)?',
+            'Which Assessment Objective is tested in Edexcel Paper 1 Section A Part (a)?',
           options: ['AO1 only', 'AO2 only', 'AO1 and AO3', 'AO2 and AO4'],
           correct: 1,
           explanation:
@@ -112,7 +112,7 @@ const edexcelGcseLitTexts = {
     // ──────────────────────────────────────────────
     {
       id: 'edex-lt-m2',
-      title: 'Component 1 Section A: Shakespeare Theme Essay',
+      title: 'Paper 1 Section A: Shakespeare Theme Essay',
       duration: '35 mins',
       content: `
 <p><span class="key-term">Part (b)</span> of the Shakespeare question asks how a theme from the extract is explored <strong>elsewhere in the play</strong>. This is worth <strong>20 marks</strong> and is assessed on <span class="key-term">AO1</span> (critical response with textual references) and <span class="key-term">AO3</span> (context).</p>
@@ -200,10 +200,10 @@ const edexcelGcseLitTexts = {
     // ──────────────────────────────────────────────
     {
       id: 'edex-lt-m3',
-      title: 'Component 1 Section B: Post-1914 Essay Skills',
+      title: 'Paper 1 Section B: Post-1914 Essay Skills',
       duration: '40 mins',
       content: `
-<p><span class="key-term">Component 1 Section B</span> asks you to write a single essay on your post-1914 British play or novel. You choose one question from two options. This essay is worth <strong>40 marks</strong> (32 for content + 8 for <span class="key-term">SPaG</span>) and is assessed on <span class="key-term">AO1</span>, <span class="key-term">AO3</span>, and <span class="key-term">AO4</span>.</p>
+<p><span class="key-term">Paper 1 Section B</span> asks you to write a single essay on your post-1914 British play or novel. You choose one question from two options. This essay is worth <strong>40 marks</strong> (32 for content + 8 for <span class="key-term">SPaG</span>) and is assessed on <span class="key-term">AO1</span>, <span class="key-term">AO3</span>, and <span class="key-term">AO4</span>.</p>
 
 <h3>The Set Texts</h3>
 <p>Edexcel offers a wide range of post-1914 options: <em>An Inspector Calls</em>, <em>Hobson's Choice</em>, <em>Blood Brothers</em>, <em>Journey's End</em>, <em>Animal Farm</em>, <em>Lord of the Flies</em>, <em>Anita and Me</em>, <em>The Woman in Black</em>, <em>The Empress</em>, <em>Refugee Boy</em>, <em>Coram Boy</em>, and <em>Boys Don't Cry</em>.</p>
@@ -249,7 +249,7 @@ const edexcelGcseLitTexts = {
           ],
           correct: 1,
           explanation:
-            'In Edexcel 1ET0, the 8 SPaG marks (AO4) are assessed on the Post-1914 essay in Component 1 Section B. This differs from AQA, where SPaG is on the Shakespeare question.',
+            'In Edexcel 1ET0, the 8 SPaG marks (AO4) are assessed on the Post-1914 essay in Paper 1 Section B. This differs from AQA, where SPaG is on the Shakespeare question.',
         },
         {
           id: 'edex-lt-m3-q3',
@@ -262,7 +262,7 @@ const edexcelGcseLitTexts = {
           ],
           correct: 2,
           explanation:
-            'Component 1 Section B does not provide an extract. You must write a whole-text essay from memory, which is why strong quotation knowledge is essential.',
+            'Paper 1 Section B does not provide an extract. You must write a whole-text essay from memory, which is why strong quotation knowledge is essential.',
         },
         {
           id: 'edex-lt-m3-q4',
@@ -281,7 +281,7 @@ const edexcelGcseLitTexts = {
     // ──────────────────────────────────────────────
     {
       id: 'edex-lt-m4',
-      title: 'Component 1 Section B: Context and SPaG in the Post-1914 Essay',
+      title: 'Paper 1 Section B: Context and SPaG in the Post-1914 Essay',
       duration: '30 mins',
       content: `
 <p>Two elements can make or break your Post-1914 essay on Edexcel: <span class="key-term">context (AO3)</span> and <span class="key-term">SPaG (AO4)</span>. Together they account for a significant portion of the 40 marks, yet many students either neglect context or forget to proofread.</p>
@@ -307,7 +307,7 @@ const edexcelGcseLitTexts = {
 <div class="common-mistake">Many students lose SPaG marks by using literary vocabulary incorrectly — for example, writing "pathetic fallacy" when they mean "personification," or misspelling "Shakespeare" and "Priestley." Practise spelling the names of authors and key terms until they are automatic.</div>
 
 <h3>A SPaG Checklist</h3>
-<p>In the final five minutes of Component 1, re-read your Post-1914 essay and check for:</p>
+<p>In the final five minutes of Paper 1, re-read your Post-1914 essay and check for:</p>
 <ol>
   <li>Capital letters for proper nouns and sentence starts.</li>
   <li>Apostrophes in the right places (especially <em>Birling's</em>, <em>Priestley's</em>).</li>
@@ -324,7 +324,7 @@ const edexcelGcseLitTexts = {
           options: ['4 marks', '6 marks', '8 marks', '12 marks'],
           correct: 2,
           explanation:
-            'There are 8 SPaG marks (AO4) available on the Post-1914 essay in Component 1 Section B.',
+            'There are 8 SPaG marks (AO4) available on the Post-1914 essay in Paper 1 Section B.',
         },
         {
           id: 'edex-lt-m4-q2',
@@ -376,10 +376,10 @@ const edexcelGcseLitTexts = {
     // ──────────────────────────────────────────────
     {
       id: 'edex-lt-m5',
-      title: 'Component 2 Section A: 19th-Century Novel Extract Analysis',
+      title: 'Paper 2 Section A: 19th-Century Novel Extract Analysis',
       duration: '40 mins',
       content: `
-<p><span class="key-term">Component 2 Section A</span> focuses on your 19th-century novel. Like the Shakespeare question, it is split into two parts. <strong>Part (a)</strong> provides an extract of approximately <strong>400 words</strong> and asks you to analyse the writer's use of language. It is worth <strong>20 marks</strong>, assessed on <span class="key-term">AO2</span>.</p>
+<p><span class="key-term">Paper 2 Section A</span> focuses on your 19th-century novel. Like the Shakespeare question, it is split into two parts. <strong>Part (a)</strong> provides an extract of approximately <strong>400 words</strong> and asks you to analyse the writer's use of language. It is worth <strong>20 marks</strong>, assessed on <span class="key-term">AO2</span>.</p>
 
 <h3>Set Texts</h3>
 <p>The Edexcel 19th-century novel options are: <em>Jane Eyre</em>, <em>Great Expectations</em>, <em>Dr Jekyll and Mr Hyde</em>, <em>A Christmas Carol</em>, <em>Pride and Prejudice</em>, <em>Silas Marner</em>, and <em>Frankenstein</em>.</p>
@@ -416,7 +416,7 @@ const edexcelGcseLitTexts = {
         {
           id: 'edex-lt-m5-q1',
           question:
-            'How long is the prose extract in Component 2 Section A Part (a)?',
+            'How long is the prose extract in Paper 2 Section A Part (a)?',
           options: [
             'About 30 lines',
             'About 200 words',
@@ -425,12 +425,12 @@ const edexcelGcseLitTexts = {
           ],
           correct: 2,
           explanation:
-            'The 19th-century novel extract in Component 2 is approximately 400 words — longer than the Shakespeare extract in Component 1.',
+            'The 19th-century novel extract in Paper 2 is approximately 400 words — longer than the Shakespeare extract in Paper 1.',
         },
         {
           id: 'edex-lt-m5-q2',
           question:
-            'Which Assessment Objective is tested in Component 2 Section A Part (a)?',
+            'Which Assessment Objective is tested in Paper 2 Section A Part (a)?',
           options: ['AO1 only', 'AO2 only', 'AO1 and AO3', 'AO2 and AO3'],
           correct: 1,
           explanation:
@@ -472,7 +472,7 @@ const edexcelGcseLitTexts = {
     // ──────────────────────────────────────────────
     {
       id: 'edex-lt-m6',
-      title: 'Component 2 Section A: 19th-Century Novel Whole Text Essay',
+      title: 'Paper 2 Section A: 19th-Century Novel Whole Text Essay',
       duration: '35 mins',
       content: `
 <p><span class="key-term">Part (b)</span> of the 19th-century novel question asks you to write about a theme or character across the <strong>whole text</strong>. It is worth <strong>20 marks</strong> and assessed on <span class="key-term">AO1</span> (critical, informed response supported by textual references).</p>
@@ -502,7 +502,7 @@ const edexcelGcseLitTexts = {
         {
           id: 'edex-lt-m6-q1',
           question:
-            'Which Assessment Objective is tested in Component 2 Section A Part (b)?',
+            'Which Assessment Objective is tested in Paper 2 Section A Part (b)?',
           options: ['AO1 only', 'AO2 only', 'AO1 and AO3', 'AO2 and AO3'],
           correct: 0,
           explanation:
@@ -519,7 +519,7 @@ const edexcelGcseLitTexts = {
           ],
           correct: 2,
           explanation:
-            'AO3 is not assessed in Component 2 Section A Part (b). Focus your time on building a strong argument with textual evidence (AO1).',
+            'AO3 is not assessed in Paper 2 Section A Part (b). Focus your time on building a strong argument with textual evidence (AO1).',
         },
         {
           id: 'edex-lt-m6-q3',
@@ -663,14 +663,14 @@ const edexcelGcseLitTexts = {
       content: `
 <p>The Edexcel GCSE Literature exam is split across <strong>two papers</strong> totalling <strong>4 hours</strong>. Effective time management is the difference between a complete, polished paper and a rushed, unfinished one.</p>
 
-<h3>Component 1: Shakespeare and Post-1914 Literature (1h 45m, 80 marks)</h3>
+<h3>Paper 1: Shakespeare and Post-1914 Literature (1h 45m, 80 marks)</h3>
 <p>Recommended time allocation:</p>
 <ul>
   <li><strong>Section A — Shakespeare</strong> (55 mins total): 5 mins reading/planning, 25 mins Part (a), 25 mins Part (b).</li>
   <li><strong>Section B — Post-1914</strong> (50 mins total): 5 mins planning, 40 mins writing, 5 mins SPaG check.</li>
 </ul>
 
-<h3>Component 2: 19th-Century Novel and Poetry (2h 15m, 80 marks)</h3>
+<h3>Paper 2: 19th-Century Novel and Poetry (2h 15m, 80 marks)</h3>
 <p>Recommended time allocation:</p>
 <ul>
   <li><strong>Section A — 19th-Century Novel</strong> (55 mins): 5 mins reading/planning, 25 mins Part (a), 25 mins Part (b).</li>
@@ -704,7 +704,7 @@ const edexcelGcseLitTexts = {
       quiz: [
         {
           id: 'edex-lt-m8-q1',
-          question: 'How long is Component 1 of the Edexcel Literature exam?',
+          question: 'How long is Paper 1 of the Edexcel Literature exam?',
           options: [
             '1 hour 30 minutes',
             '1 hour 45 minutes',
@@ -713,12 +713,12 @@ const edexcelGcseLitTexts = {
           ],
           correct: 1,
           explanation:
-            'Component 1 (Shakespeare and Post-1914 Literature) is 1 hour 45 minutes long, worth 80 marks (50% of the total).',
+            'Paper 1 (Shakespeare and Post-1914 Literature) is 1 hour 45 minutes long, worth 80 marks (50% of the total).',
         },
         {
           id: 'edex-lt-m8-q2',
           question:
-            'Why should you spend 5 minutes checking SPaG at the end of Component 1?',
+            'Why should you spend 5 minutes checking SPaG at the end of Paper 1?',
           options: [
             'SPaG marks are awarded on every question',
             'The 8 SPaG marks on the Post-1914 essay are easy to secure with a quick proofread',
@@ -746,7 +746,7 @@ const edexcelGcseLitTexts = {
         {
           id: 'edex-lt-m8-q4',
           question:
-            'How long should you allocate to the Unseen Poetry Comparison on Component 2?',
+            'How long should you allocate to the Unseen Poetry Comparison on Paper 2?',
           options: [
             '20 minutes',
             '30 minutes',
@@ -768,7 +768,7 @@ const edexcelGcseLitTexts = {
     {
       id: 'edex-lt-a1',
       question:
-        'Which Assessment Objective is tested in the Shakespeare extract analysis (Component 1, Section A, Part a)?',
+        'Which Assessment Objective is tested in the Shakespeare extract analysis (Paper 1, Section A, Part a)?',
       options: ['AO1', 'AO2', 'AO3', 'AO4'],
       correct: 1,
       explanation:
@@ -795,12 +795,12 @@ const edexcelGcseLitTexts = {
       options: [
         'On the Shakespeare question',
         'On the 19th-century novel question',
-        'On the Post-1914 essay (Component 1 Section B)',
+        'On the Post-1914 essay (Paper 1 Section B)',
         'On the poetry comparison',
       ],
       correct: 2,
       explanation:
-        'The 8 SPaG marks sit on the Post-1914 essay in Component 1 Section B. This is different from AQA, where SPaG marks are on the Shakespeare question.',
+        'The 8 SPaG marks sit on the Post-1914 essay in Paper 1 Section B. This is different from AQA, where SPaG marks are on the Shakespeare question.',
     },
     {
       id: 'edex-lt-a4',
@@ -814,7 +814,7 @@ const edexcelGcseLitTexts = {
     {
       id: 'edex-lt-a5',
       question:
-        'Is an extract provided for the Post-1914 essay on Component 1?',
+        'Is an extract provided for the Post-1914 essay on Paper 1?',
       options: [
         'Yes, about 30 lines',
         'Yes, about 400 words',
@@ -828,7 +828,7 @@ const edexcelGcseLitTexts = {
     {
       id: 'edex-lt-a6',
       question:
-        'How long is the prose extract in Component 2 Section A Part (a)?',
+        'How long is the prose extract in Paper 2 Section A Part (a)?',
       options: [
         'About 30 lines',
         'About 200 words',
@@ -842,7 +842,7 @@ const edexcelGcseLitTexts = {
     {
       id: 'edex-lt-a7',
       question:
-        'Which AO is tested in Component 2 Section A Part (b)?',
+        'Which AO is tested in Paper 2 Section A Part (b)?',
       options: ['AO1 only', 'AO2 only', 'AO1 and AO3', 'AO2 and AO4'],
       correct: 0,
       explanation:
@@ -865,7 +865,7 @@ const edexcelGcseLitTexts = {
     {
       id: 'edex-lt-a9',
       question:
-        'What is the recommended time for the Shakespeare question on Component 1?',
+        'What is the recommended time for the Shakespeare question on Paper 1?',
       options: ['30 minutes', '45 minutes', '55 minutes', '70 minutes'],
       correct: 2,
       explanation:
@@ -897,16 +897,16 @@ const edexcelGcseLitTexts = {
       ],
       correct: 0,
       explanation:
-        'Edexcel places Shakespeare alongside post-1914 literature on Component 1, while AQA places Shakespeare alongside the 19th-century novel on Paper 1.',
+        'Edexcel places Shakespeare alongside post-1914 literature on Paper 1, while AQA places Shakespeare alongside the 19th-century novel on Paper 1.',
     },
     {
       id: 'edex-lt-a12',
       question:
-        'What is the total mark for Component 1?',
+        'What is the total mark for Paper 1?',
       options: ['40 marks', '60 marks', '80 marks', '100 marks'],
       correct: 2,
       explanation:
-        'Component 1 (Shakespeare and Post-1914 Literature) is worth 80 marks in total (50% of the qualification).',
+        'Paper 1 (Shakespeare and Post-1914 Literature) is worth 80 marks in total (50% of the qualification).',
     },
     {
       id: 'edex-lt-a13',
@@ -971,7 +971,7 @@ const edexcelGcseLitTexts = {
     {
       id: 'edex-lt-a18',
       question:
-        'How long is Component 2 of the Edexcel Literature exam?',
+        'How long is Paper 2 of the Edexcel Literature exam?',
       options: [
         '1 hour 30 minutes',
         '1 hour 45 minutes',
@@ -980,7 +980,7 @@ const edexcelGcseLitTexts = {
       ],
       correct: 3,
       explanation:
-        'Component 2 (19th-Century Novel and Poetry since 1789) is 2 hours 15 minutes long, worth 80 marks (50% of the total).',
+        'Paper 2 (19th-Century Novel and Poetry since 1789) is 2 hours 15 minutes long, worth 80 marks (50% of the total).',
     },
     {
       id: 'edex-lt-a19',
@@ -1030,7 +1030,7 @@ const edexcelGcseLitPoetry = {
   duration: '3-5 hours',
   level: 'GCSE (Years 10-11)',
   description:
-    'Master the poetry sections of Edexcel GCSE English Literature Component 2. Learn to analyse and compare poems from the four Edexcel anthology collections (Relationships, Conflict, Time and Place, Belonging), and develop confident strategies for unseen poetry comparison. Every module is tailored to the 1ET0 mark scheme.',
+    'Master the poetry sections of Edexcel GCSE English Literature Paper 2. Learn to analyse and compare poems from the four Edexcel anthology collections (Relationships, Conflict, Time and Place, Belonging), and develop confident strategies for unseen poetry comparison. Every module is tailored to the 1ET0 mark scheme.',
   color: '#dc2626',
 
   moduleList: [
@@ -1052,7 +1052,7 @@ const edexcelGcseLitPoetry = {
 <p>Each collection contains <strong>15 poems</strong>. Your school will have chosen one collection, and you must know all the poems within it.</p>
 
 <h3>How the Anthology Is Examined</h3>
-<p>The anthology question appears in <span class="key-term">Component 2, Section B, Part 1</span>. It is worth <strong>20 marks</strong> and is assessed on <span class="key-term">AO2</span> (analysis of language, form, and structure) and <span class="key-term">AO3</span> (context). The question format is:</p>
+<p>The anthology question appears in <span class="key-term">Paper 2, Section B, Part 1</span>. It is worth <strong>20 marks</strong> and is assessed on <span class="key-term">AO2</span> (analysis of language, form, and structure) and <span class="key-term">AO3</span> (context). The question format is:</p>
 <ul>
   <li>The examiner <strong>names one poem</strong> from your collection and prints it on the paper.</li>
   <li>You must <strong>compare</strong> the named poem with <strong>one other poem of your choice</strong> from the same collection.</li>
@@ -1231,7 +1231,7 @@ const edexcelGcseLitPoetry = {
       title: 'Comparing Anthology Poems',
       duration: '40 mins',
       content: `
-<p>The <span class="key-term">anthology comparison</span> in Component 2, Section B, Part 1 is worth <strong>20 marks</strong>. The examiner names one poem and you compare it with another from the same collection. Success depends on three skills: choosing the right comparison poem, structuring your comparison, and balancing AO2 with AO3.</p>
+<p>The <span class="key-term">anthology comparison</span> in Paper 2, Section B, Part 1 is worth <strong>20 marks</strong>. The examiner names one poem and you compare it with another from the same collection. Success depends on three skills: choosing the right comparison poem, structuring your comparison, and balancing AO2 with AO3.</p>
 
 <h3>Choosing Your Comparison Poem</h3>
 <p>When you see the named poem, ask yourself:</p>
@@ -1326,7 +1326,7 @@ const edexcelGcseLitPoetry = {
       title: 'Unseen Poetry: First Reading Strategies',
       duration: '30 mins',
       content: `
-<p><span class="key-term">Component 2, Section B, Part 2</span> presents you with <strong>two unseen contemporary poems</strong> and asks you to compare them. This is worth <strong>20 marks</strong>, assessed on <span class="key-term">AO1</span> (critical response with textual references) and <span class="key-term">AO2</span> (analysis of language, form, and structure).</p>
+<p><span class="key-term">Paper 2, Section B, Part 2</span> presents you with <strong>two unseen contemporary poems</strong> and asks you to compare them. This is worth <strong>20 marks</strong>, assessed on <span class="key-term">AO1</span> (critical response with textual references) and <span class="key-term">AO2</span> (analysis of language, form, and structure).</p>
 
 <h3>How Edexcel Unseen Poetry Differs from AQA</h3>
 <p>On AQA, unseen poetry is split into two questions: one on a single poem (24 marks) and one short comparison (8 marks). On Edexcel, you write <strong>one comparative response</strong> on two poems. This means comparison skills are essential from the start.</p>
@@ -1550,7 +1550,7 @@ const edexcelGcseLitPoetry = {
 <div class="examiner-tip">When comparing poems, the strongest responses do not just say "Poet A and Poet B both use metaphor." They explain how the metaphors work differently and what this reveals about each poet's perspective. Comparative analysis of method — not just theme — is what separates the top band from the middle.</div>
 
 <h3>Final Checklist Before the Exam</h3>
-<p>Before you sit Component 2, make sure you can:</p>
+<p>Before you sit Paper 2, make sure you can:</p>
 <ul>
   <li>Recall key quotations from at least 8–10 anthology poems.</li>
   <li>Identify your 2–3 "go-to" comparison poems and explain why they are versatile.</li>
@@ -1792,7 +1792,7 @@ const edexcelGcseLitPoetry = {
       options: ['10 marks', '15 marks', '20 marks', '30 marks'],
       correct: 2,
       explanation:
-        'The anthology poetry comparison (Component 2, Section B, Part 1) is worth 20 marks.',
+        'The anthology poetry comparison (Paper 2, Section B, Part 1) is worth 20 marks.',
     },
     {
       id: 'edex-lp-a16',
@@ -1801,12 +1801,12 @@ const edexcelGcseLitPoetry = {
       options: ['8 marks', '15 marks', '20 marks', '24 marks'],
       correct: 2,
       explanation:
-        'The unseen poetry comparison (Component 2, Section B, Part 2) is worth 20 marks.',
+        'The unseen poetry comparison (Paper 2, Section B, Part 2) is worth 20 marks.',
     },
     {
       id: 'edex-lp-a17',
       question:
-        'What is the total time for Component 2?',
+        'What is the total time for Paper 2?',
       options: [
         '1 hour 30 minutes',
         '1 hour 45 minutes',
@@ -1815,7 +1815,7 @@ const edexcelGcseLitPoetry = {
       ],
       correct: 3,
       explanation:
-        'Component 2 (19th-Century Novel and Poetry since 1789) is 2 hours 15 minutes.',
+        'Paper 2 (19th-Century Novel and Poetry since 1789) is 2 hours 15 minutes.',
     },
     {
       id: 'edex-lp-a18',

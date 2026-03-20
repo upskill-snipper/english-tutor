@@ -4,6 +4,7 @@ import { ArrowLeft, Trophy, Heart, Lightbulb, RotateCcw, Star, CheckCircle, XCir
 import Navbar from '../../components/Navbar';
 import GameWrapper from '../../components/GameWrapper';
 import Lauren from '../../components/Lauren';
+import { recordGamePlayed } from '../../utils/gameUtils';
 
 const WORDS = [
   // EASY (10 points)
@@ -247,6 +248,7 @@ export default function SpellingBee() {
     });
     setSaved(newSaved);
     saveSaved(newSaved);
+    recordGamePlayed();
     setPhase('result');
   };
 
@@ -452,6 +454,7 @@ export default function SpellingBee() {
                   <input
                     ref={inputRef}
                     type="text"
+                    aria-label="Spell the word"
                     value={input}
                     onChange={e => setInput(e.target.value)}
                     placeholder="Type the word..."

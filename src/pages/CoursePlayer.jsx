@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, CheckCircle, Circle, Award, BookOpen, Menu, X } from 'lucide-react';
+import DOMPurify from 'dompurify';
 import Navbar from '../components/Navbar';
 import Lauren from '../components/Lauren';
 import COURSES from '../data/courseData';
@@ -49,12 +50,19 @@ export default function CoursePlayer() {
     }
   }, [user, course, courseId, isEnrolled, subscribed]);
 
+  useEffect(() => {
+    setQuizAnswers({});
+    setQuizSubmitted(false);
+    setSidebarOpen(false);
+    window.scrollTo(0, 0);
+  }, [moduleId]);
+
   // Block non-subscribed users from ALL course content
   if (course && module && !subscribed) {
     return (
       <div style={{ background: '#0a0e1a', minHeight: '100vh', color: '#f0f4f8' }}>
         <Navbar />
-        <div style={{ padding: '4rem', textAlign: 'center' }}>
+        <div style={{ padding: '4rem 1.5rem', textAlign: 'center' }}>
           <h2>Subscribe to access course content</h2>
           <p style={{ color: '#94a3b8', marginTop: '0.75rem', marginBottom: '1.5rem' }}>
             A subscription is required to access courses, games, flashcards, and all study tools.
@@ -67,18 +75,11 @@ export default function CoursePlayer() {
     );
   }
 
-  useEffect(() => {
-    setQuizAnswers({});
-    setQuizSubmitted(false);
-    setSidebarOpen(false);
-    window.scrollTo(0, 0);
-  }, [moduleId]);
-
   if (!course || !module) {
     return (
       <div style={{ background: '#0a0e1a', minHeight: '100vh', color: '#f0f4f8' }}>
         <Navbar />
-        <div style={{ padding: '4rem', textAlign: 'center' }}>
+        <div style={{ padding: '4rem 1.5rem', textAlign: 'center' }}>
           <h2>Module not found</h2>
           <Link to="/courses" className="btn-primary" style={{ textDecoration: 'none', display: 'inline-flex', marginTop: '1rem' }}>
             Browse courses
@@ -117,7 +118,7 @@ export default function CoursePlayer() {
       <>
         <div style={{ padding: '0 1.25rem', marginBottom: '1.25rem' }}>
           {isMobile && (
-            <button onClick={() => setSidebarOpen(false)} style={{ background: 'none', border: 'none', color: '#8b9cbf', cursor: 'pointer', float: 'right', padding: '0.25rem' }}>
+            <button onClick={() => setSidebarOpen(false)} aria-label="Close sidebar" style={{ background: 'none', border: 'none', color: '#8b9cbf', cursor: 'pointer', float: 'right', padding: '0.25rem' }}>
               <X size={18} />
             </button>
           )}
@@ -216,7 +217,7 @@ export default function CoursePlayer() {
             marginBottom: '1.25rem', paddingBottom: '1rem',
             borderBottom: '1px solid rgba(255,255,255,0.07)',
           }}>
-            <button onClick={() => setSidebarOpen(true)} style={{
+            <button onClick={() => setSidebarOpen(true)} aria-label="Open sidebar" style={{
               background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)',
               borderRadius: '8px', padding: '0.5rem', color: '#f0f4f8', cursor: 'pointer',
               display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
@@ -256,7 +257,7 @@ export default function CoursePlayer() {
             </div>
           )}
 
-          <div className="module-content" style={{ marginBottom: '3rem', lineHeight: '1.8' }} dangerouslySetInnerHTML={{ __html: module.content }} />
+          <div className="module-content" style={{ marginBottom: '3rem', lineHeight: '1.8' }} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(module.content) }} />
 
           {quiz.length > 0 && (
             <div style={{
@@ -384,20 +385,22 @@ export default function CoursePlayer() {
                 </button>
               ) : (
                 <div style={{
-                  display: 'flex', alignItems: 'center', gap: '1rem', padding: '1rem',
+                  padding: '1rem',
                   background: quizScore >= 60 ? 'rgba(34,197,94,0.08)' : 'rgba(245,158,11,0.08)',
                   borderRadius: '0.5rem',
                   border: `1px solid ${quizScore >= 60 ? 'rgba(34,197,94,0.2)' : 'rgba(245,158,11,0.2)'}`,
                   marginTop: '0.5rem',
                 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
+                    <div>
+                      <div style={{ fontWeight: 700, color: quizScore >= 60 ? '#22c55e' : '#f59e0b', fontSize: '1.25rem' }}>{quizScore}%</div>
+                      <div style={{ color: '#8b9cbf', fontSize: '0.78rem' }}>{correctAnswers.length}/{quiz.length} correct</div>
+                    </div>
+                    <div style={{ color: '#c0cce0', fontSize: '0.85rem' }}>
+                      {quizScore >= 60 ? 'Well done! Move on to the next module.' : 'Review the content above and try again.'}
+                    </div>
+                  </div>
                   <div>
-                    <div style={{ fontWeight: 700, color: quizScore >= 60 ? '#22c55e' : '#f59e0b', fontSize: '1.25rem' }}>{quizScore}%</div>
-                    <div style={{ color: '#8b9cbf', fontSize: '0.78rem' }}>{correctAnswers.length}/{quiz.length} correct</div>
-                  </div>
-                  <div style={{ color: '#c0cce0', fontSize: '0.85rem' }}>
-                    {quizScore >= 60 ? 'Well done! Move on to the next module.' : 'Review the content above and try again.'}
-                  </div>
-                  <div style={{ marginTop: '1rem' }}>
                     {quizScore >= 80 ? (
                       <Lauren emotion="happy" message="Excellent! You've got a strong grasp of this module. Ready to move on!" />
                     ) : quizScore >= 60 ? (

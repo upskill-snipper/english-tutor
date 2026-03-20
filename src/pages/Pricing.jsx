@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Check, Crown, Sparkles, ChevronDown, ChevronUp, Zap, Star } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Lauren from '../components/Lauren';
@@ -23,7 +23,7 @@ const plans = [
   {
     id: 'monthly',
     name: 'Monthly',
-    price: '£12.50',
+    price: '£19',
     period: '/month',
     badge: 'Most Popular',
     features: [
@@ -41,15 +41,14 @@ const plans = [
   },
   {
     id: 'pro',
-    name: 'Pro — Lifetime',
+    name: 'Pro — Annual',
     price: '£179',
-    period: '',
+    period: '/year',
     badge: 'Best Value',
     features: [
       'Everything in Monthly',
-      'Lifetime access (never expires)',
-      'Priority support',
-      'Early access to new content',
+      'Full school year access (Aug–Aug)',
+      'Save £49 vs monthly (£19 × 12 = £228)',
     ],
     icon: <Crown size={28} />,
     color: '#f59e0b',
@@ -67,12 +66,12 @@ const faqs = [
     a: 'The free plan gives you 3 game trials and lets you browse the course catalogue. Subscribe to a paid plan to access courses, games, flashcards, and all study tools.',
   },
   {
-    q: 'Is the lifetime access really lifetime?',
-    a: 'Absolutely. Once you purchase Pro, your access never expires. You also get every future update and new course at no additional cost.',
+    q: 'How long does the Pro plan last?',
+    a: 'Pro gives you a full school year of access, running from August to August. This covers the entire academic year so you have uninterrupted access through all your exams.',
   },
   {
     q: 'Can I upgrade from Monthly to Pro?',
-    a: 'Yes, you can upgrade at any time. Your Pro access begins immediately upon purchase.',
+    a: 'Yes, you can upgrade at any time. Your Pro annual access begins immediately upon purchase, saving you £49 compared to 12 months of the monthly plan.',
   },
   {
     q: 'Do I get a certificate?',
@@ -127,19 +126,25 @@ function FAQItem({ faq }) {
 }
 
 export default function Pricing() {
+  const navigate = useNavigate();
   const user = getCurrentUser();
   const currentSub = user ? getSubscription(user.id) : { tier: 'free' };
   const [successMsg, setSuccessMsg] = useState('');
 
   const handleSubscribe = (tier) => {
-    if (!user) return;
+    if (!user) {
+      navigate('/register');
+      return;
+    }
     setSubscription(user.id, tier);
     setSuccessMsg(
       tier === 'monthly'
         ? 'You are now subscribed to the Monthly plan!'
-        : 'Welcome to Pro! You now have lifetime access.'
+        : 'Welcome to Pro! You now have access for the full school year.'
     );
-    setTimeout(() => setSuccessMsg(''), 5000);
+    setTimeout(() => {
+      navigate('/courses');
+    }, 1200);
   };
 
   const isCurrentPlan = (planId) => currentSub.tier === planId;
@@ -187,7 +192,7 @@ export default function Pricing() {
         {/* Lauren avatar */}
         <Lauren
           emotion="happy"
-          message="Choose the plan that works for you. Monthly is great for exam season, or go Pro for lifetime access to everything!"
+          message="Choose the plan that works for you. Monthly is flexible, or go Pro and save £49 with full school year access!"
           size="medium"
           position="inline"
         />
@@ -408,13 +413,7 @@ export default function Pricing() {
                   </button>
                 ) : (
                   <button
-                    onClick={() => {
-                      if (!user) {
-                        window.location.href = '#/register';
-                        return;
-                      }
-                      handleSubscribe(plan.id);
-                    }}
+                    onClick={() => handleSubscribe(plan.id)}
                     style={{
                       padding: '0.75rem 1.5rem',
                       borderRadius: '10px',

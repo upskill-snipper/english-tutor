@@ -19,10 +19,10 @@ const edexcelIgcseLit = {
     // ──────────────────────────────────────────────
     {
       id: 'eix-lit-m1',
-      title: 'Component 1 Section A: Unseen Poetry Analysis',
+      title: 'Paper 1 Section A: Unseen Poetry Analysis',
       duration: '35 mins',
       content: `
-<p>Section A of Component 1 is worth <span class="key-term">20 marks</span> and requires you to analyse <strong>one unseen poem</strong>. The assessment objective is <span class="key-term">AO2</span>: analyse the language, form and structure used by a writer to create meanings and effects, using relevant subject terminology where appropriate.</p>
+<p>Section A of Paper 1 is worth <span class="key-term">20 marks</span> and requires you to analyse <strong>one unseen poem</strong>. The assessment objective is <span class="key-term">AO2</span>: analyse the language, form and structure used by a writer to create meanings and effects, using relevant subject terminology where appropriate.</p>
 
 <h3>A Reliable Approach: The Three-Read Method</h3>
 <p>Read the poem three times before you write anything. On the first read, absorb the overall mood and subject. On the second, underline striking language choices, images and structural features. On the third, annotate the margins with ideas about <em>why</em> the poet has made those choices and <em>what effect</em> they create.</p>
@@ -57,7 +57,7 @@ const edexcelIgcseLit = {
       quiz: [
         {
           id: 'eix-lit-m1-q1',
-          question: 'Which assessment objective is tested in Component 1 Section A?',
+          question: 'Which assessment objective is tested in Paper 1 Section A?',
           options: ['AO1', 'AO2', 'AO3', 'AO4'],
           correct: 1,
           explanation:
@@ -100,10 +100,10 @@ const edexcelIgcseLit = {
     // ──────────────────────────────────────────────
     {
       id: 'eix-lit-m2',
-      title: 'Component 1 Section B: Anthology Poetry — Understanding the 16 Poems',
+      title: 'Paper 1 Section B: Anthology Poetry — Understanding the 16 Poems',
       duration: '40 mins',
       content: `
-<p>The Edexcel IGCSE anthology contains <span class="key-term">16 poems</span> that you must study. In Section B of Component 1 (worth <span class="key-term">30 marks</span>) you will compare two of these poems. The poems are provided in the exam paper, so you do not need to memorise them — but you <em>do</em> need to know them inside out.</p>
+<p>The Edexcel IGCSE anthology contains <span class="key-term">16 poems</span> that you must study. In Section B of Paper 1 (worth <span class="key-term">30 marks</span>) you will compare two of these poems. The poems are provided in the exam paper, so you do not need to memorise them — but you <em>do</em> need to know them inside out.</p>
 
 <h3>The 16 Anthology Poems</h3>
 <p>The poems span several centuries and a wide range of themes. Group them mentally by theme to make comparison easier:</p>
@@ -184,7 +184,7 @@ const edexcelIgcseLit = {
     // ──────────────────────────────────────────────
     {
       id: 'eix-lit-m3',
-      title: 'Component 1 Section B: Comparing Anthology Poems',
+      title: 'Paper 1 Section B: Comparing Anthology Poems',
       duration: '40 mins',
       content: `
 <p>Section B tests <span class="key-term">AO2</span> (language, form and structure) and <span class="key-term">AO3</span> (relationships between texts). You must compare two anthology poems, and the quality of your <em>comparison</em> — not just your analysis of individual poems — determines your mark.</p>
@@ -222,7 +222,7 @@ const edexcelIgcseLit = {
       quiz: [
         {
           id: 'eix-lit-m3-q1',
-          question: 'Which assessment objectives are tested in Component 1 Section B?',
+          question: 'Which assessment objectives are tested in Paper 1 Section B?',
           options: ['AO1 and AO4', 'AO2 and AO3', 'AO1 and AO2', 'AO3 and AO4'],
           correct: 1,
           explanation:
@@ -265,10 +265,10 @@ const edexcelIgcseLit = {
     // ──────────────────────────────────────────────
     {
       id: 'eix-lit-m4',
-      title: 'Component 1 Section C: Modern Prose Essay Skills',
+      title: 'Paper 1 Section C: Modern Prose Essay Skills',
       duration: '40 mins',
       content: `
-<p>Section C is the highest-weighted section on Component 1, worth <span class="key-term">40 marks</span>. You write an essay on your studied modern prose text. The assessment objectives are <span class="key-term">AO1</span> (critical response with textual references) and <span class="key-term">AO4</span> (relationship between text and its contexts).</p>
+<p>Section C is the highest-weighted section on Paper 1, worth <span class="key-term">40 marks</span>. You write an essay on your studied modern prose text. The assessment objectives are <span class="key-term">AO1</span> (critical response with textual references) and <span class="key-term">AO4</span> (relationship between text and its contexts).</p>
 
 <h3>The Set Texts</h3>
 <p>Your teacher will have chosen one of the following: <em>To Kill a Mockingbird</em> (Lee), <em>Of Mice and Men</em> (Steinbeck), <em>The Whale Rider</em> (Ihimaera), <em>The Joy Luck Club</em> (Tan), <em>Things Fall Apart</em> (Achebe), <em>Klara and the Sun</em> (Ishiguro), or <em>Western Lane</em> (Patel).</p>
@@ -299,11 +299,11 @@ const edexcelIgcseLit = {
       quiz: [
         {
           id: 'eix-lit-m4-q1',
-          question: 'How many marks is Component 1 Section C worth?',
+          question: 'How many marks is Paper 1 Section C worth?',
           options: ['20 marks', '30 marks', '40 marks', '60 marks'],
           correct: 2,
           explanation:
-            'Section C (Modern Prose) is worth 40 marks, making it the highest-weighted section on Component 1.',
+            'Section C (Modern Prose) is worth 40 marks, making it the highest-weighted section on Paper 1.',
         },
         {
           id: 'eix-lit-m4-q2',
@@ -347,10 +347,10 @@ const edexcelIgcseLit = {
     // ──────────────────────────────────────────────
     {
       id: 'eix-lit-m5',
-      title: 'Component 2 Section A: Modern Drama Essay Skills',
+      title: 'Paper 2 Section A: Modern Drama Essay Skills',
       duration: '35 mins',
       content: `
-<p>Component 2 is worth <span class="key-term">60 marks (40%)</span> and lasts <span class="key-term">1 hour 30 minutes</span>. Section A focuses on your modern drama text and is worth <span class="key-term">30 marks</span>. The assessment objectives are <span class="key-term">AO1</span> and <span class="key-term">AO2</span>. Crucially, Component 2 is <span class="key-term">open book</span> — you may bring clean copies of your texts into the exam.</p>
+<p>Paper 2 is worth <span class="key-term">60 marks (40%)</span> and lasts <span class="key-term">1 hour 30 minutes</span>. Section A focuses on your modern drama text and is worth <span class="key-term">30 marks</span>. The assessment objectives are <span class="key-term">AO1</span> and <span class="key-term">AO2</span>. Crucially, Paper 2 is <span class="key-term">open book</span> — you may bring clean copies of your texts into the exam.</p>
 
 <h3>The Set Texts</h3>
 <p>Your teacher will have chosen one of: <em>A View from the Bridge</em> (Miller), <em>An Inspector Calls</em> (Priestley), <em>The Curious Incident of the Dog in the Night-Time</em> (Stephens), <em>Kindertransport</em> (Samuels), or <em>Death and the King's Horseman</em> (Soyinka).</p>
@@ -385,7 +385,7 @@ const edexcelIgcseLit = {
       quiz: [
         {
           id: 'eix-lit-m5-q1',
-          question: 'What is distinctive about Component 2 compared to Component 1?',
+          question: 'What is distinctive about Paper 2 compared to Paper 1?',
           options: [
             'It is longer',
             'It is open book — you can bring clean copies of your texts',
@@ -394,7 +394,7 @@ const edexcelIgcseLit = {
           ],
           correct: 1,
           explanation:
-            'Component 2 is open book, meaning you may take clean, unannotated copies of your prescribed texts into the exam.',
+            'Paper 2 is open book, meaning you may take clean, unannotated copies of your prescribed texts into the exam.',
         },
         {
           id: 'eix-lit-m5-q2',
@@ -424,11 +424,11 @@ const edexcelIgcseLit = {
         },
         {
           id: 'eix-lit-m5-q4',
-          question: 'Which assessment objectives are tested in Component 2 Section A?',
+          question: 'Which assessment objectives are tested in Paper 2 Section A?',
           options: ['AO1 and AO2', 'AO2 and AO3', 'AO1 and AO4', 'AO3 and AO4'],
           correct: 0,
           explanation:
-            'Section A of Component 2 tests AO1 (critical response with textual references) and AO2 (analysis of language, form and structure).',
+            'Section A of Paper 2 tests AO1 (critical response with textual references) and AO2 (analysis of language, form and structure).',
         },
       ],
     },
@@ -438,10 +438,10 @@ const edexcelIgcseLit = {
     // ──────────────────────────────────────────────
     {
       id: 'eix-lit-m6',
-      title: 'Component 2 Section B: Literary Heritage Essay Skills',
+      title: 'Paper 2 Section B: Literary Heritage Essay Skills',
       duration: '35 mins',
       content: `
-<p>Section B of Component 2 is worth <span class="key-term">30 marks</span> and tests <span class="key-term">AO1</span>, <span class="key-term">AO2</span> and <span class="key-term">AO4</span>. You write an essay on your literary heritage text — a work from the established English literary canon. The addition of AO4 means context is assessed explicitly here.</p>
+<p>Section B of Paper 2 is worth <span class="key-term">30 marks</span> and tests <span class="key-term">AO1</span>, <span class="key-term">AO2</span> and <span class="key-term">AO4</span>. You write an essay on your literary heritage text — a work from the established English literary canon. The addition of AO4 means context is assessed explicitly here.</p>
 
 <h3>The Set Texts</h3>
 <p>Options include: <em>Romeo and Juliet</em>, <em>Macbeth</em>, or <em>The Merchant of Venice</em> (Shakespeare); <em>Pride and Prejudice</em> (Austen); <em>Great Expectations</em> (Dickens); <em>The Scarlet Letter</em> (Hawthorne).</p>
@@ -476,7 +476,7 @@ const edexcelIgcseLit = {
       quiz: [
         {
           id: 'eix-lit-m6-q1',
-          question: 'Which assessment objectives are tested in Component 2 Section B?',
+          question: 'Which assessment objectives are tested in Paper 2 Section B?',
           options: ['AO1 and AO2 only', 'AO2 and AO3', 'AO1, AO2 and AO4', 'AO1, AO3 and AO4'],
           correct: 2,
           explanation:
@@ -532,7 +532,7 @@ const edexcelIgcseLit = {
       title: 'Open Book Strategy: Using Your Texts in the Exam',
       duration: '25 mins',
       content: `
-<p>Component 2 is <span class="key-term">open book</span>: you may bring clean, unannotated copies of your prescribed texts into the exam. This is a significant advantage — but only if you know how to use it properly. Many students waste time flicking through pages rather than writing. This module teaches you how to make the open book format work for you.</p>
+<p>Paper 2 is <span class="key-term">open book</span>: you may bring clean, unannotated copies of your prescribed texts into the exam. This is a significant advantage — but only if you know how to use it properly. Many students waste time flicking through pages rather than writing. This module teaches you how to make the open book format work for you.</p>
 
 <h3>Preparing Your Texts</h3>
 <p>Although your copies must be <span class="key-term">clean</span> (no annotations, highlights or sticky notes), you can prepare by knowing your text so well that you can navigate it quickly:</p>
@@ -608,14 +608,14 @@ const edexcelIgcseLit = {
           id: 'eix-lit-m7-q4',
           question: 'Which component of the Edexcel IGCSE Literature exam is open book?',
           options: [
-            'Component 1 only',
-            'Component 2 only',
+            'Paper 1 only',
+            'Paper 2 only',
             'Both components',
             'Neither component',
           ],
           correct: 1,
           explanation:
-            'Only Component 2 (Modern Drama and Literary Heritage) is open book. Component 1 (Poetry and Modern Prose) is a closed book exam.',
+            'Only Paper 2 (Modern Drama and Literary Heritage) is open book. Paper 1 (Poetry and Modern Prose) is a closed book exam.',
         },
       ],
     },
@@ -628,16 +628,16 @@ const edexcelIgcseLit = {
       title: 'Exam Strategy & Model Answers',
       duration: '30 mins',
       content: `
-<p>This final module brings everything together with timing strategies and model answer analysis. The full exam comprises <span class="key-term">Component 1 (2 hours, 90 marks, 60%)</span> and <span class="key-term">Component 2 (1 hour 30 minutes, 60 marks, 40%)</span>. Every question is <span class="key-term">essay-based</span> — there are no extract-based questions on this specification.</p>
+<p>This final module brings everything together with timing strategies and model answer analysis. The full exam comprises <span class="key-term">Paper 1 (2 hours, 90 marks, 60%)</span> and <span class="key-term">Paper 2 (1 hour 30 minutes, 60 marks, 40%)</span>. Every question is <span class="key-term">essay-based</span> — there are no extract-based questions on this specification.</p>
 
-<h3>Timing Strategy: Component 1</h3>
+<h3>Timing Strategy: Paper 1</h3>
 <ul>
   <li><strong>Section A</strong> (Unseen Poetry, 20 marks): approximately <strong>30 minutes</strong></li>
   <li><strong>Section B</strong> (Anthology Comparison, 30 marks): approximately <strong>40 minutes</strong></li>
   <li><strong>Section C</strong> (Modern Prose, 40 marks): approximately <strong>50 minutes</strong></li>
 </ul>
 
-<h3>Timing Strategy: Component 2</h3>
+<h3>Timing Strategy: Paper 2</h3>
 <ul>
   <li><strong>Section A</strong> (Modern Drama, 30 marks): approximately <strong>45 minutes</strong></li>
   <li><strong>Section B</strong> (Literary Heritage, 30 marks): approximately <strong>45 minutes</strong></li>
@@ -664,7 +664,7 @@ const edexcelIgcseLit = {
   <li>Have I answered the specific question asked, not a generic essay on the text?</li>
   <li>Have I included analysis of language, form <em>and</em> structure?</li>
   <li>Are my quotations short, embedded and analysed?</li>
-  <li>Have I used comparative connectives (Section B, Component 1)?</li>
+  <li>Have I used comparative connectives (Section B, Paper 1)?</li>
   <li>Have I integrated context where relevant (AO4 sections)?</li>
 </ul>
 
@@ -675,11 +675,11 @@ const edexcelIgcseLit = {
       quiz: [
         {
           id: 'eix-lit-m8-q1',
-          question: 'How long is the Component 1 exam?',
+          question: 'How long is the Paper 1 exam?',
           options: ['1 hour', '1 hour 30 minutes', '2 hours', '2 hours 30 minutes'],
           correct: 2,
           explanation:
-            'Component 1 (Poetry and Modern Prose) lasts 2 hours and is worth 90 marks (60% of the total).',
+            'Paper 1 (Poetry and Modern Prose) lasts 2 hours and is worth 90 marks (60% of the total).',
         },
         {
           id: 'eix-lit-m8-q2',
@@ -699,8 +699,8 @@ const edexcelIgcseLit = {
           question: 'Are there any extract-based questions on the Edexcel IGCSE Literature exam?',
           options: [
             'Yes, in every section',
-            'Only in Component 1',
-            'Only in Component 2',
+            'Only in Paper 1',
+            'Only in Paper 2',
             'No — all questions are essay-based',
           ],
           correct: 3,
@@ -746,19 +746,19 @@ const edexcelIgcseLit = {
     },
     {
       id: 'eix-lit-a3',
-      question: 'What percentage of the total mark does Component 1 represent?',
+      question: 'What percentage of the total mark does Paper 1 represent?',
       options: ['40%', '50%', '60%', '70%'],
       correct: 2,
       explanation:
-        'Component 1 (Poetry and Modern Prose) is worth 60% of the total mark (90 marks out of 150).',
+        'Paper 1 (Poetry and Modern Prose) is worth 60% of the total mark (90 marks out of 150).',
     },
     {
       id: 'eix-lit-a4',
       question: 'Which component is open book?',
-      options: ['Component 1', 'Component 2', 'Both components', 'Neither component'],
+      options: ['Paper 1', 'Paper 2', 'Both components', 'Neither component'],
       correct: 1,
       explanation:
-        'Component 2 (Modern Drama and Literary Heritage) is open book — you may bring clean, unannotated copies of your prescribed texts.',
+        'Paper 2 (Modern Drama and Literary Heritage) is open book — you may bring clean, unannotated copies of your prescribed texts.',
     },
     {
       id: 'eix-lit-a5',
@@ -775,7 +775,7 @@ const edexcelIgcseLit = {
     },
     {
       id: 'eix-lit-a6',
-      question: 'In Component 1 Section A, how many unseen poems must you analyse?',
+      question: 'In Paper 1 Section A, how many unseen poems must you analyse?',
       options: ['One', 'Two', 'Three', 'You choose from a selection'],
       correct: 0,
       explanation:
@@ -817,11 +817,11 @@ const edexcelIgcseLit = {
     },
     {
       id: 'eix-lit-a10',
-      question: 'What is the total duration of Component 2?',
+      question: 'What is the total duration of Paper 2?',
       options: ['1 hour', '1 hour 30 minutes', '2 hours', '2 hours 30 minutes'],
       correct: 1,
       explanation:
-        'Component 2 lasts 1 hour 30 minutes and is worth 60 marks (40% of the total).',
+        'Paper 2 lasts 1 hour 30 minutes and is worth 60 marks (40% of the total).',
     },
     {
       id: 'eix-lit-a11',
@@ -866,14 +866,14 @@ const edexcelIgcseLit = {
       id: 'eix-lit-a14',
       question: 'Which sections of the exam test AO3 (comparison)?',
       options: [
-        'Component 1 Section A only',
-        'Component 1 Section B only',
-        'Component 2 Section A and B',
+        'Paper 1 Section A only',
+        'Paper 1 Section B only',
+        'Paper 2 Section A and B',
         'All sections',
       ],
       correct: 1,
       explanation:
-        'AO3 (relationships between texts) is tested in Component 1 Section B, where you compare two anthology poems.',
+        'AO3 (relationships between texts) is tested in Paper 1 Section B, where you compare two anthology poems.',
     },
     {
       id: 'eix-lit-a15',
@@ -890,11 +890,11 @@ const edexcelIgcseLit = {
     },
     {
       id: 'eix-lit-a16',
-      question: 'How many marks is Component 1 Section C (Modern Prose) worth?',
+      question: 'How many marks is Paper 1 Section C (Modern Prose) worth?',
       options: ['20 marks', '30 marks', '40 marks', '50 marks'],
       correct: 2,
       explanation:
-        'Section C is worth 40 marks, making it the highest-weighted section on Component 1.',
+        'Section C is worth 40 marks, making it the highest-weighted section on Paper 1.',
     },
     {
       id: 'eix-lit-a17',
@@ -907,7 +907,7 @@ const edexcelIgcseLit = {
       ],
       correct: 2,
       explanation:
-        'An Inspector Calls (Priestley) is one of the modern drama options for Component 2 Section A. Romeo and Juliet is literary heritage; the others are prose.',
+        'An Inspector Calls (Priestley) is one of the modern drama options for Paper 2 Section A. Romeo and Juliet is literary heritage; the others are prose.',
     },
     {
       id: 'eix-lit-a18',
@@ -937,7 +937,7 @@ const edexcelIgcseLit = {
     },
     {
       id: 'eix-lit-a20',
-      question: 'How should you allocate time across Component 1?',
+      question: 'How should you allocate time across Paper 1?',
       options: [
         'Equal time for each section',
         'Most time on Section A (Unseen Poetry)',

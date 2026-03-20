@@ -1,9 +1,9 @@
 // Edexcel IGCSE English Language Specification B (4EB1) — Dedicated Course
-// All content is Edexcel IGCSE Spec B-specific — NOT Spec A, NOT Edexcel GCSE
+// All content is Edexcel IGCSE 4EB1-specific — NOT 4EA1, NOT Edexcel GCSE
 
 const edexcelIgcseSpecB = {
   id: 'edexcel-igcse-spec-b-lang',
-  title: 'IGCSE English Language Spec B',
+  title: 'IGCSE English Language (Single Paper)',
   subtitle: 'Reading & Writing — Specification 4EB1',
   tier: 'IGCSE',
   board: 'Edexcel',
@@ -19,7 +19,7 @@ const edexcelIgcseSpecB = {
       title: 'Paper 1 Section A: Reading Non-Fiction',
       duration: '35 mins',
       content: `<h2>Comprehension Strategies for Non-Fiction Texts</h2>
-<p>Specification B (4EB1) is a <strong>single 3-hour exam</strong> worth 100 marks, and it begins with Section A: Reading. This section presents you with <strong>two unseen extracts</strong> — at least one of which will be non-fiction — and asks seven questions worth a total of 40 marks. Unlike Spec A, there is no anthology: every text you encounter is completely unseen, so your comprehension strategies must be sharp and transferable.</p>
+<p>Specification B (4EB1) is a <strong>single 3-hour exam</strong> worth 100 marks, and it begins with Section A: Reading. This section presents you with <strong>two unseen extracts</strong> — at least one of which will be non-fiction — and asks seven questions worth a total of 40 marks. Unlike 4EA1, there is no anthology: every text you encounter is completely unseen, so your comprehension strategies must be sharp and transferable.</p>
 
 <div class="key-term"><strong>Key Term: Explicit meaning</strong> — Information stated directly in the text. When a question asks you to "identify" or "select," you are looking for explicit meaning. For example, if the text says "the expedition set out in March," the departure date is explicit.</div>
 
@@ -39,7 +39,7 @@ const edexcelIgcseSpecB = {
 <li><strong>Then answer:</strong> Work through Q1–Q7 in order, referring back to the text constantly.</li>
 </ul>
 
-<div class="examiner-tip"><strong>Examiner Tip:</strong> Non-fiction texts in Spec B can include journalism, travel writing, autobiography, memoir, speeches, letters, blogs, and opinion columns. Practise reading a wide range of non-fiction so that no text type feels unfamiliar on exam day.</div>
+<div class="examiner-tip"><strong>Examiner Tip:</strong> Non-fiction texts in 4EB1 can include journalism, travel writing, autobiography, memoir, speeches, letters, blogs, and opinion columns. Practise reading a wide range of non-fiction so that no text type feels unfamiliar on exam day.</div>
 
 <h3>Common Non-Fiction Features to Watch For</h3>
 <ul>
@@ -52,7 +52,7 @@ const edexcelIgcseSpecB = {
 
 <div class="common-mistake"><strong>Common Mistake:</strong> Treating non-fiction as though it has no craft. Students sometimes assume non-fiction is "just facts" and fail to analyse the writer's deliberate choices. Every word in a published text was chosen — analyse non-fiction with the same rigour you would apply to a novel.</div>`,
       quiz: [
-        { id: 'esb-m1-q1', question: 'How many marks is Section A (Reading) worth on the Spec B paper?', options: ['30 marks', '40 marks', '50 marks', '60 marks'], correct: 1, explanation: 'Section A is worth 40 marks out of the total 100 on the Spec B paper.' },
+        { id: 'esb-m1-q1', question: 'How many marks is Section A (Reading) worth on the 4EB1 paper?', options: ['30 marks', '40 marks', '50 marks', '60 marks'], correct: 1, explanation: 'Section A is worth 40 marks out of the total 100 on the 4EB1 paper.' },
         { id: 'esb-m1-q2', question: 'What is implicit meaning?', options: ['Information stated directly in the text', 'Meaning suggested or implied through word choice, imagery, and tone', 'The dictionary definition of a word', 'The writer\'s biography'], correct: 1, explanation: 'Implicit meaning is not stated outright — you infer it from context, word choice, imagery, and tone. It requires "reading between the lines."' },
         { id: 'esb-m1-q3', question: 'How many marks are Q1, Q2, Q4, and Q5 worth combined?', options: ['5 marks', '10 marks', '15 marks', '20 marks'], correct: 0, explanation: 'Q1 (1) + Q2 (1) + Q4 (1) + Q5 (2) = 5 marks. Answer these quickly to save time for higher-value questions.' },
         { id: 'esb-m1-q4', question: 'Why should you read both extracts before answering any questions?', options: ['The examiner checks your reading time', 'It helps you understand the overall content and themes before tackling individual questions', 'You must memorise the texts', 'It is a rule of the exam'], correct: 1, explanation: 'A preliminary read gives you an overview of both texts — their content, tone, and themes — so that you can answer questions more efficiently and accurately.' },
@@ -112,7 +112,7 @@ const edexcelIgcseSpecB = {
       title: 'Paper 1 Section B: Transactional Writing',
       duration: '35 mins',
       content: `<h2>Letters, Articles, Speeches, and Reports</h2>
-<p>Section B of the Spec B paper is the <strong>directed writing</strong> task (Q8), worth <strong>30 marks</strong>. This is unique to Specification B — it combines reading comprehension with transactional writing. You must produce a piece of writing in a specified form (letter, article, speech, or report) that draws on ideas from the reading texts in Section A.</p>
+<p>Section B of the 4EB1 paper is the <strong>directed writing</strong> task (Q8), worth <strong>30 marks</strong>. This is unique to Specification B — it combines reading comprehension with transactional writing. You must produce a piece of writing in a specified form (letter, article, speech, or report) that draws on ideas from the reading texts in Section A.</p>
 
 <div class="key-term"><strong>Key Term: Directed writing</strong> — A writing task where you must use ideas from source texts as a springboard for your own writing. You need to demonstrate reading comprehension AND writing skill simultaneously.</div>
 
@@ -158,7 +158,7 @@ const edexcelIgcseSpecB = {
 <p>Before you write a single word, ask yourself: <strong>Who am I writing for?</strong> This determines your vocabulary, tone, sentence structure, and level of formality. Writing for a local council demands precision and objectivity. Writing for fellow students permits more colloquial language and personal anecdotes.</p>
 
 <h3>Understanding Purpose</h3>
-<p>The most common purposes in Spec B directed writing are:</p>
+<p>The most common purposes in 4EB1 directed writing are:</p>
 <ul>
 <li><strong>To argue:</strong> Take a position and defend it with evidence and logic</li>
 <li><strong>To persuade:</strong> Convince the reader to agree with you or take action</li>
@@ -204,7 +204,7 @@ const edexcelIgcseSpecB = {
       title: 'Paper 2 Section A: Reading Fiction',
       duration: '40 mins',
       content: `<h2>Prose Analysis and Narrative Technique</h2>
-<p>Although Spec B is a single paper, the reading extracts can include <strong>fiction</strong> as well as non-fiction. When a prose fiction extract appears, the analytical skills you need shift from persuasive techniques to <strong>narrative craft</strong>. Understanding how fiction writers construct prose — through characterisation, setting, atmosphere, and narrative voice — is essential for the higher-mark questions.</p>
+<p>Although 4EB1 is a single paper, the reading extracts can include <strong>fiction</strong> as well as non-fiction. When a prose fiction extract appears, the analytical skills you need shift from persuasive techniques to <strong>narrative craft</strong>. Understanding how fiction writers construct prose — through characterisation, setting, atmosphere, and narrative voice — is essential for the higher-mark questions.</p>
 
 <div class="key-term"><strong>Key Term: Narrative voice</strong> — The perspective from which a story is told. First person ("I walked into the room") creates intimacy and subjectivity. Third person ("She walked into the room") allows broader perspective. The choice of narrative voice shapes the reader's relationship with characters and events.</div>
 
@@ -241,7 +241,7 @@ const edexcelIgcseSpecB = {
 
 <div class="common-mistake"><strong>Common Mistake:</strong> Retelling the plot instead of analysing technique. Saying "the character walks into the room and sees the letter" is narrative summary. Saying "the writer delays the revelation of the letter's contents, using the character's physical movement through the room to build suspense" is analysis.</div>`,
       quiz: [
-        { id: 'esb-m5-q1', question: 'Can fiction texts appear in the Spec B exam?', options: ['No — only non-fiction', 'Yes — both fiction and non-fiction can appear', 'Only poetry', 'Only 19th-century texts'], correct: 1, explanation: 'Spec B can include any text type: fiction, non-fiction, journalism, speeches, letters, autobiography, and more.' },
+        { id: 'esb-m5-q1', question: 'Can fiction texts appear in the 4EB1 exam?', options: ['No — only non-fiction', 'Yes — both fiction and non-fiction can appear', 'Only poetry', 'Only 19th-century texts'], correct: 1, explanation: '4EB1 can include any text type: fiction, non-fiction, journalism, speeches, letters, autobiography, and more.' },
         { id: 'esb-m5-q2', question: 'What is "pathetic fallacy"?', options: ['A logical error in an argument', 'When the environment mirrors a character\'s emotions', 'A type of dialogue', 'An unreliable narrator'], correct: 1, explanation: 'Pathetic fallacy is when the weather, landscape, or environment reflects the mood or emotions of a character or scene — e.g., a storm during a moment of anger.' },
         { id: 'esb-m5-q3', question: 'What is the difference between plot retelling and analysis?', options: ['They are the same thing', 'Retelling describes what happens; analysis explains why the writer made those choices', 'Analysis is longer than retelling', 'Retelling is better for high marks'], correct: 1, explanation: 'Analysis focuses on the writer\'s craft — why they chose a particular technique and what effect it creates. Retelling simply describes events and scores very few marks.' },
         { id: 'esb-m5-q4', question: 'Which method of characterisation involves what a character does rather than what the narrator says about them?', options: ['Direct description', 'Action', 'Interior thought', 'Dialogue'], correct: 1, explanation: 'Characterisation through action (also called "showing, not telling") reveals personality through behaviour rather than explicit narrator commentary.' },
@@ -251,8 +251,8 @@ const edexcelIgcseSpecB = {
       id: 'esb-m6',
       title: 'Paper 2 Section A: Poetry Analysis',
       duration: '35 mins',
-      content: `<h2>Approaching Unseen Poetry for Spec B</h2>
-<p>While Spec B does <strong>not</strong> include a dedicated poetry component and there is no anthology of set poems, poetry extracts <em>can</em> appear as one of the unseen texts in Section A. When they do, students who have practised unseen poetry analysis have a significant advantage. This module equips you with a transferable approach to any poem you might encounter.</p>
+      content: `<h2>Approaching Unseen Poetry for 4EB1</h2>
+<p>While 4EB1 does <strong>not</strong> include a dedicated poetry component and there is no anthology of set poems, poetry extracts <em>can</em> appear as one of the unseen texts in Section A. When they do, students who have practised unseen poetry analysis have a significant advantage. This module equips you with a transferable approach to any poem you might encounter.</p>
 
 <div class="key-term"><strong>Key Term: Unseen poetry</strong> — A poem you have never studied before, presented in an exam for immediate analysis. Success depends on transferable skills — identifying form, structure, language, and meaning — rather than memorised knowledge.</div>
 
@@ -283,7 +283,7 @@ const edexcelIgcseSpecB = {
 
 <div class="common-mistake"><strong>Common Mistake:</strong> Trying to decode a "hidden meaning" instead of analysing what is on the page. If you are unsure what a poem means, focus on HOW it communicates — the techniques, the structure, the sounds — rather than guessing at a single "correct" interpretation.</div>`,
       quiz: [
-        { id: 'esb-m6-q1', question: 'Does Spec B have a dedicated poetry anthology?', options: ['Yes — 15 poems', 'Yes — 10 poems', 'No — but poetry may appear as an unseen text', 'No — poetry never appears on Spec B'], correct: 2, explanation: 'Spec B has no poetry anthology, but poetry extracts can appear as unseen texts in Section A. Being prepared for this possibility is important.' },
+        { id: 'esb-m6-q1', question: 'Does 4EB1 have a dedicated poetry anthology?', options: ['Yes — 15 poems', 'Yes — 10 poems', 'No — but poetry may appear as an unseen text', 'No — poetry never appears on 4EB1'], correct: 2, explanation: '4EB1 has no poetry anthology, but poetry extracts can appear as unseen texts in Section A. Being prepared for this possibility is important.' },
         { id: 'esb-m6-q2', question: 'What is a "volta" in poetry?', options: ['A type of rhyme scheme', 'A turn or shift in the poem\'s mood, argument, or direction', 'A poem with 14 lines', 'A repeated refrain'], correct: 1, explanation: 'A volta is a turning point in a poem where the thought, mood, or argument shifts direction. It is especially associated with sonnets but can appear in any poem.' },
         { id: 'esb-m6-q3', question: 'What is the difference between tone and mood?', options: ['They are the same thing', 'Tone is the poet\'s attitude; mood is the atmosphere created for the reader', 'Mood is the poet\'s attitude; tone is the atmosphere', 'Tone relates to sound; mood relates to colour'], correct: 1, explanation: 'Tone is the writer\'s attitude (e.g., bitter, celebratory). Mood is the feeling or atmosphere the reader experiences (e.g., melancholy, tense).' },
         { id: 'esb-m6-q4', question: 'What should you do if you find an unseen poem confusing?', options: ['Skip it entirely', 'Focus on form, structure, and sound devices — you can analyse these without understanding every line', 'Guess the meaning and write about that', 'Write about a poem you have studied instead'], correct: 1, explanation: 'You can always analyse observable features like form, structure, rhyme, rhythm, and sound. These earn marks even if you are unsure of the poem\'s full meaning.' },
@@ -294,9 +294,9 @@ const edexcelIgcseSpecB = {
       title: 'Paper 2 Section B: Composition',
       duration: '40 mins',
       content: `<h2>Imaginative, Descriptive, and Narrative Writing</h2>
-<p>Section C of the Spec B paper offers you <strong>three writing choices</strong>: a discursive/argumentative task (Q9), a narrative task (Q10), and a descriptive task (Q11). You select <strong>one</strong>, and it is worth <strong>30 marks</strong> — 20 for AO4 (content, purpose, and organisation) and 10 for AO5 (technical accuracy including spelling, punctuation, and grammar). This module focuses on the creative options: narrative and descriptive writing.</p>
+<p>Section C of the 4EB1 paper offers you <strong>three writing choices</strong>: a discursive/argumentative task (Q9), a narrative task (Q10), and a descriptive task (Q11). You select <strong>one</strong>, and it is worth <strong>30 marks</strong> — 20 for AO4 (content, purpose, and organisation) and 10 for AO5 (technical accuracy including spelling, punctuation, and grammar). This module focuses on the creative options: narrative and descriptive writing.</p>
 
-<div class="key-term"><strong>Key Term: Composition</strong> — The art of crafting a piece of writing. In Spec B, "composition" in Section C means producing an original piece of writing — either discursive, narrative, or descriptive — without reference to source texts.</div>
+<div class="key-term"><strong>Key Term: Composition</strong> — The art of crafting a piece of writing. In 4EB1, "composition" in Section C means producing an original piece of writing — either discursive, narrative, or descriptive — without reference to source texts.</div>
 
 <h3>Narrative Writing (Q10)</h3>
 <p>A successful narrative in a timed exam is <strong>focused and controlled</strong>. Do not attempt an epic spanning years — choose a single moment, scene, or encounter and explore it in depth.</p>
@@ -349,8 +349,8 @@ const edexcelIgcseSpecB = {
       id: 'esb-m8',
       title: 'Revision & Exam Strategy',
       duration: '30 mins',
-      content: `<h2>Spec B Paper Structure, Timing, and Common Pitfalls</h2>
-<p>The Edexcel IGCSE English Language Spec B exam (4EB1) is a <strong>single 3-hour paper worth 100 marks</strong>. There is no second paper and no coursework. Everything rests on this one sitting, which makes strategic time management and awareness of common mistakes absolutely critical.</p>
+      content: `<h2>4EB1 Paper Structure, Timing, and Common Pitfalls</h2>
+<p>The Edexcel IGCSE English Language 4EB1 exam (4EB1) is a <strong>single 3-hour paper worth 100 marks</strong>. There is no second paper and no coursework. Everything rests on this one sitting, which makes strategic time management and awareness of common mistakes absolutely critical.</p>
 
 <div class="key-term"><strong>Key Term: Paper structure</strong> — Section A: Reading (40 marks, ~1 hour) → Section B: Directed Writing (30 marks, ~1 hour) → Section C: Free Writing (30 marks, ~1 hour). The exam is designed in three equal time blocks.</div>
 
@@ -393,7 +393,7 @@ const edexcelIgcseSpecB = {
 
 <div class="common-mistake"><strong>Common Mistake:</strong> Revising by re-reading notes passively. Active revision — writing practice answers, timing yourself, self-marking against the mark scheme — is far more effective. If you haven't written under timed conditions, you haven't truly revised.</div>`,
       quiz: [
-        { id: 'esb-m8-q1', question: 'How long is the total Spec B exam?', options: ['2 hours', '2 hours 30 minutes', '3 hours', '3 hours 45 minutes'], correct: 2, explanation: 'The Spec B exam is a single 3-hour paper worth 100 marks. There is no second paper.' },
+        { id: 'esb-m8-q1', question: 'How long is the total 4EB1 exam?', options: ['2 hours', '2 hours 30 minutes', '3 hours', '3 hours 45 minutes'], correct: 2, explanation: 'The 4EB1 exam is a single 3-hour paper worth 100 marks. There is no second paper.' },
         { id: 'esb-m8-q2', question: 'What is the advised time split across the three sections?', options: ['30-60-90 minutes', '60-60-60 minutes', '45-45-90 minutes', '90-45-45 minutes'], correct: 1, explanation: 'The advised time is 60 minutes per section: 60 for Reading, 60 for Directed Writing, 60 for Free Writing.' },
         { id: 'esb-m8-q3', question: 'Why is proofreading worth your time?', options: ['It is not worth the time', 'AO5 marks for technical accuracy are easy to gain through proofreading', 'The examiner watches you proofread', 'It makes your handwriting better'], correct: 1, explanation: 'Proofreading catches spelling, punctuation, and grammar errors that cost AO5 marks. Five minutes of checking can gain several marks across both writing sections.' },
         { id: 'esb-m8-q4', question: 'How should you choose your Section C question?', options: ['Pick the topic that sounds most interesting', 'Always choose Q9 (discursive)', 'Choose the form that best suits your writing strengths', 'Pick randomly'], correct: 2, explanation: 'Choose based on your strengths, not the topic. If you write better descriptions than arguments, pick Q11 even if Q9\'s topic appeals to you. Play to your strengths under pressure.' },
@@ -401,16 +401,16 @@ const edexcelIgcseSpecB = {
     },
   ],
   assessmentQuestions: [
-    { id: 'esb-a1', question: 'What is the Edexcel IGCSE Spec B qualification code?', options: ['4EA1', '4EB1', '1EN2', '8700'], correct: 1, explanation: 'Specification B is coded 4EB1. 4EA1 is Spec A, 1EN2 is Edexcel GCSE, 8700 is AQA.' },
-    { id: 'esb-a2', question: 'How many papers make up the Spec B exam?', options: ['1', '2', '3', '4'], correct: 0, explanation: 'Spec B consists of a single 3-hour paper worth 100 marks. There is no second paper or coursework.' },
-    { id: 'esb-a3', question: 'What is the total mark for the Spec B exam?', options: ['80', '90', '100', '120'], correct: 2, explanation: 'The Spec B exam is worth 100 marks: 40 (Reading) + 30 (Directed Writing) + 30 (Free Writing).' },
+    { id: 'esb-a1', question: 'What is the Edexcel IGCSE 4EB1 qualification code?', options: ['4EA1', '4EB1', '1EN2', '8700'], correct: 1, explanation: 'Specification B is coded 4EB1. 4EA1 is 4EA1, 1EN2 is Edexcel GCSE, 8700 is AQA.' },
+    { id: 'esb-a2', question: 'How many papers make up the 4EB1 exam?', options: ['1', '2', '3', '4'], correct: 0, explanation: '4EB1 consists of a single 3-hour paper worth 100 marks. There is no second paper or coursework.' },
+    { id: 'esb-a3', question: 'What is the total mark for the 4EB1 exam?', options: ['80', '90', '100', '120'], correct: 2, explanation: 'The 4EB1 exam is worth 100 marks: 40 (Reading) + 30 (Directed Writing) + 30 (Free Writing).' },
     { id: 'esb-a4', question: 'What is directed writing?', options: ['Copying the source texts', 'Writing that draws on ideas from the reading extracts for a new purpose and audience', 'A dictation exercise', 'Free creative writing'], correct: 1, explanation: 'Directed writing requires you to reference and develop ideas from the source texts while writing for a specified form, purpose, and audience.' },
     { id: 'esb-a5', question: 'Which AO does language and structure analysis test?', options: ['AO1', 'AO2', 'AO3', 'AO4'], correct: 1, explanation: 'AO2 tests your ability to analyse how writers use linguistic and structural devices to achieve effects.' },
-    { id: 'esb-a6', question: 'How many marks does Q7 (comparison) carry?', options: ['10', '12', '15', '20'], correct: 2, explanation: 'Q7 is worth 15 marks — the highest-value purely reading question on the Spec B paper.' },
+    { id: 'esb-a6', question: 'How many marks does Q7 (comparison) carry?', options: ['10', '12', '15', '20'], correct: 2, explanation: 'Q7 is worth 15 marks — the highest-value purely reading question on the 4EB1 paper.' },
     { id: 'esb-a7', question: 'What is the WHAT–HOW–WHY paragraph structure?', options: ['A revision method', 'Identify technique, provide evidence, explain the effect on the reader', 'A way to structure an essay introduction', 'A timing strategy'], correct: 1, explanation: 'WHAT (identify the technique), HOW (quote evidence), WHY (explain the reader impact). It ensures every analytical point is fully developed.' },
     { id: 'esb-a8', question: 'How many writing options does Section C offer?', options: ['1', '2', '3', '4'], correct: 2, explanation: 'Section C offers three options: discursive/argumentative (Q9), narrative (Q10), and descriptive (Q11). You choose one.' },
     { id: 'esb-a9', question: 'What proportion of the total exam does writing account for?', options: ['30%', '40%', '50%', '60%'], correct: 3, explanation: 'Writing accounts for 60 marks out of 100 (Section B: 30 + Section C: 30), which is 60% of the total. However, 10 of Section B\'s marks are for reading (AO1).' },
-    { id: 'esb-a10', question: 'What is the single biggest reason students underperform on Spec B?', options: ['Not knowing enough techniques', 'Poor time management across the 3-hour paper', 'Bad handwriting', 'Not reading enough books'], correct: 1, explanation: 'Poor time management is the most common pitfall. Spending too long on Section A leaves insufficient time for the two writing sections, which are worth 60% of the marks.' },
+    { id: 'esb-a10', question: 'What is the single biggest reason students underperform on 4EB1?', options: ['Not knowing enough techniques', 'Poor time management across the 3-hour paper', 'Bad handwriting', 'Not reading enough books'], correct: 1, explanation: 'Poor time management is the most common pitfall. Spending too long on Section A leaves insufficient time for the two writing sections, which are worth 60% of the marks.' },
   ],
 };
 

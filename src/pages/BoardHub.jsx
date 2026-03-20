@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { BookMarked, PenLine, BookText, Gamepad2, CalendarDays, LayoutGrid, ArrowRight, ChevronRight } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import COURSES from '../data/courseData';
@@ -70,7 +70,15 @@ const fullWidthLink = (color) => ({
 
 export default function BoardHub() {
   const { boardId } = useParams();
+  const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState('overview');
+
+  // Redirect to the new paper-based subject selection flow
+  useEffect(() => {
+    if (boardId) {
+      navigate(`/board/${boardId}/subject`, { replace: true });
+    }
+  }, [boardId, navigate]);
 
   const board = BOARD_META[boardId?.toLowerCase()] || BOARD_META.aqa;
   const boardCourses = COURSES.filter(c => c.board === board.filterKey);

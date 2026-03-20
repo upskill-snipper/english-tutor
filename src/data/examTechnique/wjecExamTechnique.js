@@ -1,7 +1,7 @@
 const wjecExamTechnique = {
   id: 'exam-technique-wjec',
   title: 'WJEC Eduqas Exam Technique Masterclass',
-  subtitle: 'Component 1 & Component 2',
+  subtitle: 'Paper 1 & Paper 2',
   tier: 'GCSE',
   board: 'WJEC',
   specCode: 'C700U/C720U',
@@ -13,16 +13,16 @@ const wjecExamTechnique = {
   color: 'from-orange-600 to-orange-800',
   moduleList: [
     // ──────────────────────────────────────────────
-    // MODULE 1 — Component 1 Reading Analysis
+    // MODULE 1 — Paper 1 Reading Analysis
     // ──────────────────────────────────────────────
     {
       id: 'wjec-et-m1',
-      title: 'Component 1 Reading Analysis',
+      title: 'Paper 1 Reading Analysis',
       duration: '20 min',
       content: `
-<h2>Component 1 Reading: The Integrated Approach</h2>
+<h2>Paper 1 Reading: The Integrated Approach</h2>
 
-<p>WJEC Eduqas Component 1 is called <strong>"20th Century Literature Reading and Creative Prose Writing"</strong>. The reading section is worth <strong>40 marks</strong> and is based on a single literary prose extract from the 20th century. You have roughly <strong>1 hour</strong> for the reading section out of the total 1 hour 45 minutes for the whole paper. Understanding how WJEC structures its reading questions is the first step to consistently high marks.</p>
+<p>WJEC Eduqas Paper 1 is called <strong>"20th Century Literature Reading and Creative Prose Writing"</strong>. The reading section is worth <strong>40 marks</strong> and is based on a single literary prose extract from the 20th century. You have roughly <strong>1 hour</strong> for the reading section out of the total 1 hour 45 minutes for the whole paper. Understanding how WJEC structures its reading questions is the first step to consistently high marks.</p>
 
 <div class="key-term"><strong>Key Term: Integrated Reading</strong> — WJEC Eduqas reading questions are designed to test language analysis, structural analysis, and evaluation within a flowing set of questions that build in complexity. Unlike AQA, which separates language and structure into distinct questions, WJEC often integrates these skills within broader prompts.</div>
 
@@ -63,11 +63,11 @@ const wjecExamTechnique = {
       quiz: [
         {
           id: 'wjec-et-m1-q1',
-          question: 'How many marks is the Component 1 reading section worth in total?',
+          question: 'How many marks is the Paper 1 reading section worth in total?',
           options: ['20 marks', '30 marks', '40 marks', '50 marks'],
           answer: 2,
           explanation:
-            'The Component 1 reading section is worth 40 marks across all five questions (A1-A5).',
+            'The Paper 1 reading section is worth 40 marks across all five questions (A1-A5).',
         },
         {
           id: 'wjec-et-m1-q2',
@@ -84,7 +84,7 @@ const wjecExamTechnique = {
         },
         {
           id: 'wjec-et-m1-q3',
-          question: 'Which question should you spend the least time on in Component 1 reading?',
+          question: 'Which question should you spend the least time on in Paper 1 reading?',
           options: ['A3 (10 marks)', 'A5 (10 marks)', 'A1 (5 marks)', 'A4 (10 marks)'],
           answer: 2,
           explanation:
@@ -107,16 +107,16 @@ const wjecExamTechnique = {
     },
 
     // ──────────────────────────────────────────────
-    // MODULE 2 — Component 1 Narrative Writing
+    // MODULE 2 — Paper 1 Narrative Writing
     // ──────────────────────────────────────────────
     {
       id: 'wjec-et-m2',
-      title: 'Component 1 Narrative Writing',
+      title: 'Paper 1 Narrative Writing',
       duration: '20 min',
       content: `
-<h2>Component 1 Section B: Creative Prose Writing</h2>
+<h2>Paper 1 Section B: Creative Prose Writing</h2>
 
-<p>Section B of Component 1 is the <strong>creative prose writing</strong> task. It is worth <strong>40 marks</strong> — exactly the same as the reading section — and you should allocate approximately <strong>45 minutes</strong> to it. You will be given a choice of <strong>four titles or prompts</strong> and must select one. The task always requires prose writing: a story, a narrative opening, or a piece of descriptive writing.</p>
+<p>Section B of Paper 1 is the <strong>creative prose writing</strong> task. It is worth <strong>40 marks</strong> — exactly the same as the reading section — and you should allocate approximately <strong>45 minutes</strong> to it. You will be given a choice of <strong>four titles or prompts</strong> and must select one. The task always requires prose writing: a story, a narrative opening, or a piece of descriptive writing.</p>
 
 <div class="key-term"><strong>Key Term: Eduqas Marking Criteria</strong> — WJEC Eduqas assesses creative writing against two Assessment Objectives: <strong>AO5 (content and organisation, 24 marks)</strong> and <strong>AO6 (technical accuracy, 16 marks)</strong>. This means 60% of your marks come from what you write and how you structure it, while 40% come from spelling, punctuation, grammar, and vocabulary.</div>
 
@@ -163,7 +163,7 @@ const wjecExamTechnique = {
       quiz: [
         {
           id: 'wjec-et-m2-q1',
-          question: 'How are the 40 marks for Component 1 creative writing split between the two AOs?',
+          question: 'How are the 40 marks for Paper 1 creative writing split between the two AOs?',
           options: [
             '20 marks AO5, 20 marks AO6',
             '24 marks AO5, 16 marks AO6',
@@ -225,22 +225,22 @@ const wjecExamTechnique = {
     },
 
     // ──────────────────────────────────────────────
-    // MODULE 3 — Component 2 Comparison
+    // MODULE 3 — Paper 2 Comparison
     // ──────────────────────────────────────────────
     {
       id: 'wjec-et-m3',
-      title: 'Component 2 Reading: Comparison Across Centuries',
+      title: 'Paper 2 Reading: Comparison Across Centuries',
       duration: '20 min',
       content: `
-<h2>Component 2 Reading: 19th and 21st Century Non-Fiction</h2>
+<h2>Paper 2 Reading: 19th and 21st Century Non-Fiction</h2>
 
-<p>WJEC Eduqas Component 2 is <strong>"19th and 21st Century Non-Fiction Reading and Transactional/Persuasive Writing"</strong>. The reading section is worth <strong>40 marks</strong> and presents you with <strong>two non-fiction texts</strong>: one from the 21st century and one from the 19th century. The exam lasts <strong>2 hours</strong> in total, and you should allocate approximately <strong>1 hour</strong> to the reading section.</p>
+<p>WJEC Eduqas Paper 2 is <strong>"19th and 21st Century Non-Fiction Reading and Transactional/Persuasive Writing"</strong>. The reading section is worth <strong>40 marks</strong> and presents you with <strong>two non-fiction texts</strong>: one from the 21st century and one from the 19th century. The exam lasts <strong>2 hours</strong> in total, and you should allocate approximately <strong>1 hour</strong> to the reading section.</p>
 
 <div class="key-term"><strong>Key Term: Cross-Century Comparison</strong> — The skill of identifying similarities and differences in how writers from different historical periods approach a shared theme or topic. WJEC specifically tests your ability to synthesise ideas across the two texts and compare the writers' methods.</div>
 
 <h3>The Question Structure</h3>
 
-<p>Component 2 reading typically follows this structure:</p>
+<p>Paper 2 reading typically follows this structure:</p>
 
 <ul>
   <li><strong>Question A1 (2 marks)</strong> — A brief retrieval question based on one of the texts. Quick and factual.</li>
@@ -266,7 +266,7 @@ const wjecExamTechnique = {
 
 <h3>The Comparison Question (A6): A Step-by-Step Method</h3>
 
-<p>Question A6 is worth 12 marks and is the most challenging part of Component 2 reading. It requires you to compare the two texts systematically. Here is a proven approach:</p>
+<p>Question A6 is worth 12 marks and is the most challenging part of Paper 2 reading. It requires you to compare the two texts systematically. Here is a proven approach:</p>
 
 <ol>
   <li><strong>Identify 3-4 points of comparison</strong> — Before writing, list the key similarities and differences in how the two writers approach the topic. Consider: tone, purpose, audience, techniques, perspective.</li>
@@ -293,7 +293,7 @@ const wjecExamTechnique = {
       quiz: [
         {
           id: 'wjec-et-m3-q1',
-          question: 'How many marks is the Component 2 comparison question (A6) worth?',
+          question: 'How many marks is the Paper 2 comparison question (A6) worth?',
           options: ['8 marks', '10 marks', '12 marks', '15 marks'],
           answer: 2,
           explanation:
@@ -349,9 +349,9 @@ const wjecExamTechnique = {
       title: 'Literature: Shakespeare Extract-Based Essay',
       duration: '20 min',
       content: `
-<h2>Shakespeare Extract-Based Essay: Component 1 Literature</h2>
+<h2>Shakespeare Extract-Based Essay: Paper 1 Literature</h2>
 
-<p>The Shakespeare section of WJEC Eduqas Literature Component 1 is worth a combined <strong>40 marks</strong>, split into two parts: <strong>Part (a) — the extract question (15 marks)</strong> and <strong>Part (b) — the whole-text essay (25 marks)</strong>. Together, they account for <strong>40% of your total Literature GCSE</strong>. Getting this section right is critical to your overall grade.</p>
+<p>The Shakespeare section of WJEC Eduqas Literature Paper 1 is worth a combined <strong>40 marks</strong>, split into two parts: <strong>Part (a) — the extract question (15 marks)</strong> and <strong>Part (b) — the whole-text essay (25 marks)</strong>. Together, they account for <strong>40% of your total Literature GCSE</strong>. Getting this section right is critical to your overall grade.</p>
 
 <div class="key-term"><strong>Key Term: Extract-Based Essay</strong> — A question that provides a printed extract from the play and asks you to analyse how Shakespeare uses language, form, and structure to create meaning within that specific passage. You must demonstrate close reading skills while showing awareness of the extract's place in the wider play.</div>
 
@@ -472,7 +472,7 @@ const wjecExamTechnique = {
       content: `
 <h2>Poetry Comparison: The Eduqas Anthology Approach</h2>
 
-<p>The poetry section of WJEC Eduqas Literature Component 2 is worth <strong>40 marks</strong>, split between the <strong>anthology comparison (20 marks)</strong> and the <strong>unseen poetry section (20 marks)</strong>. The anthology comparison question names one poem and asks you to compare it with another poem of your choice from the anthology. This module focuses on mastering that comparison technique.</p>
+<p>The poetry section of WJEC Eduqas Literature Paper 2 is worth <strong>40 marks</strong>, split between the <strong>anthology comparison (20 marks)</strong> and the <strong>unseen poetry section (20 marks)</strong>. The anthology comparison question names one poem and asks you to compare it with another poem of your choice from the anthology. This module focuses on mastering that comparison technique.</p>
 
 <div class="key-term"><strong>Key Term: Anthology Comparison</strong> — A question that names one poem from the WJEC Eduqas anthology and asks you to compare how two poets present a specific theme, idea, or experience. You must select a second poem yourself, making your choice of comparison poem a strategic decision.</div>
 
@@ -578,7 +578,7 @@ const wjecExamTechnique = {
 
 <div class="key-term"><strong>Key Principle: Marks Per Minute</strong> — The simplest way to allocate time is to calculate how many marks each question is worth and divide your total exam time proportionally. For WJEC papers, a rough guide is approximately 1 minute per mark, with a small buffer for reading and planning.</div>
 
-<h3>Component 1: 20th Century Literature Reading and Creative Prose Writing</h3>
+<h3>Paper 1: 20th Century Literature Reading and Creative Prose Writing</h3>
 <p><strong>Total time: 1 hour 45 minutes (105 minutes)</strong></p>
 
 <table>
@@ -598,9 +598,9 @@ const wjecExamTechnique = {
   </tbody>
 </table>
 
-<div class="examiner-tip"><strong>Examiner Tip:</strong> The 5-minute proofread at the end of Component 1 is non-negotiable. AO6 is worth 16 marks for creative writing. Catching and correcting three or four spelling errors, adding missing punctuation, and fixing a tense inconsistency in those final minutes can gain you 2-3 marks — the equivalent of an entire grade boundary in some years.</div>
+<div class="examiner-tip"><strong>Examiner Tip:</strong> The 5-minute proofread at the end of Paper 1 is non-negotiable. AO6 is worth 16 marks for creative writing. Catching and correcting three or four spelling errors, adding missing punctuation, and fixing a tense inconsistency in those final minutes can gain you 2-3 marks — the equivalent of an entire grade boundary in some years.</div>
 
-<h3>Component 2: 19th and 21st Century Non-Fiction Reading and Transactional/Persuasive Writing</h3>
+<h3>Paper 2: 19th and 21st Century Non-Fiction Reading and Transactional/Persuasive Writing</h3>
 <p><strong>Total time: 2 hours (120 minutes)</strong></p>
 
 <table>
@@ -623,7 +623,7 @@ const wjecExamTechnique = {
   </tbody>
 </table>
 
-<h3>Literature Component 1: Shakespeare and Poetry</h3>
+<h3>Literature Paper 1: Shakespeare and Poetry</h3>
 <p><strong>Total time: 2 hours (120 minutes)</strong></p>
 
 <table>
@@ -666,11 +666,11 @@ const wjecExamTechnique = {
       quiz: [
         {
           id: 'wjec-et-m6-q1',
-          question: 'How long is the WJEC Eduqas Language Component 1 exam?',
+          question: 'How long is the WJEC Eduqas Language Paper 1 exam?',
           options: ['1 hour 30 minutes', '1 hour 45 minutes', '2 hours', '2 hours 15 minutes'],
           answer: 1,
           explanation:
-            'Component 1 (20th Century Literature Reading and Creative Prose Writing) lasts 1 hour 45 minutes (105 minutes).',
+            'Paper 1 (20th Century Literature Reading and Creative Prose Writing) lasts 1 hour 45 minutes (105 minutes).',
         },
         {
           id: 'wjec-et-m6-q2',
@@ -731,11 +731,11 @@ const wjecExamTechnique = {
   assessmentQuestions: [
     {
       id: 'wjec-et-a1',
-      question: 'How many marks is Component 1 reading worth?',
+      question: 'How many marks is Paper 1 reading worth?',
       options: ['20 marks', '30 marks', '40 marks', '50 marks'],
       answer: 2,
       explanation:
-        'Component 1 reading is worth 40 marks across five questions (A1-A5).',
+        'Paper 1 reading is worth 40 marks across five questions (A1-A5).',
     },
     {
       id: 'wjec-et-a2',
@@ -747,7 +747,7 @@ const wjecExamTechnique = {
     },
     {
       id: 'wjec-et-a3',
-      question: 'In the Component 2 comparison question (A6), what structure should you use?',
+      question: 'In the Paper 2 comparison question (A6), what structure should you use?',
       options: [
         'Write about Text 1 then Text 2 separately',
         'Integrate comparison point by point, referencing both texts in every paragraph',
@@ -760,7 +760,7 @@ const wjecExamTechnique = {
     },
     {
       id: 'wjec-et-a4',
-      question: 'How are the 40 marks for Component 1 creative writing split?',
+      question: 'How are the 40 marks for Paper 1 creative writing split?',
       options: [
         '20 marks AO5, 20 marks AO6',
         '24 marks AO5, 16 marks AO6',
@@ -781,7 +781,7 @@ const wjecExamTechnique = {
     },
     {
       id: 'wjec-et-a6',
-      question: 'What is the difference between synthesis and comparison in Component 2?',
+      question: 'What is the difference between synthesis and comparison in Paper 2?',
       options: [
         'They are the same skill',
         'Synthesis draws together content from both texts; comparison analyses the writers\' methods',
@@ -807,11 +807,11 @@ const wjecExamTechnique = {
     },
     {
       id: 'wjec-et-a8',
-      question: 'How long is the Language Component 2 exam?',
+      question: 'How long is the Language Paper 2 exam?',
       options: ['1 hour 30 minutes', '1 hour 45 minutes', '2 hours', '2 hours 30 minutes'],
       answer: 2,
       explanation:
-        'Component 2 (19th and 21st Century Non-Fiction Reading and Transactional/Persuasive Writing) lasts 2 hours.',
+        'Paper 2 (19th and 21st Century Non-Fiction Reading and Transactional/Persuasive Writing) lasts 2 hours.',
     },
     {
       id: 'wjec-et-a9',

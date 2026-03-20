@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { GraduationCap, BookOpen, CheckCircle, ArrowRight, Star, Gamepad2, Brain } from 'lucide-react';
+import { BookOpen, CheckCircle, ArrowRight, Star, Gamepad2, Brain } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Lauren from '../components/Lauren';
 
@@ -23,19 +23,26 @@ const GCSE_FEATURES = [
 ];
 
 const BOARDS = [
-  { name: 'AQA', color: '#2563eb' },
-  { name: 'Edexcel', color: '#dc2626' },
-  { name: 'OCR', color: '#7c3aed' },
-  { name: 'WJEC', color: '#ea580c' },
+  { name: 'AQA', color: '#2563eb', path: '/board/aqa' },
+  { name: 'Edexcel', color: '#dc2626', path: '/board/edexcel' },
+  { name: 'OCR', color: '#7c3aed', path: '/board/ocr' },
+  { name: 'WJEC', color: '#ea580c', path: '/board/wjec' },
+  { name: 'KS3', color: '#10b981', path: '/board/ks3/subject' },
 ];
 
 const GAME_NAMES = [
+  'Who Said It?',
+  'Word Match',
+  'Technique Spotter',
+  'Grammar Ninja',
+  'Timeline Scramble',
+  'Speed Round',
   'Quote Detective',
-  'Vocabulary Builder',
-  'Grammar Rush',
   'Spelling Bee',
-  'Context Clues',
-  'Literary Terms',
+  'Context Connect',
+  'Punctuation Fixer',
+  'Mark the Essay',
+  'Daily Challenge',
 ];
 
 const sectionBase = {
@@ -103,16 +110,32 @@ export default function Landing() {
             />
           </div>
 
-          <Link
-            to="/about"
-            style={{
-              display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
-              color: '#34d399', fontWeight: 600, fontSize: '1.05rem',
-              textDecoration: 'none',
-            }}
-          >
-            Meet your tutor <ArrowRight size={18} />
-          </Link>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
+            <Link
+              to="/register"
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
+                background: 'linear-gradient(135deg, #10b981, #059669)',
+                color: '#fff', fontWeight: 700, fontSize: '1.1rem',
+                padding: '1rem 2.25rem', borderRadius: '12px',
+                textDecoration: 'none', transition: 'transform 0.2s, box-shadow 0.2s',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 32px rgba(16,185,129,0.35)'; }}
+              onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none'; }}
+            >
+              Start Learning Free <ArrowRight size={18} />
+            </Link>
+            <Link
+              to="/about"
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
+                color: '#34d399', fontWeight: 600, fontSize: '1.05rem',
+                textDecoration: 'none',
+              }}
+            >
+              Meet your tutor <ArrowRight size={18} />
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -170,7 +193,7 @@ export default function Landing() {
             </div>
 
             <Link
-              to="/courses?tier=KS3"
+              to="/board/ks3/subject"
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
                 background: 'linear-gradient(135deg, #10b981, #059669)',
@@ -257,7 +280,7 @@ export default function Landing() {
             {/* Board badges */}
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '2.5rem' }}>
               {BOARDS.map((b) => (
-                <div key={b.name} style={{
+                <Link key={b.name} to={b.path} style={{
                   background: `${b.color}20`,
                   border: `2px solid ${b.color}60`,
                   borderRadius: '10px',
@@ -266,9 +289,14 @@ export default function Landing() {
                   fontSize: '0.9rem',
                   color: b.color,
                   letterSpacing: '0.02em',
-                }}>
+                  textDecoration: 'none',
+                  transition: 'transform 0.15s, box-shadow 0.15s',
+                }}
+                  onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = `0 4px 16px ${b.color}30`; }}
+                  onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none'; }}
+                >
                   {b.name}
-                </div>
+                </Link>
               ))}
             </div>
 
@@ -397,6 +425,63 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* ===== SOCIAL PROOF / TESTIMONIALS ===== */}
+      <section style={{
+        ...sectionBase,
+        padding: '80px 2rem',
+        background: 'linear-gradient(180deg, rgba(255,255,255,0.02) 0%, transparent 100%)',
+        borderBottom: '1px solid rgba(255,255,255,0.04)',
+      }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <h2 style={{
+            textAlign: 'center',
+            fontSize: 'clamp(1.8rem, 3.5vw, 2.4rem)',
+            fontWeight: 900,
+            marginBottom: '0.75rem',
+          }}>
+            Trusted by Students &amp; Parents
+          </h2>
+          <p style={{ textAlign: 'center', color: '#94a3b8', marginBottom: '3rem', fontSize: '1.1rem' }}>
+            Real results from real GCSE students across the UK.
+          </p>
+
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '1.5rem',
+          }}>
+            {[
+              { quote: 'I went from a Grade 4 to a Grade 7 in just three months. The board-specific practice made all the difference.', name: 'Amara T.', detail: 'AQA English Language, Year 11' },
+              { quote: 'The games kept me revising without it feeling like work. My son actually asks to go on LearnRight now!', name: 'Claire M.', detail: 'Parent, KS3 student' },
+              { quote: 'Having an actual examiner behind the resources gave me so much confidence going into my exam.', name: 'Jake R.', detail: 'Edexcel English Literature, Year 11' },
+            ].map((t, i) => (
+              <div key={i} style={{
+                background: 'rgba(255,255,255,0.03)',
+                border: '1px solid rgba(255,255,255,0.08)',
+                borderRadius: '16px',
+                padding: '2rem',
+              }}>
+                <div style={{ display: 'flex', gap: '0.2rem', marginBottom: '1rem' }}>
+                  {[...Array(5)].map((_, j) => (
+                    <Star key={j} size={16} color="#f59e0b" fill="#f59e0b" />
+                  ))}
+                </div>
+                <p style={{
+                  color: '#cbd5e1', fontSize: '0.95rem', lineHeight: 1.75,
+                  marginBottom: '1.25rem', fontStyle: 'italic',
+                }}>
+                  &ldquo;{t.quote}&rdquo;
+                </p>
+                <div>
+                  <span style={{ color: '#f1f5f9', fontWeight: 700, fontSize: '0.9rem' }}>{t.name}</span>
+                  <span style={{ color: '#64748b', fontSize: '0.85rem', marginLeft: '0.5rem' }}>{t.detail}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ===== PRICING SECTION ===== */}
       <section style={{
         ...sectionBase,
@@ -469,7 +554,7 @@ export default function Landing() {
               </div>
               <h3 style={{ fontWeight: 800, fontSize: '1.3rem', color: '#f1f5f9', marginBottom: '0.75rem' }}>Monthly</h3>
               <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.25rem', marginBottom: '1.5rem' }}>
-                <span style={{ fontSize: '3rem', fontWeight: 900, color: '#10b981' }}>£12.50</span>
+                <span style={{ fontSize: '3rem', fontWeight: 900, color: '#10b981' }}>£19</span>
                 <span style={{ color: '#64748b', fontSize: '1rem' }}>/month</span>
               </div>
               <p style={{ color: '#94a3b8', fontSize: '0.95rem', lineHeight: 1.7, marginBottom: '1.5rem' }}>
@@ -501,47 +586,30 @@ export default function Landing() {
                 padding: '0.3rem 0.85rem', fontSize: '0.75rem', color: '#34d399',
                 fontWeight: 700, letterSpacing: '0.06em', marginBottom: '0.75rem', alignSelf: 'flex-start',
               }}>
-                LIFETIME
+                ANNUAL
               </div>
               <h3 style={{ fontWeight: 800, fontSize: '1.3rem', color: '#f1f5f9', marginBottom: '0.75rem' }}>Pro</h3>
               <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem', marginBottom: '1.5rem' }}>
                 <span style={{ fontSize: '3rem', fontWeight: 900, color: '#f1f5f9' }}>£179</span>
-                <span style={{ color: '#64748b', fontSize: '0.95rem' }}>one-time</span>
+                <span style={{ color: '#64748b', fontSize: '0.95rem' }}>/year</span>
               </div>
               <p style={{ color: '#94a3b8', fontSize: '0.95rem', lineHeight: 1.7, marginBottom: '1.5rem' }}>
-                Full access forever. Pay once, learn for life. All future courses and updates included.
+                Full school year access, August to August. Save £49 compared to paying monthly — that's over 2 months free.
               </p>
               <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 2rem', display: 'flex', flexDirection: 'column', gap: '0.85rem', flex: 1 }}>
-                {['Everything in Monthly', 'Lifetime access — pay once, learn forever', 'All future courses & updates included', 'Priority support'].map((item, i) => (
+                {['Everything in Monthly', 'Full school year access (Aug–Aug)', 'Save £49 vs monthly (over 2 months free)'].map((item, i) => (
                   <li key={i} style={{ display: 'flex', gap: '0.6rem', alignItems: 'flex-start', color: '#cbd5e1', fontSize: '0.95rem' }}>
                     <CheckCircle size={17} color="#10b981" style={{ flexShrink: 0, marginTop: '2px' }} /> {item}
                   </li>
                 ))}
               </ul>
               <Link to="/pricing" className="btn-secondary" style={{ padding: '0.85rem 1.5rem', textAlign: 'center', width: '100%', fontSize: '1rem' }}>
-                Get Lifetime Access <ArrowRight size={16} />
+                Get Annual Access <ArrowRight size={16} />
               </Link>
             </div>
           </div>
         </div>
       </section>
-
-      {/* ===== FOOTER ===== */}
-      <footer style={{
-        borderTop: '1px solid rgba(255,255,255,0.06)',
-        padding: '2.5rem 2rem',
-        textAlign: 'center',
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
-          <GraduationCap size={20} color="#10b981" />
-          <span style={{ fontWeight: 700, fontSize: '1.05rem', color: '#f1f5f9' }}>
-            Learn<span style={{ color: '#10b981' }}>Right</span> English
-          </span>
-        </div>
-        <p style={{ color: '#475569', fontSize: '0.85rem' }}>
-          &copy; {new Date().getFullYear()} LearnRight English. All rights reserved.
-        </p>
-      </footer>
 
       {showFloatingLauren && (
         <Lauren

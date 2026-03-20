@@ -1,6 +1,7 @@
-import { BrowserRouter, Routes, Route, Navigate, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useEffect, Component, lazy, Suspense } from 'react';
 import { seedDemoData, getCurrentUser } from './utils/auth';
+import Footer from './components/Footer';
 
 const Landing = lazy(() => import('./pages/Landing'));
 const Login = lazy(() => import('./pages/Login'));
@@ -36,6 +37,8 @@ const Pricing = lazy(() => import('./pages/Pricing'));
 const BoardSelect = lazy(() => import('./pages/BoardSelect'));
 const BoardHub = lazy(() => import('./pages/BoardHub'));
 const AboutLauren = lazy(() => import('./pages/AboutLauren'));
+const SubjectSelect = lazy(() => import('./pages/SubjectSelect'));
+const PaperHub = lazy(() => import('./pages/PaperHub'));
 
 class ErrorBoundary extends Component {
   constructor(props) {
@@ -62,9 +65,18 @@ class ErrorBoundary extends Component {
           <p style={{ color: '#94a3b8', marginBottom: '2rem', maxWidth: '400px' }}>
             An unexpected error occurred. Please try again or return to the home page.
           </p>
-          <a href="/" className="btn-primary" style={{ textDecoration: 'none' }}>
-            Go Home
-          </a>
+          <div style={{ display: 'flex', gap: '1rem' }}>
+            <button
+              className="btn-primary"
+              onClick={() => this.setState({ hasError: false })}
+              style={{ cursor: 'pointer' }}
+            >
+              Try Again
+            </button>
+            <a href="/" className="btn-primary" style={{ textDecoration: 'none' }}>
+              Go Home
+            </a>
+          </div>
         </div>
       );
     }
@@ -88,6 +100,8 @@ export default function App() {
     <ErrorBoundary>
     <BrowserRouter basename="/english-tutor">
       <Suspense fallback={<div className="flex items-center justify-center min-h-screen"><div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div></div>}>
+      <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+      <main id="main-content" style={{ flex: '1 0 auto' }}>
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
@@ -121,10 +135,15 @@ export default function App() {
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/board-select" element={<BoardSelect />} />
         <Route path="/board/:boardId" element={<BoardHub />} />
+        <Route path="/board/:boardId/subject" element={<SubjectSelect />} />
+        <Route path="/board/:boardId/:subject/:paperId" element={<PaperHub />} />
         <Route path="/about" element={<AboutLauren />} />
         <Route path="/admin" element={<ProtectedRoute adminOnly><AdminPanel /></ProtectedRoute>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      </main>
+      <Footer />
+      </div>
       </Suspense>
     </BrowserRouter>
     </ErrorBoundary>

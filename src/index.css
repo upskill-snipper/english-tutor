@@ -30,12 +30,6 @@ body {
   transition: background 0.25s ease, color 0.25s ease;
 }
 
-.glass {
-  background: var(--glass-bg, rgba(255, 255, 255, 0.04));
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.08));
-}
-
 .card {
   background: var(--bg-card, #131d35);
   border: 1px solid var(--border-color, #1e2d4a);
@@ -115,9 +109,7 @@ body {
 
 /* Touch targets — ensure all buttons meet 44px minimum */
 .btn-primary,
-.btn-secondary {
-  min-height: 44px;
-}
+.btn-secondary,
 .btn-ghost {
   min-height: 44px;
 }
@@ -222,23 +214,6 @@ body {
   font-style: italic;
 }
 
-.module-content .warning-box {
-  background: rgba(245,158,11,0.08);
-  border-left: 3px solid #f59e0b;
-  padding: 0.75rem 1rem;
-  margin: 1.5rem 0;
-  border-radius: 0 8px 8px 0;
-}
-
-.module-content .diagram-box {
-  background: #0a0e1a;
-  border: 1px solid #1e2d4a;
-  border-radius: 8px;
-  padding: 1.5rem;
-  margin: 1.5rem 0;
-  overflow-x: auto;
-}
-
 .module-content pre {
   color: #94a3b8;
   font-family: 'Courier New', monospace;
@@ -275,22 +250,10 @@ body {
   max-width: 100%;
 }
 
-/* ── Utility: narrow container for text-heavy pages ──────────────── */
-.container-narrow {
-  max-width: 720px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-/* ── Board filter badges: wrap on small screens ──────────────────── */
-.board-filters,
-[class*="badge-group"],
-[class*="filter-badges"] {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+/* ── Course catalogue: responsive row adjustments ────────────────── */
+@media (max-width: 640px) {
+  .course-row-btn { display: none !important; }
+  .course-row-inner { padding: 1rem 1.25rem !important; min-height: auto !important; }
 }
 
 @keyframes fadeIn {
@@ -377,79 +340,3 @@ body {
   background: #10b981;
 }
 
-/* ── Light mode overrides ────────────────────────────────────────── */
-.light-mode {
-  --bg-primary: #f8fafc;
-  --bg-secondary: #ffffff;
-  --bg-card: #ffffff;
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --border-color: #e2e8f0;
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(0, 0, 0, 0.08);
-  --nav-bg: rgba(255, 255, 255, 0.85);
-}
-
-.light-mode .btn-secondary {
-  background: rgba(0, 0, 0, 0.04);
-  color: #0f172a;
-  border-color: #e2e8f0;
-}
-.light-mode .btn-secondary:hover {
-  background: rgba(0, 0, 0, 0.08);
-  border-color: #cbd5e1;
-}
-
-.light-mode .btn-ghost {
-  color: #475569;
-}
-.light-mode .btn-ghost:hover {
-  color: #0f172a;
-  background: rgba(0, 0, 0, 0.04);
-}
-
-.light-mode .progress-track {
-  background: rgba(0, 0, 0, 0.08);
-}
-
-.light-mode .module-content p,
-.light-mode .module-content li {
-  color: #334155;
-}
-.light-mode .module-content strong {
-  color: #0f172a;
-}
-.light-mode .module-content pre {
-  color: #475569;
-}
-.light-mode .module-content dt {
-  color: #0f172a;
-}
-.light-mode .module-content dd {
-  color: #475569;
-}
-
-.light-mode .module-content .text-extract {
-  background: #f1f5f9;
-  border-color: #e2e8f0;
-  color: #0f172a;
-}
-.light-mode .module-content .text-extract::before {
-  background: #f1f5f9;
-  color: #94a3b8;
-}
-
-.light-mode .module-content .diagram-box {
-  background: #f8fafc;
-  border-color: #e2e8f0;
-}
-
-.light-mode ::-webkit-scrollbar-track {
-  background: #f1f5f9;
-}
-.light-mode ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-}
-.light-mode ::-webkit-scrollbar-thumb:hover {
-  background: #10b981;
-}

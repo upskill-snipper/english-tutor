@@ -1,4 +1,4 @@
-// Edexcel IGCSE English Language Spec A (4EA1) — Anthology Part 1
+// Edexcel IGCSE English Language 4EA1 (4EA1) — Anthology Part 1
 // Individual Annotated Text: "127 Hours: Between a Rock and a Hard Place" by Aron Ralston
 // This text appeared in the SAMs — give extra exam focus
 
@@ -18,7 +18,7 @@ const text = {
 <h3>Context</h3>
 <p>In April 2003, 27-year-old mountaineer Aron Ralston was hiking alone in a remote slot canyon in Utah when an 800-pound boulder shifted and pinned his right hand against the canyon wall. He was trapped for <strong>127 hours</strong> — more than five days — with almost no food or water. After exhausting every other option, Ralston made the extraordinary decision to amputate his own arm using a blunt multi-tool knife in order to free himself. He then rappelled down a 65-foot cliff and hiked several miles before being rescued by a helicopter. The extract in the anthology comes from his 2004 memoir, which recounts the ordeal in visceral, unflinching detail.</p>
 
-<div class="examiner-tip"><strong>SAMs Alert:</strong> This text appeared in the Edexcel IGCSE Spec A Sample Assessment Materials. That means examiners consider it a strong exemplar of the anthology. Practise writing about this text under timed conditions — there is a realistic chance a text with similar themes (survival, endurance, conflict with nature) could appear alongside it as the unseen.</div>
+<div class="examiner-tip"><strong>SAMs Alert:</strong> This text appeared in the Edexcel IGCSE 4EA1 Sample Assessment Materials. That means examiners consider it a strong exemplar of the anthology. Practise writing about this text under timed conditions — there is a realistic chance a text with similar themes (survival, endurance, conflict with nature) could appear alongside it as the unseen.</div>
 
 <h3>The Extract</h3>
 <p>The anthology extract focuses on the <strong>critical moments of Ralston's ordeal</strong> — his growing desperation, his psychological battle with fear and pain, and the harrowing decision to sever his own arm. Ralston shifts between detached, almost clinical description and raw emotional intensity, giving the reader a deeply unsettling but compelling account of human survival at its most extreme.</p>
@@ -78,7 +78,7 @@ const text = {
 <div class="examiner-tip"><strong>Examiner Tip:</strong> When writing about purpose, always link it to specific language or structural choices. Do not simply state "Ralston wants to inspire the reader" — explain HOW his use of present tense, visceral imagery, or sentence structure achieves that purpose. Purpose without evidence is assertion; purpose with evidence is analysis.</div>
 
 <h3>Comparison Preparation</h3>
-<p>Question 5 on Component 1 asks you to <strong>compare</strong> the anthology text with the unseen text. If Ralston appears in your exam, the unseen text will likely share a theme such as survival, danger, isolation, or conflict with nature. Prepare by thinking about how Ralston's techniques compare with other approaches:</p>
+<p>Question 5 on Paper 1 asks you to <strong>compare</strong> the anthology text with the unseen text. If Ralston appears in your exam, the unseen text will likely share a theme such as survival, danger, isolation, or conflict with nature. Prepare by thinking about how Ralston's techniques compare with other approaches:</p>
 <ul>
 <li><strong>First-person vs third-person</strong> — Ralston's intimate "I" narration vs a journalist's external perspective</li>
 <li><strong>Present tense vs past tense</strong> — immediacy vs reflective distance</li>
@@ -209,7 +209,7 @@ const text = {
       question: 'Why is this text particularly important for exam preparation?',
       options: [
         'It is the only text in the anthology',
-        'It appeared in the Edexcel IGCSE Spec A Sample Assessment Materials (SAMs)',
+        'It appeared in the Edexcel IGCSE 4EA1 Sample Assessment Materials (SAMs)',
         'It is the longest text in Part 1',
         'It is the only autobiography in the anthology'
       ],

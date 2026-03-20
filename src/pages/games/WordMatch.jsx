@@ -4,6 +4,7 @@ import { ArrowLeft, Trophy, Clock, Target, Zap, RotateCcw, ChevronRight, Star, A
 import Navbar from '../../components/Navbar';
 import GameWrapper from '../../components/GameWrapper';
 import Lauren from '../../components/Lauren';
+import { recordGamePlayed } from '../../utils/gameUtils';
 
 /* ───────────────────────── TERM DATA ───────────────────────── */
 
@@ -429,6 +430,7 @@ export default function WordMatch() {
   const endGame = useCallback(() => {
     clearInterval(timerRef.current);
     setGameState('results');
+    recordGamePlayed();
   }, []);
 
   useEffect(() => {
@@ -553,11 +555,11 @@ export default function WordMatch() {
       <Navbar />
       <GameWrapper gameId="word-match">
       <div style={styles.container}>
-        <Link to="/dashboard" style={styles.backLink}
+        <Link to="/games" style={styles.backLink}
           onMouseEnter={e => e.target.style.color = '#c7d2fe'}
           onMouseLeave={e => e.target.style.color = '#94a3b8'}
         >
-          <ArrowLeft size={16} /> Back to Dashboard
+          <ArrowLeft size={16} /> Back to Games
         </Link>
 
         <div style={styles.header}>

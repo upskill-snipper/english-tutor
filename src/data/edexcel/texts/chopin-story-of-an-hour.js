@@ -65,21 +65,21 @@ const text = {
   examQuestions: [
     {
       id: 'chopin-hour-eq1',
-      component: 'Component 2 Section A',
+      component: 'Paper 2 Section A',
       marks: 30,
       question:
         'How does Chopin present the theme of freedom in "The Story of an Hour"? You should consider the writer\'s use of language, form and structure, and relevant context.',
     },
     {
       id: 'chopin-hour-eq2',
-      component: 'Component 2 Section A',
+      component: 'Paper 2 Section A',
       marks: 30,
       question:
         'How does Chopin use the open window as a symbol in "The Story of an Hour"? You should refer to the writer\'s methods and the effect on the reader.',
     },
     {
       id: 'chopin-hour-eq3',
-      component: 'Component 2 Section A',
+      component: 'Paper 2 Section A',
       marks: 30,
       question:
         'How does Chopin present marriage as a form of oppression in "The Story of an Hour"? You should consider the writer\'s use of language, structure and relevant context.',

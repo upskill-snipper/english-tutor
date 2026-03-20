@@ -1,8 +1,10 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowUp, ArrowDown, Star, RotateCcw, ChevronRight, CheckCircle2, XCircle, Trophy, Clock } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import GameWrapper from '../../components/GameWrapper';
 import Lauren from '../../components/Lauren';
+import { recordGamePlayed } from '../../utils/gameUtils';
 
 /* ───────────────────────────── DATA ───────────────────────────── */
 
@@ -367,6 +369,7 @@ export default function TimelineScramble() {
     setResults({ correct: correctCount, total: sorted.length, percentage: pct, details });
     setChecked(true);
     saveScore(selectedPlay, pct);
+    recordGamePlayed();
     setScores(loadScores());
   }
 
@@ -475,6 +478,9 @@ export default function TimelineScramble() {
             <button style={styles.btnSecondary} onClick={() => { setSelectedPlay(null); setShowTimeline(false); }}>
               All Texts
             </button>
+            <Link to="/games" style={{ ...styles.btnSecondary, textDecoration: 'none', textAlign: 'center' }}>
+              Back to Games
+            </Link>
           </div>
         </div>
         </GameWrapper>
@@ -649,6 +655,9 @@ export default function TimelineScramble() {
           >
             Back to All Texts
           </button>
+          <Link to="/games" style={{ ...styles.btnSecondary, fontSize: '0.85rem', padding: '0.5rem 1rem', textDecoration: 'none', textAlign: 'center' }}>
+            Back to Games
+          </Link>
         </div>
       </div>
       </GameWrapper>

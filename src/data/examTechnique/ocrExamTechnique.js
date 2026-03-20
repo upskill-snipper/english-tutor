@@ -1,25 +1,25 @@
-// OCR Exam Technique Masterclass — Component 01 & Component 02
+// OCR Exam Technique Masterclass — Paper 1 & Paper 2
 // Covers Language (J351) and Literature (J352) exam skills
 
 const ocrExamTechnique = {
   id: 'exam-technique-ocr',
   title: 'OCR Exam Technique Masterclass',
-  subtitle: 'Component 01 & Component 02',
+  subtitle: 'Paper 1 & Paper 2',
   tier: 'GCSE',
   board: 'OCR',
   specCode: 'J351/J352',
   price: 29,
   duration: '3 hours',
   level: 'All levels',
-  description: 'Master the exact skills OCR examiners reward across Language and Literature components.',
+  description: 'Master the exact skills OCR examiners reward across Language and Literature papers.',
   color: 'from-purple-600 to-purple-800',
   moduleList: [
     {
       id: 'ocr-et-m1',
-      title: 'Component 01 Q3: Synthesis Across Two Sources',
+      title: 'Paper 1 Q3: Synthesis Across Two Sources',
       duration: '20 min',
-      content: `<h2>Component 01 Q3: Synthesis - Combining Information from Two Sources</h2>
-<p>Question 3 on OCR Component 01 (Communicating Information and Ideas) is a <strong>synthesis question worth 12 marks</strong>. It asks you to combine information and ideas from both texts provided on the paper - the 19th-century non-fiction source and the 20th/21st-century non-fiction source. This is an OCR-specific skill that differs from other boards: OCR wants you to <strong>draw together relevant material from both sources</strong> and present a coherent, unified response that addresses the question focus.</p>
+      content: `<h2>Paper 1 Q3: Synthesis - Combining Information from Two Sources</h2>
+<p>Question 3 on OCR Paper 1 (Communicating Information and Ideas) is a <strong>synthesis question worth 12 marks</strong>. It asks you to combine information and ideas from both texts provided on the paper - the 19th-century non-fiction source and the 20th/21st-century non-fiction source. This is an OCR-specific skill that differs from other boards: OCR wants you to <strong>draw together relevant material from both sources</strong> and present a coherent, unified response that addresses the question focus.</p>
 
 <div class="key-term"><strong>Key Term: Synthesis</strong> - The process of selecting, combining, and organising information from two or more sources into a single, cohesive response. Unlike comparison, synthesis does not require you to analyse differences in method - it focuses on gathering and connecting relevant content.</div>
 
@@ -31,7 +31,7 @@ const ocrExamTechnique = {
 <li><strong>Inference:</strong> Go beyond surface-level repetition of facts. Show that you can read between the lines and draw out implicit meanings from the information provided.</li>
 </ul>
 
-<div class="text-extract">"Using details from both sources, explain what you learn about the challenges faced by travellers in unfamiliar environments."<div class="source">Example Q3 in the style of OCR Component 01</div></div>
+<div class="text-extract">"Using details from both sources, explain what you learn about the challenges faced by travellers in unfamiliar environments."<div class="source">Example Q3 in the style of OCR Paper 1</div></div>
 
 <h3>The OCR Synthesis Framework: SELECT - CONNECT - INFER</h3>
 <p>Use this three-step approach for every synthesis paragraph:</p>
@@ -56,7 +56,7 @@ const ocrExamTechnique = {
 
 <div class="common-mistake"><strong>Common Mistake:</strong> Writing "Source A says... Source B says..." as two separate paragraphs with no connection between them. This is summary, not synthesis. You must explicitly link the information, showing what the combined details reveal about the topic.</div>`,
       quiz: [
-        { id: 'ocr-et-m1-q1', question: 'How many marks is Q3 on OCR Component 01 worth?', options: ['6 marks', '8 marks', '12 marks', '18 marks'], answer: 2, explanation: 'Q3 on Component 01 is worth 12 marks. It is a synthesis question requiring you to combine information from both sources.' },
+        { id: 'ocr-et-m1-q1', question: 'How many marks is Q3 on OCR Paper 1 worth?', options: ['6 marks', '8 marks', '12 marks', '18 marks'], answer: 2, explanation: 'Q3 on Paper 1 is worth 12 marks. It is a synthesis question requiring you to combine information from both sources.' },
         { id: 'ocr-et-m1-q2', question: 'What does OCR mean by "synthesis" in Q3?', options: ['Analysing language techniques across two texts', 'Combining information from two sources into a unified response', 'Comparing the writers\' opinions on a topic', 'Evaluating the effectiveness of both texts'], answer: 1, explanation: 'Synthesis means selecting, combining, and organising information from both sources into a single, coherent response - not analysing techniques or comparing methods.' },
         { id: 'ocr-et-m1-q3', question: 'Which approach should you avoid on OCR Q3?', options: ['Embedding quotations from both texts', 'Drawing inferences from the combined information', 'Analysing the writer\'s use of metaphor and imagery', 'Balancing references across both sources equally'], answer: 2, explanation: 'Q3 is not a language analysis question. Analysing metaphors and imagery should be saved for Q4. Q3 focuses on content and ideas from both sources.' },
         { id: 'ocr-et-m1-q4', question: 'What is the SELECT-CONNECT-INFER framework?', options: ['A method for planning creative writing', 'A three-step synthesis approach: pick a detail, link to the other source, draw out meaning', 'A way to structure comparative essays', 'A technique for memorising quotations'], answer: 1, explanation: 'SELECT a relevant detail from one source, CONNECT it to a related detail from the other source, and INFER what the combined information reveals about the question topic.' },
@@ -64,16 +64,16 @@ const ocrExamTechnique = {
     },
     {
       id: 'ocr-et-m2',
-      title: 'Component 01 Q4: Evaluation of Writer\'s Methods',
+      title: 'Paper 1 Q4: Evaluation of Writer\'s Methods',
       duration: '20 min',
-      content: `<h2>Component 01 Q4: Evaluating How Writers Achieve Effects</h2>
-<p>Question 4 is the <strong>highest-value reading question on Component 01</strong>, worth <strong>18 marks</strong>. It is an evaluative comparison question that asks you to assess how both writers use language and/or structure to achieve their purposes. This is where OCR tests your critical response skills - your ability to judge how effectively writers communicate their ideas and influence the reader. Unlike Q3, which focuses on content, Q4 demands close attention to <strong>method</strong>: the techniques writers choose and the effects those techniques create.</p>
+      content: `<h2>Paper 1 Q4: Evaluating How Writers Achieve Effects</h2>
+<p>Question 4 is the <strong>highest-value reading question on Paper 1</strong>, worth <strong>18 marks</strong>. It is an evaluative comparison question that asks you to assess how both writers use language and/or structure to achieve their purposes. This is where OCR tests your critical response skills - your ability to judge how effectively writers communicate their ideas and influence the reader. Unlike Q3, which focuses on content, Q4 demands close attention to <strong>method</strong>: the techniques writers choose and the effects those techniques create.</p>
 
 <div class="key-term"><strong>Key Term: Evaluation</strong> - Making a judgement about the effectiveness of a writer's choices. This goes beyond identification ("the writer uses a metaphor") to assessment ("the metaphor is particularly effective because..."). OCR rewards responses that show genuine critical thinking, not just technique-spotting.</div>
 
 <h3>The OCR Q4 Structure</h3>
 <p>The question will typically present a statement or viewpoint and ask you to evaluate how far you agree by examining both texts. For example:</p>
-<div class="text-extract">"Both writers attempt to persuade the reader to share their viewpoint on urban development. Evaluate how successfully each writer achieves this."<div class="source">Example Q4 in the style of OCR Component 01</div></div>
+<div class="text-extract">"Both writers attempt to persuade the reader to share their viewpoint on urban development. Evaluate how successfully each writer achieves this."<div class="source">Example Q4 in the style of OCR Paper 1</div></div>
 
 <h3>Building an Evaluative Response: The JUDGE Framework</h3>
 <p>For each analytical paragraph, follow this pattern:</p>
@@ -109,8 +109,8 @@ const ocrExamTechnique = {
 
 <div class="model-answer"><strong>Model Paragraph:</strong> Writer A compellingly conveys the devastation of the flood through the extended metaphor of the town as "a corpse laid out for viewing, pale and still." The comparison to a dead body transforms the damaged buildings into something deeply personal and human, forcing the reader to feel grief rather than mere sympathy. The word "viewing" specifically evokes a funeral parlour, suggesting the community has gathered not to repair but to mourn. Writer B, by contrast, adopts a more restrained approach, using factual enumeration - "fourteen homes, three schools, one church" - to convey scale through accumulation rather than emotion. Both strategies are effective, but Writer A's metaphorical approach creates a more visceral, immediate response, while Writer B's measured listing builds a quieter, more devastating sense of loss through sheer quantity.</div>`,
       quiz: [
-        { id: 'ocr-et-m2-q1', question: 'How many marks is Q4 worth on Component 01?', options: ['8 marks', '12 marks', '16 marks', '18 marks'], answer: 3, explanation: 'Q4 is worth 18 marks, making it the highest-value reading question on Component 01. It tests evaluation and comparative analysis across both texts.' },
-        { id: 'ocr-et-m2-q2', question: 'What is the key difference between Q3 and Q4 on Component 01?', options: ['Q3 is about the 19th-century text; Q4 is about the modern text', 'Q3 focuses on content and information; Q4 focuses on methods and evaluation', 'Q3 is worth more marks than Q4', 'Q3 requires quotations; Q4 does not'], answer: 1, explanation: 'Q3 is a synthesis question about content from both sources. Q4 is an evaluative question about how writers use methods to achieve effects - it demands critical judgement, not just information gathering.' },
+        { id: 'ocr-et-m2-q1', question: 'How many marks is Q4 worth on Paper 1?', options: ['8 marks', '12 marks', '16 marks', '18 marks'], answer: 3, explanation: 'Q4 is worth 18 marks, making it the highest-value reading question on Paper 1. It tests evaluation and comparative analysis across both texts.' },
+        { id: 'ocr-et-m2-q2', question: 'What is the key difference between Q3 and Q4 on Paper 1?', options: ['Q3 is about the 19th-century text; Q4 is about the modern text', 'Q3 focuses on content and information; Q4 focuses on methods and evaluation', 'Q3 is worth more marks than Q4', 'Q3 requires quotations; Q4 does not'], answer: 1, explanation: 'Q3 is a synthesis question about content from both sources. Q4 is an evaluative question about how writers use methods to achieve effects - it demands critical judgement, not just information gathering.' },
         { id: 'ocr-et-m2-q3', question: 'What separates a Band 5 response from a Band 4 response on Q4?', options: ['Using more quotations', 'Writing longer paragraphs', 'Threading sustained evaluation and judgement throughout', 'Identifying more techniques by name'], answer: 2, explanation: 'OCR examiners report that Band 5 responses sustain evaluation throughout every paragraph, making critical judgements rather than simply identifying and analysing techniques.' },
         { id: 'ocr-et-m2-q4', question: 'What does the "E" stand for in the JUDGE framework?', options: ['Evidence', 'Example', 'Evaluate success', 'Explain context'], answer: 2, explanation: 'The E in JUDGE stands for Evaluate success - returning to your opening judgement to reinforce or refine your assessment of how effectively the technique serves the writer\'s purpose.' },
         { id: 'ocr-et-m2-q5', question: 'Why should you compare techniques across both texts in Q4?', options: ['Because Q4 only gives marks for comparison', 'Because OCR rewards integrated responses that draw explicit connections between writers\' methods', 'Because you must decide which text is better', 'Because the mark scheme requires exactly three comparisons'], answer: 1, explanation: 'OCR Q4 rewards integrated responses. Explicitly comparing how both writers approach the topic using different methods demonstrates the critical thinking examiners look for at the highest bands.' },
@@ -118,12 +118,12 @@ const ocrExamTechnique = {
     },
     {
       id: 'ocr-et-m3',
-      title: 'Component 02 Q3: Language and Structure Analysis (Fiction)',
+      title: 'Paper 2 Q3: Language and Structure Analysis (Fiction)',
       duration: '20 min',
-      content: `<h2>Component 02 Q3: Analysing Language and Structure in Fiction</h2>
-<p>Component 02 (Fiction and Imaginative Writing) presents you with an <strong>unseen fiction extract</strong>, and Question 3 is the centrepiece reading question, worth <strong>24 marks</strong>. This is the single highest-value reading question across both Language components. It asks you to analyse how the writer uses language and structure to create meaning and effect. The assessment objective in play is <strong>AO2</strong>: explain, comment on, and analyse how writers use language and structure to achieve effects and influence readers.</p>
+      content: `<h2>Paper 2 Q3: Analysing Language and Structure in Fiction</h2>
+<p>Paper 2 (Fiction and Imaginative Writing) presents you with an <strong>unseen fiction extract</strong>, and Question 3 is the centrepiece reading question, worth <strong>24 marks</strong>. This is the single highest-value reading question across both Language papers. It asks you to analyse how the writer uses language and structure to create meaning and effect. The assessment objective in play is <strong>AO2</strong>: explain, comment on, and analyse how writers use language and structure to achieve effects and influence readers.</p>
 
-<div class="key-term"><strong>Key Term: AO2</strong> - "Explain, comment on and analyse how writers use language and structure to achieve effects and influence readers, using relevant subject terminology to support your views." This is the dominant assessment objective for Component 02 Q3 - every mark depends on your ability to move beyond identification to analysis of effect.</div>
+<div class="key-term"><strong>Key Term: AO2</strong> - "Explain, comment on and analyse how writers use language and structure to achieve effects and influence readers, using relevant subject terminology to support your views." This is the dominant assessment objective for Paper 2 Q3 - every mark depends on your ability to move beyond identification to analysis of effect.</div>
 
 <h3>Language Analysis: Going Beyond the Obvious</h3>
 <p>OCR examiners consistently reward students who analyse language at word level. This means zooming in on individual words within a quotation and explaining precisely why the writer chose that word over alternatives:</p>
@@ -159,8 +159,8 @@ const ocrExamTechnique = {
 
 <div class="common-mistake"><strong>Common Mistake:</strong> Feature-spotting without analysis. Writing "the writer uses alliteration" or "there is a metaphor in line 4" without explaining the effect earns very few marks. Every technique you identify must be followed by detailed analysis of its impact on the reader and its contribution to the writer's purpose.</div>`,
       quiz: [
-        { id: 'ocr-et-m3-q1', question: 'How many marks is Q3 on Component 02 worth?', options: ['12 marks', '18 marks', '24 marks', '30 marks'], answer: 2, explanation: 'Q3 on Component 02 is worth 24 marks - the single highest-value reading question across both OCR Language components.' },
-        { id: 'ocr-et-m3-q2', question: 'Which assessment objective does Component 02 Q3 primarily test?', options: ['AO1 - Identifying information', 'AO2 - Language and structure analysis', 'AO3 - Comparison across texts', 'AO4 - Spelling and grammar'], answer: 1, explanation: 'AO2 is the dominant assessment objective for Q3: explain, comment on, and analyse how writers use language and structure to achieve effects and influence readers.' },
+        { id: 'ocr-et-m3-q1', question: 'How many marks is Q3 on Paper 2 worth?', options: ['12 marks', '18 marks', '24 marks', '30 marks'], answer: 2, explanation: 'Q3 on Paper 2 is worth 24 marks - the single highest-value reading question across both OCR Language papers.' },
+        { id: 'ocr-et-m3-q2', question: 'Which assessment objective does Paper 2 Q3 primarily test?', options: ['AO1 - Identifying information', 'AO2 - Language and structure analysis', 'AO3 - Comparison across texts', 'AO4 - Spelling and grammar'], answer: 1, explanation: 'AO2 is the dominant assessment objective for Q3: explain, comment on, and analyse how writers use language and structure to achieve effects and influence readers.' },
         { id: 'ocr-et-m3-q3', question: 'What does the "SO" step add to WHAT-HOW-WHY analysis?', options: ['A summary of the paragraph', 'A connection to the bigger picture and the writer\'s broader purpose', 'A quotation from the text', 'A comparison with another technique'], answer: 1, explanation: 'The "SO" step connects your analysis to the writer\'s broader purpose or theme, showing the examiner that you understand how individual techniques contribute to the overall meaning of the text.' },
         { id: 'ocr-et-m3-q4', question: 'Why must you include structural analysis alongside language analysis?', options: ['Because structure is worth more marks than language', 'Because OCR marks language and structure together on this question', 'Because you cannot discuss language without discussing structure', 'Because structural analysis is easier than language analysis'], answer: 1, explanation: 'OCR marks language and structure together on Q3. A response that only discusses language - however brilliantly - is limiting itself and cannot access the full range of marks.' },
         { id: 'ocr-et-m3-q5', question: 'What is "feature-spotting" and why should you avoid it?', options: ['Identifying too many techniques - you should only use one per paragraph', 'Naming techniques without analysing their effect on the reader', 'Spotting features in the wrong part of the text', 'Using incorrect terminology for techniques'], answer: 1, explanation: 'Feature-spotting means identifying techniques (e.g., "the writer uses alliteration") without explaining the effect. Every technique must be followed by detailed analysis of its impact.' },
@@ -234,7 +234,7 @@ const ocrExamTechnique = {
       title: 'Unseen Poetry: Systematic Analysis for OCR',
       duration: '20 min',
       content: `<h2>Unseen Poetry: A Systematic Approach for OCR</h2>
-<p>The unseen poetry component of OCR English Literature requires you to analyse a poem you have never seen before under timed exam conditions. This is the question that causes the most anxiety among students, but it is also the question where a <strong>systematic approach</strong> yields the biggest gains. Unlike set text questions where you can rely on memorised quotations and pre-prepared analysis, unseen poetry rewards the student who has a reliable, repeatable method for unlocking any poem. OCR typically asks you to explore how the poet presents a theme, idea, or feeling - and the key to success is knowing exactly where to look and in what order.</p>
+<p>The unseen poetry section of OCR English Literature requires you to analyse a poem you have never seen before under timed exam conditions. This is the question that causes the most anxiety among students, but it is also the question where a <strong>systematic approach</strong> yields the biggest gains. Unlike set text questions where you can rely on memorised quotations and pre-prepared analysis, unseen poetry rewards the student who has a reliable, repeatable method for unlocking any poem. OCR typically asks you to explore how the poet presents a theme, idea, or feeling - and the key to success is knowing exactly where to look and in what order.</p>
 
 <div class="key-term"><strong>Key Term: Unseen Poetry</strong> - A poem you encounter for the first time in the exam. You cannot prepare specific content, but you can prepare a systematic method of analysis that works for any poem. OCR assesses your ability to analyse language, structure, and form (AO2) alongside your personal interpretation (AO1).</div>
 
@@ -282,15 +282,15 @@ const ocrExamTechnique = {
     },
     {
       id: 'ocr-et-m6',
-      title: 'Time Management: Minute-by-Minute for OCR Components',
+      title: 'Time Management: Minute-by-Minute for OCR Papers',
       duration: '20 min',
       content: `<h2>Time Management: Minute-by-Minute Plans for OCR Exams</h2>
 <p>Time management is the invisible skill that separates students who achieve their potential from those who underperform. Every year, OCR examiners report that <strong>incomplete papers</strong> are one of the most common reasons students score below their ability. A student who writes a brilliant Q3 but runs out of time on Q4 will lose far more marks than a student who writes good (not brilliant) responses to both. The principle is simple: <strong>every question deserves its time allocation</strong>, and you must have a plan before you walk into the exam room.</p>
 
 <div class="key-term"><strong>Key Principle: Marks per Minute</strong> - The time you spend on each question should be proportional to its mark value. On a 2-hour paper worth 80 marks, each mark is worth approximately 1.5 minutes. A 12-mark question deserves roughly 18 minutes; an 18-mark question deserves roughly 27 minutes. Use this ratio to plan your time.</div>
 
-<h3>Component 01: Communicating Information and Ideas (2 hours, 80 marks)</h3>
-<p>Component 01 has a reading section and a writing section. Here is your minute-by-minute plan:</p>
+<h3>Paper 1: Communicating Information and Ideas (2 hours, 80 marks)</h3>
+<p>Paper 1 has a reading section and a writing section. Here is your minute-by-minute plan:</p>
 
 <h4>Reading Section (Questions 1-4)</h4>
 <table>
@@ -314,8 +314,8 @@ const ocrExamTechnique = {
 
 <div class="examiner-tip"><strong>Examiner Tip:</strong> The reading section should take no more than 68 minutes in total. If you find yourself spending 40 minutes on Q4, you are over-writing. A focused, well-structured 27-minute response to Q4 will score as well as or better than a 40-minute response that runs out of new points halfway through.</div>
 
-<h3>Component 02: Fiction and Imaginative Writing (2 hours, 80 marks)</h3>
-<p>Component 02 has a reading section based on an unseen fiction extract and a writing section.</p>
+<h3>Paper 2: Fiction and Imaginative Writing (2 hours, 80 marks)</h3>
+<p>Paper 2 has a reading section based on an unseen fiction extract and a writing section.</p>
 
 <h4>Reading Section (Questions 1-3)</h4>
 <table>
@@ -339,15 +339,15 @@ const ocrExamTechnique = {
 <h3>What to Do When You Fall Behind</h3>
 <p>Even with perfect planning, you may find yourself running over on a question. Here is your emergency protocol:</p>
 <ul>
-<li><strong>Set checkpoints:</strong> At 30 minutes, check whether you are on track. At 60 minutes, you should be entering the writing section of Component 01 or starting Q3 on Component 02.</li>
+<li><strong>Set checkpoints:</strong> At 30 minutes, check whether you are on track. At 60 minutes, you should be entering the writing section of Paper 1 or starting Q3 on Paper 2.</li>
 <li><strong>Cut your losses:</strong> If you have spent 5 extra minutes on a question, do not try to "make up" time by rushing the next question. Accept the overspend and give the next question its proper time minus only 2-3 minutes.</li>
 <li><strong>Never skip a question:</strong> A half-finished response to Q4 still earns marks. A skipped question earns zero. Even bullet-pointed analysis is better than a blank page.</li>
-<li><strong>Protect the writing section:</strong> Students routinely over-spend on reading and then rush their writing. The writing section carries 40 marks on both components - treat it with equal seriousness.</li>
+<li><strong>Protect the writing section:</strong> Students routinely over-spend on reading and then rush their writing. The writing section carries 40 marks on both papers - treat it with equal seriousness.</li>
 </ul>
 
-<div class="common-mistake"><strong>Common Mistake:</strong> Spending 45 minutes on Component 02 Q3 because it is "the big question." Yes, it is worth 24 marks, but those extra 10 minutes will cost you more marks on the writing section than they will gain on Q3. Diminishing returns set in after 35 minutes - your fourth and fifth paragraphs of analysis rarely add significant marks.</div>
+<div class="common-mistake"><strong>Common Mistake:</strong> Spending 45 minutes on Paper 2 Q3 because it is "the big question." Yes, it is worth 24 marks, but those extra 10 minutes will cost you more marks on the writing section than they will gain on Q3. Diminishing returns set in after 35 minutes - your fourth and fifth paragraphs of analysis rarely add significant marks.</div>
 
-<h3>Literature Component Timing</h3>
+<h3>Literature Paper Timing</h3>
 <p>For OCR Literature essays (typically 45-50 minutes per essay), use this structure:</p>
 <ul>
 <li><strong>Planning:</strong> 5 minutes - create your comparison grid with quotations</li>
@@ -359,24 +359,24 @@ const ocrExamTechnique = {
 
 <div class="model-answer"><strong>Practical Tip:</strong> In your first practice exam, write the time next to each question as you start it. Afterwards, compare your actual timings to the plan above. Identify where you over-spent and practise that question type under strict timed conditions until you can consistently finish within the allocation. Time discipline is a skill that improves with deliberate practice, just like analytical writing.</div>`,
       quiz: [
-        { id: 'ocr-et-m6-q1', question: 'How long should you spend on Q4 (evaluation) on Component 01?', options: ['15 minutes', '20 minutes', '27 minutes', '40 minutes'], answer: 2, explanation: 'Q4 is worth 18 marks on a 2-hour, 80-mark paper. At approximately 1.5 minutes per mark, this gives a 27-minute allocation. Spending longer produces diminishing returns.' },
+        { id: 'ocr-et-m6-q1', question: 'How long should you spend on Q4 (evaluation) on Paper 1?', options: ['15 minutes', '20 minutes', '27 minutes', '40 minutes'], answer: 2, explanation: 'Q4 is worth 18 marks on a 2-hour, 80-mark paper. At approximately 1.5 minutes per mark, this gives a 27-minute allocation. Spending longer produces diminishing returns.' },
         { id: 'ocr-et-m6-q2', question: 'What should you do if you fall 5 minutes behind schedule?', options: ['Skip the next question entirely', 'Rush through the rest of the paper to make up time', 'Accept the overspend and give the next question its proper time minus only 2-3 minutes', 'Start writing in bullet points for all remaining questions'], answer: 2, explanation: 'Cut your losses rather than creating a cascading time problem. Accept the overspend and give the next question close to its full allocation, trimming only 2-3 minutes.' },
-        { id: 'ocr-et-m6-q3', question: 'How long should you spend on Q3 on Component 02?', options: ['20 minutes', '25 minutes', '35 minutes', '45 minutes'], answer: 2, explanation: 'Q3 on Component 02 is worth 24 marks and deserves approximately 35 minutes. Spending longer produces diminishing returns and steals time from the writing section.' },
-        { id: 'ocr-et-m6-q4', question: 'Why is it important to protect the writing section?', options: ['Because writing is easier than reading', 'Because the writing section carries 40 marks on both components', 'Because examiners mark writing more generously', 'Because you can copy from the source texts'], answer: 1, explanation: 'The writing section carries 40 marks on both components - half the total. Students who over-spend on reading and rush their writing lose more marks than they gain from extended reading responses.' },
+        { id: 'ocr-et-m6-q3', question: 'How long should you spend on Q3 on Paper 2?', options: ['20 minutes', '25 minutes', '35 minutes', '45 minutes'], answer: 2, explanation: 'Q3 on Paper 2 is worth 24 marks and deserves approximately 35 minutes. Spending longer produces diminishing returns and steals time from the writing section.' },
+        { id: 'ocr-et-m6-q4', question: 'Why is it important to protect the writing section?', options: ['Because writing is easier than reading', 'Because the writing section carries 40 marks on both papers', 'Because examiners mark writing more generously', 'Because you can copy from the source texts'], answer: 1, explanation: 'The writing section carries 40 marks on both papers - half the total. Students who over-spend on reading and rush their writing lose more marks than they gain from extended reading responses.' },
         { id: 'ocr-et-m6-q5', question: 'How many minutes per mark is the approximate ratio on an OCR 2-hour paper?', options: ['0.5 minutes per mark', '1 minute per mark', '1.5 minutes per mark', '2 minutes per mark'], answer: 2, explanation: 'On a 2-hour (120-minute) paper worth 80 marks, each mark is worth approximately 1.5 minutes. Use this ratio to calculate the time allocation for every question.' },
       ],
     },
   ],
   assessmentQuestions: [
-    { id: 'ocr-et-a1', question: 'What type of question is Q3 on OCR Component 01?', options: ['Retrieval', 'Synthesis across two sources', 'Language analysis', 'Creative writing'], answer: 1, explanation: 'Q3 on Component 01 is a synthesis question requiring you to combine information from both the 19th-century and modern non-fiction sources.' },
-    { id: 'ocr-et-a2', question: 'Which is the highest-value reading question on Component 01?', options: ['Q1 (4 marks)', 'Q2 (6 marks)', 'Q3 (12 marks)', 'Q4 (18 marks)'], answer: 3, explanation: 'Q4 is worth 18 marks, making it the highest-value reading question on Component 01. It tests evaluative comparison across both texts.' },
-    { id: 'ocr-et-a3', question: 'How many marks is the language and structure question worth on Component 02?', options: ['12 marks', '18 marks', '24 marks', '30 marks'], answer: 2, explanation: 'Q3 on Component 02 is worth 24 marks - the single highest-value reading question across both OCR Language components.' },
-    { id: 'ocr-et-a4', question: 'What assessment objective does Component 02 Q3 primarily test?', options: ['AO1 - Identifying information', 'AO2 - Language and structure analysis', 'AO3 - Comparison and context', 'AO4 - Technical accuracy'], answer: 1, explanation: 'AO2 is the dominant assessment objective: explain, comment on, and analyse how writers use language and structure to achieve effects and influence readers.' },
+    { id: 'ocr-et-a1', question: 'What type of question is Q3 on OCR Paper 1?', options: ['Retrieval', 'Synthesis across two sources', 'Language analysis', 'Creative writing'], answer: 1, explanation: 'Q3 on Paper 1 is a synthesis question requiring you to combine information from both the 19th-century and modern non-fiction sources.' },
+    { id: 'ocr-et-a2', question: 'Which is the highest-value reading question on Paper 1?', options: ['Q1 (4 marks)', 'Q2 (6 marks)', 'Q3 (12 marks)', 'Q4 (18 marks)'], answer: 3, explanation: 'Q4 is worth 18 marks, making it the highest-value reading question on Paper 1. It tests evaluative comparison across both texts.' },
+    { id: 'ocr-et-a3', question: 'How many marks is the language and structure question worth on Paper 2?', options: ['12 marks', '18 marks', '24 marks', '30 marks'], answer: 2, explanation: 'Q3 on Paper 2 is worth 24 marks - the single highest-value reading question across both OCR Language papers.' },
+    { id: 'ocr-et-a4', question: 'What assessment objective does Paper 2 Q3 primarily test?', options: ['AO1 - Identifying information', 'AO2 - Language and structure analysis', 'AO3 - Comparison and context', 'AO4 - Technical accuracy'], answer: 1, explanation: 'AO2 is the dominant assessment objective: explain, comment on, and analyse how writers use language and structure to achieve effects and influence readers.' },
     { id: 'ocr-et-a5', question: 'In an OCR comparative essay, where should comparison appear?', options: ['Only in the introduction', 'Only in the conclusion', 'In a dedicated comparison paragraph', 'Integrated throughout every body paragraph'], answer: 3, explanation: 'OCR examiners reward essays that integrate comparison throughout every body paragraph. Both texts should be discussed within each paragraph, not in separate sections.' },
     { id: 'ocr-et-a6', question: 'What is the recommended approach for unseen poetry on OCR?', options: ['Read once quickly and start writing immediately', 'Use a systematic five-step reading method before writing', 'Focus only on rhyme and rhythm', 'Identify as many techniques as possible without analysis'], answer: 1, explanation: 'The five-step reading method (big picture, mark shifts, zoom in on language, note form, formulate interpretation) provides a reliable, repeatable approach for any unseen poem.' },
-    { id: 'ocr-et-a7', question: 'How long is each OCR Language component?', options: ['1 hour', '1 hour 30 minutes', '2 hours', '2 hours 30 minutes'], answer: 2, explanation: 'Both Component 01 and Component 02 are 2-hour exams, each worth 80 marks. This gives approximately 1.5 minutes per mark.' },
+    { id: 'ocr-et-a7', question: 'How long is each OCR Language paper?', options: ['1 hour', '1 hour 30 minutes', '2 hours', '2 hours 30 minutes'], answer: 2, explanation: 'Both Paper 1 and Paper 2 are 2-hour exams, each worth 80 marks. This gives approximately 1.5 minutes per mark.' },
     { id: 'ocr-et-a8', question: 'What is the most common reason students underperform according to OCR examiners?', options: ['Poor handwriting', 'Incomplete papers due to time mismanagement', 'Not using enough quotations', 'Writing too much'], answer: 1, explanation: 'OCR examiners consistently report that incomplete papers are one of the most common reasons students score below their ability. Time management is the invisible skill that prevents this.' },
-    { id: 'ocr-et-a9', question: 'What does the JUDGE framework help you do on Component 01 Q4?', options: ['Plan creative writing', 'Structure an evaluative response with sustained critical judgement', 'Memorise quotations', 'Write a comparative literature essay'], answer: 1, explanation: 'JUDGE (Judgement, Use of evidence, Deconstruct technique, Gauge effect, Evaluate success) structures an evaluative response that threads critical judgement throughout - exactly what OCR rewards at the top bands.' },
+    { id: 'ocr-et-a9', question: 'What does the JUDGE framework help you do on Paper 1 Q4?', options: ['Plan creative writing', 'Structure an evaluative response with sustained critical judgement', 'Memorise quotations', 'Write a comparative literature essay'], answer: 1, explanation: 'JUDGE (Judgement, Use of evidence, Deconstruct technique, Gauge effect, Evaluate success) structures an evaluative response that threads critical judgement throughout - exactly what OCR rewards at the top bands.' },
     { id: 'ocr-et-a10', question: 'Why should you avoid feature-spotting in your analysis?', options: ['Because examiners do not know the technical terms', 'Because naming techniques without analysing their effect earns very few marks', 'Because you should only use one technique per paragraph', 'Because feature-spotting takes too long'], answer: 1, explanation: 'Feature-spotting means identifying techniques without explaining their effect on the reader. Every technique you identify must be followed by detailed analysis of its impact and contribution to the writer\'s purpose.' },
   ],
 };

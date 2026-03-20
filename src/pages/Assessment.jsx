@@ -284,7 +284,7 @@ export default function Assessment() {
         {/* Question navigation dots */}
         <div style={{ display: 'flex', gap: '4px', justifyContent: 'center', marginTop: '2rem', flexWrap: 'wrap' }}>
           {questions.map((q, i) => (
-            <button key={i} onClick={() => setCurrentQ(i)}
+            <button key={q.id} onClick={() => setCurrentQ(i)}
               style={{
                 width: '28px', height: '28px', borderRadius: '6px', border: 'none',
                 background: i === currentQ ? 'rgba(16,185,129,0.3)' : answers[q.id] !== undefined ? 'rgba(16,185,129,0.1)' : 'rgba(255,255,255,0.04)',

@@ -1,6 +1,6 @@
 import { useState, useMemo, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Search, BookText, ArrowUp } from 'lucide-react';
+import { Search, BookText, ArrowUp, X } from 'lucide-react';
 import Navbar from '../components/Navbar';
 
 const glossaryTerms = [
@@ -239,15 +239,30 @@ export default function Glossary() {
             <Search size={16} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#64748b' }} />
             <input
               type="text"
+              aria-label="Search glossary"
               placeholder="Search terms or definitions..."
               value={search}
               onChange={e => setSearch(e.target.value)}
               style={{
-                width: '100%', padding: '0.625rem 0.75rem 0.625rem 2.25rem',
+                width: '100%', padding: '0.625rem 2.25rem 0.625rem 2.25rem',
                 background: 'rgba(30,41,59,0.7)', border: '1px solid rgba(255,255,255,0.08)',
                 borderRadius: '10px', color: '#f1f5f9', fontSize: '0.9rem', outline: 'none',
               }}
             />
+            {search && (
+              <button
+                onClick={() => setSearch('')}
+                aria-label="Clear search"
+                style={{
+                  position: 'absolute', right: '10px', top: '50%', transform: 'translateY(-50%)',
+                  background: 'rgba(255,255,255,0.08)', border: 'none', borderRadius: '50%',
+                  width: '20px', height: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  cursor: 'pointer', padding: 0,
+                }}
+              >
+                <X size={12} color="#94a3b8" />
+              </button>
+            )}
           </div>
           <div style={{ display: 'flex', gap: '0.375rem', flexWrap: 'wrap' }}>
             {categories.map(cat => (
@@ -302,7 +317,17 @@ export default function Glossary() {
         {filtered.length === 0 && (
           <div style={{ textAlign: 'center', padding: '3rem 1rem', color: '#64748b' }}>
             <p style={{ fontSize: '1rem', marginBottom: '0.5rem' }}>No terms found.</p>
-            <p style={{ fontSize: '0.85rem' }}>Try adjusting your search or filter.</p>
+            <p style={{ fontSize: '0.85rem', marginBottom: '1rem' }}>Try adjusting your search or filter.</p>
+            <button
+              onClick={() => { setSearch(''); setCategoryFilter('All'); setBoardFilter('All'); }}
+              style={{
+                background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.3)',
+                borderRadius: '8px', padding: '0.5rem 1.25rem', color: '#10b981',
+                fontSize: '0.85rem', fontWeight: 600, cursor: 'pointer',
+              }}
+            >
+              Clear all filters
+            </button>
           </div>
         )}
 

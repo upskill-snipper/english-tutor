@@ -1,8 +1,20 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { RotateCcw, Trophy, Zap, BookOpen, Filter, ChevronRight, Star, Clock, Target } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { RotateCcw, Trophy, Zap, BookOpen, Filter, ChevronRight, Star, Target } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import GameWrapper from '../../components/GameWrapper';
 import Lauren from '../../components/Lauren';
+import { recordGamePlayed } from '../../utils/gameUtils';
+
+/* ───────────────────────── Scoring constants ───────────────────────── */
+const BASE_POINTS = 10;
+const STREAK_BONUS_PER_LEVEL = 5;
+const FAST_ANSWER_BONUS = 5;
+const FAST_ANSWER_THRESHOLD_SECS = 5;
+const TIMER_DURATION_SECS = 15;
+const RESULT_EXCELLENT_PCT = 90;
+const RESULT_GOOD_PCT = 70;
+const RESULT_OK_PCT = 50;
 
 /* ───────────────────────── QUOTE DATA (60+ quotes) ───────────────────────── */
 
@@ -241,9 +253,9 @@ export default function WhoSaidIt() {
 
     if (isCorrect) {
       const newStreak = streak + 1;
-      let pts = 10;
-      if (newStreak > 1) pts += (newStreak - 1) * 5;
-      if (elapsed < 5) pts += 5;
+      let pts = BASE_POINTS;
+      if (newStreak > 1) pts += (newStreak - 1) * STREAK_BONUS_PER_LEVEL;
+      if (elapsed < FAST_ANSWER_THRESHOLD_SECS) pts += FAST_ANSWER_BONUS;
       setScore(s => s + pts);
       setStreak(newStreak);
       setBestStreak(bs => Math.max(bs, newStreak));
@@ -262,6 +274,7 @@ export default function WhoSaidIt() {
       const accuracy = Math.round((correctCount / questions.length) * 100);
       saveHighScore({ score: finalScore, accuracy, streak: bestStreak });
       highScore.current = getHighScore();
+      recordGamePlayed();
       setPhase("result");
     } else {
       setQIndex(i => i + 1);
@@ -280,7 +293,7 @@ export default function WhoSaidIt() {
       const id = setInterval(() => setElapsed((Date.now() - questionStart) / 1000), 100);
       return () => clearInterval(id);
     }, []);
-    const pct = Math.min(elapsed / 15, 1) * 100;
+    const pct = Math.min(elapsed / TIMER_DURATION_SECS, 1) * 100;
     const color = elapsed < 5 ? "bg-emerald-500" : elapsed < 10 ? "bg-amber-500" : "bg-red-500";
     return (
       <div className="w-full h-1.5 bg-slate-700 rounded-full overflow-hidden mb-6">
@@ -454,10 +467,10 @@ export default function WhoSaidIt() {
         {/* ── RESULTS ── */}
         {phase === "result" && (() => {
           const pct = Math.round((correctCount / questions.length) * 100);
-          const laurenEmotion = pct >= 90 ? 'celebrating' : pct >= 70 ? 'happy' : pct >= 50 ? 'encouraging' : 'concerned';
-          const laurenMessage = pct >= 90 ? "Outstanding work! You really know your stuff — that's Grade 9 territory!"
-            : pct >= 70 ? "Great job! You're showing solid understanding. Keep practising to push even higher!"
-            : pct >= 50 ? "Good effort! You're getting there — review the ones you missed and try again."
+          const laurenEmotion = pct >= RESULT_EXCELLENT_PCT ? 'celebrating' : pct >= RESULT_GOOD_PCT ? 'happy' : pct >= RESULT_OK_PCT ? 'encouraging' : 'concerned';
+          const laurenMessage = pct >= RESULT_EXCELLENT_PCT ? "Outstanding work! You really know your stuff — that's Grade 9 territory!"
+            : pct >= RESULT_GOOD_PCT ? "Great job! You're showing solid understanding. Keep practising to push even higher!"
+            : pct >= RESULT_OK_PCT ? "Good effort! You're getting there — review the ones you missed and try again."
             : "Don't worry — this is how we learn! Review the feedback and give it another go.";
           return (
           <div className="ws-fadeup text-center">
@@ -508,6 +521,12 @@ export default function WhoSaidIt() {
               >
                 Back to Menu
               </button>
+              <Link
+                to="/games"
+                className="flex-1 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold transition-all border border-slate-700/50 text-center"
+              >
+                Back to Games
+              </Link>
             </div>
           </div>
           );

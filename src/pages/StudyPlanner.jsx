@@ -242,6 +242,7 @@ export default function StudyPlanner() {
             </h3>
             <input
               type="date"
+              aria-label="Exam date"
               value={examDate}
               onChange={handleExamDateChange}
               style={{ ...inputStyle, cursor: 'pointer' }}
@@ -272,9 +273,10 @@ export default function StudyPlanner() {
                   fontWeight: 800,
                   color: daysUntil <= 7 ? '#ef4444' : daysUntil <= 30 ? '#f59e0b' : '#10b981',
                 }}>
-                  {daysUntil <= 0 ? 'Exam day!' : daysUntil}
+                    {daysUntil < 0 ? 'Passed' : daysUntil === 0 ? 'Today!' : daysUntil}
                 </span>
                 {daysUntil > 0 && <span style={{ color: '#94a3b8', marginLeft: '0.5rem', fontSize: '0.9rem' }}>days remaining</span>}
+                {daysUntil < 0 && <span style={{ color: '#94a3b8', marginLeft: '0.5rem', fontSize: '0.9rem' }}>Exam date has passed</span>}
               </div>
             ) : (
               <p style={{ color: '#64748b', fontSize: '0.85rem', margin: 0 }}>Set your exam date to start the countdown</p>
@@ -372,6 +374,21 @@ export default function StudyPlanner() {
             <CalendarDays size={18} color="#10b981" /> Weekly Schedule
           </h2>
 
+          {Object.keys(schedule).length === 0 && (
+            <div style={{
+              background: 'rgba(16, 185, 129, 0.05)',
+              border: '1px dashed rgba(16, 185, 129, 0.2)',
+              borderRadius: '12px',
+              padding: '1.25rem 1.5rem',
+              marginBottom: '1rem',
+              textAlign: 'center',
+            }}>
+              <p style={{ color: '#94a3b8', fontSize: '0.85rem', margin: 0 }}>
+                No study sessions scheduled yet. Click any <Plus size={12} style={{ verticalAlign: 'middle' }} /> slot below to add one, or apply the suggested plan above.
+              </p>
+            </div>
+          )}
+
           <div style={{ overflowX: 'auto' }}>
             <table style={{ width: '100%', borderCollapse: 'separate', borderSpacing: '4px', minWidth: '700px' }}>
               <thead>
@@ -407,13 +424,14 @@ export default function StudyPlanner() {
                                 onChange={e => { setSelectedCourse(e.target.value); setCustomTopic(''); }}
                                 style={{ ...inputStyle, marginBottom: '0.5rem', padding: '0.5rem' }}
                               >
-                                <option value="">-- Pick a course --</option>
+                                <option value="">Select a course</option>
                                 {COURSES.map(c => (
                                   <option key={c.id} value={c.id}>{c.title}</option>
                                 ))}
                               </select>
                               <input
                                 type="text"
+                                aria-label="Custom topic"
                                 placeholder="Or type custom topic"
                                 value={customTopic}
                                 onChange={e => { setCustomTopic(e.target.value); setSelectedCourse(''); }}

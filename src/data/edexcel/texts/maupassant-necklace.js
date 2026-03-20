@@ -111,21 +111,21 @@ const text = {
   examQuestions: [
     {
       id: 'maupassant-necklace-eq1',
-      component: 'Component 2 Section A',
+      component: 'Paper 2 Section A',
       marks: 30,
       question:
         'How does Maupassant present the theme of social ambition in "The Necklace"? You should consider the writer\'s use of language, form and structure, and relevant context.',
     },
     {
       id: 'maupassant-necklace-eq2',
-      component: 'Component 2 Section A',
+      component: 'Paper 2 Section A',
       marks: 30,
       question:
         'How does Maupassant use dramatic irony to shape the reader\'s response to Mathilde Loisel in "The Necklace"? You should refer to the writer\'s methods and the effect on the reader.',
     },
     {
       id: 'maupassant-necklace-eq3',
-      component: 'Component 2 Section A',
+      component: 'Paper 2 Section A',
       marks: 30,
       question:
         'How does Maupassant present the consequences of vanity in "The Necklace"? You should consider the writer\'s use of language, structure and relevant context.',

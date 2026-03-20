@@ -1,8 +1,10 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { RotateCcw, Trophy, Zap, BookOpen, ChevronRight, Star, Target, Clock, Calendar, Landmark } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import GameWrapper from '../../components/GameWrapper';
 import Lauren from '../../components/Lauren';
+import { recordGamePlayed } from '../../utils/gameUtils';
 
 /* ───────────────────────── CONTEXT FACTS (60+) ───────────────────────── */
 
@@ -324,6 +326,7 @@ export default function ContextConnect() {
       const accuracy = Math.round((correctCount / questions.length) * 100);
       saveHighScore(gameMode, { score: finalScore, accuracy, streak: bestStreak });
       highScores.current = getHighScores();
+      recordGamePlayed();
       setPhase("result");
     } else {
       setQIndex(i => i + 1);
@@ -632,6 +635,12 @@ export default function ContextConnect() {
               >
                 Back to Menu
               </button>
+              <Link
+                to="/games"
+                className="flex-1 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold transition-all border border-slate-700/50 text-center"
+              >
+                Back to Games
+              </Link>
             </div>
           </div>
         )}

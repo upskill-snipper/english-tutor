@@ -4,22 +4,22 @@
 const ocrGcseLangWriting = {
   id: 'ocr-gcse-lang-writing',
   title: 'OCR GCSE Language: Writing',
-  subtitle: 'Master writing for both OCR J351 components — from journalism to narrative craft.',
+  subtitle: 'Master writing for both OCR J351 papers — from journalism to narrative craft.',
   tier: 'GCSE',
   board: 'OCR',
   specCode: 'J351',
   price: 39,
   duration: '5-6 hours',
   level: 'GCSE (Years 10-11)',
-  description: 'Complete writing preparation for OCR GCSE English Language. Cover non-fiction writing for Component 01 Section B (articles, speeches, letters) and creative writing for Component 02 Section B (descriptive and narrative). Master technical accuracy and exam timing across both papers.',
+  description: 'Complete writing preparation for OCR GCSE English Language. Cover non-fiction writing for Paper 1 Section B (articles, speeches, letters) and creative writing for Paper 2 Section B (descriptive and narrative). Master technical accuracy and exam timing across both papers.',
   color: '#7c3aed',
   moduleList: [
     {
       id: 'ocr-lw-m1',
-      title: 'Component 01 Section B: Articles & Journalism',
+      title: 'Paper 1 Section B: Articles & Journalism',
       duration: '35 mins',
       content: `<h2>Non-Fiction Writing: Articles & Journalism</h2>
-<p>Component 01 Section B tests your ability to write <strong>non-fiction texts</strong>. You are given a <strong>choice of two tasks</strong>, each worth <strong>40 marks</strong> (24 for content and organisation, 16 for technical accuracy). The topic links thematically to the reading texts in Section A, so use that material as a springboard for ideas.</p>
+<p>Paper 1 Section B tests your ability to write <strong>non-fiction texts</strong>. You are given a <strong>choice of two tasks</strong>, each worth <strong>40 marks</strong> (24 for content and organisation, 16 for technical accuracy). The topic links thematically to the reading texts in Section A, so use that material as a springboard for ideas.</p>
 
 <div class="key-term"><strong>Key Term: Thematic Link</strong> — In OCR J351, the Section B writing task is always connected to the theme of the Section A reading texts. If the reading passage was about technology in education, expect a writing task on a related topic. Use ideas, vocabulary, and arguments from the reading to fuel your response.</div>
 
@@ -57,9 +57,9 @@ const ocrGcseLangWriting = {
 <li><strong>S</strong>tatistics — Real or plausible data to add authority</li>
 </ul>
 
-<div class="text-extract">"Write an article for a broadsheet newspaper in which you argue for or against the idea that social media does more harm than good."<div class="source">Example task in the style of OCR J351 Component 01 Section B</div></div>`,
+<div class="text-extract">"Write an article for a broadsheet newspaper in which you argue for or against the idea that social media does more harm than good."<div class="source">Example task in the style of OCR J351 Paper 1 Section B</div></div>`,
       quiz: [
-        { id: 'ocr-lw-m1-q1', question: 'How many marks is the Component 01 Section B writing task worth?', options: ['20 marks', '30 marks', '40 marks', '50 marks'], correct: 2, explanation: 'The writing task is worth 40 marks — 24 for content and organisation (AO5) and 16 for technical accuracy (AO6).' },
+        { id: 'ocr-lw-m1-q1', question: 'How many marks is the Paper 1 Section B writing task worth?', options: ['20 marks', '30 marks', '40 marks', '50 marks'], correct: 2, explanation: 'The writing task is worth 40 marks — 24 for content and organisation (AO5) and 16 for technical accuracy (AO6).' },
         { id: 'ocr-lw-m1-q2', question: 'How does the Section B writing task relate to Section A?', options: ['It uses the same text', 'It is thematically linked to the reading material', 'There is no connection', 'It asks you to continue the story'], correct: 1, explanation: 'OCR links the writing task thematically to the reading texts, so the ideas and vocabulary from Section A can inform your writing.' },
         { id: 'ocr-lw-m1-q3', question: 'Which of these is NOT a standard article convention?', options: ['Headline', 'Strapline', 'Stage directions', 'Opening hook'], correct: 2, explanation: 'Stage directions belong to scripts and plays. Articles require a headline, strapline/subheading, and a strong opening hook.' },
         { id: 'ocr-lw-m1-q4', question: 'What does the "D" in DRAPES stand for?', options: ['Description', 'Direct address', 'Dramatic irony', 'Dialogue'], correct: 1, explanation: 'D stands for Direct address — using "you" to speak to the reader directly, which creates engagement and makes the argument feel personal.' },
@@ -67,10 +67,10 @@ const ocrGcseLangWriting = {
     },
     {
       id: 'ocr-lw-m2',
-      title: 'Component 01 Section B: Speeches & Letters',
+      title: 'Paper 1 Section B: Speeches & Letters',
       duration: '35 mins',
       content: `<h2>Non-Fiction Writing: Speeches & Letters</h2>
-<p>Alongside articles, OCR Component 01 Section B may ask you to write a <strong>speech</strong> or a <strong>formal/informal letter</strong>. These forms demand different conventions but share the same mark scheme: <strong>40 marks</strong> (24 AO5 + 16 AO6).</p>
+<p>Alongside articles, OCR Paper 1 Section B may ask you to write a <strong>speech</strong> or a <strong>formal/informal letter</strong>. These forms demand different conventions but share the same mark scheme: <strong>40 marks</strong> (24 AO5 + 16 AO6).</p>
 
 <div class="key-term"><strong>Key Term: Register</strong> — The level of formality in your writing. A speech to Parliament requires formal register. A letter to a friend uses informal register. OCR examiners assess whether your register is <strong>sustained and appropriate</strong> throughout — slipping between registers suggests a lack of control.</div>
 
@@ -95,7 +95,7 @@ const ocrGcseLangWriting = {
 <li><strong>Both types:</strong> Clear paragraphing, a stated purpose in the opening paragraph, a firm conclusion</li>
 </ul>
 
-<div class="text-extract">"Write a speech for a school assembly in which you persuade your fellow students that volunteering should be a compulsory part of school life."<div class="source">Example task in the style of OCR J351 Component 01 Section B</div></div>
+<div class="text-extract">"Write a speech for a school assembly in which you persuade your fellow students that volunteering should be a compulsory part of school life."<div class="source">Example task in the style of OCR J351 Paper 1 Section B</div></div>
 
 <div class="examiner-tip"><strong>Examiner Tip:</strong> OCR examiners specifically reward a <strong>convincing, compelling voice</strong> in the top band. For speeches, this means rhetorical flair and rhythm. Read your speech aloud in your head — if it sounds flat, it probably is. Add a pattern of three, a short dramatic sentence, or a shift in tone.</div>
 
@@ -118,10 +118,10 @@ const ocrGcseLangWriting = {
     },
     {
       id: 'ocr-lw-m3',
-      title: 'Component 02 Section B: Descriptive Writing',
+      title: 'Paper 2 Section B: Descriptive Writing',
       duration: '35 mins',
       content: `<h2>Creative Writing: Description</h2>
-<p>Component 02 Section B tests <strong>creative and imaginative writing</strong>. You choose <strong>one task from two options</strong>, worth <strong>40 marks</strong> (24 AO5 + 16 AO6). One option typically invites descriptive writing; the other invites narrative. This module focuses on descriptive craft.</p>
+<p>Paper 2 Section B tests <strong>creative and imaginative writing</strong>. You choose <strong>one task from two options</strong>, worth <strong>40 marks</strong> (24 AO5 + 16 AO6). One option typically invites descriptive writing; the other invites narrative. This module focuses on descriptive craft.</p>
 
 <div class="key-term"><strong>Key Term: Descriptive Writing</strong> — Writing that creates a vivid picture through sensory detail, figurative language, and carefully controlled atmosphere. Unlike narrative, descriptive writing does not need a plot — it captures a <strong>moment, place, or feeling</strong> in rich detail.</div>
 
@@ -158,9 +158,9 @@ const ocrGcseLangWriting = {
 
 <div class="common-mistake"><strong>Common Mistake:</strong> Over-decorating every sentence with figurative language. If every line has a simile, the effect is numbing rather than powerful. Use figurative language <strong>selectively</strong> — two or three well-placed images are worth more than ten generic ones.</div>
 
-<div class="text-extract">"Write a description suggested by this image." [Image of an abandoned fairground at dusk]<div class="source">Example task in the style of OCR J351 Component 02 Section B</div></div>`,
+<div class="text-extract">"Write a description suggested by this image." [Image of an abandoned fairground at dusk]<div class="source">Example task in the style of OCR J351 Paper 2 Section B</div></div>`,
       quiz: [
-        { id: 'ocr-lw-m3-q1', question: 'How many writing tasks do you choose from in Component 02 Section B?', options: ['One compulsory task', 'One from two options', 'One from three options', 'Two from four options'], correct: 1, explanation: 'You choose one task from two options. Typically one leans toward descriptive writing and the other toward narrative.' },
+        { id: 'ocr-lw-m3-q1', question: 'How many writing tasks do you choose from in Paper 2 Section B?', options: ['One compulsory task', 'One from two options', 'One from three options', 'Two from four options'], correct: 1, explanation: 'You choose one task from two options. Typically one leans toward descriptive writing and the other toward narrative.' },
         { id: 'ocr-lw-m3-q2', question: 'What is synaesthesia in writing?', options: ['Writing without punctuation', 'Blending two or more senses in one image', 'A type of rhyme scheme', 'Using only visual description'], correct: 1, explanation: 'Synaesthesia blends senses — for example, "a sharp blue light" combines touch (sharp) with sight (blue light), creating a vivid, unusual image.' },
         { id: 'ocr-lw-m3-q3', question: 'What does "zoom in, zoom out" refer to in descriptive writing?', options: ['Using a camera in the exam', 'Shifting between wide-angle and close-up perspectives', 'Writing quickly then slowly', 'Changing from first to third person'], correct: 1, explanation: 'Shifting between wide establishing shots and close-up details creates a cinematic quality that gives your description depth and variety.' },
         { id: 'ocr-lw-m3-q4', question: 'What is pathetic fallacy?', options: ['A logical error in an argument', 'Weather or environment reflecting mood or atmosphere', 'Feeling sorry for a character', 'An unreliable narrator technique'], correct: 1, explanation: 'Pathetic fallacy uses weather or the natural environment to mirror emotions or atmosphere — for example, a storm reflecting anger or turmoil.' },
@@ -168,10 +168,10 @@ const ocrGcseLangWriting = {
     },
     {
       id: 'ocr-lw-m4',
-      title: 'Component 02 Section B: Narrative Writing',
+      title: 'Paper 2 Section B: Narrative Writing',
       duration: '35 mins',
       content: `<h2>Creative Writing: Narrative</h2>
-<p>The second common option in Component 02 Section B is <strong>narrative writing</strong> — telling a story. OCR awards <strong>40 marks</strong> and expects a piece that demonstrates <strong>control of structure, character, and voice</strong>.</p>
+<p>The second common option in Paper 2 Section B is <strong>narrative writing</strong> — telling a story. OCR awards <strong>40 marks</strong> and expects a piece that demonstrates <strong>control of structure, character, and voice</strong>.</p>
 
 <div class="key-term"><strong>Key Term: Narrative Voice</strong> — The perspective from which a story is told. First person ("I walked...") creates intimacy and immediacy. Third person ("She walked...") allows a wider lens. OCR rewards a <strong>sustained, deliberate</strong> choice of voice — switching randomly between perspectives signals a loss of control.</div>
 
@@ -206,7 +206,7 @@ const ocrGcseLangWriting = {
 
 <div class="common-mistake"><strong>Common Mistake:</strong> Writing a sprawling plot with multiple characters, locations, and time jumps. In 45 minutes, you cannot do this well. Focus on one character, one moment, one shift. Depth beats breadth every time.</div>
 
-<div class="text-extract">"Write a story about a time when someone had to make a difficult choice."<div class="source">Example task in the style of OCR J351 Component 02 Section B</div></div>
+<div class="text-extract">"Write a story about a time when someone had to make a difficult choice."<div class="source">Example task in the style of OCR J351 Paper 2 Section B</div></div>
 
 <h3>Ending Your Narrative</h3>
 <p>The ending is the last thing the examiner reads — make it count:</p>
@@ -282,11 +282,11 @@ const ocrGcseLangWriting = {
       content: `<h2>Exam Strategy: Making Every Minute Count</h2>
 <p>OCR J351 has <strong>two exam papers</strong>. Knowing the structure and timing of each is the difference between a controlled, complete response and a panicked, unfinished one.</p>
 
-<div class="key-term"><strong>Key Term: Component 01 — Communicating Information and Ideas</strong> — 1 hour 45 minutes. Section A: Reading (non-fiction/literary non-fiction texts). Section B: Writing one non-fiction text (40 marks). Total: 80 marks, 50% of GCSE.</div>
+<div class="key-term"><strong>Key Term: Paper 1 — Communicating Information and Ideas</strong> — 1 hour 45 minutes. Section A: Reading (non-fiction/literary non-fiction texts). Section B: Writing one non-fiction text (40 marks). Total: 80 marks, 50% of GCSE.</div>
 
-<div class="key-term"><strong>Key Term: Component 02 — Exploring Effects and Impact</strong> — 1 hour 45 minutes. Section A: Reading (one fiction text or literary non-fiction). Section B: Writing one creative/imaginative text (40 marks). Total: 80 marks, 50% of GCSE.</div>
+<div class="key-term"><strong>Key Term: Paper 2 — Exploring Effects and Impact</strong> — 1 hour 45 minutes. Section A: Reading (one fiction text or literary non-fiction). Section B: Writing one creative/imaginative text (40 marks). Total: 80 marks, 50% of GCSE.</div>
 
-<h3>Component 01 Timing Plan</h3>
+<h3>Paper 1 Timing Plan</h3>
 <ul>
 <li><strong>0:00 - 0:05</strong> — Read the texts and questions carefully</li>
 <li><strong>0:05 - 0:55</strong> — Section A reading questions (50 minutes for 40 marks)</li>
@@ -295,7 +295,7 @@ const ocrGcseLangWriting = {
 <li><strong>1:40 - 1:45</strong> — Proofread and correct SPaG errors (5 minutes)</li>
 </ul>
 
-<h3>Component 02 Timing Plan</h3>
+<h3>Paper 2 Timing Plan</h3>
 <ul>
 <li><strong>0:00 - 0:05</strong> — Read the text and questions carefully</li>
 <li><strong>0:05 - 0:55</strong> — Section A reading questions (50 minutes for 40 marks)</li>
@@ -309,8 +309,8 @@ const ocrGcseLangWriting = {
 <h3>Planning Your Writing (10 Minutes)</h3>
 <p>Never skip the plan. A 10-minute plan produces a <strong>better response in 35 minutes</strong> than 45 minutes of unplanned writing:</p>
 <ul>
-<li><strong>Non-fiction (Component 01):</strong> Jot down 4-5 paragraph topics, your opening hook, key techniques, and your closing line</li>
-<li><strong>Creative (Component 02):</strong> Sketch a 5-part structure (opening image → build → turning point → shift → closing image), note key sensory details and one or two figurative devices</li>
+<li><strong>Non-fiction (Paper 1):</strong> Jot down 4-5 paragraph topics, your opening hook, key techniques, and your closing line</li>
+<li><strong>Creative (Paper 2):</strong> Sketch a 5-part structure (opening image → build → turning point → shift → closing image), note key sensory details and one or two figurative devices</li>
 </ul>
 
 <div class="model-answer"><strong>Quick Plan Example (Narrative):</strong><br/>Opening: Rain on a window. Character staring out. Waiting.<br/>Build: Flashback — the argument. Short, clipped sentences.<br/>Turning point: A knock at the door.<br/>Shift: Dialogue. Apology. Silence.<br/>Closing: Return to the rain — but now it has stopped.</div>
@@ -327,7 +327,7 @@ const ocrGcseLangWriting = {
 
 <div class="text-extract">"Section B is worth 40 marks: 24 marks for AO5 (content and organisation), 16 marks for AO6 (technical accuracy)."<div class="source">OCR J351 Specification, Assessment Overview</div></div>`,
       quiz: [
-        { id: 'ocr-lw-m6-q1', question: 'How long is each OCR J351 exam paper?', options: ['1 hour 30 minutes', '1 hour 45 minutes', '2 hours', '2 hours 15 minutes'], correct: 1, explanation: 'Both Component 01 and Component 02 are 1 hour 45 minutes each, worth 80 marks (50% of the GCSE) per paper.' },
+        { id: 'ocr-lw-m6-q1', question: 'How long is each OCR J351 exam paper?', options: ['1 hour 30 minutes', '1 hour 45 minutes', '2 hours', '2 hours 15 minutes'], correct: 1, explanation: 'Both Paper 1 and Paper 2 are 1 hour 45 minutes each, worth 80 marks (50% of the GCSE) per paper.' },
         { id: 'ocr-lw-m6-q2', question: 'How long should you spend planning your writing task?', options: ['No time — just start writing', '5 minutes', '10 minutes', '20 minutes'], correct: 2, explanation: '10 minutes of planning produces a structured, purposeful response. Unplanned writing tends to ramble and lose coherence.' },
         { id: 'ocr-lw-m6-q3', question: 'What should you do if you run out of time during your writing task?', options: ['Keep writing the middle section', 'Skip to a strong concluding paragraph', 'Cross out what you have written', 'Leave it blank'], correct: 1, explanation: 'A complete piece with a beginning, middle, and end scores higher than an unfinished one. Skip to a conclusion even if it means leaving out some middle content.' },
         { id: 'ocr-lw-m6-q4', question: 'What fraction of each paper is the writing section worth?', options: ['One quarter', 'One third', 'Half', 'Two thirds'], correct: 2, explanation: 'Section B writing is worth 40 out of 80 marks — exactly half the paper. It deserves equal time and preparation as the reading section.' },
@@ -337,9 +337,9 @@ const ocrGcseLangWriting = {
   assessmentQuestions: [
     { id: 'ocr-lw-a1', question: 'What is the OCR GCSE English Language specification code?', options: ['8700', 'J351', '4EA1', '1EN0'], correct: 1, explanation: 'The OCR GCSE English Language specification code is J351. 8700 is AQA, 4EA1 is Edexcel IGCSE, and 1EN0 is Edexcel GCSE.' },
     { id: 'ocr-lw-a2', question: 'How many marks is each Section B writing task worth?', options: ['20 marks', '30 marks', '40 marks', '50 marks'], correct: 2, explanation: 'Each Section B writing task is worth 40 marks — 24 for content and organisation (AO5) and 16 for technical accuracy (AO6).' },
-    { id: 'ocr-lw-a3', question: 'What type of writing does Component 01 Section B assess?', options: ['Creative/imaginative writing', 'Non-fiction writing (articles, speeches, letters)', 'Poetry writing', 'Summary writing'], correct: 1, explanation: 'Component 01 Section B tests non-fiction writing — you may be asked to write an article, speech, letter, or other non-fiction form.' },
-    { id: 'ocr-lw-a4', question: 'What type of writing does Component 02 Section B assess?', options: ['Non-fiction writing', 'Creative/imaginative writing', 'Report writing', 'Transactional writing'], correct: 1, explanation: 'Component 02 Section B tests creative and imaginative writing — descriptive or narrative pieces.' },
-    { id: 'ocr-lw-a5', question: 'How does the Component 01 writing task relate to the reading section?', options: ['It is completely unrelated', 'It is thematically linked to the reading texts', 'It asks you to rewrite the reading text', 'It uses the same mark scheme'], correct: 1, explanation: 'The writing task in Component 01 is thematically linked to the Section A reading material, allowing you to draw on ideas from the texts.' },
+    { id: 'ocr-lw-a3', question: 'What type of writing does Paper 1 Section B assess?', options: ['Creative/imaginative writing', 'Non-fiction writing (articles, speeches, letters)', 'Poetry writing', 'Summary writing'], correct: 1, explanation: 'Paper 1 Section B tests non-fiction writing — you may be asked to write an article, speech, letter, or other non-fiction form.' },
+    { id: 'ocr-lw-a4', question: 'What type of writing does Paper 2 Section B assess?', options: ['Non-fiction writing', 'Creative/imaginative writing', 'Report writing', 'Transactional writing'], correct: 1, explanation: 'Paper 2 Section B tests creative and imaginative writing — descriptive or narrative pieces.' },
+    { id: 'ocr-lw-a5', question: 'How does the Paper 1 writing task relate to the reading section?', options: ['It is completely unrelated', 'It is thematically linked to the reading texts', 'It asks you to rewrite the reading text', 'It uses the same mark scheme'], correct: 1, explanation: 'The writing task in Paper 1 is thematically linked to the Section A reading material, allowing you to draw on ideas from the texts.' },
     { id: 'ocr-lw-a6', question: 'What percentage of the total GCSE do AO5 and AO6 account for together?', options: ['25%', '40%', '50%', '60%'], correct: 2, explanation: 'AO5 (content and organisation) and AO6 (technical accuracy) together represent 50% of the total OCR J351 marks.' },
     { id: 'ocr-lw-a7', question: 'Which of these is NOT a standard article convention?', options: ['Headline', 'Strapline', 'Stage directions', 'Subheadings'], correct: 2, explanation: 'Stage directions belong to drama scripts. Articles use headlines, straplines, subheadings, and journalistic openings.' },
     { id: 'ocr-lw-a8', question: 'What is anaphora?', options: ['A concluding paragraph technique', 'Repetition of a word or phrase at the start of successive clauses', 'A type of metaphor', 'A formal letter greeting'], correct: 1, explanation: 'Anaphora is the deliberate repetition of a word or phrase at the beginning of successive clauses, commonly used in speeches for rhythmic emphasis.' },
@@ -349,7 +349,7 @@ const ocrGcseLangWriting = {
     { id: 'ocr-lw-a12', question: 'What is the best scope for a narrative in a timed exam?', options: ['An epic spanning several years', 'A single scene or moment', 'Multiple characters across different locations', 'A complete hero\'s journey'], correct: 1, explanation: 'A single scene allows you to develop rich detail and a satisfying arc within the time available. Ambitious scope leads to shallow writing.' },
     { id: 'ocr-lw-a13', question: 'What is a comma splice?', options: ['Using too many commas in a list', 'Joining two independent clauses with only a comma', 'Forgetting a comma after an adverbial', 'Putting a comma before "and"'], correct: 1, explanation: 'A comma splice incorrectly joins two independent clauses with just a comma. Fix it with a full stop, semicolon, or conjunction.' },
     { id: 'ocr-lw-a14', question: 'How many marks is AO6 (technical accuracy) worth per writing task?', options: ['8 marks', '12 marks', '16 marks', '24 marks'], correct: 2, explanation: 'AO6 is worth 16 out of 40 marks on each writing task — 40% of the writing mark.' },
-    { id: 'ocr-lw-a15', question: 'How long is each OCR J351 exam paper?', options: ['1 hour 30 minutes', '1 hour 45 minutes', '2 hours', '2 hours 15 minutes'], correct: 1, explanation: 'Both Component 01 and Component 02 are 1 hour 45 minutes each.' },
+    { id: 'ocr-lw-a15', question: 'How long is each OCR J351 exam paper?', options: ['1 hour 30 minutes', '1 hour 45 minutes', '2 hours', '2 hours 15 minutes'], correct: 1, explanation: 'Both Paper 1 and Paper 2 are 1 hour 45 minutes each.' },
     { id: 'ocr-lw-a16', question: 'How long should you spend planning your writing response?', options: ['0 minutes', '5 minutes', '10 minutes', '20 minutes'], correct: 2, explanation: '10 minutes of planning produces a more structured and purposeful response than diving straight into writing.' },
     { id: 'ocr-lw-a17', question: 'What should you do in the final 5 minutes of the exam?', options: ['Start a new paragraph', 'Proofread and correct SPaG errors', 'Add more content', 'Rewrite your opening'], correct: 1, explanation: 'The final 5 minutes should be used for proofreading — checking spelling, punctuation, comma splices, and apostrophe errors.' },
     { id: 'ocr-lw-a18', question: 'What is pathetic fallacy?', options: ['A logical argument error', 'Weather or environment reflecting mood or atmosphere', 'A character who makes mistakes', 'An unreliable narrator technique'], correct: 1, explanation: 'Pathetic fallacy uses weather or the natural environment to mirror the emotional atmosphere of a scene.' },
