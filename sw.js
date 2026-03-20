@@ -1,4 +1,4 @@
-const CACHE_NAME = 'learnright-v1';
+const CACHE_NAME = 'learnright-v2';
 const SHELL_URLS = ['/english-tutor/', '/english-tutor/index.html'];
 
 self.addEventListener('install', e => {
