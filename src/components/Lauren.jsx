@@ -219,7 +219,7 @@ export default function Lauren({
         {/* Avatar circle + close button */}
         <div style={{ position: 'relative' }}>
           <img
-            src="/Lauren.png"
+            src={`${import.meta.env.BASE_URL}Lauren.png`}
             alt="Lauren, your English tutor"
             onClick={() => setExpanded(prev => !prev)}
             style={{
@@ -275,7 +275,7 @@ export default function Lauren({
     >
       {speechBubble}
       <img
-        src="/Lauren.png"
+        src={`${import.meta.env.BASE_URL}Lauren.png`}
         alt="Lauren, your English tutor"
         style={imageStyle}
       />
