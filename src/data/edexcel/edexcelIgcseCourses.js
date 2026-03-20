@@ -619,7 +619,7 @@ const edexcelIgcseLangRevision = {
   tier: 'IGCSE',
   board: 'Edexcel',
   specCode: '4EA1/4EB1',
-  price: 39,
+  price: 49,
   duration: '3-4 hours',
   level: 'IGCSE',
   description: 'Rapid revision for both Edexcel IGCSE English Language specifications. Covers key skills, model answers at every grade, and last-minute exam strategy for Spec A and Spec B students.',

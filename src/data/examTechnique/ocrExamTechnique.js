@@ -8,7 +8,7 @@ const ocrExamTechnique = {
   tier: 'GCSE',
   board: 'OCR',
   specCode: 'J351/J352',
-  price: 0,
+  price: 29,
   duration: '3 hours',
   level: 'All levels',
   description: 'Master the exact skills OCR examiners reward across Language and Literature components.',

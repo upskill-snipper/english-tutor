@@ -592,7 +592,7 @@ const ks3Courses = [
     title: 'KS3 Grammar & Vocabulary',
     subtitle: 'Master the building blocks of the English language.',
     tier: 'KS3',
-    price: 19,
+    price: 29,
     duration: '3-4 hours',
     level: 'KS3 (Years 7-9)',
     description: 'Understand how English works at the word and sentence level. Parts of speech, sentence types, punctuation, vocabulary building, and spelling strategies — the foundations that everything else is built on.',

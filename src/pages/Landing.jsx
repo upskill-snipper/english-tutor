@@ -103,10 +103,8 @@ export default function Landing() {
             />
           </div>
 
-          <a
-            href="https://www.firsttutors.com/uk/tutor/lauren.english.42/"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/about"
             style={{
               display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
               color: '#34d399', fontWeight: 600, fontSize: '1.05rem',
@@ -114,7 +112,7 @@ export default function Landing() {
             }}
           >
             Meet your tutor <ArrowRight size={18} />
-          </a>
+          </Link>
         </div>
       </section>
 

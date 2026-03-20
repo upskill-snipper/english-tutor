@@ -5,7 +5,7 @@ const wjecExamTechnique = {
   tier: 'GCSE',
   board: 'WJEC',
   specCode: 'C700U/C720U',
-  price: 0,
+  price: 29,
   duration: '3 hours',
   level: 'All levels',
   description:

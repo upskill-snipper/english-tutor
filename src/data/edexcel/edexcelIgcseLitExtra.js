@@ -5,7 +5,7 @@ const edexcelIgcseLitUnseen = {
   tier: 'IGCSE',
   board: 'Edexcel',
   specCode: '4ET1',
-  price: 0,
+  price: 49,
   duration: '4 hours',
   level: 'Intermediate',
   description:

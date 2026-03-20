@@ -8,7 +8,7 @@ const edexcelIgcseSpecB = {
   tier: 'IGCSE',
   board: 'Edexcel',
   specCode: '4EB1',
-  price: 0,
+  price: 49,
   duration: '5 hours',
   level: 'Intermediate',
   description: 'Complete preparation for Edexcel IGCSE English Language Specification B.',

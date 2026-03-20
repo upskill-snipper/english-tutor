@@ -5,7 +5,7 @@ const aqaExamTechnique = {
   tier: 'GCSE',
   board: 'AQA',
   specCode: '8700/8702',
-  price: 0,
+  price: 29,
   duration: '3 hours',
   level: 'All levels',
   description:

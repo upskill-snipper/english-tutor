@@ -5,7 +5,7 @@ const edexcelExamTechnique = {
   tier: 'GCSE',
   board: 'Edexcel',
   specCode: '1EN2/1ET0',
-  price: 0,
+  price: 29,
   duration: '3 hours',
   level: 'All levels',
   description: 'Master the exact skills Edexcel examiners reward across Language and Literature papers.',

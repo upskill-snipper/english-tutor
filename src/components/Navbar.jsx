@@ -93,6 +93,9 @@ export default function Navbar() {
         </Link>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+          <Link to="/about" style={linkStyle('/about')} aria-label="About" {...(isActive('/about') ? { 'aria-current': 'page' } : {})}>
+            <User size={15} /> About
+          </Link>
           <Link to="/courses" style={linkStyle('/courses')} aria-label="Courses" {...(isActive('/courses') ? { 'aria-current': 'page' } : {})}>
             <BookOpen size={15} /> Courses
           </Link>

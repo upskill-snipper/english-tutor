@@ -35,6 +35,7 @@ const DailyChallenge = lazy(() => import('./pages/games/DailyChallenge'));
 const Pricing = lazy(() => import('./pages/Pricing'));
 const BoardSelect = lazy(() => import('./pages/BoardSelect'));
 const BoardHub = lazy(() => import('./pages/BoardHub'));
+const AboutLauren = lazy(() => import('./pages/AboutLauren'));
 
 class ErrorBoundary extends Component {
   constructor(props) {
@@ -120,6 +121,7 @@ export default function App() {
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/board-select" element={<BoardSelect />} />
         <Route path="/board/:boardId" element={<BoardHub />} />
+        <Route path="/about" element={<AboutLauren />} />
         <Route path="/admin" element={<ProtectedRoute adminOnly><AdminPanel /></ProtectedRoute>} />
         <Route path="*" element={<NotFound />} />
       </Routes>

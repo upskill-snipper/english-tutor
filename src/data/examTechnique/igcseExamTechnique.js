@@ -5,7 +5,7 @@ const igcseExamTechnique = {
   tier: 'IGCSE',
   board: 'Edexcel',
   specCode: '4EA1/4EB1',
-  price: 0,
+  price: 29,
   duration: '3 hours',
   level: 'All levels',
   description: 'Master the exact skills Edexcel IGCSE examiners reward across both specifications.',
