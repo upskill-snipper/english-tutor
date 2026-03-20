@@ -1,4 +1,5 @@
 import { useState, useMemo, useRef } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Search, BookText, ArrowUp } from 'lucide-react';
 import Navbar from '../components/Navbar';
 
@@ -130,23 +131,40 @@ const glossaryTerms = [
 
 const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
+const BOARD_COLORS = { AQA: '#2563eb', Edexcel: '#dc2626', OCR: '#7c3aed', WJEC: '#ea580c', All: '#10b981' };
+
+// Map boards to the glossary categories most emphasised in their specifications
+const BOARD_CATEGORY_MAP = {
+  AQA: ['Literary Technique', 'Grammar', 'Poetry', 'Drama', 'Essay/Exam'],
+  Edexcel: ['Literary Technique', 'Grammar', 'Poetry', 'Drama', 'Essay/Exam'],
+  OCR: ['Literary Technique', 'Grammar', 'Poetry', 'Drama', 'Essay/Exam'],
+  WJEC: ['Literary Technique', 'Grammar', 'Poetry', 'Drama', 'Essay/Exam'],
+};
+
 export default function Glossary() {
+  const [searchParams] = useSearchParams();
+  const boardParam = searchParams.get('board');
+  const initialBoard = boardParam && ['AQA', 'Edexcel', 'OCR', 'WJEC'].includes(boardParam) ? boardParam : 'All';
+
   const [search, setSearch] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('All');
+  const [boardFilter, setBoardFilter] = useState(initialBoard);
   const sectionRefs = useRef({});
 
   const categories = ['All', ...Array.from(new Set(glossaryTerms.map(t => t.category))).sort()];
 
   const filtered = useMemo(() => {
     const q = search.toLowerCase();
+    const allowedCategories = boardFilter !== 'All' ? BOARD_CATEGORY_MAP[boardFilter] : null;
     return glossaryTerms
       .filter(t => {
         const matchesSearch = !q || t.term.toLowerCase().includes(q) || t.definition.toLowerCase().includes(q);
         const matchesCategory = categoryFilter === 'All' || t.category === categoryFilter;
-        return matchesSearch && matchesCategory;
+        const matchesBoard = !allowedCategories || allowedCategories.includes(t.category);
+        return matchesSearch && matchesCategory && matchesBoard;
       })
       .sort((a, b) => a.term.localeCompare(b.term));
-  }, [search, categoryFilter]);
+  }, [search, categoryFilter, boardFilter]);
 
   const grouped = useMemo(() => {
     const map = {};
@@ -195,6 +213,22 @@ export default function Glossary() {
           <p style={{ color: '#94a3b8', fontSize: '0.95rem', maxWidth: '600px', margin: '0 auto' }}>
             A comprehensive reference of {glossaryTerms.length}+ literary, grammar, poetry, drama, and exam terms — each with a clear definition and example from well-known texts.
           </p>
+        </div>
+
+        {/* Board filter */}
+        <div role="group" aria-label="Filter by board" style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.25rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+          {['All', 'AQA', 'Edexcel', 'OCR', 'WJEC'].map(b => {
+            const active = boardFilter === b;
+            const col = BOARD_COLORS[b] || '#10b981';
+            return (
+              <button key={b} onClick={() => setBoardFilter(b)} style={{
+                padding: '0.5rem 1rem', borderRadius: '100px', fontSize: '0.8rem', fontWeight: 600,
+                border: `1px solid ${active ? col + '50' : 'rgba(255,255,255,0.08)'}`,
+                background: active ? col + '18' : 'rgba(255,255,255,0.04)',
+                color: active ? col : '#94a3b8', cursor: 'pointer',
+              }}>{b === 'All' ? 'All Boards' : b}</button>
+            );
+          })}
         </div>
 
         {/* Search & Filter */}

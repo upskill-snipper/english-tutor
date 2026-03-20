@@ -117,7 +117,7 @@ function shuffle(arr) {
 }
 
 function pickDistractors(correct, play, count = 3) {
-  const pool = CHARACTERS_BY_PLAY[play].filter(c => c !== correct);
+  const pool = (CHARACTERS_BY_PLAY[play] || []).filter(c => c !== correct);
   const shuffled = shuffle(pool);
   return shuffled.slice(0, count);
 }

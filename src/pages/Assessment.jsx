@@ -212,7 +212,7 @@ export default function Assessment() {
             </span>
           </div>
           <div className="progress-track">
-            <div className="progress-fill" style={{ width: `${(Object.keys(answers).length / questions.length) * 100}%` }} />
+            <div className="progress-fill" style={{ width: `${questions.length > 0 ? (Object.keys(answers).length / questions.length) * 100 : 0}%` }} />
           </div>
         </div>
 

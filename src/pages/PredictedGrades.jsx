@@ -34,7 +34,10 @@ function barColor(score) {
 function recordLoginDate() {
   const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
   const raw = localStorage.getItem(STREAK_KEY);
-  const dates = raw ? JSON.parse(raw) : [];
+  let dates = [];
+  if (raw) {
+    try { dates = JSON.parse(raw); } catch { dates = []; }
+  }
   if (!dates.includes(today)) {
     dates.push(today);
     // Keep only last 365 days

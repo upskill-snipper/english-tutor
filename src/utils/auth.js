@@ -27,7 +27,8 @@ const STORAGE_PREFIX = 'learnright_';
 
 export function getUsers() {
   const data = localStorage.getItem(STORAGE_PREFIX + 'users');
-  return data ? JSON.parse(data) : [];
+  if (!data) return [];
+  try { return JSON.parse(data); } catch { return []; }
 }
 
 export function saveUsers(users) {
@@ -37,7 +38,8 @@ export function saveUsers(users) {
 export function getCurrentUser() {
   const data = localStorage.getItem(STORAGE_PREFIX + 'current_user');
   if (!data) return null;
-  const { userId, timestamp } = JSON.parse(data);
+  let userId, timestamp;
+  try { ({ userId, timestamp } = JSON.parse(data)); } catch { return null; }
   if (Date.now() - timestamp > 7 * 24 * 60 * 60 * 1000) {
     localStorage.removeItem(STORAGE_PREFIX + 'current_user');
     return null;
@@ -108,7 +110,8 @@ export function setExamBoard(userId, board) {
 
 export function getProgress() {
   const data = localStorage.getItem(STORAGE_PREFIX + 'progress');
-  return data ? JSON.parse(data) : {};
+  if (!data) return {};
+  try { return JSON.parse(data); } catch { return {}; }
 }
 
 export function saveProgress(progress) {
@@ -209,7 +212,8 @@ export function enrollUser(userId, courseId) {
 
 export function getPracticeProgress() {
   const data = localStorage.getItem(STORAGE_PREFIX + 'practice');
-  return data ? JSON.parse(data) : { attempts: 0, streak: 0, lastAttempt: null, history: [] };
+  if (!data) return { attempts: 0, streak: 0, lastAttempt: null, history: [] };
+  try { return JSON.parse(data); } catch { return { attempts: 0, streak: 0, lastAttempt: null, history: [] }; }
 }
 
 export function savePracticeAttempt(questionId, selfRating, timeSpent) {
@@ -234,7 +238,8 @@ export function savePracticeAttempt(questionId, selfRating, timeSpent) {
 
 export function getFlashcardProgress() {
   const data = localStorage.getItem(STORAGE_PREFIX + 'flashcards');
-  return data ? JSON.parse(data) : {};
+  if (!data) return {};
+  try { return JSON.parse(data); } catch { return {}; }
 }
 
 export function saveFlashcardProgress(deckId, cardId, known) {
@@ -376,7 +381,8 @@ export function calculatePredictedGrade(scores) {
 
 export function getAssessmentHistory(userId) {
   const data = localStorage.getItem(STORAGE_PREFIX + 'assessment_history');
-  const all = data ? JSON.parse(data) : {};
+  let all = {};
+  if (data) { try { all = JSON.parse(data); } catch { /* corrupted */ } }
   return all[userId] || [];
 }
 
@@ -478,7 +484,7 @@ export const SUBSCRIPTION_TIERS = {
 export function getSubscription(userId) {
   const data = localStorage.getItem(STORAGE_PREFIX + 'subscription_' + userId);
   if (!data) return { tier: 'free', expiresAt: null };
-  return JSON.parse(data);
+  try { return JSON.parse(data); } catch { return { tier: 'free', expiresAt: null }; }
 }
 
 export function setSubscription(userId, tier) {
@@ -506,8 +512,7 @@ export function getGameAttempts(userId) {
     : STORAGE_PREFIX + 'anon_game_attempts';
   const data = localStorage.getItem(key);
   if (!data) return 0;
-  const parsed = JSON.parse(data);
-  return parsed.count || 0;
+  try { const parsed = JSON.parse(data); return parsed.count || 0; } catch { return 0; }
 }
 
 export function recordGameAttempt(userId, gameId) {

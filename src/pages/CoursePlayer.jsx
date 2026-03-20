@@ -129,10 +129,10 @@ export default function CoursePlayer() {
           <div style={{ marginTop: '0.75rem' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.375rem', fontSize: '0.72rem', color: '#8b9cbf' }}>
               <span>{completedCount}/{course.moduleList.length} modules</span>
-              <span>{Math.round((completedCount / course.moduleList.length) * 100)}%</span>
+              <span>{course.moduleList.length > 0 ? Math.round((completedCount / course.moduleList.length) * 100) : 0}%</span>
             </div>
             <div className="progress-track">
-              <div className="progress-fill" style={{ width: `${Math.round((completedCount / course.moduleList.length) * 100)}%` }} />
+              <div className="progress-fill" style={{ width: `${course.moduleList.length > 0 ? Math.round((completedCount / course.moduleList.length) * 100) : 0}%` }} />
             </div>
           </div>
         </div>

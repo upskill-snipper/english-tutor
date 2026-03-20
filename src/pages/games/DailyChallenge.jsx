@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Trophy, Flame, Calendar, Copy, Check, Clock, Star, CheckCircle, XCircle } from 'lucide-react';
 import Navbar from '../../components/Navbar';
+import GameWrapper from '../../components/GameWrapper';
 
 const STORAGE_KEY = 'learnright_game_daily';
 
@@ -522,6 +523,7 @@ export default function DailyChallenge() {
   return (
     <div style={{ background: '#0a0e1a', minHeight: '100vh', color: '#f1f5f9' }}>
       <Navbar />
+      <GameWrapper gameId="daily-challenge">
       <div style={{ maxWidth: 700, margin: '0 auto', padding: '2rem 1rem' }}>
         {/* Header */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: '1.5rem' }}>
@@ -778,6 +780,7 @@ export default function DailyChallenge() {
           </Link>
         </div>
       </div>
+      </GameWrapper>
     </div>
   );
 }

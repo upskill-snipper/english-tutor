@@ -403,7 +403,7 @@ export default function Dashboard() {
               const prog = getUserProgress(user.id, course.id);
               const done = prog.completedModules.length;
               const total = course.moduleList.length;
-              const pct = Math.round((done / total) * 100);
+              const pct = total > 0 ? Math.round((done / total) * 100) : 0;
               const nextModule = course.moduleList.find(m => !prog.completedModules.includes(m.id));
 
               return (

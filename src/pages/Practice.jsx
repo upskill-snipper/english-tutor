@@ -1,13 +1,49 @@
-import { useState, useMemo } from 'react';
-import { Dumbbell, ArrowRight, Star, Clock, ChevronLeft, TrendingUp, RotateCcw, AlertCircle } from 'lucide-react';
+import { useState, useMemo, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { Dumbbell, ArrowRight, Star, Clock, ChevronLeft, TrendingUp, RotateCcw, AlertCircle, BookOpen } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import practiceQuestions from '../data/practiceData';
 import { getPracticeProgress, savePracticeAttempt } from '../utils/auth';
 import BOARDS from '../data/boardRegistry';
 
+/* ── Assessment Objective definitions ── */
+const AO_DEFINITIONS = {
+  AO1: { label: 'AO1', title: 'Response & Quotation', desc: 'Read, understand and respond to texts; use textual references including quotations to support interpretation.' },
+  AO2: { label: 'AO2', title: 'Language & Structure Analysis', desc: 'Analyse the language, form and structure used by a writer to create meanings and effects, using relevant subject terminology.' },
+  AO3: { label: 'AO3', title: 'Context', desc: 'Show understanding of the relationships between texts and the contexts in which they were written.' },
+  AO5: { label: 'AO5', title: 'Content & Organisation', desc: 'Communicate clearly, effectively and imaginatively, selecting and adapting tone, style and register; organise information using structural and grammatical features.' },
+  AO6: { label: 'AO6', title: 'Technical Accuracy', desc: 'Use a range of vocabulary and sentence structures for clarity, purpose and effect, with accurate spelling and punctuation.' },
+};
+
+const GRADE_BOUNDARIES = [
+  { grade: 'Grade 9', colour: '#a78bfa', desc: 'Perceptive, sophisticated analysis with judicious use of evidence' },
+  { grade: 'Grade 7-8', colour: '#34d399', desc: 'Detailed, sustained analysis with well-integrated evidence' },
+  { grade: 'Grade 5-6', colour: '#fbbf24', desc: 'Clear, relevant analysis with supporting evidence' },
+  { grade: 'Grade 3-4', colour: '#f97316', desc: 'Some relevant comments with occasional evidence' },
+];
+
+/** Return the relevant AO keys for a given questionType string. */
+function getAOsForQuestion(questionType) {
+  const qt = questionType.toLowerCase();
+  // Writing questions (creative / persuasive / transactional / narrative / descriptive / discursive)
+  if (/writ|narrative|descriptive|discursive|transactional/.test(qt)) return ['AO5', 'AO6'];
+  // Literature questions (would contain 'lit' in board-specific data)
+  if (/literature/.test(qt)) return ['AO1', 'AO2', 'AO3'];
+  // Language analysis / structure / evaluation / comparison / retrieval / synthesis
+  return ['AO2'];
+}
+
 export default function Practice() {
+  const [searchParams] = useSearchParams();
+  const boardParam = searchParams.get('board');
+
   const [step, setStep] = useState('setup'); // setup | question | model | rated
-  const [filters, setFilters] = useState({ board: 'AQA', paper: 0, type: '', difficulty: '' });
+  const [filters, setFilters] = useState(() => {
+    // If a valid board query-param is present, use it as the initial board filter
+    const validBoards = Object.keys(BOARDS);
+    const initial = boardParam && validBoards.includes(boardParam) ? boardParam : 'AQA';
+    return { board: initial, paper: 0, type: '', difficulty: '' };
+  });
   const [currentQ, setCurrentQ] = useState(null);
   const [answer, setAnswer] = useState('');
   const [selectedGrade, setSelectedGrade] = useState('Grade 4-5');
@@ -251,7 +287,7 @@ export default function Practice() {
   }
 
   if (step === 'model' || step === 'rated') {
-    const grades = Object.keys(currentQ.modelAnswers);
+    const grades = Object.keys(currentQ?.modelAnswers || {});
     return (
       <div style={{ background: '#0a0e1a', minHeight: '100vh', color: '#f1f5f9' }}>
         <Navbar />
@@ -331,6 +367,52 @@ export default function Practice() {
               </ul>
             </div>
           )}
+
+          {/* AO Mark Scheme Criteria */}
+          {(() => {
+            const aos = getAOsForQuestion(currentQ.questionType);
+            return (
+              <div className="card" style={{ padding: '1.5rem', marginBottom: '1.5rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
+                  <BookOpen size={16} color="#a78bfa" />
+                  <h3 style={{ fontWeight: 700, fontSize: '0.9rem', margin: 0, color: '#e2e8f0' }}>
+                    Mark Scheme Criteria — Assessment Objectives
+                  </h3>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '1.25rem' }}>
+                  {aos.map(key => {
+                    const ao = AO_DEFINITIONS[key];
+                    return (
+                      <div key={key} style={{
+                        background: 'rgba(167,139,250,0.06)', border: '1px solid rgba(167,139,250,0.15)',
+                        borderRadius: '8px', padding: '0.75rem 1rem',
+                      }}>
+                        <div style={{ fontWeight: 700, fontSize: '0.8rem', color: '#a78bfa', marginBottom: '0.25rem' }}>
+                          {ao.label}: {ao.title}
+                        </div>
+                        <div style={{ fontSize: '0.82rem', color: '#94a3b8', lineHeight: 1.6 }}>{ao.desc}</div>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                <div style={{ marginBottom: '0.25rem' }}>
+                  <div style={{ fontWeight: 700, fontSize: '0.8rem', color: '#94a3b8', marginBottom: '0.5rem' }}>Grade Boundary Reference</div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
+                    {GRADE_BOUNDARIES.map(gb => (
+                      <div key={gb.grade} style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem' }}>
+                        <span style={{
+                          fontWeight: 700, fontSize: '0.75rem', color: gb.colour,
+                          minWidth: '70px', flexShrink: 0,
+                        }}>{gb.grade}</span>
+                        <span style={{ fontSize: '0.8rem', color: '#64748b', lineHeight: 1.5 }}>{gb.desc}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            );
+          })()}
 
           {/* Self rating */}
           {step === 'model' && (

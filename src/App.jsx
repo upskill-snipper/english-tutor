@@ -33,6 +33,8 @@ const PunctuationFixer = lazy(() => import('./pages/games/PunctuationFixer'));
 const MarkTheEssay = lazy(() => import('./pages/games/MarkTheEssay'));
 const DailyChallenge = lazy(() => import('./pages/games/DailyChallenge'));
 const Pricing = lazy(() => import('./pages/Pricing'));
+const BoardSelect = lazy(() => import('./pages/BoardSelect'));
+const BoardHub = lazy(() => import('./pages/BoardHub'));
 
 class ErrorBoundary extends Component {
   constructor(props) {
@@ -116,6 +118,8 @@ export default function App() {
         <Route path="/games/mark-the-essay" element={<MarkTheEssay />} />
         <Route path="/games/daily-challenge" element={<DailyChallenge />} />
         <Route path="/pricing" element={<Pricing />} />
+        <Route path="/board-select" element={<BoardSelect />} />
+        <Route path="/board/:boardId" element={<BoardHub />} />
         <Route path="/admin" element={<ProtectedRoute adminOnly><AdminPanel /></ProtectedRoute>} />
         <Route path="*" element={<NotFound />} />
       </Routes>

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { BookMarked, RotateCcw, CheckCircle, Search, ChevronLeft, ChevronRight, Filter } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import flashcardDecks from '../data/flashcardData';
@@ -8,21 +9,26 @@ import { getFlashcardProgress, saveFlashcardProgress } from '../utils/auth';
 const BOARD_COLORS = { AQA: '#2563eb', Edexcel: '#dc2626', OCR: '#7c3aed', WJEC: '#ea580c', All: '#10b981' };
 
 export default function Revision() {
+  const [searchParams] = useSearchParams();
+  const boardParam = searchParams.get('board');
+  const initialBoard = boardParam && ['AQA', 'Edexcel', 'OCR', 'WJEC'].includes(boardParam) ? boardParam : 'all';
+
   const [tab, setTab] = useState('flashcards'); // flashcards | techniques
   const [selectedDeck, setSelectedDeck] = useState(null);
   const [cardIndex, setCardIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [filterCategory, setFilterCategory] = useState('');
-  const [boardFilter, setBoardFilter] = useState('all');
+  const [boardFilter, setBoardFilter] = useState(initialBoard);
 
   const fcProgress = getFlashcardProgress();
 
   // Flashcard view
   if (tab === 'flashcards' && selectedDeck) {
     const deck = flashcardDecks.find(d => d.id === selectedDeck);
-    const cards = deck.cards;
+    const cards = deck?.cards || [];
     const card = cards[cardIndex];
+    if (!deck || !card) return null;
     const deckProgress = fcProgress[deck.id] || {};
     const knownCount = Object.values(deckProgress).filter(v => v === 'known').length;
 

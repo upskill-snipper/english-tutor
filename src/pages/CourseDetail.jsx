@@ -28,7 +28,7 @@ export default function CourseDetail() {
 
   const enrolled = user?.enrolledCourses?.includes(course.id);
   const completedCount = progress?.completedModules?.length || 0;
-  const progressPct = Math.round((completedCount / course.moduleList.length) * 100);
+  const progressPct = course.moduleList.length > 0 ? Math.round((completedCount / course.moduleList.length) * 100) : 0;
 
   function handleEnrol() {
     if (!user) {
