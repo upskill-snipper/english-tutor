@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Star, ArrowRight, GraduationCap, Globe, Clock, FileCheck } from 'lucide-react';
+import { Star, ArrowRight, GraduationCap, Globe, FileCheck } from 'lucide-react';
 import Navbar from '../components/Navbar';
 
 const REVIEWS = [
@@ -57,8 +57,9 @@ export default function AboutLauren() {
             alt="Lauren — Online English Teacher"
             style={{
               width: '200px',
-              height: '200px',
+              height: '240px',
               objectFit: 'cover',
+              objectPosition: 'center top',
               borderRadius: '20px',
               border: '3px solid rgba(16,185,129,0.5)',
               boxShadow: '0 0 30px rgba(16,185,129,0.25)',
@@ -101,7 +102,7 @@ export default function AboutLauren() {
         </div>
       </section>
 
-      {/* ===== EXPERIENCE SECTION ===== */}
+      {/* ===== WHY LEARNRIGHT SECTION ===== */}
       <section style={{
         ...sectionBase,
         background: 'linear-gradient(135deg, rgba(16,185,129,0.06) 0%, rgba(16,185,129,0.02) 100%)',
@@ -115,15 +116,24 @@ export default function AboutLauren() {
             marginBottom: '1.5rem',
             color: '#f1f5f9',
           }}>
-            Tutoring Experience
+            Why I Created LearnRight
           </h2>
-          <p style={{ fontSize: '1.1rem', color: '#94a3b8', lineHeight: 1.8 }}>
-            I have been teaching GCSE English since 2015. The majority of my teaching career has been with Y10, Y11 and college students. I have taught students who have had previous negative experiences with English and have little confidence in themselves and their ability. Alongside this, I am a GCSE examiner for AQA English Language and have been since 2019. I have experience of working with learners with SEND; and specialist knowledge of working with learners with ASD.
+          <p style={{ fontSize: '1.1rem', color: '#94a3b8', lineHeight: 1.85, marginBottom: '1.25rem' }}>
+            For years, I worked as a one-to-one tutor alongside my role as a GCSE examiner for AQA, Cambridge, and Pearson. Every student I worked with saw real improvement &mdash; not just in their grades, but in their confidence and understanding of English. Parents would tell me their children had gone from dreading English to genuinely enjoying it, and exam results consistently reflected that progress.
+          </p>
+          <p style={{ fontSize: '1.1rem', color: '#94a3b8', lineHeight: 1.85, marginBottom: '1.25rem' }}>
+            But there was a problem. There simply weren&rsquo;t enough hours in the day. My waiting list grew longer and longer, and I found myself having to turn away students who needed help. It didn&rsquo;t sit right with me &mdash; I knew I could make a difference for them, but the limitations of one-to-one tutoring meant I could only reach so many.
+          </p>
+          <p style={{ fontSize: '1.1rem', color: '#94a3b8', lineHeight: 1.85, marginBottom: '1.25rem' }}>
+            That&rsquo;s when the idea for LearnRight was born. I wanted to take everything that made my tutoring effective &mdash; the examiner insight, the mark scheme expertise, the ability to explain tricky concepts in a way that actually clicks &mdash; and make it available to every student who needs it, not just the ones lucky enough to get a slot in my diary.
+          </p>
+          <p style={{ fontSize: '1.1rem', color: '#94a3b8', lineHeight: 1.85 }}>
+            LearnRight is built from real classroom success and genuine examining experience. Every course, every practice question, every piece of feedback is shaped by what I know works. My passion is helping learners achieve the best results they&rsquo;re capable of, and this site means I can finally do that without limits.
           </p>
         </div>
       </section>
 
-      {/* ===== APPROACH SECTION ===== */}
+      {/* ===== EXPERIENCE SECTION ===== */}
       <section style={{
         ...sectionBase,
         background: 'linear-gradient(135deg, rgba(99,102,241,0.06) 0%, rgba(99,102,241,0.02) 100%)',
@@ -136,10 +146,16 @@ export default function AboutLauren() {
             marginBottom: '1.5rem',
             color: '#f1f5f9',
           }}>
-            Tutoring Approach
+            Teaching Experience
           </h2>
-          <p style={{ fontSize: '1.1rem', color: '#94a3b8', lineHeight: 1.8, marginBottom: '1.5rem' }}>
-            To make learning as fun and meaningful as possible. I have a strong belief that all students can achieve, with the right support. I am a tutor who offers and facilitates academic support but also understands the pressures and stresses that exams can cause.
+          <p style={{ fontSize: '1.1rem', color: '#94a3b8', lineHeight: 1.85, marginBottom: '1.25rem' }}>
+            I have been teaching GCSE English since 2015, primarily working with Year 10, Year 11, and college students. Many of my students have come to me with previous negative experiences of English and little confidence in their own ability &mdash; helping them find their voice and believe in themselves is one of the most rewarding parts of what I do.
+          </p>
+          <p style={{ fontSize: '1.1rem', color: '#94a3b8', lineHeight: 1.85, marginBottom: '1.25rem' }}>
+            Alongside teaching, I have been a GCSE examiner for AQA English Language since 2019, giving me direct insight into exactly what examiners are looking for and how marks are awarded. This examining experience shapes every resource on LearnRight.
+          </p>
+          <p style={{ fontSize: '1.1rem', color: '#94a3b8', lineHeight: 1.85, marginBottom: '1.5rem' }}>
+            I also have extensive experience working with learners with SEND, including specialist knowledge of supporting students with ASD. I believe every student can achieve with the right support, and my approach is always tailored to the individual.
           </p>
           <div style={{
             background: 'rgba(255,255,255,0.03)',
@@ -148,7 +164,7 @@ export default function AboutLauren() {
             padding: '1.25rem 1.5rem',
           }}>
             <p style={{ fontSize: '0.95rem', color: '#7a8ba8', lineHeight: 1.7, margin: 0 }}>
-              I have a full DBS which can be seen if required and complete regular safeguarding training through my employer.
+              I hold a full enhanced DBS which is available on request, and I complete regular safeguarding training.
             </p>
           </div>
         </div>
@@ -218,13 +234,6 @@ export default function AboutLauren() {
             <div>
               <span style={{ fontSize: '0.8rem', color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Languages</span>
               <p style={{ margin: 0, color: '#f1f5f9', fontWeight: 600 }}>English (British)</p>
-            </div>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-            <Clock size={20} color="#10b981" />
-            <div>
-              <span style={{ fontSize: '0.8rem', color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Availability</span>
-              <p style={{ margin: 0, color: '#f1f5f9', fontWeight: 600 }}>Weekends, Weekdays (evenings)</p>
             </div>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>

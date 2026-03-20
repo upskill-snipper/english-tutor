@@ -123,7 +123,7 @@ export default function Lauren({
     border: `2px solid ${glowColor}`,
     boxShadow: glowShadow,
     objectFit: 'cover',
-    objectPosition: 'center 15%',
+    objectPosition: 'center top',
     animation: animationCss,
     flexShrink: 0,
     display: 'block',
