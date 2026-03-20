@@ -16,8 +16,8 @@ function CourseRow({ course, enrolled, boardColor, isLast }) {
           display: 'flex',
           alignItems: 'center',
           gap: '1.25rem',
-          padding: '1.25rem 1.5rem',
-          minHeight: 100,
+          padding: '1.5rem 1.75rem',
+          minHeight: 140,
           borderLeft: `4px solid ${boardColor}`,
           borderBottom: isLast ? 'none' : '1px solid rgba(255,255,255,0.06)',
           background: 'rgba(255,255,255,0.02)',
@@ -81,14 +81,47 @@ function CourseRow({ course, enrolled, boardColor, isLast }) {
           </div>
 
           {/* Course title */}
-          <h3 style={{ fontWeight: 700, fontSize: '1.15rem', color: '#f1f5f9', margin: '0 0 0.35rem 0', lineHeight: 1.3 }}>
+          <h3 style={{ fontWeight: 700, fontSize: '1.2rem', color: '#f1f5f9', margin: '0 0 0.25rem 0', lineHeight: 1.3 }}>
             {course.title}
           </h3>
 
-          {/* Course description */}
-          <p style={{ fontSize: '0.82rem', color: '#94a3b8', lineHeight: 1.6, margin: '0 0 0.6rem 0' }}>
+          {/* Subtitle */}
+          <p style={{ fontSize: '0.88rem', color: '#c8d0db', lineHeight: 1.5, margin: '0 0 0.5rem 0', fontWeight: 500 }}>
             {course.subtitle}
           </p>
+
+          {/* Full description */}
+          {course.description && (
+            <p style={{ fontSize: '0.82rem', color: '#94a3b8', lineHeight: 1.65, margin: '0 0 0.75rem 0' }}>
+              {course.description}
+            </p>
+          )}
+
+          {/* Module list preview */}
+          {(course.moduleList || []).length > 0 && (
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', marginBottom: '0.75rem' }}>
+              {(course.moduleList || []).slice(0, 6).map((m, idx) => (
+                <span key={m.id || idx} style={{
+                  fontSize: '0.7rem', fontWeight: 600, color: '#64748b',
+                  background: 'rgba(255,255,255,0.04)',
+                  border: '1px solid rgba(255,255,255,0.08)',
+                  padding: '0.2rem 0.55rem', borderRadius: 4,
+                }}>
+                  {m.title}
+                </span>
+              ))}
+              {(course.moduleList || []).length > 6 && (
+                <span style={{
+                  fontSize: '0.7rem', fontWeight: 600, color: '#64748b',
+                  background: 'rgba(255,255,255,0.04)',
+                  border: '1px solid rgba(255,255,255,0.08)',
+                  padding: '0.2rem 0.55rem', borderRadius: 4,
+                }}>
+                  +{(course.moduleList || []).length - 6} more
+                </span>
+              )}
+            </div>
+          )}
 
           {/* Bottom line: meta info */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
