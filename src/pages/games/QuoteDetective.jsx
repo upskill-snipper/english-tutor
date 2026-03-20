@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { RotateCcw, Trophy, Search, BookOpen, Filter, ChevronRight, Star, Target, Eye, Award, CheckCircle, XCircle } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import GameWrapper from '../../components/GameWrapper';
+import Lauren from '../../components/Lauren';
 
 /* ───────────────────────── QUOTE DATA (50+ quotes) ───────────────────────── */
 
@@ -492,6 +493,19 @@ export default function QuoteDetective() {
                 );
               })}
             </div>
+          </div>
+
+          {/* Lauren feedback */}
+          <div style={{ marginBottom: '1.5rem' }}>
+            <Lauren
+              emotion={percentage >= 90 ? 'celebrating' : percentage >= 70 ? 'happy' : percentage >= 50 ? 'encouraging' : 'concerned'}
+              message={percentage >= 90 ? "Outstanding work! You really know your stuff — that's Grade 9 territory!"
+                : percentage >= 70 ? "Great job! You're showing solid understanding. Keep practising to push even higher!"
+                : percentage >= 50 ? "Good effort! You're getting there — review the ones you missed and try again."
+                : "Don't worry — this is how we learn! Review the feedback and give it another go."}
+              size="medium"
+              position="inline"
+            />
           </div>
 
           {/* Actions */}

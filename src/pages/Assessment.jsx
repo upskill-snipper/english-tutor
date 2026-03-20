@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Award, CheckCircle, XCircle, ArrowRight, RefreshCw, ChevronLeft } from 'lucide-react';
 import Navbar from '../components/Navbar';
+import Lauren from '../components/Lauren';
 import COURSES from '../data/courseData';
 import { getCurrentUser, getUserProgress, saveAssessmentResult } from '../utils/auth';
 
@@ -176,6 +177,18 @@ export default function Assessment() {
             marginBottom: '2rem',
           }}>
             {score}%
+          </div>
+
+          <div style={{ marginBottom: '2rem' }}>
+            {score >= 90 ? (
+              <Lauren emotion="celebrating" message="Incredible result! You've mastered this topic — you should be very proud!" />
+            ) : score >= 70 ? (
+              <Lauren emotion="happy" message="Well done! You've passed with a strong score. Consider reviewing the questions you missed." />
+            ) : score >= 50 ? (
+              <Lauren emotion="encouraging" message="You passed! There's room to improve — revisit the modules on the topics you found tricky." />
+            ) : (
+              <Lauren emotion="concerned" message="Not quite there yet — but that's okay! Go back through the modules and try again when you're ready." />
+            )}
           </div>
 
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>

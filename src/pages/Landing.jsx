@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { GraduationCap, BookOpen, CheckCircle, ArrowRight, Star, Gamepad2, Brain } from 'lucide-react';
 import Navbar from '../components/Navbar';
+import Lauren from '../components/Lauren';
 
 const KS3_FEATURES = [
   'Reading Skills',
@@ -42,6 +44,8 @@ const sectionBase = {
 };
 
 export default function Landing() {
+  const [showFloatingLauren, setShowFloatingLauren] = useState(true);
+
   return (
     <div style={{ background: '#0a0e1a', minHeight: '100vh', color: '#f1f5f9' }}>
       <Navbar />
@@ -88,6 +92,15 @@ export default function Landing() {
             textAlign: 'left',
           }}>
             Built by an experienced Head of English with 10+ years teaching in British and International schools, and 6 years examining experience working for AQA, Cambridge and Pearson. Every resource is shaped by real classroom success and examiner insight, so students know precisely how to achieve top grades.
+          </div>
+
+          <div style={{ margin: '2rem auto', display: 'flex', justifyContent: 'center' }}>
+            <Lauren
+              size="large"
+              emotion="happy"
+              message="Welcome! I'm Lauren, your English tutor. I'll guide you through every step of your exam preparation."
+              position="inline"
+            />
           </div>
 
           <a
@@ -531,6 +544,16 @@ export default function Landing() {
           &copy; {new Date().getFullYear()} LearnRight English. All rights reserved.
         </p>
       </footer>
+
+      {showFloatingLauren && (
+        <Lauren
+          size="small"
+          emotion="neutral"
+          message="Need help choosing? KS3 for Years 7-9, or pick your exam board for GCSE & IGCSE!"
+          position="floating"
+          onDismiss={() => setShowFloatingLauren(false)}
+        />
+      )}
     </div>
   );
 }

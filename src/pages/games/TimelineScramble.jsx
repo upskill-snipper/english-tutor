@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useMemo } from 'react';
 import { ArrowUp, ArrowDown, Star, RotateCcw, ChevronRight, CheckCircle2, XCircle, Trophy, Clock } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import GameWrapper from '../../components/GameWrapper';
+import Lauren from '../../components/Lauren';
 
 /* ───────────────────────────── DATA ───────────────────────────── */
 
@@ -526,6 +527,7 @@ export default function TimelineScramble() {
 
         {/* Score bar after checking */}
         {results && (
+          <>
           <div style={styles.scoreBar}>
             <div style={styles.scoreStat}>
               <div style={{ ...styles.scoreValue, color: results.percentage >= 80 ? '#22c55e' : results.percentage >= 50 ? '#fbbf24' : '#ef4444' }}>
@@ -547,6 +549,18 @@ export default function TimelineScramble() {
               </div>
             )}
           </div>
+          <div style={{ marginBottom: '1.5rem' }}>
+            <Lauren
+              emotion={results.percentage >= 90 ? 'celebrating' : results.percentage >= 70 ? 'happy' : results.percentage >= 50 ? 'encouraging' : 'concerned'}
+              message={results.percentage >= 90 ? "Outstanding work! You really know your stuff — that's Grade 9 territory!"
+                : results.percentage >= 70 ? "Great job! You're showing solid understanding. Keep practising to push even higher!"
+                : results.percentage >= 50 ? "Good effort! You're getting there — review the ones you missed and try again."
+                : "Don't worry — this is how we learn! Review the feedback and give it another go."}
+              size="medium"
+              position="inline"
+            />
+          </div>
+          </>
         )}
 
         {/* Instruction */}

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft, Trophy, Flame, Calendar, Copy, Check, Clock, Star, CheckCircle, XCircle } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import GameWrapper from '../../components/GameWrapper';
+import Lauren from '../../components/Lauren';
 
 const STORAGE_KEY = 'learnright_game_daily';
 
@@ -741,6 +742,20 @@ export default function DailyChallenge() {
             </div>
           )}
         </div>
+
+        {/* Lauren feedback */}
+        {answered && (
+          <div style={{ marginBottom: '1.5rem' }}>
+            <Lauren
+              emotion={isCorrect ? 'celebrating' : 'encouraging'}
+              message={isCorrect
+                ? "Outstanding work! You really know your stuff — that's Grade 9 territory!"
+                : "Good effort! You're getting there — review the ones you missed and try again."}
+              size="medium"
+              position="inline"
+            />
+          </div>
+        )}
 
         {/* Share & Countdown */}
         {answered && (

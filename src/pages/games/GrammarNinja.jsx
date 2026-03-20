@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import Navbar from '../../components/Navbar';
 import GameWrapper from '../../components/GameWrapper';
+import Lauren from '../../components/Lauren';
 
 const STORAGE_KEY = 'learnright_game_grammarninja';
 
@@ -515,6 +516,16 @@ export default function GrammarNinja() {
                 {finalBelt.name}
               </span>
             </div>
+
+            {(() => {
+              const beltIdx = BELTS.indexOf(finalBelt);
+              const laurenEmotion = beltIdx >= 5 ? 'celebrating' : beltIdx >= 3 ? 'happy' : beltIdx >= 2 ? 'encouraging' : 'concerned';
+              const laurenMessage = beltIdx >= 5 ? "Outstanding work! You really know your stuff — that's Grade 9 territory!"
+                : beltIdx >= 3 ? "Great job! You're showing solid understanding. Keep practising to push even higher!"
+                : beltIdx >= 2 ? "Good effort! You're getting there — review the ones you missed and try again."
+                : "Don't worry — this is how we learn! Review the feedback and give it another go.";
+              return <div style={{ marginBottom: '1.5rem' }}><Lauren emotion={laurenEmotion} message={laurenMessage} size="medium" position="inline" /></div>;
+            })()}
 
             <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
               <button style={s.btnPrimary} onClick={startGame}

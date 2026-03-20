@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, CheckCircle, Circle, Award, BookOpen, Menu, X } from 'lucide-react';
 import Navbar from '../components/Navbar';
+import Lauren from '../components/Lauren';
 import COURSES from '../data/courseData';
 import { getCurrentUser, getUserProgress, markModuleComplete, enrollUser, isSubscribed } from '../utils/auth';
 
@@ -395,6 +396,15 @@ export default function CoursePlayer() {
                   </div>
                   <div style={{ color: '#c0cce0', fontSize: '0.85rem' }}>
                     {quizScore >= 60 ? 'Well done! Move on to the next module.' : 'Review the content above and try again.'}
+                  </div>
+                  <div style={{ marginTop: '1rem' }}>
+                    {quizScore >= 80 ? (
+                      <Lauren emotion="happy" message="Excellent! You've got a strong grasp of this module. Ready to move on!" />
+                    ) : quizScore >= 60 ? (
+                      <Lauren emotion="encouraging" message="Good work! You might want to review a couple of points before moving to the next module." />
+                    ) : (
+                      <Lauren emotion="concerned" message="It might be worth re-reading this module before moving on. Take your time — there's no rush!" />
+                    )}
                   </div>
                 </div>
               )}

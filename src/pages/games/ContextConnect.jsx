@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { RotateCcw, Trophy, Zap, BookOpen, ChevronRight, Star, Target, Clock, Calendar, Landmark } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import GameWrapper from '../../components/GameWrapper';
+import Lauren from '../../components/Lauren';
 
 /* ───────────────────────── CONTEXT FACTS (60+) ───────────────────────── */
 
@@ -607,6 +608,16 @@ export default function ContextConnect() {
                 New High Score!
               </div>
             )}
+
+            {(() => {
+              const pct = Math.round((correctCount / questions.length) * 100);
+              const laurenEmotion = pct >= 90 ? 'celebrating' : pct >= 70 ? 'happy' : pct >= 50 ? 'encouraging' : 'concerned';
+              const laurenMessage = pct >= 90 ? "Outstanding work! You really know your stuff — that's Grade 9 territory!"
+                : pct >= 70 ? "Great job! You're showing solid understanding. Keep practising to push even higher!"
+                : pct >= 50 ? "Good effort! You're getting there — review the ones you missed and try again."
+                : "Don't worry — this is how we learn! Review the feedback and give it another go.";
+              return <div className="mb-6"><Lauren emotion={laurenEmotion} message={laurenMessage} size="medium" position="inline" /></div>;
+            })()}
 
             <div className="flex gap-3">
               <button

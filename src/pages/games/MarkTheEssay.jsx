@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { RotateCcw, Trophy, Star, Target, ChevronRight, BookOpen, Award, CheckCircle, Eye } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import GameWrapper from '../../components/GameWrapper';
+import Lauren from '../../components/Lauren';
 
 /* ───────────────────────── ESSAY EXCERPT DATA ───────────────────────── */
 
@@ -635,6 +636,19 @@ export default function MarkTheEssay() {
                   </div>
                 );
               })}
+            </div>
+
+            {/* Lauren feedback */}
+            <div style={{ marginBottom: 20 }}>
+              <Lauren
+                emotion={accuracy >= 90 ? 'celebrating' : accuracy >= 70 ? 'happy' : accuracy >= 50 ? 'encouraging' : 'concerned'}
+                message={accuracy >= 90 ? "Outstanding work! You really know your stuff — that's Grade 9 territory!"
+                  : accuracy >= 70 ? "Great job! You're showing solid understanding. Keep practising to push even higher!"
+                  : accuracy >= 50 ? "Good effort! You're getting there — review the ones you missed and try again."
+                  : "Don't worry — this is how we learn! Review the feedback and give it another go."}
+                size="medium"
+                position="inline"
+              />
             </div>
 
             {/* Action buttons */}

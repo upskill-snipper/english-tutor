@@ -2,6 +2,7 @@ import { useState, useMemo, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Dumbbell, ArrowRight, Star, Clock, ChevronLeft, TrendingUp, RotateCcw, AlertCircle, BookOpen } from 'lucide-react';
 import Navbar from '../components/Navbar';
+import Lauren from '../components/Lauren';
 import practiceQuestions from '../data/practiceData';
 import { getPracticeProgress, savePracticeAttempt } from '../utils/auth';
 import BOARDS from '../data/boardRegistry';
@@ -324,6 +325,8 @@ export default function Practice() {
               {currentQ.modelAnswers[selectedGrade]}
             </div>
           </div>
+
+          <Lauren emotion="thinking" message="Compare your answer carefully with the model. Focus on whether you used evidence and explained its effect — that's what examiners are looking for." />
 
           {/* Mark scheme */}
           {currentQ.markScheme && (

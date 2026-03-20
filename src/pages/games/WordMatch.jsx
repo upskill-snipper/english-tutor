@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft, Trophy, Clock, Target, Zap, RotateCcw, ChevronRight, Star, Award } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import GameWrapper from '../../components/GameWrapper';
+import Lauren from '../../components/Lauren';
 
 /* ───────────────────────── TERM DATA ───────────────────────── */
 
@@ -701,6 +702,17 @@ export default function WordMatch() {
                 <div style={styles.statLabel}>Wrong Attempts</div>
               </div>
             </div>
+
+            {(() => {
+              const totalPairs = ROUNDS_PER_GAME * PAIRS_PER_ROUND;
+              const pct = Math.round((totalPairs / (totalPairs + wrongCount)) * 100);
+              const laurenEmotion = pct >= 90 ? 'celebrating' : pct >= 70 ? 'happy' : pct >= 50 ? 'encouraging' : 'concerned';
+              const laurenMessage = pct >= 90 ? "Outstanding work! You really know your stuff — that's Grade 9 territory!"
+                : pct >= 70 ? "Great job! You're showing solid understanding. Keep practising to push even higher!"
+                : pct >= 50 ? "Good effort! You're getting there — review the ones you missed and try again."
+                : "Don't worry — this is how we learn! Review the feedback and give it another go.";
+              return <div style={{ marginBottom: '1.25rem' }}><Lauren emotion={laurenEmotion} message={laurenMessage} size="medium" position="inline" /></div>;
+            })()}
 
             <div style={{ display: 'flex', gap: '0.75rem', justifyContent: 'center', flexWrap: 'wrap' }}>
               <button style={styles.startBtn} onClick={() => { setGameState('setup'); }}>

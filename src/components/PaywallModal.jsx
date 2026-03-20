@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Crown, Sparkles, X } from 'lucide-react';
 import { setSubscription, getCurrentUser } from '../utils/auth';
+import Lauren from './Lauren';
 
 export default function PaywallModal({ onClose }) {
   const navigate = useNavigate();
@@ -96,6 +97,14 @@ export default function PaywallModal({ onClose }) {
         >
           <X size={18} />
         </button>
+
+        {/* Lauren avatar */}
+        <Lauren
+          emotion="encouraging"
+          message="You're clearly enjoying learning! Subscribe to unlock everything — courses, games, flashcards, and more."
+          size="medium"
+          position="inline"
+        />
 
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: '32px' }}>

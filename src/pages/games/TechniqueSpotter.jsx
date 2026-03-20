@@ -3,6 +3,7 @@ import { ArrowLeft, Trophy, Clock, Target, ChevronRight, RotateCcw, Star, Zap, A
 import { Link } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import GameWrapper from '../../components/GameWrapper';
+import Lauren from '../../components/Lauren';
 
 /* ────────────────────────────────────────────
    PASSAGE DATA  –  15 passages across 3 difficulties
@@ -611,6 +612,15 @@ export default function TechniqueSpotter() {
               <span style={{ fontWeight: 700, color: DIFFICULTY_COLOURS[difficulty] }}>{DIFFICULTY_LABELS[difficulty]}</span>
             </div>
           </div>
+
+          {(() => {
+            const laurenEmotion = grade === 'S' || grade === 'A' ? 'celebrating' : grade === 'B' ? 'happy' : grade === 'C' ? 'encouraging' : 'concerned';
+            const laurenMessage = grade === 'S' || grade === 'A' ? "Outstanding work! You really know your stuff — that's Grade 9 territory!"
+              : grade === 'B' ? "Great job! You're showing solid understanding. Keep practising to push even higher!"
+              : grade === 'C' ? "Good effort! You're getting there — review the ones you missed and try again."
+              : "Don't worry — this is how we learn! Review the feedback and give it another go.";
+            return <div style={{ marginBottom: '1.5rem' }}><Lauren emotion={laurenEmotion} message={laurenMessage} size="medium" position="inline" /></div>;
+          })()}
 
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
             <button

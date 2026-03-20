@@ -1,6 +1,7 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { BookOpen, Clock, Award, CheckCircle, Circle, ArrowRight, ChevronLeft, Play } from 'lucide-react';
 import Navbar from '../components/Navbar';
+import Lauren from '../components/Lauren';
 import ProgressRing from '../components/ProgressRing';
 import COURSES from '../data/courseData';
 import { getCurrentUser, getUserProgress, enrollUser, isSubscribed } from '../utils/auth';
@@ -77,6 +78,10 @@ export default function CourseDetail() {
             <p style={{ color: '#94a3b8', fontSize: '1rem', lineHeight: 1.7, marginBottom: '1.5rem' }}>
               {course.description}
             </p>
+
+            {subscribed && (
+              <Lauren emotion="neutral" message="Ready to start? Work through each module in order for the best results." size="small" position="inline" />
+            )}
 
             <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', marginBottom: '2rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.375rem', color: '#64748b', fontSize: '0.85rem' }}>

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Check, Crown, Sparkles, ChevronDown, ChevronUp, Zap, Star } from 'lucide-react';
 import Navbar from '../components/Navbar';
+import Lauren from '../components/Lauren';
 import { getCurrentUser, getSubscription, setSubscription } from '../utils/auth';
 
 const plans = [
@@ -182,6 +183,14 @@ export default function Pricing() {
             Unlock unlimited learning with a plan that suits you
           </p>
         </div>
+
+        {/* Lauren avatar */}
+        <Lauren
+          emotion="happy"
+          message="Choose the plan that works for you. Monthly is great for exam season, or go Pro for lifetime access to everything!"
+          size="medium"
+          position="inline"
+        />
 
         {/* Success message */}
         {successMsg && (

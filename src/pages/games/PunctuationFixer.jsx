@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Navbar from '../../components/Navbar';
 import GameWrapper from '../../components/GameWrapper';
+import Lauren from '../../components/Lauren';
 import { ArrowLeft, Trophy, RotateCcw, CheckCircle, XCircle, Timer, Zap, Star, Eye, EyeOff } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -862,6 +863,17 @@ export default function PunctuationFixer() {
                 </div>
               </div>
             ))}
+            <div style={{ marginBottom: '1rem' }}>
+              <Lauren
+                emotion={results.pct >= 90 ? 'celebrating' : results.pct >= 70 ? 'happy' : results.pct >= 50 ? 'encouraging' : 'concerned'}
+                message={results.pct >= 90 ? "Outstanding work! You really know your stuff — that's Grade 9 territory!"
+                  : results.pct >= 70 ? "Great job! You're showing solid understanding. Keep practising to push even higher!"
+                  : results.pct >= 50 ? "Good effort! You're getting there — review the ones you missed and try again."
+                  : "Don't worry — this is how we learn! Review the feedback and give it another go."}
+                size="medium"
+                position="inline"
+              />
+            </div>
             <div style={{ textAlign: 'center', display: 'flex', gap: '1rem', justifyContent: 'center', marginTop: '1rem' }}>
               <button style={{ ...sty.btnSecondary, display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }} onClick={() => setScreen('menu')}><ArrowLeft size={18} /> Back to Menu</button>
               <button style={{ ...sty.btnPrimary, display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }} onClick={() => startGame(difficulty)}
